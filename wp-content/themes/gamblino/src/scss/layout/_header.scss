@@ -1,0 +1,25 @@
+.header {
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 1em 0;
+	background: #302f2f;
+	.header__nav {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: rgba(255, 142, 0, 0.65);
+
+		ul {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 2em;
+			margin: 0 auto;
+			list-style: none;
+		}
+	}
+}

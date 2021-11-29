@@ -6,4 +6,4 @@ $inline_styles = '
      **/
 ';
 
-wp_add_inline_style('_theme_name-style-sheet', $inline_styles);
+wp_add_inline_style('gamblino-style-sheet', $inline_styles);

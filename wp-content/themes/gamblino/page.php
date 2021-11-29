@@ -9,7 +9,7 @@
             get_template_part( 'template-parts/page/page', $slug_name ? $slug_name : 'page' );
         };
     } else {
-        _e( 'Sorry, no page were found.', '_theme_name' );
+        _e( 'Sorry, no page were found.', 'gamblino' );
     }
     get_footer(); 
 ?>

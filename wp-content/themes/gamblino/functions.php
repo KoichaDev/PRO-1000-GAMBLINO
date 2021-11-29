@@ -1,6 +1,5 @@
 <?php
 
-
 include_once('inc/helpers/auto_load_files.php');
 
 include_once('inc/functions/auto_load_cpt.php');
