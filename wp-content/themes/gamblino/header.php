@@ -7,4 +7,15 @@
     <title><?php bloginfo( 'name' ); ?></title>
 </head>
 <body <?php body_class(); ?>>
+
+<header>
+    <nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+</header>
     
