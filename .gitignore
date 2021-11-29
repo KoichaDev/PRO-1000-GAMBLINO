@@ -77,7 +77,7 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 /wp-content/themes/index.php
 /wp-content/plugins/index.php
 /wp-content/plugins/akismet*
-!/wp-content/themes/_theme_name
+!/wp-content/themes/gamblino
 
 # Ignore plugins
 /wp-content/plugins/*
@@ -85,24 +85,18 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 # Don't ignore specific plugin(s)
 !/wp-content/plugins/wpc-cli
 
-# Don't ignore Gutenberg plugin
-!/wp-content/plugins/_theme_name-gutenberg-blocks
-/wp-content/plugins/_theme_name-gutenberg-blocks/.cache
-/wp-content/plugins/_theme_name-gutenberg-blocks/dist
-/wp-content/plugins/_theme_name-gutenberg-blocks/node_modules
-
 # Ignore dependencies and vendors
 /wp-content/mu-plugins/wpc-cli/vendor
 /wp-content/mu-plugins/wpc-cli/vendor/*
-/wp-content/themes/_theme_name/node_modules/
-/wp-content/themes/_theme_name/node_modules/*
+/wp-content/themes/gamblino/node_modules/
+/wp-content/themes/gamblino/node_modules/*
 
 
 # Ignore Parcel caching and watching
-/wp-content/themes/_theme_name/.cache
-/wp-content/themes/_theme_name/.cache/*
-/wp-content/themes/_theme_name/dist
-/wp-content/themes/_theme_name/dist/*
+/wp-content/themes/gamblino/.cache
+/wp-content/themes/gamblino/.cache/*
+/wp-content/themes/gamblino/dist
+/wp-content/themes/gamblino/dist/*
 
 # large/disallowed file types
 # a CDN should be used for these
