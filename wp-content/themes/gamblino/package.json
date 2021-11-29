@@ -1,38 +1,19 @@
 {
-	"name": "working-group-two",
+	"name": "gamblino",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"source": "src/index.js",
+	"main": "dist/main.js",
+	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"scripts": {
-		"preinstall": "npx npm-force-resolutions",
-		"debugfalse": "node src/js/dev_modules/wp-debug-false.js ",
-		"debugtrue": "node src/js/dev_modules/wp-debug-true.js ",
-		"compress:img": "node compress-images.config.js && node src/js/dev_modules/move-img.js",
-		"browsersync": "browser-sync start --proxy 'http://gamblino.local/' --files '**/*.php'",
-		"parcel": "npm run debugtrue && parcel watch src/index.js scss/main.scss --public-url ./ --out-dir dist/",
-		"dev": "concurrently --kill-others \"npm run browsersync\" \"npm run parcel\"",
-		"prod": "npm run debugfalse && parcel build src/index.js scss/main.scss --public-url ./ --out-dir dist/ && npm run compress:img"
-	},
-	"resolutions": {
-		"@babel/preset-env": "7.13.8"
+		"dev": "parcel watch src/index.js",
+		"prod": "parcel build src/index.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@wordpress/browserslist-config": "^3.0.0",
-		"browser-sync": "^2.26.14",
-		"browserslist": "^4.16.1",
-		"compress-images": "^1.9.8",
-		"parcel": "^2.0.1",
-		"sass": "^1.32.5"
-	},
-	"dependencies": {
-		"concurrently": "^5.3.0",
-		"core-js-builder": "^3.9.1",
-		"gifsicle": "^5.2.0"
-	},
-	"browserslist": [
-		"extends @wordpress/browserslist-config"
-	]
+		"@parcel/transformer-sass": "^2.0.1",
+		"parcel": "^2.0.1"
+	}
 }

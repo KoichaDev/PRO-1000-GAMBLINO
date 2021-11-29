@@ -18,6 +18,6 @@ if (have_posts()) { ?>
     </main>
 <?php
 } else {
-    _e('Sorry, no page were found.', '_theme_name');
+    _e('Sorry, no page were found.', 'gamblino');
 }
 get_footer();

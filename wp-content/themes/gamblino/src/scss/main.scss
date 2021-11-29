@@ -1,32 +1,7 @@
-@import 'abstracts/functions';
-@import 'abstracts/mixin';
-@import 'abstracts/placeholders';
-@import 'abstracts/variables';
+@use './abstracts';
 
-@import 'base/animations';
-@import 'base/reset';
-@import 'base/typography/font-sizes';
-@import 'base/typography/font-weight';
-@import 'base/typography/list-style-types';
-@import 'base/typography/text-alignment';
-@import 'base/typography/text-decoration';
-@import 'base/typography/text-transform';
-@import 'base/utilities-margin';
-@import 'base/utilities-padding';
+@use './components';
 
-@import 'components/buttons';
-@import 'components/card';
+@use './base';
 
-@import 'layout/footer';
-@import 'layout/half-page-contained';
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/page-contained';
-@import 'layout/sidebar';
-
-@import 'pages/home';
-
-@import 'themes/theme';
-
-@import 'vendors/gridlex';
-@import 'vendors/normalize';
+@use './layout'

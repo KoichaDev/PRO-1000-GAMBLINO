@@ -93,7 +93,7 @@ wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 
 
 # Ignore Parcel caching and watching
-/wp-content/themes/gamblino/.cache
+/wp-content/themes/gamblino/.parcel-cache
 /wp-content/themes/gamblino/.cache/*
 /wp-content/themes/gamblino/dist
 /wp-content/themes/gamblino/dist/*
