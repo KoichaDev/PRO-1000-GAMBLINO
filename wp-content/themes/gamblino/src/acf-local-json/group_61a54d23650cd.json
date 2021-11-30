@@ -1,0 +1,175 @@
+{
+    "key": "group_61a54d23650cd",
+    "title": "Casino Review Block",
+    "fields": [
+        {
+            "key": "field_61a54dc050aa7",
+            "label": "Title",
+            "name": "block_casino_review_title",
+            "type": "text",
+            "instructions": "Write a title for this block",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61a54d4750aa6",
+            "label": "Title Heading tag",
+            "name": "block_casino_review_title_tag",
+            "type": "radio",
+            "instructions": "Choose your header-tag",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1-tag": "h1 tag",
+                "h2-tag": "h2 tag",
+                "h3-tag": "h3 tag",
+                "h4-tag": "h4 tag",
+                "h5-tag": "h5 tag",
+                "h6-tag": "h6 tag"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_61a54e1850aa8",
+            "label": "Text Area",
+            "name": "block_casino_review_title_tag",
+            "type": "wysiwyg",
+            "instructions": "Add text area description here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_61a54e5e50aa9",
+            "label": "Image",
+            "name": "block_casino_review_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_61a54eb050aab",
+            "label": "Group",
+            "name": "block_casino_review_author",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61a54ec550aac",
+                    "label": "Author Name",
+                    "name": "block_casino_review_author",
+                    "type": "text",
+                    "instructions": "Write the name of the author",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61a54edd50aad",
+                    "label": "Author Image",
+                    "name": "block_casino_review_author_image",
+                    "type": "image",
+                    "instructions": "Insert the author image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/casino-review"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1638304550
+}
