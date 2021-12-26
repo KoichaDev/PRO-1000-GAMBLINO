@@ -1,0 +1,50 @@
+{
+    "key": "group_61c817a368168",
+    "title": "Title Text position (Utility Class)",
+    "fields": [
+        {
+            "key": "field_61c817a7be348",
+            "label": "Title Text Position Utility Class",
+            "name": "title_text_position_utility_class",
+            "type": "radio",
+            "instructions": "This will act as \"Single source of truth for utility class of text alignment positions\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text-left": "Left position",
+                "text-center": "Center position",
+                "text-right": "Right position"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1640503304
+}
