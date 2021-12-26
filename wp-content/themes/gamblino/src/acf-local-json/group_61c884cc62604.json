@@ -1,13 +1,13 @@
 {
     "key": "group_61c884cc62604",
-    "title": "Title Utility Options",
+    "title": "Title (Utility Options)",
     "fields": [
         {
-            "key": "field_61c88559e8134",
-            "label": "Tag Types",
-            "name": "tag_types",
-            "type": "clone",
-            "instructions": "",
+            "key": "field_61c886b03f895",
+            "label": "Title Tag Types",
+            "name": "title_tag_types",
+            "type": "radio",
+            "instructions": "Add Title tag types",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,41 +15,27 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_61c81838f015d"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_61c884d8e8131",
-            "label": "Font Size",
-            "name": "font_size",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
+            "choices": {
+                "h1-tag": "h1 tag",
+                "h2-tag": "h2 tag",
+                "h3-tag": "h3 tag",
+                "h4-tag": "h4 tag",
+                "h5-tag": "h5 tag",
+                "h6-tag": "h6 tag"
             },
-            "clone": [
-                "group_61c880d67aef0"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_61c884fee8132",
-            "label": "Text Position",
-            "name": "text_position",
-            "type": "clone",
-            "instructions": "",
+            "label": "Title Text Position",
+            "name": "title_text_position",
+            "type": "radio",
+            "instructions": "Position the title text",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -57,20 +43,59 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_61c817a368168"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "choices": {
+                "text-left": "Left position",
+                "text-center": "Center position",
+                "text-right": "Right position"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_61c884d8e8131",
+            "label": "Title Font Size",
+            "name": "title_font_size",
+            "type": "radio",
+            "instructions": "Increase\/Decrease your Font Size",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text-xs": "Extra small (12px)",
+                "text-sm": "Small-medium (14px)",
+                "text-base": "Medium (16px)",
+                "text-lg": "Large (18px)",
+                "text-xl": "Extra Large (20px)",
+                "text-2xl": "2x-Extra Large (24px)",
+                "text-3xl": "3x-Extra Large (30px)",
+                "text-4xl": "4x-Extra Large (36px)",
+                "text-5xl": "5x-Extra Large (48px)",
+                "text-6xl": "6x-Extra large (60px)",
+                "text-7xl": "7x-Extra Large (72px)",
+                "text-8xl": "8x-Extra Large (96px)",
+                "text-9xl": "9x-Extra Large (128px)"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "text-base",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_61c88546e8133",
-            "label": "Font Weight",
-            "name": "font_weight",
-            "type": "clone",
-            "instructions": "",
+            "label": "Title Font Weight",
+            "name": "title_font_weight",
+            "type": "radio",
+            "instructions": "Increase\/Decrease Title Font Weight",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -78,13 +103,23 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_61c819307ef0c"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "choices": {
+                "font-thin": "Thin",
+                "font-font-extralight": "Extra Light",
+                "font-light": "Light",
+                "font-normal": "Normal",
+                "font-medium": "Medium",
+                "font-semibold": "Semi Bold",
+                "font-bold": "Bold",
+                "font-semi-extrabold": "Semi Extra Bold",
+                "font-extrabold": "Extra Bold"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "font-normal",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -105,5 +140,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640531329
+    "modified": 1640531918
 }
