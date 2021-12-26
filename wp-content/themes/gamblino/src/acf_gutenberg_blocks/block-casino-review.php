@@ -6,13 +6,13 @@ function gamblino_casino_review_block() {
 
         // register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'casino-review',
-            'title'             => __('Casino Review Block'),
-            'description'       => __('Casino Review Card Block'),
+            'name'              => 'card-block-1',
+            'title'             => __('Card Block #1'),
+            'description'       => __('Card Block #1'),
             'render_template'   =>   get_stylesheet_directory() . '/template-parts/blocks/CasinoReview.php',
             'category'          => 'formatting',
             'icon'              => 'admin-comments',
-            'keywords'          => array( 'casino', 'review' ),
+            'keywords'          => array( 'casino', 'block', 'card' ),
         ));
     }
 }

@@ -13,7 +13,7 @@ function gamblino_allowed_block_types( $allowed_blocks ) {
             'core/separator',
             'core/gallery',
             'core/columns',
-            'acf/casino-review'
+            'acf/card-block-1'
         );
  
     }

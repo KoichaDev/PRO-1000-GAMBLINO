@@ -5,7 +5,7 @@
         {
             "key": "field_61c809b0508e9",
             "label": "Left Column",
-            "name": "block_casino_review_left_column",
+            "name": "block_card_1_left_column",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -20,7 +20,7 @@
                 {
                     "key": "field_61c80a14508ea",
                     "label": "Image",
-                    "name": "block_casino_review_image",
+                    "name": "image",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -44,7 +44,7 @@
                 {
                     "key": "field_61c80a29508eb",
                     "label": "Title",
-                    "name": "block_casino_review_title_left",
+                    "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -63,7 +63,7 @@
                 {
                     "key": "field_61c80a38508ec",
                     "label": "Title Heading tag Types",
-                    "name": "block_casino_review_title_heading_tag_types",
+                    "name": "title_heading_tag_types",
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
@@ -91,7 +91,7 @@
                 {
                     "key": "field_61c80a4f508ed",
                     "label": "Sub Title Heading",
-                    "name": "block_casino_review_sub_title_heading_tag",
+                    "name": "sub_title_heading_tag",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -110,7 +110,7 @@
                 {
                     "key": "field_61c80a7a508ee",
                     "label": "Sub Title Heading Tag Types",
-                    "name": "block_casino_review_sub_title_heading_tag_types",
+                    "name": "title_heading_tag_types",
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
@@ -138,7 +138,7 @@
                 {
                     "key": "field_61c80aaf508ef",
                     "label": "Check Mark List",
-                    "name": "block_casino_review_check_mark_list",
+                    "name": "check_mark_list",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -178,7 +178,7 @@
                 {
                     "key": "field_61c80aff508f1",
                     "label": "Payment Image Rows",
-                    "name": "block_casino_review_payment_image",
+                    "name": "payment_image",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -221,10 +221,10 @@
                     ]
                 },
                 {
-                    "key": "field_61c80da8c56fe",
+                    "key": "field_61c8122515a93",
                     "label": "CTA Button",
-                    "name": "block_casino_review_cta_button",
-                    "type": "group",
+                    "name": "cta_button",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -233,57 +233,20 @@
                         "class": "",
                         "id": ""
                     },
+                    "clone": [
+                        "group_61c811484c396"
+                    ],
+                    "display": "seamless",
                     "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_61c80dbec56ff",
-                            "label": "CTA Button - Text content",
-                            "name": "cta_button_-_text_content",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61c80dd1c5700",
-                            "label": "CTA Button - Color style",
-                            "name": "cta_button_-_color_style",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "btn btn--yellow: Button Yellow Color": "btn btn--yellow: Button Yellow Color",
-                                "btn btn--green: Button Green Color": "btn btn--green: Button Green Color"
-                            },
-                            "allow_null": 0,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        }
-                    ]
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         },
         {
             "key": "field_61c80be17c570",
             "label": "Right Column (Card)",
-            "name": "block_casino_review_right_column",
+            "name": "block_card_1_right_column",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -298,7 +261,7 @@
                 {
                     "key": "field_61c80c0a7c571",
                     "label": "Title",
-                    "name": "block_casino_review_title_right",
+                    "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -317,7 +280,7 @@
                 {
                     "key": "field_61c80c397c572",
                     "label": "Title Tag Types",
-                    "name": "block-casino_review_title_tag_type_right",
+                    "name": "title_tag_types",
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
@@ -345,7 +308,7 @@
                 {
                     "key": "field_61c80c8d7c573",
                     "label": "Add text",
-                    "name": "add_text",
+                    "name": "text",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -383,7 +346,7 @@
                         {
                             "key": "field_61c80cb27c575",
                             "label": "Add Horiontal Line",
-                            "name": "add_horiontal_line",
+                            "name": "horiontal_line",
                             "type": "true_false",
                             "instructions": "Add Horiontal Line after a text",
                             "required": 0,
@@ -404,7 +367,7 @@
                 {
                     "key": "field_61c80d17c56fc",
                     "label": "CTA Button",
-                    "name": "block_casino_review_cta_button_right",
+                    "name": "cta_button",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -415,7 +378,7 @@
                         "id": ""
                     },
                     "clone": [
-                        "field_61c80da8c56fe"
+                        "group_61c811484c396"
                     ],
                     "display": "seamless",
                     "layout": "block",
@@ -430,7 +393,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/casino-review"
+                "value": "acf\/card-block-1"
             }
         ]
     ],
@@ -443,5 +406,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640501571
+    "modified": 1640502330
 }
