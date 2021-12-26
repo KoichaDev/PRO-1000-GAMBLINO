@@ -1,0 +1,60 @@
+{
+    "key": "group_61c880d67aef0",
+    "title": "Text Font Size (Utility Class)",
+    "fields": [
+        {
+            "key": "field_61c880ed37d78",
+            "label": "Text Font Size",
+            "name": "text_font_sie",
+            "type": "radio",
+            "instructions": "Text font size will be used as \"Single Source of truth\" utility class",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "text-xs": "Extra small (12px)",
+                "text-sm": "Small-medium (14px)",
+                "text-base": "Medium (16px)",
+                "text-lg": "Large (18px)",
+                "text-xl": "Extra Large (20px)",
+                "text-2xl": "2x-Extra Large (24px)",
+                "text-3xl": "3x-Extra Large (30px)",
+                "text-4xl": "4x-Extra Large (36px)",
+                "text-5xl": "5x-Extra Large (48px)",
+                "text-6xl": "6x-Extra large (60px)",
+                "text-7xl": "7x-Extra Large (72px)",
+                "text-8xl": "8x-Extra Large (96px)",
+                "text-9xl": "9x-Extra Large (128px)"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1640530220
+}
