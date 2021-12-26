@@ -3,99 +3,9 @@
     "title": "Casino Review Block",
     "fields": [
         {
-            "key": "field_61a54dc050aa7",
-            "label": "Title",
-            "name": "block_casino_review_title",
-            "type": "text",
-            "instructions": "Write a title for this block",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_61a54d4750aa6",
-            "label": "Title Heading tag",
-            "name": "block_casino_review_title_tag",
-            "type": "radio",
-            "instructions": "Choose your header-tag",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "h1-tag": "h1 tag",
-                "h2-tag": "h2 tag",
-                "h3-tag": "h3 tag",
-                "h4-tag": "h4 tag",
-                "h5-tag": "h5 tag",
-                "h6-tag": "h6 tag"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_61a54e1850aa8",
-            "label": "Text Area",
-            "name": "block_casino_review_title_tag",
-            "type": "wysiwyg",
-            "instructions": "Add text area description here",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_61a54e5e50aa9",
-            "label": "Image",
-            "name": "block_casino_review_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_61a54eb050aab",
-            "label": "Group",
-            "name": "block_casino_review_author",
+            "key": "field_61c809b0508e9",
+            "label": "Left Column",
+            "name": "block_casino_review_left_column",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -108,30 +18,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_61a54ec550aac",
-                    "label": "Author Name",
-                    "name": "block_casino_review_author",
-                    "type": "text",
-                    "instructions": "Write the name of the author",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_61a54edd50aad",
-                    "label": "Author Image",
-                    "name": "block_casino_review_author_image",
+                    "key": "field_61c80a14508ea",
+                    "label": "Image",
+                    "name": "block_casino_review_image",
                     "type": "image",
-                    "instructions": "Insert the author image",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -149,6 +40,387 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_61c80a29508eb",
+                    "label": "Title",
+                    "name": "block_casino_review_title_left",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61c80a38508ec",
+                    "label": "Title Heading tag Types",
+                    "name": "block_casino_review_title_heading_tag_types",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1-tag": "h1 tag",
+                        "h2-tag": "h2 tag",
+                        "h3-tag": "h3 tag",
+                        "h4-tag": "h4 tag",
+                        "h5-tag": "h5 tag",
+                        "h6-tag": "h6 tag"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_61c80a4f508ed",
+                    "label": "Sub Title Heading",
+                    "name": "block_casino_review_sub_title_heading_tag",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61c80a7a508ee",
+                    "label": "Sub Title Heading Tag Types",
+                    "name": "block_casino_review_sub_title_heading_tag_types",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1-tag": "h1 tag",
+                        "h2-tag": "h2 tag",
+                        "h3-tag": "h3 tag",
+                        "h4-tag": "h4 tag",
+                        "h5-tag": "h5 tag",
+                        "h6-tag": "h6 tag"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_61c80aaf508ef",
+                    "label": "Check Mark List",
+                    "name": "block_casino_review_check_mark_list",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c80ad7508f0",
+                            "label": "text",
+                            "name": "text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_61c80aff508f1",
+                    "label": "Payment Image Rows",
+                    "name": "block_casino_review_payment_image",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c80b21508f2",
+                            "label": "Add Image Row row",
+                            "name": "add_image_row_row",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_61c80da8c56fe",
+                    "label": "CTA Button",
+                    "name": "block_casino_review_cta_button",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c80dbec56ff",
+                            "label": "CTA Button - Text content",
+                            "name": "cta_button_-_text_content",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c80dd1c5700",
+                            "label": "CTA Button - Color style",
+                            "name": "cta_button_-_color_style",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "btn btn--yellow: Button Yellow Color": "btn btn--yellow: Button Yellow Color",
+                                "btn btn--green: Button Green Color": "btn btn--green: Button Green Color"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_61c80be17c570",
+            "label": "Right Column (Card)",
+            "name": "block_casino_review_right_column",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61c80c0a7c571",
+                    "label": "Title",
+                    "name": "block_casino_review_title_right",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61c80c397c572",
+                    "label": "Title Tag Types",
+                    "name": "block-casino_review_title_tag_type_right",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1-tag": "h1 tag",
+                        "h2-tag": "h2 tag",
+                        "h3-tag": "h3 tag",
+                        "h4-tag": "h4 tag",
+                        "h5-tag": "h5 tag",
+                        "h6-tag": "h6 tag"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_61c80c8d7c573",
+                    "label": "Add text",
+                    "name": "add_text",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c80ca87c574",
+                            "label": "Text",
+                            "name": "text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c80cb27c575",
+                            "label": "Add Horiontal Line",
+                            "name": "add_horiontal_line",
+                            "type": "true_false",
+                            "instructions": "Add Horiontal Line after a text",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_61c80d17c56fc",
+                    "label": "CTA Button",
+                    "name": "block_casino_review_cta_button_right",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_61c80da8c56fe"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         }
@@ -171,5 +443,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640498816
+    "modified": 1640501468
 }
