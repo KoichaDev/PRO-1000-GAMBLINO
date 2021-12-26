@@ -2,6 +2,7 @@
 
 /**
  * Template Name: Full width / Contained
+ * Template Post Type: post, page, casino-games, reviews, slots
  */
 
 get_header();

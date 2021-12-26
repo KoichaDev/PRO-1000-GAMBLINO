@@ -2,6 +2,8 @@
 
 /**
  * Template Name: Half width / Boxed
+ * Template Post Type: post, page, casino-games, reviews, slots
+ * 
  */
 
 get_header();
