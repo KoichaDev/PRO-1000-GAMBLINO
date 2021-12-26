@@ -17,7 +17,7 @@ if (!function_exists('slots_cpt_reviews')) {
             "public" => true,
             "publicly_queryable" => true,
             "show_ui" => true,
-            "show_in_rest" => false,
+            "show_in_rest" => true,
             "rest_base" => "",
             "rest_controller_class" => "WP_REST_Posts_Controller",
             "has_archive" => true,
@@ -34,7 +34,7 @@ if (!function_exists('slots_cpt_reviews')) {
             ],
             "query_var" => true,
             "menu_position" => 5,
-            "supports" => ["title"],
+            "supports" => ['title', 'editor', 'author', 'thumbnail'],
         ];
 
         register_post_type("slots", $args);

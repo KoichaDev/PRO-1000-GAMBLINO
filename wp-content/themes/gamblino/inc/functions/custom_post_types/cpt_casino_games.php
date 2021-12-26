@@ -7,7 +7,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
         $labels = [
             "name" => __("Casino Games", "gamblino"),
             'all_items' => __('All Posts'),
-            "singular_name" => __("casino-games", "gamblino"),
+            "singular_name" => __("Casino Games", "gamblino"),
         ];
 
         $args = [
@@ -17,7 +17,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
             "public" => false,
             "publicly_queryable" => true,
             "show_ui" => true,
-            "show_in_rest" => false,
+            "show_in_rest" => true,
             "rest_base" => "",
             "rest_controller_class" => "WP_REST_Posts_Controller",
             "has_archive" => true,
@@ -34,7 +34,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
             ],
             "query_var" => true,
             "menu_position" => 5,
-            "supports" => ["title"],
+            "supports" => ['title', 'editor', 'author', 'thumbnail'],
         ];
 
         register_post_type("casino-games", $args);
