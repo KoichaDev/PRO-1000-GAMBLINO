@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists( 'gamblino_allowed_block_types' ) ) {
+if ( !function_exists( 'gamblino_allowed_block_types' ) ) {
  
 function gamblino_allowed_block_types( $allowed_blocks ) {
  
@@ -17,6 +17,6 @@ function gamblino_allowed_block_types( $allowed_blocks ) {
         );
  
     }
-    add_filter( 'allowed_block_types', 'gamblino_allowed_block_types' );
+    add_filter( 'allowed_block_types_all', 'gamblino_allowed_block_types' );
 }
 
