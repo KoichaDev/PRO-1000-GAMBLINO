@@ -1,0 +1,83 @@
+{
+    "key": "group_61c811484c396",
+    "title": "CTA Buttons",
+    "fields": [
+        {
+            "key": "field_61c8115d3efaa",
+            "label": "CTA Button Group",
+            "name": "cta_button_group",
+            "type": "group",
+            "instructions": "This will act as \"single source of truth\" for our button styling fields",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61c811bc3efab",
+                    "label": "CTA Button - Text content",
+                    "name": "cta_button_text_content",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61c811d43efac",
+                    "label": "CTA Button - Color style",
+                    "name": "cta_button_-_color_style",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "btn btn--yellow: Button Yellow Color": "btn btn--yellow: Button Yellow Color",
+                        "btn btn--green: Button Green Color": "btn btn--green: Button Green Color"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1640501766
+}

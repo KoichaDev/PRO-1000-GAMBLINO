@@ -1,6 +1,6 @@
 {
     "key": "group_61a54d23650cd",
-    "title": "Casino Review Block",
+    "title": "Block Card #1",
     "fields": [
         {
             "key": "field_61c809b0508e9",
@@ -443,5 +443,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640501468
+    "modified": 1640501571
 }
