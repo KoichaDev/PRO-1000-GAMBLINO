@@ -9,13 +9,15 @@ get_header();
 
 global $post;
 if (have_posts()) { ?>
-    <main>
+    <main class="archive-full-width-contained">
         <?php
-        while (have_posts()) {
-            the_post();
-            $slug_name = $post->post_name;
-            get_template_part('template-parts/page/page', $slug_name ? $slug_name : 'page');
-        }; ?>
+        
+            $archive_files = get_theme_file_path("../gamblino/template-parts/archive/*.php");
+    
+            // Autoload every files inside custom post type archive template hierachy
+            auto_load_files_from_folder( $archive_files );
+        ?>
+
     </main>
 <?php
 } else {
