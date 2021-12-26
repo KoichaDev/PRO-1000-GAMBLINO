@@ -118,9 +118,29 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/card-block-1"
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "casino-games"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "reviews"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "slots"
             }
         ]
     ],
@@ -133,5 +153,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640554494
+    "modified": 1640559315
 }

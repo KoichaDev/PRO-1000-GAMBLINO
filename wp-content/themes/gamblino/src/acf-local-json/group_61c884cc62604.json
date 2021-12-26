@@ -3,6 +3,25 @@
     "title": "Title (Utility Options)",
     "fields": [
         {
+            "key": "field_61c8f527b3b2b",
+            "label": "Title Text",
+            "name": "title_text",
+            "type": "text",
+            "instructions": "Add Title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_61c886b03f895",
             "label": "Title Tag Types",
             "name": "title_tag_types",
@@ -125,9 +144,29 @@
     "location": [
         [
             {
-                "param": "block",
-                "operator": "==",
-                "value": "all"
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "page"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "casino-games"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "reviews"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "slots"
             }
         ]
     ],
@@ -140,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640531918
+    "modified": 1640561074
 }

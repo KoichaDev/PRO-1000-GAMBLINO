@@ -9,7 +9,7 @@ function gamblino_casino_review_block() {
             'name'              => 'card-block-1',
             'title'             => __('Card Block #1'),
             'description'       => __('Card Block #1'),
-            'render_template'   =>   get_stylesheet_directory() . '/template-parts/blocks/CasinoReview.php',
+            'render_template'   =>   get_stylesheet_directory() . '/template-parts/blocks/BlockCardOne.php',
             'category'          => 'formatting',
             'icon'              => 'admin-comments',
             'keywords'          => array( 'casino', 'block', 'card' ),

@@ -37,6 +37,41 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_61c8ff4392b18",
+                    "label": "CTA Button URL",
+                    "name": "cta_button_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_61c8ff6d92b19",
+                    "label": "Add Follow Links?",
+                    "name": "cta_button_add_follow",
+                    "type": "true_false",
+                    "instructions": "Toggling to true will generate rel=\"nofollow\". \r\nFor more info: https:\/\/ahrefs.com\/blog\/nofollow-links\/",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "True",
+                    "ui_off_text": "False"
+                },
+                {
                     "key": "field_61c811d43efac",
                     "label": "CTA Button - Color style",
                     "name": "cta_button_color_style",
@@ -66,9 +101,29 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "all"
+                "value": "reviews"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "casino-games"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "slots"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
             }
         ]
     ],
@@ -81,5 +136,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640537020
+    "modified": 1640562695
 }
