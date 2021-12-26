@@ -29,7 +29,7 @@ if (!function_exists('gamblino_cpt_reviews')) {
             "map_meta_cap" => true,
             "hierarchical" => true,
             "rewrite" => [
-                "slug" => "slots",
+                "slug" => "reviews",
                 "with_front" => true
             ],
             "query_var" => true,

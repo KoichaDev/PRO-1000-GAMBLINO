@@ -9,7 +9,7 @@ get_header();
 
 global $post;
 if (have_posts()) { ?>
-    <main class="main-page-contained">
+    <main>
         <?php
         while (have_posts()) {
             the_post();

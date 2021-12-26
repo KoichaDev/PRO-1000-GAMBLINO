@@ -1,8 +1,8 @@
 <?php
 
-if (!function_exists('casino_games_cpt_reviews')) {
+if (!function_exists('gamblino_cpt_casino_games')) {
 
-    function casino_games_cpt_reviews() {
+    function gamblino_cpt_casino_games() {
 
         $labels = [
             "name" => __("Casino Games", "gamblino"),
@@ -11,7 +11,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
         ];
 
         $args = [
-            "label" => __("casino_games_cpt_reviews", "gamblino"),
+            "label" => __("gamblino_cpt_casino_games", "gamblino"),
             "labels" => $labels,
             "description" => "",
             "public" => false,
@@ -29,7 +29,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
             "map_meta_cap" => true,
             "hierarchical" => true,
             "rewrite" => [
-                "slug" => "slots",
+                "slug" => "casino-games",
                 "with_front" => true
             ],
             "query_var" => true,
@@ -40,7 +40,7 @@ if (!function_exists('casino_games_cpt_reviews')) {
         register_post_type("casino-games", $args);
     }
 
-    add_action('init', 'casino_games_cpt_reviews');
+    add_action('init', 'gamblino_cpt_casino_games');
 }
 
 // We want to hide "remove" the menu of the admin dashboard. No need to create duplicate menu functionality

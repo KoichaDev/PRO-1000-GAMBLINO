@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
 
-<!-- Add something...  -->
+adasdasd
 
 <?php get_footer(); ?>

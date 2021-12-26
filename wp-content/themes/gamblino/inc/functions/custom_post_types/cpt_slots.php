@@ -1,17 +1,17 @@
 <?php
 
-if (!function_exists('slots_cpt_reviews')) {
+if (!function_exists('gamblino_cpt_slots')) {
 
-    function slots_cpt_reviews() {
+    function gamblino_cpt_slots() {
 
         $labels = [
             "name" => __("Slots", "gamblino"),
             'all_items' => __('All Posts'),
-            "singular_name" => __("slots", "gamblino"),
+            "singular_name" => __("Slots", "gamblino"),
         ];
 
         $args = [
-            "label" => __("slots_cpt_reviews", "gamblino"),
+            "label" => __("gamblino_cpt_slots", "gamblino"),
             "labels" => $labels,
             "description" => "",
             "public" => true,
@@ -40,7 +40,7 @@ if (!function_exists('slots_cpt_reviews')) {
         register_post_type("slots", $args);
     }
 
-    add_action('init', 'slots_cpt_reviews');
+    add_action('init', 'gamblino_cpt_slots');
 }
 
 // We want to hide "remove" the menu of the admin dashboard. No need to create duplicate menu functionality
