@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
 
-<!-- Add something...  -->
+404 Page
 
 <?php get_footer(); ?>

@@ -15,7 +15,9 @@
             <li>
                 <p>Menu</p>
             </li>
-            <li><input type="text" class='search-input' placeholder="Search something..."></li>
+            <li>
+                <input type="text" class='search-input' placeholder="Search something...">
+            </li>
             <li>Home</li>
             <li>Bonuses</li>
             <li>Casinos</li>
