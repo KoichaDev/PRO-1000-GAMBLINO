@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_61c809b0508e9",
-            "label": "Left Column",
-            "name": "block_card_1_left_column",
+            "label": "Left Column Level 1",
+            "name": "block_card_1_left_column_level_1",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -43,8 +43,8 @@
                 },
                 {
                     "key": "field_61c80a29508eb",
-                    "label": "Title",
-                    "name": "title",
+                    "label": "Add Title",
+                    "name": "add_title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -61,169 +61,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_61c80a38508ec",
-                    "label": "Title Heading tag Types",
-                    "name": "title_heading_tag_types",
-                    "type": "radio",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "h1-tag": "h1 tag",
-                        "h2-tag": "h2 tag",
-                        "h3-tag": "h3 tag",
-                        "h4-tag": "h4 tag",
-                        "h5-tag": "h5 tag",
-                        "h6-tag": "h6 tag"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "vertical",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                },
-                {
-                    "key": "field_61c80a4f508ed",
-                    "label": "Sub Title Heading",
-                    "name": "sub_title_heading_tag",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_61c80a7a508ee",
-                    "label": "Sub Title Heading Tag Types",
-                    "name": "title_heading_tag_types",
-                    "type": "radio",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "h1-tag": "h1 tag",
-                        "h2-tag": "h2 tag",
-                        "h3-tag": "h3 tag",
-                        "h4-tag": "h4 tag",
-                        "h5-tag": "h5 tag",
-                        "h6-tag": "h6 tag"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "vertical",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                },
-                {
-                    "key": "field_61c80aaf508ef",
-                    "label": "Check Mark List",
-                    "name": "check_mark_list",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_61c80ad7508f0",
-                            "label": "text",
-                            "name": "text",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_61c80aff508f1",
-                    "label": "Payment Image Rows",
-                    "name": "payment_image",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_61c80b21508f2",
-                            "label": "Add Image Row row",
-                            "name": "add_image_row_row",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_61c8122515a93",
-                    "label": "CTA Button",
-                    "name": "cta_button",
+                    "key": "field_61c8a187c1917",
+                    "label": "Add Title Options",
+                    "name": "add_title_options",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -234,55 +74,19 @@
                         "id": ""
                     },
                     "clone": [
-                        "group_61c811484c396"
+                        "group_61c884cc62604"
                     ],
                     "display": "seamless",
                     "layout": "block",
                     "prefix_label": 0,
                     "prefix_name": 0
-                }
-            ]
-        },
-        {
-            "key": "field_61c80be17c570",
-            "label": "Right Column (Card)",
-            "name": "block_card_1_right_column",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_61c80c0a7c571",
-                    "label": "Title",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 },
                 {
-                    "key": "field_61c80c397c572",
-                    "label": "Title Tag Types",
-                    "name": "title_tag_types",
-                    "type": "radio",
-                    "instructions": "",
+                    "key": "field_61c81663d19a9",
+                    "label": "Score Range",
+                    "name": "score_range",
+                    "type": "clone",
+                    "instructions": "Add Score Range between 1-6 for this review",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -290,26 +94,19 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "h1-tag": "h1 tag",
-                        "h2-tag": "h2 tag",
-                        "h3-tag": "h3 tag",
-                        "h4-tag": "h4 tag",
-                        "h5-tag": "h5 tag",
-                        "h6-tag": "h6 tag"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "vertical",
-                    "return_format": "value",
-                    "save_other_choice": 0
+                    "clone": [
+                        "group_61c89414e9f0d"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 },
                 {
-                    "key": "field_61c80c8d7c573",
-                    "label": "Add text",
-                    "name": "text",
-                    "type": "repeater",
+                    "key": "field_61c881848f208",
+                    "label": "Left Column Level 2 Features",
+                    "name": "left_column_level_2_features",
+                    "type": "group",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -318,16 +115,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
+                    "layout": "block",
                     "sub_fields": [
                         {
-                            "key": "field_61c80ca87c574",
-                            "label": "Text",
-                            "name": "text",
+                            "key": "field_61c881b88f209",
+                            "label": "Add Sub Title Heading",
+                            "name": "add_sub_title_heading",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -344,11 +137,310 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_61c80cb27c575",
-                            "label": "Add Horiontal Line",
-                            "name": "horiontal_line",
+                            "key": "field_61c881d08f20a",
+                            "label": "Sub Title options",
+                            "name": "sub_title_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_61c884cc62604"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_61c881f28f20b",
+                            "label": "Checked Mark List",
+                            "name": "checked_mark_list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61c89aba540e4",
+                                    "label": "Add Text",
+                                    "name": "add_text",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_61c8835e8f213",
+                            "label": "CTA Button",
+                            "name": "cta_button",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61c883868f215",
+                                    "label": "Button Color Options",
+                                    "name": "button_color_options",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_61c811484c396"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "field_61c882118f20c",
+                    "label": "Right Column Level 2 Payment Options",
+                    "name": "right_column_level_2_payment_options",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c882378f20d",
+                            "label": "Add Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c882cc8f210",
+                            "label": "Add Title Options",
+                            "name": "add_title_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_61c884cc62604"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_61c882f68f211",
+                            "label": "Add Image",
+                            "name": "add_image",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Image Row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61c883008f212",
+                                    "label": "image",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_61c80be17c570",
+            "label": "Right Column Level 1",
+            "name": "right_column_level_1",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_61c88a2777b69",
+                    "label": "Card Header (Title)",
+                    "name": "card_header",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c88a3277b6a",
+                            "label": "Add Title",
+                            "name": "add_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c88a3977b6b",
+                            "label": "Title Utility Options",
+                            "name": "title_utility_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_61c886b03f895",
+                                "field_61c884fee8132",
+                                "field_61c884d8e8131",
+                                "field_61c88546e8133"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ]
+                },
+                {
+                    "key": "field_61c884547f146",
+                    "label": "Card Body (Content text)",
+                    "name": "card_body",
+                    "type": "repeater",
+                    "instructions": "Unordered List",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_61c89f3803629",
+                            "label": "Add Text left side only?",
+                            "name": "add_text_left_side_only",
                             "type": "true_false",
-                            "instructions": "Add Horiontal Line after a text",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -358,16 +450,143 @@
                             },
                             "message": "",
                             "default_value": 0,
-                            "ui": 0,
+                            "ui": 1,
                             "ui_on_text": "",
                             "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_61c89c758fe2b",
+                            "label": "Add Text",
+                            "name": "add_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61c89f3803629",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c89c898fe2c",
+                            "label": "Add Horizontal Line?",
+                            "name": "horizontal_line",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61c89f3803629",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Displayed",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_61c89dcfb2f0a",
+                            "label": "Add Text left and right?",
+                            "name": "add_text_left_and_right_",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_61c89e66b2f0c",
+                            "label": "Add Text left side",
+                            "name": "add_text_left_side",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61c89dcfb2f0a",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_61c89e89b2f0d",
+                            "label": "Add Text right side",
+                            "name": "add_text_right_side",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61c89dcfb2f0a",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
                 {
-                    "key": "field_61c80d17c56fc",
-                    "label": "CTA Button",
-                    "name": "cta_button",
+                    "key": "field_61c89cf2d3ab5",
+                    "label": "Card Footer (CTA Button)",
+                    "name": "card_footer",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -378,7 +597,7 @@
                         "id": ""
                     },
                     "clone": [
-                        "group_61c811484c396"
+                        "field_61c8115d3efaa"
                     ],
                     "display": "seamless",
                     "layout": "block",
@@ -406,5 +625,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640502330
+    "modified": 1640539460
 }

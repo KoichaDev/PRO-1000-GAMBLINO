@@ -7,7 +7,7 @@
             "label": "CTA Button Group",
             "name": "cta_button_group",
             "type": "group",
-            "instructions": "This will act as \"single source of truth\" for our button styling fields",
+            "instructions": "CTA Button Color options",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,9 +39,9 @@
                 {
                     "key": "field_61c811d43efac",
                     "label": "CTA Button - Color style",
-                    "name": "cta_button_-_color_style",
-                    "type": "button_group",
-                    "instructions": "",
+                    "name": "cta_button_color_style",
+                    "type": "radio",
+                    "instructions": "Choose one of the button color style",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -50,13 +50,15 @@
                         "id": ""
                     },
                     "choices": {
-                        "btn btn--yellow: Button Yellow Color": "btn btn--yellow: Button Yellow Color",
-                        "btn btn--green: Button Green Color": "btn btn--green: Button Green Color"
+                        "btn btn--yellow": "Button Yellow Color",
+                        "btn btn--green": "Button Green Color"
                     },
                     "allow_null": 0,
+                    "other_choice": 0,
                     "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         }
@@ -79,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640503529
+    "modified": 1640537020
 }
