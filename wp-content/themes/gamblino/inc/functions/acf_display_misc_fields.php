@@ -38,3 +38,19 @@ function display_title_heading($insert_title_tag_type, $set_text_title_value, $s
     }
     return $title_tag;
 }
+
+function display_cta_button($button_text_content = '', $url = '', $is_follow = false, $id_name= '', $class_name = '') { ?>
+
+    <a 
+        role="button" 
+        tabindex="0"
+        aria-pressed="false"
+        href="<?= $url; ?>" 
+        id="<?= $id_name; ?>"
+        class="<?= $class_name; ?>" 
+        rel="<?= $is_follow ? 'nofollow' : '' ?>" 
+    >
+        <?= $button_text_content; ?>
+    </a>
+    
+<?php }

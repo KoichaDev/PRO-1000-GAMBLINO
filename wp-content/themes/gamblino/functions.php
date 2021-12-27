@@ -2,17 +2,19 @@
 
 include_once('inc/functions/allowed_gutenberg_blocks.php');
 
+include_once('inc/functions/acf_display_misc_fields.php');
+
 include_once('inc/functions/acf_local_json.php');
 
 include_once('inc/helpers/auto_load_files.php');
+
+include_once('inc/helpers/print_message.php');
 
 include_once('inc/functions/auto_load_cpt.php');
 
 include_once('libraries/Controller.php');
 
 include_once('inc/functions/custom_image_sizes.php');
-
-include_once('inc/functions/custom_title_header_tag.php');
 
 include_once('inc/functions/enqueue_scripts_and_styles.php');
 

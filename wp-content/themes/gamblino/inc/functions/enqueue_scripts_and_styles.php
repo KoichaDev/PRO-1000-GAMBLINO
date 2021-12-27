@@ -1,5 +1,4 @@
 <?php 
-
 function gamblino_script_defer( $url ) {
     if ( is_admin() ) {
         return $url; //don't break WP Admin
@@ -22,7 +21,8 @@ function gamblino_scripts_and_styles() {
     wp_enqueue_style( 
         'gamblino-style-sheet', 
         get_template_directory_uri() . '/dist/main.css', 
-        [], filemtime( get_stylesheet_directory() . '/dist/main.css' ), 
+        [], 
+        filemtime( get_stylesheet_directory() . '/dist/main.css' ), 
         'all' 
     );
     

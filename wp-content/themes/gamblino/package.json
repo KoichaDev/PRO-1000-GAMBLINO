@@ -2,12 +2,12 @@
 	"name": "gamblino",
 	"version": "1.0.0",
 	"description": "",
-	"source": "src/index.js",
+	"source": "src/main.js",
 	"main": "dist/main.js",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"scripts": {
-		"dev": "parcel watch src/index.js",
-		"prod": "parcel build src/index.js"
+		"dev": "parcel watch src/main.js",
+		"prod": "parcel build src/main.js"
 	},
 	"keywords": [],
 	"author": "",
