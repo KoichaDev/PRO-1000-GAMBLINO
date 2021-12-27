@@ -6,6 +6,8 @@ $sub_title_options = get_field( 'block_card_one_sub_title' );
 $range_score_options = get_field( 'block_card_one_range_score' );
 $checked_mark_field_lists = get_field( 'block_card_one_checked_mark_list' );
 $cta_button_option_one = get_field('block_card_one_cta_button_feature')['cta_button_group'];
+$title_payment_options = get_field( 'block_card_one_payment_title_options' );
+$payment_images_row = get_field( 'block_card_one_paymentpayment_options_image' );
 
 // ACF Field using related to "clone" field for main title
 $title_tag_types = $title_main_options['title_tag_types'];
@@ -15,7 +17,10 @@ $title_text_content = $title_main_options['title_text'];
 $sub_title_tag_types = $sub_title_options['title_tag_types'];
 $sub_title_text_content = $sub_title_options['title_text'];
 
-var_dump($cta_button_option_one);
+// ACF Field using related to "clone" field for payment options
+$payment_title_tag_types = $title_payment_options['title_tag_types'];
+$payment_text_content = $title_payment_options['title_text'];
+
 
 // ACF Field using related to "clone" field for range score 
 $range_score_active_image_url = $range_score_options['image']['active']['url'];
@@ -25,8 +30,11 @@ $range_score_inactive_image_alt_text = $range_score_options['image']['inactive']
 $range_score_count = $range_score_options['add_score_range'];
 $range_score_is_visible_inactive_image = $range_score_options['image']['add_inactive_image'];
 
+
+
 $class_name_main_title = 'card-block-one__title' . ' ' . $title_main_options['title_font_size'] . ' ' . $title_main_options['title_font_weight'];
-$class_name_sub_title = 'card-block-one__title' . ' ' . $sub_title_options['title_font_size'] . ' ' . $sub_title_options['title_font_weight'];
+$class_name_sub_title = 'card-block-one__sub-title' . ' ' . $sub_title_options['title_font_size'] . ' ' . $sub_title_options['title_font_weight'];
+$class_name_payment_title = 'card-block-one__payment-title' . ' ' . $title_payment_options['title_font_size'] . ' ' . $title_payment_options['title_font_weight'];
 
 ?>
 
@@ -80,7 +88,21 @@ $class_name_sub_title = 'card-block-one__title' . ' ' . $sub_title_options['titl
                         </ul>
                     <?php endif; ?>
             </div>
-            <div class="card-block-one__row-payement-options"></div>
+            <div class="card-block-one__row-payement-options1">
+                <?php 
+                echo display_title_heading($payment_title_tag_types, $payment_text_content, $class_name_payment_title );  
+                ?>
+                            
+                <?php if( $payment_images_row ) : ?>
+                    <div class="card-block-one__row-payement-options2-image">
+                        <?php 
+                            foreach( $payment_images_row as $payment_image_row ) {
+                                echo wp_get_attachment_image($payment_image_row['image']['ID'], 'medium');
+                            } 
+                        ?>
+                <?php endif; ?>
+                    </div>
+            </div>
 
             <div class="card-block-one__cta-button">
                 <?= 
@@ -89,21 +111,16 @@ $class_name_sub_title = 'card-block-one__title' . ' ' . $sub_title_options['titl
                         $cta_button_option_one['cta_button_url'],
                         $cta_button_option_one['cta_button_add_follow'],
                         $cta_button_option_one['cta_button_color_style']
-                    ); 
+                    );
                 ?>
             </div>
         </div>
     </div>
 
     <div class="card-block-one__right-column">
-
     </div>
 
 </section>
 
 
 <?php 
-
-function display_image( $url_src = '', $alt_src = '', $class_name = '' ) { ?>
-    <img src="<?= $url_src; ?>" alt="<?= $alt_src; ?>" class="<?= $class_name; ?>" >
-<?php }

@@ -3,12 +3,13 @@
 	grid-template-columns: 0.7fr 1.2fr 1.1fr;
 	grid-template-rows: 1fr;
 	grid-template-areas: 'left-column center-column right-column';
+	padding: 2em;
 	background: #fff;
 
 	.card-block-one__left-column {
-		display: grid;
-		justify-content: center;
 		grid-area: left-column;
+        margin-left: auto;
+        padding-right: 2em;
 	}
 
 	.card-block-one__center-column {
@@ -29,13 +30,24 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 		grid-template-areas: 'left-column right-column';
+		gap: 2em;
 
-        .card-block-one__row-text-description {
-            grid-area: left-column;
-        }
+		.card-block-one__row-text-description {
+			grid-area: left-column;
+		}
 
-        .card-block-one__row-payement-options {
-            grid-area: right-column;
-        }
+		.card-block-one__row-payement-options1 {
+			grid-area: right-column;
+
+			.card-block-one__row-payement-options2-image {
+				display: grid;
+				grid-template-columns: 0.5fr 0.5fr 1fr;
+				grid-gap: 5px;
+
+				@media (max-width: 48em) {
+					grid-template-columns: auto;
+				}
+			}
+		}
 	}
 }

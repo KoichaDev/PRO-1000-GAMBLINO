@@ -39,7 +39,12 @@ function display_title_heading($insert_title_tag_type, $set_text_title_value, $s
     return $title_tag;
 }
 
-function display_cta_button($button_text_content = '', $url = '', $is_follow = false, $id_name= '', $class_name = '') { ?>
+
+function display_image( $url_src = '', $alt_src = '', $class_name = '' ) { ?>
+    <img src="<?= $url_src; ?>" alt="<?= $alt_src; ?>" class="<?= $class_name; ?>" >
+<?php }
+
+function display_cta_button($button_text_content = '', $url = '', $is_follow = false, $class_name = '', $id_name= '' ) { ?>
 
     <a 
         role="button" 
