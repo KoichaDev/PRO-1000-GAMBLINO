@@ -12,6 +12,8 @@ include_once('libraries/Controller.php');
 
 include_once('inc/functions/custom_image_sizes.php');
 
+include_once('inc/functions/custom_title_header_tag.php');
+
 include_once('inc/functions/enqueue_scripts_and_styles.php');
 
 include_once('inc/functions/autoload_blocks.php');
