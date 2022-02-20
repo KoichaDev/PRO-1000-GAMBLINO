@@ -1,0 +1,212 @@
+{
+    "key": "group_61657968d4a66",
+    "title": "Block - Carousel",
+    "fields": [
+        {
+            "key": "field_6165797eb2455",
+            "label": "New Row",
+            "name": "block_carousel_row",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_616579afb2456",
+                    "label": "Add Image",
+                    "name": "block_carousel_add_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "uploader": "",
+                    "acfe_thumbnail": 0,
+                    "return_format": "array",
+                    "preview_size": "full",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "library": "all"
+                },
+                {
+                    "key": "field_616e77ba0e6e3",
+                    "label": "Add Caption?",
+                    "name": "block_carousel_add_caption",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_616ef0b830813",
+                    "label": "Text Caption alignment",
+                    "name": "block_carousel_text_caption_alignment",
+                    "type": "radio",
+                    "instructions": "Position the text alignment if you want it on the left, center or right",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616e77ba0e6e3",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "u-text-left": "Left position",
+                        "u-text-center": "Center position",
+                        "u-text-right": "Right position"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_616e779a0e6e2",
+                    "label": "Add caption",
+                    "name": "block_carousel_set_caption",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_616e77ba0e6e3",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Add a caption for this image...",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "acfe_textarea_code": 0
+                }
+            ]
+        },
+        {
+            "key": "field_616ea9af6875f",
+            "label": "Display Indicator dots",
+            "name": "block_carousel_display_indicator_dots",
+            "type": "true_false",
+            "instructions": "You can toggle this if you wish to display indicator dots for how many images it exist for this image carousel slider.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_616eb0640c276",
+            "label": "Adjust Width",
+            "name": "block_carousel_adjust_width_inline_style",
+            "type": "range",
+            "instructions": "This range will be consider as percentage based of the width for this carousel block",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 70,
+            "min": 50,
+            "max": 70,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_616eab449d9f3",
+            "label": "Adjust Height",
+            "name": "block_carousel_adjust_height_inline_style",
+            "type": "range",
+            "instructions": "This range will be consider as px based of the height for this block",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 710,
+            "min": 400,
+            "max": 800,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/block-carousel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1645388958
+}

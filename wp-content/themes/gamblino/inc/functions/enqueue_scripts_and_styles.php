@@ -28,13 +28,12 @@ function gamblino_scripts_and_styles() {
     
     // Autoload inline-styles
     auto_load_files_from_folder($custom_post_type_files);
-  
+
     // Load regular JavaScript
     wp_enqueue_script( 
-        'gamblino-javascript', 
-        get_template_directory_uri() . '/dist/main.js', 
-        [''], 
-        filemtime( get_stylesheet_directory() . '/dist/main.js' ),
+        'gamblino-javascript', get_template_directory_uri() . '/dist/main.js', 
+        [], 
+        filemtime( get_stylesheet_directory() . '/dist/main.js' ), 
         false 
     );
 }

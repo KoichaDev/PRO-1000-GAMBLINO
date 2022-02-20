@@ -1,0 +1,112 @@
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 710px;
+  margin: 2em auto 1em auto;
+
+  .carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &.carousel__button--left {
+      color: #13648b;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -11%;
+
+      @media (max-width: 768px) {
+        left: -20%;
+      }
+    }
+
+    &.carousel__button--right {
+      color: #13648b;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -11%;
+
+      @media (max-width: 768px) {
+        right: -22%;
+      }
+    }
+  }
+
+  .carousel__track-container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    .carousel__track {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      list-style: none;
+      transition: transform 250ms ease-in;
+
+      .carousel__slide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+
+        img {
+          display: block;
+        }
+
+        .carousel__slide-figcaption {
+          position: absolute;
+          display: grid;
+          align-items: center;
+          top: 70%;
+          width: 100%;
+          height: 30%;
+          background: rgba(0, 0, 0, 0.35);
+
+          ::before {
+            content: '';
+            margin-top: 1em;
+          }
+
+          p {
+            padding: 0 1em;
+            color: #fff;
+            line-height: 1.5em;
+          }
+        }
+      }
+    }
+    .carousel__image {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .carousel__nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    .carousel__indicator {
+      width: 1.125em;
+      height: 1.125em;
+      margin: 0 12px;
+      background: transparent;
+      border: 2px solid #042f52;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.current-slide {
+        background: #042f52;
+      }
+    }
+  }
+}
