@@ -15,7 +15,8 @@ function gamblino_allowed_block_types( $allowed_blocks ) {
             'core/columns',
             'acf/card-block-1',
             'acf/block-carousel',
-            'gamblino/block-info-bonus-review',
+            'gamblino-block/info-bonus-review',
+            'gamblino-block/features-info',
         );
  
     }
