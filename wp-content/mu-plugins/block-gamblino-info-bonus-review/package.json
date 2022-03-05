@@ -1,0 +1,30 @@
+{
+	"name": "block-gamblino-info-bonus-review",
+	"version": "0.1.0",
+	"description": "Example static block scaffolded with Create Block tool.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"dev": "wp-scripts start",
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"dependencies": {
+		"@wordpress/blob": "^3.3.1",
+		"@wordpress/block-editor": "^8.2.0",
+		"@wordpress/blocks": "^11.2.2",
+		"@wordpress/components": "^19.5.0",
+		"@wordpress/compose": "^5.1.2",
+		"@wordpress/data": "^6.3.0",
+		"@wordpress/element": "^4.1.1",
+		"@wordpress/i18n": "^4.3.1"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^22.1.0"
+	}
+}

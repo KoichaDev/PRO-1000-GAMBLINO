@@ -32,6 +32,10 @@ wp-content/mysql.sql
 wp-content/mu-plugins/wpengine-security-auditor.php
 wp-content/mu-plugins/wpe-wp-sign-on-plugin*
 
+#  Ignore mu-plugins not essential
+node_modules
+wp-content/mu-plugins/*/build
+
 # wp core (as of 4.9.5)
 /db-config.php
 /index.php

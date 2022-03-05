@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "gamblino/block-info-bonus-review",
+	"version": "0.1.0",
+	"title": "Block Gamblino Info Bonus Review",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Gamblino Info Bonus Review Block",
+	"keywords": ["gamblino", "bonus", "info", "review"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "block-gamblino",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"title": {
+			"type": "string"
+		}
+	}
+}
