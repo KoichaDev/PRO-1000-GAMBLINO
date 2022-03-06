@@ -74,7 +74,7 @@ const FeatureBodyContentEdit = ({ attributes, setAttributes }) => {
                                     onChange={(value) =>
                                         onChangeTextHandler(index, "text", value)
                                     }
-                                    allowedFormats={[]} // Allow the content to be made bold or italic, but do not allow other formatting options
+                                    allowedFormats={['core/bold', 'core/italic', 'core/link']} // Allow the content to be made bold or italic, but do not allow other formatting options
                                     placeholder={__("Add a text...", "block-gamblino")}
                                 />
                             </li>
