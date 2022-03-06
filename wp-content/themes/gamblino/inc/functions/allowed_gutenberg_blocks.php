@@ -16,7 +16,8 @@ function gamblino_allowed_block_types( $allowed_blocks ) {
             'acf/card-block-1',
             'acf/block-carousel',
             'gamblino-block/info-bonus-review',
-            'gamblino-block/features-info',
+            'gamblino-block/features-header',
+            'gamblino-block/features-range-score-img',
         );
  
     }

@@ -1,18 +1,18 @@
 const metaDataRangeScoreImg = {
-    reviewScore: {
+    rangeScore: {
         type: "number",
         default: 2,
     },
-    reviewImgid: {
+    rangeScoreImgId: {
         type: "number",
     },
-    reviewImgUrl: {
+    rangeScoreImgUrl: {
         type: "string",
         source: "attribute",
         selector: "img",
         attribute: "src",
     },
-    reviewImgalt: {
+    rangeScoreImgAlt: {
         type: "string",
         source: "attribute", // Will be stored in the alt attribute of img-tag element
         selector: "img",
@@ -20,3 +20,4 @@ const metaDataRangeScoreImg = {
         default: "",
     },
 }
+export default metaDataRangeScoreImg;

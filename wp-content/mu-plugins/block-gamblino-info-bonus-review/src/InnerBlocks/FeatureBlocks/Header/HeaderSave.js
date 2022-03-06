@@ -1,6 +1,6 @@
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
-const FeatureBlockSave = ({ attributes }) => {
+const HeaderSave = ({ attributes }) => {
     const { headerTitle, url: imageUrl, alt: imageAlt, id: imageId } = attributes;
 
     return (
@@ -18,4 +18,4 @@ const FeatureBlockSave = ({ attributes }) => {
     );
 };
 
-export default FeatureBlockSave;
+export default HeaderSave;

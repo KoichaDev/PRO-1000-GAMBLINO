@@ -11,7 +11,7 @@ import {
 
 const ControlsImage = (props) => {
     // prettier-ignore
-    const { imageId, imageUrl, blobURL, setBlobURL, onChangeImageSize, imageAlt, onChangeAlt, getImageSizeOptions } = props;
+    const { imageId, imageUrl, blobURL, setBlobURL, panelBodyTitle, onChangeImageSize, imageAlt, onChangeAlt, getImageSizeOptions } = props;
 
     /* This is a way to revoke (basically free the memory and optimize it) the blob URL when the url is changed. */
     useEffect(() => {
@@ -26,10 +26,10 @@ const ControlsImage = (props) => {
 
     return (
         <InspectorControls>
-            <PanelBody title={__("Image settings", "team-members")}>
+            <PanelBody title={__("Image settings", "block-gamblino")}>
                 {imageId && (
                     <SelectControl
-                        label={__("Image Size", "team-members")}
+                        label={__("Image Size", "block-gamblino")}
                         options={getImageSizeOptions}
                         value={imageUrl}
                         onChange={onChangeImageSize}
@@ -38,10 +38,10 @@ const ControlsImage = (props) => {
 
                 {imageUrl && !isBlobURL(imageUrl) && (
                     <TextareaControl
-                        label={__("Alt Image text", "team-members")}
+                        label={__("Alt Image text", "block-gamblino")}
                         help={__(
                             "Alternative text describes your image to people can't see it. Add a short description with its key details.",
-                            "team-members"
+                            "block-gamblino"
                         )}
                         value={imageAlt}
                         onChange={onChangeAlt}

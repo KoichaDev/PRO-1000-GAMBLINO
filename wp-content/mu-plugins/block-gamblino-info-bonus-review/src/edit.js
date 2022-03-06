@@ -6,12 +6,18 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 import "./editor.scss";
 
 const Edit = () => {
-	const innerContentTemplate = [["gamblino-block/features-info"]];
+	const innerContentTemplate = [
+		["gamblino-block/features-header"],
+		["gamblino-block/features-range-score-img"],
+	];
 
 	return (
 		<section {...useBlockProps()}>
 			<InnerBlocks
-				allowedBlocks={["gamblino-block/features-info"]}
+				allowedBlocks={[
+					"gamblino-block/features-header",
+					"gamblino-block/features-range-score-img",
+				]}
 				template={innerContentTemplate}
 			/>
 		</section>
