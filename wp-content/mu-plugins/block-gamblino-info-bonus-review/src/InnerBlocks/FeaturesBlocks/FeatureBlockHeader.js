@@ -13,14 +13,19 @@ import { Spinner, withNotices, ToolbarButton } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 
 // Components
-import InspectorControlsImage from "../../../components/InspectorControls/InspectorControlsImage";
-import BlockControlsMediaReplaceFlow from "../../../components/BlockControls/BlockControlsMediaReplaceFlow";
+import InspectorControlsImage from "../../components/InspectorControls/InspectorControlsImage";
+import BlockControlsMediaReplaceFlow from "../../components/BlockControls/BlockControlsMediaReplaceFlow";
 
-import "./Header.scss";
+import "./FeatureBlockHeader.scss";
 
-const Header = ({ setAttributes, ...attributes }) => {
+const FeatureBlockHeaderHeader = ({ ...props }) => {
+    const { setAttributes, attributes } = props;
     const { headerTitle, id, url, alt, noticeUI } = attributes;
     const [blobURL, setBlobURL] = useState(undefined);
+
+    const setHeaderTitleHandler = (titleValue) => {
+        setAttributes({ headerTitle: titleValue });
+    };
 
     useEffect(() => {
         // checking if there is no image ID
@@ -42,12 +47,12 @@ const Header = ({ setAttributes, ...attributes }) => {
         noticeOperations.createErrorNotice(messageError);
     };
 
-    // prettier-ignore
-    const onClickRemoveImageHandler = () => setAttributes({ id: undefined, url: undefined, alt: "" });
+    const onClickRemoveImageHandler = () =>
+        setAttributes({ id: undefined, url: undefined, alt: "" });
 
-    // prettier-ignore
-    const onChangeAltImageTextHandler = (altValue) => setAttributes(
-        { headerImg: { alt: altValue } });
+    const onChangeAltImageTextHandler = (altValue) => {
+        setAttributes({ alt: altValue });
+    };
 
     const onSelectURLImageHandler = (urlImage) => {
         setAttributes({
@@ -57,14 +62,12 @@ const Header = ({ setAttributes, ...attributes }) => {
         });
     };
 
-    const selectImageObject = useSelect(
-        (select) => {
-            const { getMedia } = select("core");
+    // prettier-ignore
+    const selectImageObject = useSelect((select) => {
+        const { getMedia } = select("core");
 
-            return id ? getMedia(id) : null;
-        },
-        [id]
-    ); // the imageId is the dependency that will check for this custom hook. It's like useEffect
+        return id ? getMedia(id) : null;
+    }, [id]); // the imageId is the dependency that will check for this custom hook. It's like useEffect
 
     const onChangeImageSizeHandler = (newImageURL) =>
         setAttributes({ url: newImageURL });
@@ -98,9 +101,6 @@ const Header = ({ setAttributes, ...attributes }) => {
 
         return options;
     };
-
-    const setHeaderTitleHandler = (titleValue) =>
-        setAttributes({ headerTitle: titleValue });
 
     return (
         <>
@@ -144,10 +144,11 @@ const Header = ({ setAttributes, ...attributes }) => {
                     disableMediaButtons={url} // This will disable the media upload if there is a image being selected
                     notices={noticeUI}
                 />
+
                 <RichText
+                    tagName={"h2"}
                     value={headerTitle}
                     onChange={setHeaderTitleHandler}
-                    tagName={"h2"}
                     placeholder={__("Add a title...", "block-gamblino")}
                 />
             </header>
@@ -155,4 +156,4 @@ const Header = ({ setAttributes, ...attributes }) => {
     );
 };
 
-export default withNotices(Header);
+export default withNotices(FeatureBlockHeaderHeader);

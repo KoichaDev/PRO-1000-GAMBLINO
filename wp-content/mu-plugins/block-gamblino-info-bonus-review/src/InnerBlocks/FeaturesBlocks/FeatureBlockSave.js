@@ -1,12 +1,21 @@
 import { useBlockProps, RichText } from "@wordpress/block-editor";
-import { Icon } from "@wordpress/components";
 
-const BlockSaveTeamMember = ({ attributes }) => {
+const FeatureBlockSave = ({ attributes }) => {
+    const { headerTitle, url: imageUrl, alt: imageAlt, id: imageId } = attributes;
+
     return (
         <div {...useBlockProps.save()}>
-            dajiodj
+            {imageUrl && (
+                <img
+                    src={imageUrl}
+                    alt={imageAlt}
+                    className={imageId ? `wp-image-${imageId}` : null}
+                />
+            )}
+
+            {headerTitle && <RichText.Content tagName="h2" value={headerTitle} />}
         </div>
     );
 };
 
-export default BlockSaveTeamMember;
+export default FeatureBlockSave;

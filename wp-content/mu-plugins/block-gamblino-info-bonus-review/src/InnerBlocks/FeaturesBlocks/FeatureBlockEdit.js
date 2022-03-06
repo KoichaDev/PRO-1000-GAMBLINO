@@ -1,10 +1,10 @@
 // WP Components
-import Header from "./components/Header";
+import Header from "./FeatureBlockHeader";
 
-const BlockEditTeamMember = ({ attributes, setAttributes }) => {
+const BlockEditTeamMember = ({ ...props }) => {
     return (
         <>
-            <Header {...attributes} setAttributes={setAttributes} />
+            <Header {...props} />
         </>
     );
 };

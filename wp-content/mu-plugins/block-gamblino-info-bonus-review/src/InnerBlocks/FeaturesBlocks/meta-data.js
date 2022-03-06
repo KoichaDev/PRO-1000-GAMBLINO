@@ -1,4 +1,5 @@
 import { __ } from "@wordpress/i18n";
+import metaDataHeader from "./meta-data/meta-data-header";
 
 const metaData = {
     title: __("Review Feature", "block-gamblino"),
@@ -10,27 +11,7 @@ const metaData = {
         html: false, //removing this block to edit the HTMl itself
     },
     attributes: {
-        headerTitle: {
-            type: "string",
-            source: "html",
-            selector: "h2",
-        },
-        id: {
-            type: "number",
-        },
-        alt: {
-            type: "string",
-            source: "attribute", // Will be stored in the alt attribute of img-tag element
-            selector: "img",
-            attribute: "alt",
-            default: "",
-        },
-        url: {
-            type: "string",
-            source: "attribute",
-            selector: "img",
-            attribute: "src",
-        },
+        ...metaDataHeader,
     },
 };
 
