@@ -20,7 +20,6 @@ const metaDataHeader = {
         attribute: "alt",
         default: "",
     },
-
 };
 
 export default metaDataHeader;

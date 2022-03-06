@@ -24,6 +24,7 @@ const RangeScoreImage = ({ attributes, setAttributes }) => {
 
     /* This is to set the countImages array. */
     useEffect(() => {
+        setCountImages([])
         for (let i = 0; i < rangeScore; i++) {
             setCountImages((prevCountImages) => [...prevCountImages, i]);
         }
@@ -138,11 +139,11 @@ const RangeScoreImage = ({ attributes, setAttributes }) => {
                     className={`score-range ${isBlobURL(rangeScoreImgUrl) ? " is-loading" : ""
                         }`}
                 >
-                    <div className="score-range__original-image">
+                    {/* <div className="score-range__original-image">
                         {[1, 2, 3, 4, 5, 6].map((_item, _index) => {
                             return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;
                         })}
-                    </div>
+                    </div> */}
                     <div className="score-range__dynamic-image">
                         {countImages.map((_countImage) => {
                             return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;

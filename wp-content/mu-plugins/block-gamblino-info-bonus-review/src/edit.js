@@ -9,6 +9,7 @@ const Edit = () => {
 	const innerContentTemplate = [
 		["gamblino-block/features-header"],
 		["gamblino-block/features-range-score-img"],
+		["gamblino-block/features-body-content"],
 	];
 
 	return (
@@ -17,6 +18,7 @@ const Edit = () => {
 				allowedBlocks={[
 					"gamblino-block/features-header",
 					"gamblino-block/features-range-score-img",
+					"gamblino-block/features-body-content",
 				]}
 				template={innerContentTemplate}
 			/>
