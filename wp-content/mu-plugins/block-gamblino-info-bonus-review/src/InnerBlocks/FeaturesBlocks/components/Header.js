@@ -1,40 +1,26 @@
-import { useState, useEffect, useRef } from "@wordpress/element";
+import { useState, useEffect } from "@wordpress/element";
 
 import { __ } from "@wordpress/i18n";
 import {
-    useBlockProps,
     RichText,
     MediaPlaceholder,
-    BlockControls,
-    MediaReplaceFlow,
-    InspectorControls,
     store as blockEditorStore,
 } from "@wordpress/block-editor";
-import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
+import { isBlobURL } from "@wordpress/blob";
 
-import {
-    Spinner,
-    withNotices,
-    ToolbarButton,
-    PanelBody,
-    TextareaControl,
-    SelectControl,
-    Icon,
-    Tooltip,
-    TextControl,
-    Button,
-} from "@wordpress/components";
+import { Spinner, withNotices, ToolbarButton } from "@wordpress/components";
 
 import { useSelect } from "@wordpress/data";
+
+// Components
+import InspectorControlsImage from "../../../components/InspectorControls/InspectorControlsImage";
+import BlockControlsMediaReplaceFlow from "../../../components/BlockControls/BlockControlsMediaReplaceFlow";
 
 import "./Header.scss";
 
 const Header = ({ setAttributes, ...attributes }) => {
     const { headerTitle, id, url, alt, noticeUI } = attributes;
     const [blobURL, setBlobURL] = useState(undefined);
-    const [selectedSocialMediaLink, setSelectedSocialMediaLink] = useState(
-        undefined
-    );
 
     useEffect(() => {
         // checking if there is no image ID
@@ -42,17 +28,6 @@ const Header = ({ setAttributes, ...attributes }) => {
             setAttributes({ url: undefined, alt: "" });
         }
     }, []);
-
-    /* This is a way to revoke (basically free the memory and optimize it) the blob URL when the url is changed. */
-    useEffect(() => {
-        if (isBlobURL(url)) {
-            setBlobURL(url);
-        } else {
-            // if it is not blob URL, but normal URL, then we need to revoke the old blobl URL
-            revokeBlobURL(blobURL);
-            setBlobURL(undefined);
-        }
-    }, [url]);
 
     // prettier-ignore
     const onSelectImageHandler = (image) => {
@@ -129,49 +104,26 @@ const Header = ({ setAttributes, ...attributes }) => {
 
     return (
         <>
-            <InspectorControls>
-                <PanelBody title={__("Image settings", "team-members")}>
-                    {id && (
-                        <SelectControl
-                            label={__("Image Size", "team-members")}
-                            options={getImageSizeOptions()}
-                            value={url}
-                            onChange={onChangeImageSizeHandler}
-                        />
-                    )}
+            <InspectorControlsImage
+                imageId={id}
+                imageUrl={url}
+                blobURL={blobURL}
+                setBlobURL={setBlobURL}
+                onChangeImageSize={onChangeImageSizeHandler}
+                imageAlt={alt}
+                onChangeAlt={onChangeAltImageTextHandler}
+                getImageSizeOptions={getImageSizeOptions()}
+            />
 
-                    {url && !isBlobURL(url) && (
-                        <TextareaControl
-                            label={__("Alt Image text", "team-members")}
-                            help={__(
-                                "Alternative text describes your image to people can't see it. Add a short description with its key details.",
-                                "team-members"
-                            )}
-                            value={alt}
-                            onChange={onChangeAltImageTextHandler}
-                        />
-                    )}
-                </PanelBody>
-            </InspectorControls>
+            <BlockControlsMediaReplaceFlow
+                imageId={id}
+                imageUrl={url}
+                onSelectImage={onSelectImageHandler}
+                onSelectURL={onSelectURLImageHandler}
+                onError={onUploadErrorHandler}
+                onClickRemoveImage={onClickRemoveImageHandler}
+            />
 
-            {url && (
-                <BlockControls group="inline">
-                    {/* This component will ensure we can replace the old image value with new one */}
-                    <MediaReplaceFlow
-                        name={__("Replace Image", "team-member")}
-                        onSelect={onSelectImageHandler}
-                        onSelectURL={onSelectURLImageHandler}
-                        onError={onUploadErrorHandler}
-                        accept={"image/*"} //Will disable files that is not image
-                        mediaId={id}
-                        mediaUrl={url}
-                    />
-
-                    <ToolbarButton onClick={onClickRemoveImageHandler}>
-                        {__("Remove Image", "team-members")}
-                    </ToolbarButton>
-                </BlockControls>
-            )}
             <header className="header">
                 {url && (
                     <div
