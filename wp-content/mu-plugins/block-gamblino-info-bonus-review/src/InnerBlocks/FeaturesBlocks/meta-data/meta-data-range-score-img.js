@@ -1,26 +1,22 @@
-const metaDataHeader = {
-    headerTitle: {
-        type: "string",
-        source: "html",
-        selector: "h2",
+const metaDataRangeScoreImg = {
+    reviewScore: {
+        type: "number",
+        default: 2,
     },
-    id: {
+    reviewImgid: {
         type: "number",
     },
-    url: {
+    reviewImgUrl: {
         type: "string",
         source: "attribute",
         selector: "img",
         attribute: "src",
     },
-    alt: {
+    reviewImgalt: {
         type: "string",
         source: "attribute", // Will be stored in the alt attribute of img-tag element
         selector: "img",
         attribute: "alt",
         default: "",
     },
-
-};
-
-export default metaDataHeader;
+}

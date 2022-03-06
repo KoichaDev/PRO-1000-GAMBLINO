@@ -1,5 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import metaDataHeader from "./meta-data/meta-data-header";
+import metaDataRangeScoreImg from "./meta-data/meta-data-range-score-img";
 
 const metaData = {
     title: __("Review Feature", "block-gamblino"),
@@ -12,6 +13,7 @@ const metaData = {
     },
     attributes: {
         ...metaDataHeader,
+        ...metaDataRangeScoreImg,
     },
 };
 

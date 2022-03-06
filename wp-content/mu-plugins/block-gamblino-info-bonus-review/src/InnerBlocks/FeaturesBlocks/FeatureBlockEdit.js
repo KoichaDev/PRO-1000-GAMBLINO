@@ -1,5 +1,5 @@
 // WP Components
-import Header from "./FeatureBlockHeader";
+import Header from "./Header/Header";
 
 const BlockEditTeamMember = ({ ...props }) => {
     return (

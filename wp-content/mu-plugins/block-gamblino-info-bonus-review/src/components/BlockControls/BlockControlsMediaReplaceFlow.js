@@ -3,7 +3,7 @@ import { ToolbarButton } from "@wordpress/components";
 import { BlockControls, MediaReplaceFlow } from "@wordpress/block-editor";
 
 const BlockControlsMediaReplaceFlow = (props) => {
-    const { imageUrl, imageId, mediaUrl, onSelectImage, onSelectURL, onClickRemoveImage, onError } = props;
+    const { imageUrl, imageId, onSelectImage, onSelectURL, onClickRemoveImage, onError } = props;
 
     return (
         <>

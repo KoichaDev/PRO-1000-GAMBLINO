@@ -1,26 +1,27 @@
 import { useState, useEffect } from "@wordpress/element";
 
 import { __ } from "@wordpress/i18n";
-import {
-    RichText,
-    MediaPlaceholder,
-    store as blockEditorStore,
-} from "@wordpress/block-editor";
+import { RichText, store as blockEditorStore } from "@wordpress/block-editor";
 import { isBlobURL } from "@wordpress/blob";
 
-import { Spinner, withNotices, ToolbarButton } from "@wordpress/components";
+import { withNotices } from "@wordpress/components";
 
 import { useSelect } from "@wordpress/data";
 
-// Components
-import InspectorControlsImage from "../../components/InspectorControls/InspectorControlsImage";
-import BlockControlsMediaReplaceFlow from "../../components/BlockControls/BlockControlsMediaReplaceFlow";
+// WordpRess Sidebar Components
+import InspectorControlsImage from "../../../components/InspectorControls/ControlsImage";
+import BlockControlsMediaReplaceFlow from "../../../components/BlockControls/BlockControlsMediaReplaceFlow";
+import InspectorControlsRangeControl from "../../../components/InspectorControls/ControlsRangeControl";
 
-import "./FeatureBlockHeader.scss";
+// Feature Blocks components
+import HeaderImage from "./HeaderImage";
 
-const FeatureBlockHeaderHeader = ({ ...props }) => {
+// Style
+import "./Header.scss";
+
+const Header = ({ ...props }) => {
     const { setAttributes, attributes } = props;
-    const { headerTitle, id, url, alt, noticeUI } = attributes;
+    const { headerTitle, reviewScore, id, url, alt, noticeUI } = attributes;
     const [blobURL, setBlobURL] = useState(undefined);
 
     const setHeaderTitleHandler = (titleValue) => {
@@ -34,12 +35,24 @@ const FeatureBlockHeaderHeader = ({ ...props }) => {
         }
     }, []);
 
+    useEffect(() => {
+        setAttributes({ reviewScore });
+    }, [reviewScore, id, url]);
+
     // prettier-ignore
     const onSelectImageHandler = (image) => {
         if (!image || !image.url) {
             return setAttributes({ id: undefined, url: undefined, alt: '' })
         }
         return setAttributes({ id: image.id, url: image.url, alt: image.alt })
+    };
+
+    const onSelectURLImageHandler = (urlImage) => {
+        setAttributes({
+            id: undefined,
+            url: urlImage,
+            alt: undefined,
+        });
     };
 
     const onUploadErrorHandler = (messageError) => {
@@ -52,14 +65,6 @@ const FeatureBlockHeaderHeader = ({ ...props }) => {
 
     const onChangeAltImageTextHandler = (altValue) => {
         setAttributes({ alt: altValue });
-    };
-
-    const onSelectURLImageHandler = (urlImage) => {
-        setAttributes({
-            id: undefined,
-            url: urlImage,
-            alt: undefined,
-        });
     };
 
     // prettier-ignore
@@ -124,27 +129,21 @@ const FeatureBlockHeaderHeader = ({ ...props }) => {
                 onClickRemoveImage={onClickRemoveImageHandler}
             />
 
+            <InspectorControlsRangeControl
+                label={__("Score Range", "team-members")}
+                value={reviewScore}
+                onChange={(rangeValue) => setAttributes({ reviewScore: rangeValue })}
+                min={1}
+                max={6}
+            />
+
             <header className="header">
-                {url && (
-                    <div
-                        className={`wp-block-blocks-course-team-member-img ${isBlobURL(url) ? " is-loading" : ""
-                            }`}
-                    >
-                        <img src={url} alt={alt} />
-                        {isBlobURL(url) && <Spinner />}
-                    </div>
-                )}
-                <MediaPlaceholder
-                    icon="admin-users"
+                <HeaderImage
                     onSelect={onSelectImageHandler}
                     onSelectURL={onSelectURLImageHandler}
                     onError={onUploadErrorHandler}
-                    accept={"image/*"} //Will disable files that is not image
-                    allowedTypes={["image"]} // This will show on the computer the files are not image will be disabled (can't be selected)
-                    disableMediaButtons={url} // This will disable the media upload if there is a image being selected
-                    notices={noticeUI}
+                    {...attributes}
                 />
-
                 <RichText
                     tagName={"h2"}
                     value={headerTitle}
@@ -156,4 +155,4 @@ const FeatureBlockHeaderHeader = ({ ...props }) => {
     );
 };
 
-export default withNotices(FeatureBlockHeaderHeader);
+export default withNotices(Header);

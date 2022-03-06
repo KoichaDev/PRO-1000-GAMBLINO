@@ -9,7 +9,7 @@ import {
     SelectControl,
 } from "@wordpress/components";
 
-const InspectorControlsImage = (props) => {
+const ControlsImage = (props) => {
     // prettier-ignore
     const { imageId, imageUrl, blobURL, setBlobURL, onChangeImageSize, imageAlt, onChangeAlt, getImageSizeOptions } = props;
 
@@ -52,4 +52,4 @@ const InspectorControlsImage = (props) => {
     );
 };
 
-export default InspectorControlsImage;
+export default ControlsImage;
