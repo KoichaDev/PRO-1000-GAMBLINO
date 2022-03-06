@@ -1,10 +1,15 @@
-import { useState, useEffect } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import {
+    useBlockProps,
+    RichText,
+    BlockControls,
+} from "@wordpress/block-editor";
 import { Icon, Tooltip } from "@wordpress/components";
 
 const FeatureBodyContentEdit = ({ attributes, setAttributes }) => {
     const { featureTitle, featureListText } = attributes;
+    const [selectedText, setSelectedText] = useState(undefined);
 
     const onChangeTextHandler = (selectedIndexPosition, key, value) => {
         const featureListTextCopy = [...featureListText];
@@ -22,6 +27,17 @@ const FeatureBodyContentEdit = ({ attributes, setAttributes }) => {
         });
     };
 
+    const onRemoveTextHandler = (selectedTextIndexPosition) => {
+        setAttributes({
+            featureListText: [
+                /* This is a JavaScript method called `splice`. It allows you to remove an item from an array and
+                replace it with another item. */
+                ...featureListText.slice(0, selectedTextIndexPosition),
+                ...featureListText.slice(selectedTextIndexPosition + 1),
+            ],
+        });
+    };
+
     return (
         <div {...useBlockProps()}>
             <RichText
@@ -33,16 +49,32 @@ const FeatureBodyContentEdit = ({ attributes, setAttributes }) => {
             <hr />
 
             <div className="gamblino-feature-list">
+                {featureListText[selectedText] && (
+                    <BlockControls
+                        controls={[
+                            {
+                                title: __("Remove text", "block-gamblino"),
+                                icon: "trash",
+                                onClick: onRemoveTextHandler.bind(null, selectedText),
+                            },
+                        ]}
+                    ></BlockControls>
+                )}
                 <ul>
                     {featureListText.map((featureList, index) => {
                         return (
-                            <li key={index}>
+                            <li
+                                key={index}
+                                onKeyDown={(e) => e.key === "enter" && setSelectedText(index)}
+                                onClick={() => setSelectedText(index)}
+                            >
                                 <RichText
                                     tagName={"p"}
                                     value={featureList.text}
                                     onChange={(value) =>
                                         onChangeTextHandler(index, "text", value)
                                     }
+                                    allowedFormats={[]} // Allow the content to be made bold or italic, but do not allow other formatting options
                                     placeholder={__("Add a text...", "block-gamblino")}
                                 />
                             </li>
