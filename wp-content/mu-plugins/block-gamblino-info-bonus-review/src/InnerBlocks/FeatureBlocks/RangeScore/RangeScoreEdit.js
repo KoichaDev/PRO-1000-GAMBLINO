@@ -2,6 +2,7 @@
 import { __ } from "@wordpress/i18n";
 import { useState, useEffect } from "@wordpress/element";
 import {
+    useBlockProps,
     MediaPlaceholder,
     store as blockEditorStore,
 } from "@wordpress/block-editor";
@@ -17,18 +18,34 @@ import "./RangeScoreEdit.scss";
 
 const RangeScoreImage = ({ attributes, setAttributes }) => {
     // prettier-ignore
-    const { rangeScore, rangeScoreImgId, rangeScoreImgUrl, rangeScoreImgAlt, noticeUI } = attributes;
+    const { rangeScore, countImages, rangeScoreImgId, rangeScoreImgUrl, rangeScoreImgAlt, noticeUI } = attributes;
+
+    const [objects, setObjects] = useState(countImages);
 
     const [blobURL, setBlobURL] = useState(undefined);
-    const [countImages, setCountImages] = useState([1, rangeScore]);
 
-    /* This is to set the countImages array. */
-    useEffect(() => {
-        setCountImages([])
-        for (let i = 0; i < rangeScore; i++) {
-            setCountImages((prevCountImages) => [...prevCountImages, i]);
-        }
-    }, [rangeScore, rangeScoreImgId, rangeScoreImgUrl]);
+    const onChangeRangeControlHandler = (rangeValue) => {
+        setAttributes({ rangeScore: rangeValue });
+
+        setObjects((prevObjects) => {
+            if (prevObjects.length <= rangeScore) {
+                // increasing
+                const difference = rangeScore - prevObjects.length;
+                return prevObjects.concat(
+                    Array.from({ length: difference }, (_, index) => ({
+                        id: index + 1 + prevObjects.length,
+                    }))
+                );
+            } else {
+                // decreasing
+                return prevObjects.filter((object) => object.id <= rangeScore);
+            }
+        });
+    };
+
+    setAttributes({
+        countImages: objects,
+    });
 
     const onChangeImageSizeHandler = (newImageURL) => {
         setAttributes({ rangeScoreImgUrl: newImageURL });
@@ -119,8 +136,8 @@ const RangeScoreImage = ({ attributes, setAttributes }) => {
 
             <InspectorControlsRangeControl
                 label={__("Score Range", "team-members")}
-                value={rangeScore}
-                onChange={(rangeValue) => setAttributes({ rangeScore: rangeValue })}
+                value={objects.length}
+                onChange={onChangeRangeControlHandler}
                 min={1}
                 max={6}
             />
@@ -133,25 +150,15 @@ const RangeScoreImage = ({ attributes, setAttributes }) => {
                 onError={onErrorUploadHandler}
                 onClickRemoveImage={onClickRemoveImageHandler}
             />
-
             {rangeScoreImgUrl && (
-                <div
-                    className={`score-range ${isBlobURL(rangeScoreImgUrl) ? " is-loading" : ""
-                        }`}
-                >
-                    {/* <div className="score-range__original-image">
-                        {[1, 2, 3, 4, 5, 6].map((_item, _index) => {
-                            return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;
-                        })}
-                    </div> */}
-                    <div className="score-range__dynamic-image">
-                        {countImages.map((_countImage) => {
-                            return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;
-                        })}
-                        {isBlobURL(rangeScoreImgUrl) && <Spinner />}
-                    </div>
-                </div>
+                <figure>
+                    {objects.map((_countImage) => {
+                        return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;
+                    })}
+                </figure>
             )}
+            {isBlobURL(rangeScoreImgUrl) && <Spinner />}
+
             <MediaPlaceholder
                 icon="admin-users"
                 onSelect={onSelectImageHandler}

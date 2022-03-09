@@ -1,16 +1,23 @@
 import { useBlockProps } from "@wordpress/block-editor";
 
 const RangeScoreSave = ({ attributes }) => {
-    const { rangeScoreImgId, rangeScoreImgUrl, rangeScoreImgAlt } = attributes;
+    const {
+        countImages,
+        rangeScoreImgId,
+        rangeScoreImgUrl,
+        rangeScoreImgAlt,
+    } = attributes;
 
     return (
-        <div {...useBlockProps.save()}>
-            <img
-                src={rangeScoreImgUrl}
-                alt={rangeScoreImgAlt}
-                className={rangeScoreImgId ? `wp-image-${rangeScoreImgId}` : null}
-            />
-        </div>
+        <>
+            {rangeScoreImgUrl && (
+                <figure>
+                    {countImages.map((_countImage) => {
+                        return <img src={rangeScoreImgUrl} alt={rangeScoreImgAlt} />;
+                    })}
+                </figure>
+            )}
+        </>
     );
 };
 

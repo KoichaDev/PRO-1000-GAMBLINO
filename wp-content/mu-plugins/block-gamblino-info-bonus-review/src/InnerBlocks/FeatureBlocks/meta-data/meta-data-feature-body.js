@@ -4,7 +4,6 @@ const metaDataFeatureBodyList = {
         source: "html",
         selector: "h2",
     },
-
     featureListText: {
         type: "array",
         selector: ".gamblino-feature-list ul li",

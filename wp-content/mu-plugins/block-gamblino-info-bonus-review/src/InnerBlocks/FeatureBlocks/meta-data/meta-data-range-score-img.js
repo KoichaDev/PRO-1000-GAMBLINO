@@ -3,6 +3,11 @@ const metaDataRangeScoreImg = {
         type: "number",
         default: 2,
     },
+    countImages: {
+        type: "array",
+        source: "query",
+        default: [{ id: 1 }, { id: 2 }],
+    },
     rangeScoreImgId: {
         type: "number",
     },
@@ -19,5 +24,5 @@ const metaDataRangeScoreImg = {
         attribute: "alt",
         default: "",
     },
-}
+};
 export default metaDataRangeScoreImg;
