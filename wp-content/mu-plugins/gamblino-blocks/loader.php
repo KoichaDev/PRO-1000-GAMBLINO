@@ -1,19 +1,25 @@
 <?php
 /**
- * Plugin Name:       Block Gamblino Info Bonus Review
- * Description:       Example static block scaffolded with Create Block tool.
+ * Plugin Name:       Gamblino Blocks
+ * Description:       Multiple Custom Gamblino Blocks
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Gamblino Team
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       block-gamblino-info-bonus-review
+ * Text Domain:       block-gamblino
  *
  * @package           gamblino-block
  */
 
-function gamblino_block_info_bonus_review_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function gamblino_blocks_init() {
+	$blocks = [
+		'block-info-bonus-review/'
+	];
+
+	foreach ($blocks as $block) {
+		register_block_type( plugin_dir_path( __FILE__ ) . 'blocks/' . $block );
+	}
 }
-add_action( 'init', 'gamblino_block_info_bonus_review_block_init' );
+add_action( 'init', 'gamblino_blocks_init' );

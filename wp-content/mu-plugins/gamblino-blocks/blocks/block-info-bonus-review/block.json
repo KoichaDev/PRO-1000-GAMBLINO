@@ -1,5 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "gamblino-block/info-bonus-review",
 	"version": "0.1.0",
@@ -12,7 +11,7 @@
 		"html": false
 	},
 	"textdomain": "block-gamblino",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"editorScript": "file:../../build/blocks/block-info-bonus-review.js",
+	"editorStyle": "file:../../build/blocks/block-info-bonus-review.css",
+	"style": "file:../../build/blocks/style-block-info-bonus-review.css"
 }
