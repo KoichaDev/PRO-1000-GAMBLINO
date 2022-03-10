@@ -10,9 +10,9 @@ import { Spinner } from "@wordpress/components";
 import { isBlobURL } from "@wordpress/blob";
 import { useSelect } from "@wordpress/data";
 
-import InspectorControlsImage from "../../../components/InspectorControls/ControlsImage";
-import InspectorControlsRangeControl from "../../../components/InspectorControls/ControlsRangeControl";
-import BlockControlsMediaReplaceFlow from "../../../components/BlockControls/BlockControlsMediaReplaceFlow";
+import InspectorControlsImage from "../../../../block-wordpress-components/block-inspector-controls/ControlsImage";
+import InspectorControlsRangeControl from "../../../../block-wordpress-components/block-inspector-controls/ControlsRangeControl";
+import BlockControlsMediaReplaceFlow from "../../../../block-wordpress-components/block-controls/BlockControlsMediaReplaceFlow";
 
 import "./RangeScoreEdit.scss";
 

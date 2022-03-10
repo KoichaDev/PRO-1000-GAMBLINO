@@ -7,8 +7,8 @@ import { Spinner } from "@wordpress/components";
 import { isBlobURL } from "@wordpress/blob";
 import { useSelect } from "@wordpress/data";
 
-import InspectorControlsImage from "../../../components/InspectorControls/ControlsImage";
-import BlockControlsMediaReplaceFlow from "../../../components/BlockControls/BlockControlsMediaReplaceFlow";
+import InspectorControlsImage from "../../../../block-wordpress-components/block-inspector-controls/ControlsImage";
+import BlockControlsMediaReplaceFlow from "../../../../block-wordpress-components/block-controls/BlockControlsMediaReplaceFlow";
 
 const HeaderImage = ({ blobURL, setBlobURL, ...props }) => {
     const { attributes, setAttributes } = props;
