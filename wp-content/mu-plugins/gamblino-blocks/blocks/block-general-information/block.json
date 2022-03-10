@@ -1,0 +1,25 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/general-information",
+	"version": "1.0.0",
+	"title": "Block Gamblino General information",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Gamblino Info Bonus Review Block",
+	"keywords": [
+		"gamblino",
+		"bonus",
+		"info",
+		"review",
+		"about us",
+		"advantages",
+		"limitations"
+	],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "block-gamblino",
+	"editorScript": "file:../../build/block-general-information.js",
+	"editorStyle": "file:../../build/block-general-information.css",
+	"style": "file:../../build/style-block-general-information.css"
+}

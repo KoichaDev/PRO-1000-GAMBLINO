@@ -11,7 +11,7 @@
 		"html": false
 	},
 	"textdomain": "block-gamblino",
-	"editorScript": "file:../../build/blocks/block-info-bonus-review.js",
-	"editorStyle": "file:../../build/blocks/block-info-bonus-review.css",
-	"style": "file:../../build/blocks/style-block-info-bonus-review.css"
+	"editorScript": "file:../../build/block-info-bonus-review.js",
+	"editorStyle": "file:../../build/block-info-bonus-review.css",
+	"style": "file:../../build/style-block-info-bonus-review.css"
 }
