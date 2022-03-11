@@ -20,7 +20,7 @@ function gamblino_blocks_init() {
 	];
 
 	foreach ($blocks as $block) {
-		register_block_type( plugin_dir_path( __FILE__ ) . 'blocks/' . $block );
+		register_block_type( plugin_dir_path( __FILE__ ) . 'includes/blocks/' . $block );
 	}
 }
 add_action( 'init', 'gamblino_blocks_init' );

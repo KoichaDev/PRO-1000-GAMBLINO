@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
     ...defaultConfig,
     entry: {
-        'block-info-bonus-review': './blocks/block-info-bonus-review',
-        'block-general-information': './blocks/block-general-information'
+        'block-info-bonus-review': './includes/blocks/block-info-bonus-review',
+        'block-general-information': './includes/blocks/block-general-information'
     }
 };
