@@ -7,10 +7,10 @@ const HeaderSave = ({ attributes }) => {
     return (
         <div {...useBlockProps.save()}>
             {author && (
-                <div>
-                    <p>Author Name:</p>
-                    <RichText.Content value={author} tagName="p" />
-                </div>
+                <dl>
+                    <dt>Author Name:</dt>
+                    <RichText.Content value={author} tagName="dd" />
+                </dl>
             )}
         </div>
     );

@@ -6,6 +6,7 @@ export const useGetCurrentPostAuthorName = () => {
 
     return useSelect((select) => {
         const authors = select("core").getAuthors({ who: "authors" });
+
         return authors.find((author) => {
             if (author.id === authorId) return author;
         });

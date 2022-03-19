@@ -18,22 +18,22 @@ const metaDataHeader = {
     author: {
         type: "string",
         source: "html",
-        selector: "p",
+        selector: "dd",
     },
     lastUpdated: {
         type: "string",
         source: "html",
-        selector: "time",
+        selector: "dd",
     },
     topic: {
         type: "string",
         source: "html",
-        selector: "p",
+        selector: "dd",
     },
     experiences: {
         type: "string",
         source: "html",
-        selector: "p",
+        selector: "dd",
     },
 };
 
