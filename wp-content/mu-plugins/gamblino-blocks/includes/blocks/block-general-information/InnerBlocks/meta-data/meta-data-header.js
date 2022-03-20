@@ -1,14 +1,16 @@
 const metaDataHeader = {
-    imageId: {
+    id: {
         type: "number",
+        default: 0,
     },
-    imageUrl: {
+    url: {
         type: "string",
         source: "attribute",
         selector: "img",
         attribute: "src",
+        default: ''
     },
-    imageAlt: {
+    alt: {
         type: "string",
         source: "attribute",
         selector: "img",
@@ -20,11 +22,11 @@ const metaDataHeader = {
     },
     postLastUpdated: {
         type: "string",
-       
+
     },
     topicName: {
         type: "string",
-      
+
     },
     experiences: {
         type: "string",

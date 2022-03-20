@@ -3,10 +3,13 @@ import { useBlockProps } from "@wordpress/block-editor";
 import { RichText } from "@wordpress/block-editor";
 
 const HeaderSave = ({ attributes }) => {
-    const { author, postLastUpdated, topicName, experiences } = attributes;
+    const { author, postLastUpdated, topicName, experiences, url, alt, id, } = attributes;
 
     return (
         <header {...useBlockProps.save()}>
+            {url && (
+                <img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
+            )}
             <dl>
                 <dt>{__('Author Name:', 'block-gamblino')}</dt>
                 {author && <dd>{author}</dd>}
