@@ -11,7 +11,6 @@ import './AboutBodyEdit.scss';
 
 const AboutBodyEdit = ({ attributes, setAttributes }) => {
     const { aboutTitle, aboutTitleTextColor, aboutBodyText, aboutBodyTextColor } = attributes
-    console.log(attributes);
 
     const [isClickedTitleRichText, setIsClickedTitleRichText] = useState(false)
     const [isClickedBodyRichText, setIsClickedBodyRichText] = useState(false)

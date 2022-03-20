@@ -2,6 +2,7 @@ import { __ } from "@wordpress/i18n";
 
 import metaDataHeader from "./meta-data/meta-data-header";
 import metaDataBody from "./meta-data/meta-data-body";
+import metaDataProsCons from './meta-data/meta-data-pros-cons';
 
 const metaData = {
     title: __("General Information Header", "block-gamblino"),
@@ -15,6 +16,7 @@ const metaData = {
     attributes: {
         ...metaDataHeader,
         ...metaDataBody,
+        ...metaDataProsCons,
     },
 };
 

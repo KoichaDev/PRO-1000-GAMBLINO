@@ -8,12 +8,19 @@ const Edit = () => {
 	const innerContentTemplate = [
 		["gamblino-block/inner-blocks-header"], 
 		['gamblino-block/inner-blocks-body'],
+		['gamblino-block/inner-blocks-pros-cons']
+	];
+
+	const allowedBlocks = [
+		"gamblino-block/inner-blocks-header", 
+		'gamblino-block/inner-blocks-body', 
+		'gamblino-block/inner-blocks-pros-cons'
 	];
 
 	return (
 		<section {...useBlockProps()}>
 			<InnerBlocks
-				allowedBlocks={["gamblino-block/inner-blocks-header", 'gamblino-block/inner-blocks-body']}
+				allowedBlocks={allowedBlocks}
 				template={innerContentTemplate}
 			/>
 		</section>
