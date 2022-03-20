@@ -12,16 +12,39 @@ import BlockColorPickerToolbar from '../../../block-wordpress-components/block-c
 import './ProsCons.scss';
 
 const ProsConsEdit = ({ attributes, setAttributes }) => {
-    const { titlePros, titleProsTextColor, prosTextLists } = attributes;
+    const {
+        titlePros,
+        titleProsTextColor,
+        prosTextLists,
+        titleCons,
+        titleConsTextColor,
+        consTextLists
+    } = attributes;
+
+    console.log(attributes);
 
     const [isClickedRichText, setIsClickedRichText] = useState(false)
+    const [isClickedColumnTwoRichText, setIsClickedColumnTwoRichText] = useState(false)
 
+    
     const [isVisibleColorPicker, setIsVisibleColorPicker] = useState(false);
+    const [isVisibleColumnTwoColorPicker, setIsVisibleColumnTwoColorPicker] = useState(false);
+
     const [titleColorPicker, setTitleColorPicker] = useState(titleProsTextColor);
+    const [titleColumnTwoColorPicker, setTitleColumnTwoColorPicker] = useState(titleConsTextColor);
 
     useEffect(() => setAttributes({ titleProsTextColor: titleColorPicker }), [titleColorPicker])
+    useEffect(() => setAttributes({ titleConsTextColor: titleColumnTwoColorPicker }), [titleColumnTwoColorPicker])
 
-    const onClickRichTextHandler = () => setIsClickedRichText(true)
+    const onClickRichTextHandler = () => {
+        setIsClickedRichText(true);
+        setIsClickedColumnTwoRichText(false);
+    }
+
+    const onClickRichTextColumnTwoHandler = () => {
+        setIsClickedColumnTwoRichText(true);
+        setIsClickedRichText(false);
+    }
 
     return <section {...useBlockProps({
         className: 'wp-block-gamblino-block-general-information__review-1'
@@ -56,6 +79,38 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
             />
 
             <ProsList prosTextLists={prosTextLists} setAttributes={setAttributes} />
+        </div>
+
+        <div className='wp-block-gamblino-block-general-information__review-2-column-two'>
+            <BlockColorPickerToolbar
+                title={__('Title Color', 'block-gamblino')}
+                isVisible={isClickedColumnTwoRichText}
+                onClick={() => setIsVisibleColumnTwoColorPicker(prevVisible => !prevVisible)}
+            />
+
+            {isVisibleColumnTwoColorPicker && (
+                <ColorPicker
+                    color={titleConsTextColor}
+                    onChange={setTitleColumnTwoColorPicker}
+                    enableAlpha
+                    defaultValue={titleConsTextColor}
+                />
+            )}
+
+            <RichText
+                {...useBlockProps({
+                    style: {
+                        color: titleConsTextColor,
+                    }
+                })}
+                tagName={"h3"}
+                value={__(titleCons, 'block-gamblino')}
+                onChange={(value) => setAttributes({ titleCons: value })}
+                placeholder={__("Title...", "block-gamblino")}
+                onClick={onClickRichTextColumnTwoHandler}
+            />
+
+            <ProsList prosTextLists={consTextLists} setAttributes={setAttributes} />
         </div>
     </section>
 }

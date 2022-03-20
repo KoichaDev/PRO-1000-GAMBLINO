@@ -28,12 +28,13 @@ const metaDataProsCons = {
     },
     titleConsTextColor: {
         type: 'string',
+        default: '#FF0000',
     },
     consTextLists: {
         type: "array",
         selector: ".gamblino-feature-list ul li",
         source: "query",
-        default: [{ text: "" }],
+        default: [{ text: "", textColor: '#FF0000' }],
         query: {
             text: {
                 type: "string",
