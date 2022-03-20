@@ -23,16 +23,15 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
 
     const onClickRichTextHandler = () => setIsClickedRichText(true)
 
-    return <>
-        <BlockColorPickerToolbar
-            title={__('Title Color', 'block-gamblino')}
-            isVisible={isClickedRichText}
-            onClick={() => setIsVisibleColorPicker(prevVisible => !prevVisible)}
-        />
-
-        <div {...useBlockProps({
-            className: 'wp-block-gamblino-block-general-information__list'
-        })}>
+    return <section {...useBlockProps({
+        className: 'wp-block-gamblino-block-general-information__review-1'
+    })}>
+        <div className='wp-block-gamblino-block-general-information__review-2-column-one'>
+            <BlockColorPickerToolbar
+                title={__('Title Color', 'block-gamblino')}
+                isVisible={isClickedRichText}
+                onClick={() => setIsVisibleColorPicker(prevVisible => !prevVisible)}
+            />
 
             {isVisibleColorPicker && (
                 <ColorPicker
@@ -55,11 +54,10 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
                 placeholder={__("Title...", "block-gamblino")}
                 onClick={onClickRichTextHandler}
             />
-            <hr />
 
             <ProsList prosTextLists={prosTextLists} setAttributes={setAttributes} />
         </div>
-    </>
+    </section>
 }
 
 export default ProsConsEdit

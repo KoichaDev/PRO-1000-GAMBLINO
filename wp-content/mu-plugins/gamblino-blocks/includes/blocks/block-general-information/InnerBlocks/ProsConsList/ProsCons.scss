@@ -1,3 +1,15 @@
-.wp-block-gamblino-block-general-information__list {
-    padding: 0 2.125em;
+.wp-block-gamblino-block-general-information__review-1 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "column-one column-two";
+	padding: 0 2.125em;
+
+	.wp-block-gamblino-block-general-information__review-2-column-one {
+		grid-area: column-one;
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+	}
 }

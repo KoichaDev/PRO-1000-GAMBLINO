@@ -6,12 +6,13 @@ const metaDataProsCons = {
     },
     titleProsTextColor: {
         type: 'string',
+        default: '#589822',
     },
     prosTextLists: {
         type: "array",
         selector: ".wp-block-gamblino-list-pros ul li",
         source: "query",
-        default: [{ text: "" }],
+        default: [{ text: "", textColor: '#589822' }],
         query: {
             text: {
                 type: "string",
@@ -41,7 +42,7 @@ const metaDataProsCons = {
             },
         },
     },
-  
+
 };
 
 export default metaDataProsCons;
