@@ -12,7 +12,7 @@ import AboutBodyEdit from './AboutBody/AboutBodyEdit';
 import AboutBodySave from './AboutBody/AboutBodySave';
 
 import ProsConsEdit from './ProsConsList/ProsConsEdit';
-import ProsConSave from './ProsConsList/ProsConSave';
+import ProsConsSave from './ProsConsList/ProsConsSave';
 
 registerBlockType("gamblino-block/inner-blocks-header", {
     ...metaData,
@@ -29,5 +29,5 @@ registerBlockType("gamblino-block/inner-blocks-body", {
 registerBlockType("gamblino-block/inner-blocks-pros-cons", {
     ...metaData,
     edit: ProsConsEdit,
-    save: ProsConSave,
+    save: ProsConsSave,
 });

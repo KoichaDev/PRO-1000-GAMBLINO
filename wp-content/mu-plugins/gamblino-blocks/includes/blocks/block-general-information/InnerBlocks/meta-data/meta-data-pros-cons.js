@@ -11,6 +11,7 @@ const metaDataProsCons = {
         type: "array",
         selector: ".gamblino-feature-list ul li",
         source: "query",
+        default: [{ text: "" }],
         query: {
             text: {
                 type: "string",
@@ -31,6 +32,7 @@ const metaDataProsCons = {
         type: "array",
         selector: ".gamblino-feature-list ul li",
         source: "query",
+        default: [{ text: "" }],
         query: {
             text: {
                 type: "string",

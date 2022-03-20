@@ -13,7 +13,7 @@ import './ProsCons.scss';
 
 const ProsConsEdit = ({ attributes, setAttributes }) => {
     const { titlePros, titleProsTextColor, prosTextLists } = attributes;
-    
+
     const [isClickedRichText, setIsClickedRichText] = useState(false)
 
     const [isVisibleColorPicker, setIsVisibleColorPicker] = useState(false);
@@ -21,15 +21,13 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
 
     useEffect(() => setAttributes({ titleProsTextColor: titleColorPicker }), [titleColorPicker])
 
-    const onClickRichTextHandler = () => {
-        setIsClickedRichText(true)
-    }
+    const onClickRichTextHandler = () => setIsClickedRichText(true)
 
     return <>
-        <BlockColorPickerToolbar 
-            title={'Title Color'} 
-            isVisible={isClickedRichText} 
-            onClick={() => setIsVisibleColorPicker(prevVisible => !prevVisible)} 
+        <BlockColorPickerToolbar
+            title={'Title Color'}
+            isVisible={isClickedRichText}
+            onClick={() => setIsVisibleColorPicker(prevVisible => !prevVisible)}
         />
 
         <div {...useBlockProps({
