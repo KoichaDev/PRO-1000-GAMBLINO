@@ -65,7 +65,6 @@ const HeaderEdit = ({ attributes, setAttributes }) => {
             <li>
                 <p>{__('Topic:', 'block-gamblino')}</p>
                 <RichText
-                    className="wp-block-gamblino-block-general-information__header__dt-topic-value"
                     value={topicName}
                     onChange={(value) => setAttributes({ topicName: value })}
                     tagName="p"

@@ -5,12 +5,15 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 import "./editor.scss";
 
 const Edit = () => {
-	const innerContentTemplate = [["gamblino-block/inner-blocks-header"]];
+	const innerContentTemplate = [
+		["gamblino-block/inner-blocks-header"], 
+		['gamblino-block/inner-blocks-body'],
+	];
 
 	return (
 		<section {...useBlockProps()}>
 			<InnerBlocks
-				allowedBlocks={["gamblino-block/inner-blocks-header"]}
+				allowedBlocks={["gamblino-block/inner-blocks-header", 'gamblino-block/inner-blocks-body']}
 				template={innerContentTemplate}
 			/>
 		</section>
