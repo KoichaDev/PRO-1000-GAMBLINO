@@ -1,0 +1,43 @@
+.wp-block-gamblino-block-general-information__header {
+	display: grid;
+	grid-template-columns: fit-content(100%) fit-content(100%) fit-content(100%) fit-content(100%);
+	grid-template-areas:
+		"author-key post-date-key topic-key experiences-key"
+		"author-value post-date-value topic-value experiences-value";
+
+	.wp-block-gamblino-block-general-information__header__dt-author-key {
+		grid-area: author-key;
+	}
+
+	.wp-block-gamblino-block-general-information__header__dd-author-value {
+		grid-area: author-value;
+	}
+
+	.wp-block-gamblino-block-general-information__header__dt-post-date-key {
+		grid-area: post-date-key;
+	}
+
+	.wp-block-gamblino-block-general-information__header__dt-post-date-value {
+		grid-area: post-date-value;
+	}
+
+	.wp-block-gamblino-block-general-information__header__dt-topic-key {
+		grid-area: topic-key;
+	}
+
+	.wp-block-gamblino-block-general-information__header__dt-topic-value {
+		grid-area: topic-value;
+	}
+
+	dt {
+        padding: 0 2em;
+		border-right: solid rgba(0, 0, 0, 0.1);
+	}
+
+	dd {
+        padding: 0 2em;
+
+		border-right: solid rgba(0, 0, 0, 0.1);
+		margin: 0;
+	}
+}
