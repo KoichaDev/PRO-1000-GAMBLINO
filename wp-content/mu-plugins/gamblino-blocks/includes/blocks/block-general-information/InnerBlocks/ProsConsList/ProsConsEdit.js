@@ -25,7 +25,7 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
 
     return <>
         <BlockColorPickerToolbar
-            title={'Title Color'}
+            title={__('Title Color', 'block-gamblino')}
             isVisible={isClickedRichText}
             onClick={() => setIsVisibleColorPicker(prevVisible => !prevVisible)}
         />
@@ -50,7 +50,7 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
                     }
                 })}
                 tagName={"h3"}
-                value={titlePros}
+                value={__(titlePros, 'block-gamblino')}
                 onChange={(value) => setAttributes({ titlePros: value })}
                 placeholder={__("Title...", "block-gamblino")}
                 onClick={onClickRichTextHandler}

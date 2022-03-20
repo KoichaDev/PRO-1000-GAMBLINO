@@ -9,7 +9,7 @@ const metaDataProsCons = {
     },
     prosTextLists: {
         type: "array",
-        selector: ".gamblino-feature-list ul li",
+        selector: ".wp-block-gamblino-list-pros ul li",
         source: "query",
         default: [{ text: "" }],
         query: {
