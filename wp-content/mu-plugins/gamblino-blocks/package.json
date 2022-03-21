@@ -24,6 +24,7 @@
 		"@wordpress/element": "^4.1.1",
 		"@wordpress/i18n": "^4.3.1",
 		"date-fns": "^2.28.0",
+		"emotion": "^11.0.0",
 		"react-icons": "^4.3.1"
 	},
 	"devDependencies": {
