@@ -7,18 +7,36 @@
 	.wp-block-gamblino-block-general-information__review-2-column-one {
 		grid-area: column-one;
 
+		.wp-block-gamblino-block-general-information__review-3-pros-list {
+			border-left: 3px solid #589822;
+			padding-left: 0.5em;
+		}
+
 		ul {
 			list-style: none;
 			padding: 0;
+
+			li p {
+				color: #589822;
+			}
 		}
 	}
 
-    .wp-block-gamblino-block-general-information__review-2-column-two {
+	.wp-block-gamblino-block-general-information__review-2-column-two {
 		grid-area: column-two;
+
+		.wp-block-gamblino-block-general-information__review-3-cons-list {
+			border-left: 3px solid #DD1305;
+			padding-left: 0.5em;
+		}
 
 		ul {
 			list-style: none;
 			padding: 0;
+
+			li p {
+				color: #DD1305;
+			}
 		}
 	}
 }
