@@ -5,32 +5,32 @@ import { Icon, Tooltip } from "@wordpress/components";
 
 import './ProsCons.scss';
 
-const ProsList = ({ prosTextLists, setAttributes }) => {
+const ListPros = ({ consTextLists, setAttributes }) => {
     const [selectedText, setSelectedText] = useState(undefined);
 
     const onChangeTextHandler = (selectedIndexPosition, key, value) => {
-        const prosTextListsCopy = [...prosTextLists];
+        const consTextListsCopy = [...consTextLists];
 
-        [(prosTextListsCopy[selectedIndexPosition][key] = value)];
+        [(consTextListsCopy[selectedIndexPosition][key] = value)];
 
         setAttributes({
-            text: prosTextListsCopy,
+            text: consTextListsCopy,
         });
     };
 
     const newListHandler = () => {
         setAttributes({
-            prosTextLists: [...prosTextLists, { text: "" }],
+            consTextLists: [...consTextLists, { text: "" }],
         });
     };
 
     const onRemoveTextHandler = (selectedTextIndexPosition) => {
         setAttributes({
-            prosTextLists: [
+            consTextLists: [
                 /* This is a JavaScript method called `splice`. It allows you to remove an item from an array and
                 replace it with another item. */
-                ...prosTextLists.slice(0, selectedTextIndexPosition),
-                ...prosTextLists.slice(selectedTextIndexPosition + 1),
+                ...consTextLists.slice(0, selectedTextIndexPosition),
+                ...consTextLists.slice(selectedTextIndexPosition + 1),
             ],
         });
     };
@@ -38,8 +38,8 @@ const ProsList = ({ prosTextLists, setAttributes }) => {
     return (
         <div {...useBlockProps()}>
 
-            <div className="gamblino-feature-list">
-                {prosTextLists[selectedText] && (
+            <div className="wp-block-gamblino-list-cons">
+                {consTextLists[selectedText] && (
                     <BlockControls
                         controls={[
                             {
@@ -51,7 +51,7 @@ const ProsList = ({ prosTextLists, setAttributes }) => {
                     ></BlockControls>
                 )}
                 <ul>
-                    {prosTextLists.map((featureList, index) => {
+                    {consTextLists.map((featureList, index) => {
                         return (
                             <li
                                 key={index}
@@ -87,4 +87,4 @@ const ProsList = ({ prosTextLists, setAttributes }) => {
     );
 }
 
-export default ProsList
+export default ListPros

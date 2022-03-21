@@ -6,7 +6,9 @@ const AboutBodySave = ({ attributes }) => {
   const { aboutTitle, aboutTitleTextColor, aboutBodyText, aboutBodyTextColor } = attributes
 
   return (
-    <section {...useBlockProps.save()}>
+    <div {...useBlockProps.save({
+      className: 'wp-block-gamblino-block-general-information__body'
+    })}>
       <RichText.Content
         {...useBlockProps.save({
           style: { color: aboutTitleTextColor},
@@ -21,7 +23,7 @@ const AboutBodySave = ({ attributes }) => {
         value={aboutBodyText}
         tagName="p"
       />
-    </section>
+    </div>
   );
 };
 

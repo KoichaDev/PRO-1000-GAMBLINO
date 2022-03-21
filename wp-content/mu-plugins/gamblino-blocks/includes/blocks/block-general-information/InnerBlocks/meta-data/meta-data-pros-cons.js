@@ -1,8 +1,6 @@
 const metaDataProsCons = {
     titlePros: {
         type: "string",
-        source: "html",
-        selector: "h3",
     },
     titleProsTextColor: {
         type: 'string',
@@ -10,7 +8,7 @@ const metaDataProsCons = {
     },
     prosTextLists: {
         type: "array",
-        selector: ".wp-block-gamblino-list-pros ul li",
+        selector: ".wp-block-gamblino-list-pros li",
         source: "query",
         default: [{ text: "", textColor: '#589822' }],
         query: {
@@ -23,8 +21,6 @@ const metaDataProsCons = {
     },
     titleCons: {
         type: "string",
-        source: "html",
-        selector: "h3",
     },
     titleConsTextColor: {
         type: 'string',
@@ -32,7 +28,7 @@ const metaDataProsCons = {
     },
     consTextLists: {
         type: "array",
-        selector: ".gamblino-feature-list ul li",
+        selector: ".wp-block-gamblino-list-cons ul li",
         source: "query",
         default: [{ text: "", textColor: '#FF0000' }],
         query: {

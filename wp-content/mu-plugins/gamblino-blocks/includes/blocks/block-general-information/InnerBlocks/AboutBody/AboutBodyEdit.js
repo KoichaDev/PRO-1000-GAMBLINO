@@ -57,7 +57,7 @@ const AboutBodyEdit = ({ attributes, setAttributes }) => {
             </ToolbarGroup>
         </BlockControls>
 
-        <section {...useBlockProps({
+        <div {...useBlockProps({
             className: 'wp-block-gamblino-block-general-information__body'
         })}>
 
@@ -104,7 +104,7 @@ const AboutBodyEdit = ({ attributes, setAttributes }) => {
                 placeholder={__('Add text...', 'block-gamblino')}
                 onClick={onClickBodyRichTextHandler}
             />
-        </section>
+        </div>
     </>
 }
 

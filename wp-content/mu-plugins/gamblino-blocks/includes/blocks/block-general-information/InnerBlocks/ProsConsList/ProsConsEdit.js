@@ -5,7 +5,8 @@ import { useBlockProps, RichText, BlockControls } from '@wordpress/block-editor'
 import { ColorPicker } from '@wordpress/components';
 
 // Wordpress Components
-import ProsList from './ProsList';
+import ListPros from './ListPros';
+import ListCons from './ListCons'
 import BlockColorPickerToolbar from '../../../block-wordpress-components/block-controls/block-color-picker/BlockColorPickerToolbar'
 
 // styles
@@ -20,8 +21,6 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
         titleConsTextColor,
         consTextLists
     } = attributes;
-
-    console.log(attributes);
 
     const [isClickedRichText, setIsClickedRichText] = useState(false)
     const [isClickedColumnTwoRichText, setIsClickedColumnTwoRichText] = useState(false)
@@ -72,13 +71,13 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
                     }
                 })}
                 tagName={"h3"}
-                value={__(titlePros, 'block-gamblino')}
+                value={titlePros}
                 onChange={(value) => setAttributes({ titlePros: value })}
                 placeholder={__("Title...", "block-gamblino")}
                 onClick={onClickRichTextHandler}
             />
 
-            <ProsList prosTextLists={prosTextLists} setAttributes={setAttributes} />
+            <ListPros prosTextLists={prosTextLists} setAttributes={setAttributes} />
         </div>
 
         <div className='wp-block-gamblino-block-general-information__review-2-column-two'>
@@ -104,13 +103,13 @@ const ProsConsEdit = ({ attributes, setAttributes }) => {
                     }
                 })}
                 tagName={"h3"}
-                value={__(titleCons, 'block-gamblino')}
+                value={titleCons}
                 onChange={(value) => setAttributes({ titleCons: value })}
                 placeholder={__("Title...", "block-gamblino")}
                 onClick={onClickRichTextColumnTwoHandler}
             />
 
-            <ProsList prosTextLists={consTextLists} setAttributes={setAttributes} />
+            <ListCons consTextLists={consTextLists} setAttributes={setAttributes} />
         </div>
     </section>
 }
