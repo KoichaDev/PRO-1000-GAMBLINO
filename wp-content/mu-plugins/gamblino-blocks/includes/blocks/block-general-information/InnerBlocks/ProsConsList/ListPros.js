@@ -38,7 +38,7 @@ const ListPros = ({ prosTextLists, setAttributes }) => {
     return (
         <div {...useBlockProps()}>
 
-            <div className="gamblino-feature-list">
+            <div className="wp-block-gamblino-block-general-information__review-3-pros-list">
                 {prosTextLists[selectedText] && (
                     <BlockControls
                         controls={[

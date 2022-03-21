@@ -27,7 +27,7 @@ const ProsConsSave = ({ attributes }) => {
         )}
 
         {prosTextLists.length > 0 && (
-          <div className="wp-block-gamblino-list-pros">
+          <div className="wp-block-gamblino-block-general-information__review-3-pros-list">
             <ul>
               {prosTextLists.map((list, index) => {
                 return (
@@ -53,7 +53,7 @@ const ProsConsSave = ({ attributes }) => {
         )}
 
         {consTextLists.length > 0 && (
-          <div className="wp-block-gamblino-list-cons">
+          <div className="wp-block-gamblino-block-general-information__review-3-cons-list">
             <ul>
               {consTextLists.map((list, index) => {
                 return (
