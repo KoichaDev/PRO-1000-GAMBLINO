@@ -3,12 +3,12 @@ import { useSelect } from '@wordpress/data'
 const useSelectorsPadding = (blockName) => {
     const paddingValue = useSelect(select => {
         const paddingStore = select(blockName)
-        return paddingStore && paddingStore.getPaddingValue().value;
+        return paddingStore && paddingStore.getPaddingValue();
     }, [])
 
     const paddingUnit = useSelect(select => {
-        const paddingUnitPxStore = select(blockName);
-        return paddingUnitPxStore && paddingUnitPxStore.getPaddingUnit().value;
+        const paddingUnitValue = select(blockName);
+        return paddingUnitValue && paddingUnitValue.getPaddingUnit();
     }, [])
 
     return { paddingValue, paddingUnit }

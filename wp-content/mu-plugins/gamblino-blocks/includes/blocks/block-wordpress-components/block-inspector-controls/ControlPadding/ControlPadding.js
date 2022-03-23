@@ -25,23 +25,15 @@ import './ControlPadding.scss';
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
 
-    const { paddingValue, paddingUnit } = useSelectorsPadding(blockName)
+    const { paddingValue } = useSelectorsPadding(blockName)
     const { setPaddingValue, setPaddingUnit } = useActionPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
     useEffect(() => reduxControlPaddingStore(blockName), [])
 
-    const borderRadiusValue = useSelect(select => {
-        const borderRadiusStore = select(blockName)
-        return borderRadiusStore && borderRadiusStore.getBorderRadiusValue().value
-    }, [])
+    const onChangePaddingHandler = (e) => setPaddingValue(e.target.value )
 
-
-
-    const onChangePaddingHandler = (e) => setPaddingValue({ value: e.target.value })
-
-    const onChangeSelectPaddingHandler = (e) => setPaddingUnit({ value: e.target.value })
-
+    const onChangeSelectPaddingHandler = (e) => setPaddingUnit(e.target.value)
 
     return (
         <InspectorControls>

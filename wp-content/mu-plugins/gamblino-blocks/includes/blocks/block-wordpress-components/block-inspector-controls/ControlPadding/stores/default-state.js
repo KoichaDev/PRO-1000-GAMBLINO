@@ -1,31 +1,14 @@
 const DEFAULT_STATE = {
-    borderRadius: {
-        value: 12,
-    },
-    padding: {
-        value: '',
-    },
-    paddingUnit: {
-        value: 'px',
-    },
-    paddingVertical: {
-        value: '',
-    },
-    paddingVerticalPx: {
-        value: 'px',
-    },
-    paddingVerticalEm: {
-        value: 'em',
-    },
-    paddingHorizontal: {
-        value: '',
-    },
-    paddingHorizontalPx: {
-        value: 'px',
-    },
-    paddingHorizontalEm: {
-        value: 'em',
-    }
+    borderRadius: 12,
+    padding: '',
+    paddingUnit: 'px',
+    paddingVertical: '',
+    paddingVerticalPx: 'px',
+    paddingVerticalEm: 'em',
+    paddingHorizontal: '',
+    paddingHorizontalPx: 'px',
+    paddingHorizontalEm: 'em',
+    isPaddingLinkedSides: false,
 };
 
 export default DEFAULT_STATE
