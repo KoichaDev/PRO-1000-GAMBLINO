@@ -1,7 +1,6 @@
 export const BORDER_RADIUS = 'BORDER_RADIUS';
 export const PADDING = 'PADDING';
-export const UNIT_PX = 'UNIT_PX';
-export const UNIT_EM = 'UNIT_EM';
+export const PADDING_UNIT = 'PADDING_UNIT';
 export const PADDING_VERTICAL = 'PADDING_VERTICAL';
 export const PADDING_VERTICAL_PX = 'PADDING_VERTICAL_PX';
 export const PADDING_VERTICAL_EM = 'PADDING_VERTICAL_EM';

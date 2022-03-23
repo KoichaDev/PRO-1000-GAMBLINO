@@ -5,11 +5,8 @@ const DEFAULT_STATE = {
     padding: {
         value: '',
     },
-    unitPx: {
+    paddingUnit: {
         value: 'px',
-    },
-    unitEm: {
-        value: 'em',
     },
     paddingVertical: {
         value: '',

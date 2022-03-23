@@ -6,10 +6,10 @@ const ControlsPaddingMetaData = {
     padding: {
         type: 'number',
     },
-    unitPx: {
+    paddingUnitPx: {
         type: 'string',
     },
-    unitEm: {
+    paddingUnitEm: {
         type: 'string',
     },
     paddingVertical: {

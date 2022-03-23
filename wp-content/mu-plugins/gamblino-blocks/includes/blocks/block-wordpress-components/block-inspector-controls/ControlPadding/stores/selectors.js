@@ -2,9 +2,7 @@ export const getBorderRadiusValue = (state) => state.borderRadius
 
 export const getPaddingValue = (state) => state.padding
 
-export const getUnitPxValue = (state) => state.unitPx
-
-export const getUnitEmValue = (state) => state.unitEm
+export const getPaddingUnit = (state) => state.paddingUnit
 
 export const getPaddingVerticalValue = (state) => state.paddingVertical
 

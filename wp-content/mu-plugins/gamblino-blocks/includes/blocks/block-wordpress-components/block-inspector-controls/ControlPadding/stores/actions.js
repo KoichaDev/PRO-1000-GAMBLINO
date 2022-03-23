@@ -7,8 +7,7 @@ import {
     PADDING_VERTICAL,
     PADDING_VERTICAL_EM,
     PADDING_VERTICAL_PX,
-    UNIT_EM,
-    UNIT_PX
+    PADDING_UNIT,
 } from './types';
 
 export const setBorderRadiusValue = (value) => {
@@ -25,19 +24,13 @@ export const setPaddingValue = (value) => {
     };
 }
 
-export const setUnitPxValue = (value) => {
+export const setPaddingUnit = (value) => {
     return {
-        type: UNIT_PX,
+        type: PADDING_UNIT,
         value,
     };
 }
 
-export const setUnitEmValue = (value) => {
-    return {
-        type: UNIT_EM,
-        value,
-    };
-}
 
 export const setPaddingHorizontalValue = (value) => {
     return {

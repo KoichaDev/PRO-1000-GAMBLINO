@@ -1,12 +1,17 @@
-import { useSelect, useDispatch } from '@wordpress/data'
+import { useSelect } from '@wordpress/data'
 
 const useSelectorsPadding = (blockName) => {
     const paddingValue = useSelect(select => {
         const paddingStore = select(blockName)
-        return paddingStore && paddingStore.getPaddingValue().value
+        return paddingStore && paddingStore.getPaddingValue().value;
     }, [])
 
-    return { paddingValue }
+    const paddingUnit = useSelect(select => {
+        const paddingUnitPxStore = select(blockName);
+        return paddingUnitPxStore && paddingUnitPxStore.getPaddingUnit().value;
+    }, [])
+
+    return { paddingValue, paddingUnit }
 }
 
 export default useSelectorsPadding;

@@ -9,6 +9,10 @@ import '../../BlockConfiguration/BlockConfigurationSidebar';
 import InspectorControlsControlsPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/ControlPadding';
 import InspectorControlsRangeControl from '../../../block-wordpress-components/block-inspector-controls/ControlsRangeControl'
 
+// Hooks ControlPadding
+import useActionPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/hooks/useActionPadding';
+import useSelectorsPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/hooks/useSelectorsPadding';
+
 // React component
 import { ButtonPrimary } from '../../../../UI/Button';
 
@@ -17,10 +21,7 @@ import './ButtonEdit.scss';
 const ButtonEdit = ({ attributes, setAttributes }) => {
     const { text, borderRadius } = attributes;
 
-    const paddingValue = useSelect(select => {
-        const paddingStore = select('blocks-control/padding')
-        return paddingStore && paddingStore.getPaddingValue().value
-    }, [])
+    const { paddingValue, paddingUnit } = useSelectorsPadding('blocks-control/padding')
 
     return (
         <div {...useBlockProps({
@@ -37,7 +38,7 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
 
             <InspectorControlsControlsPadding blockName='blocks-control/padding' />
 
-            <ButtonPrimary style={{ borderRadius: `${borderRadius}px`, padding: `${paddingValue}px` }}>
+            <ButtonPrimary style={{ borderRadius: `${borderRadius}px`, padding: `${paddingValue}${paddingUnit}` }}>
                 <RichText
                     value={text}
                     onChange={(value) => setAttributes({ text: value })}

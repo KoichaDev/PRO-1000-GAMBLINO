@@ -7,8 +7,7 @@ import {
     PADDING_VERTICAL,
     PADDING_VERTICAL_EM,
     PADDING_VERTICAL_PX,
-    UNIT_EM,
-    UNIT_PX
+    PADDING_UNIT,
 } from './types';
 
 import DEFAULT_STATE from './default-state';
@@ -19,10 +18,8 @@ const reducer = (state = DEFAULT_STATE, action) => {
             return { ...state, borderRadius: action.value };
         case PADDING:
             return { ...state, padding: action.value };
-        case UNIT_PX:
-            return { ...state, unitPx: action.value };
-        case UNIT_EM:
-            return { ...state, unitEm: action.value };
+        case PADDING_UNIT:
+            return { ...state, paddingUnit: action.value };
         case PADDING_HORIZONTAL:
             return { ...state, paddingHorizontal: action.value };
         case PADDING_HORIZONTAL_EM:
