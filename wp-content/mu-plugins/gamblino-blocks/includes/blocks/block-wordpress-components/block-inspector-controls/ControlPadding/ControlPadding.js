@@ -7,18 +7,20 @@ import { useState, useEffect } from '@wordpress/element';
 import { InspectorControls } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { PaddingIcon } from '../../../../UI/Icons/Spaces'
-
 import { useSelect, useDispatch } from '@wordpress/data'
 
-
+// hooks
+import useSelectorsPadding from './hooks/useSelectorsPadding'
 // UI Component
 import { ButtonIcon } from '../../../../UI/Button';
 
 import reduxControlPaddingStore from './stores/index';
 import './ControlPadding.scss';
 
-const ControlsRangeControl = ({blockName}) => {
+const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
+    
+    const { paddingValue } = useSelectorsPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
     useEffect(() => reduxControlPaddingStore(blockName), [])
@@ -31,10 +33,7 @@ const ControlsRangeControl = ({blockName}) => {
         return borderRadiusStore && borderRadiusStore.getBorderRadiusValue().value
     }, [])
 
-    const paddingValue = useSelect(select => {
-        const paddingStore = select(blockName)
-        return paddingStore && paddingStore.getPaddingValue().value
-    }, [])
+    console.log(paddingValue);
 
     return (
         <InspectorControls>
