@@ -25,21 +25,22 @@ import './ControlPadding.scss';
 
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
-    const { paddingValue, isPaddingLinkedSides } = useSelectorsPadding(blockName)
-    const { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides } = useActionPadding(blockName)
+    const { paddingValue, paddingVerticalValue, paddingVerticalUnit } = useSelectorsPadding(blockName)
+    const { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides, setPaddingVerticalValue, setPaddingVerticalUnit } = useActionPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
     useEffect(() => reduxControlPaddingStore(blockName), [])
     useUpdateEffect(() => setIsPaddingLinkedSides(isClicked), [isClicked])
 
-    const onChangePaddingHandler = (e) => setPaddingValue(e.target.value)
+    const onChangePaddingHandler = (e) => setPaddingValue(e.target.value);
 
-    const onChangeSelectPaddingHandler = (e) => setPaddingUnit(e.target.value)
+    const onChangeSelectPaddingHandler = (e) => setPaddingUnit(e.target.value);
 
-    const onClickButtonHandler = () => {
-        setIsClicked(prevClicked => !prevClicked)
-        // setIsPaddingLinkedSides(isClicked);
-    }
+    const onChangeVerticalPaddingHandler = e => setPaddingVerticalValue(e.target.value);
+
+    const onChangeSelectVerticalPaddingHandler = e => setPaddingVerticalUnit(e.target.value);
+
+    const onClickButtonHandler = () => setIsClicked(prevClicked => !prevClicked);
 
     return (
         <InspectorControls>
@@ -54,8 +55,12 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {!isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input type="number" value={paddingValue} onChange={onChangePaddingHandler} />
-                            <select name="" id="" aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectPaddingHandler}>
+                            <input 
+                                type="number" 
+                                value={paddingValue} 
+                                onChange={onChangePaddingHandler} 
+                            />
+                            <select id="" aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectPaddingHandler}>
                                 <option value='px'>px</option>
                                 <option value='em'>em</option>
                             </select>
@@ -64,10 +69,15 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input type="number" aria-label='Vertical' />
-                            <select name="" id="" aria-label={__('Select unit', 'block-gamblino')}>
+                            <input 
+                                type="number" 
+                                aria-label='Vertical' 
+                                value={paddingVerticalValue} 
+                                onChange={onChangeVerticalPaddingHandler} 
+                            />
+                            <select  id="" aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectVerticalPaddingHandler}>
                                 <option value="px">px</option>
-                                <option value="px">em</option>
+                                <option value="em">em</option>
                             </select>
                         </div>
                     }
@@ -77,7 +87,7 @@ const ControlsRangeControl = ({ blockName }) => {
                             <input type="number" aria-label='Horizontal' />
                             <select name="" id="" aria-label={__('Select unit', 'block-gamblino')}>
                                 <option value="px">px</option>
-                                <option value="px">em</option>
+                                <option value="em">em</option>
                             </select>
                         </div>
                     }

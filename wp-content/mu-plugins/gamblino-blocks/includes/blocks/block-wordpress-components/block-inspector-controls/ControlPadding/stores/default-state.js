@@ -3,11 +3,9 @@ const DEFAULT_STATE = {
     padding: '',
     paddingUnit: 'px',
     paddingVertical: '',
-    paddingVerticalPx: 'px',
-    paddingVerticalEm: 'em',
+    paddingVerticalUnit: 'px',
     paddingHorizontal: '',
-    paddingHorizontalPx: 'px',
-    paddingHorizontalEm: 'em',
+    paddingHorizontalUnit: 'px',
     isPaddingLinkedSides: false,
 };
 

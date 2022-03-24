@@ -2,11 +2,9 @@ import {
     BORDER_RADIUS,
     PADDING,
     PADDING_HORIZONTAL,
-    PADDING_HORIZONTAL_EM,
-    PADDING_HORIZONTAL_PX,
+    PADDING_HORIZONTAL_UNIT,
     PADDING_VERTICAL,
-    PADDING_VERTICAL_EM,
-    PADDING_VERTICAL_PX,
+    PADDING_VERTICAL_UNIT,
     PADDING_UNIT,
     PADDING_LINKED_SIDES,
 } from './types';
@@ -32,7 +30,6 @@ export const setPaddingUnit = (value) => {
     };
 }
 
-
 export const setPaddingHorizontalValue = (value) => {
     return {
         type: PADDING_HORIZONTAL,
@@ -40,16 +37,9 @@ export const setPaddingHorizontalValue = (value) => {
     };
 }
 
-export const setPaddingHorizontalEmValue = (value) => {
+export const setPaddingHorizontalUnitValue = (value) => {
     return {
-        type: PADDING_HORIZONTAL_EM,
-        value,
-    };
-}
-
-export const setPaddingHorizontalPxValue = (value) => {
-    return {
-        type: PADDING_HORIZONTAL_PX,
+        type: PADDING_HORIZONTAL_UNIT,
         value,
     };
 }
@@ -61,16 +51,9 @@ export const setPaddingVerticalValue = (value) => {
     };
 }
 
-export const setPaddingVerticalEmValue = (value) => {
+export const setPaddingVerticalUnit = (value) => {
     return {
-        type: PADDING_VERTICAL_EM,
-        value,
-    };
-}
-
-export const setPaddingVerticalPxValue = (value) => {
-    return {
-        type: PADDING_VERTICAL_PX,
+        type: PADDING_VERTICAL_UNIT,
         value,
     };
 }

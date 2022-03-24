@@ -10,7 +10,17 @@ const useActionPadding = (blockName) => {
 
     const setIsPaddingLinkedSides = action && action.setIsPaddingLinkedSides;
 
-    return { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides }
+    const setPaddingVerticalValue = action && action.setPaddingVerticalValue;
+
+    const setPaddingVerticalUnit = action && action.setPaddingVerticalUnit;
+
+    return {
+        setPaddingValue,
+        setPaddingUnit,
+        setIsPaddingLinkedSides,
+        setPaddingVerticalValue,
+        setPaddingVerticalUnit,
+    }
 }
 
 export default useActionPadding
