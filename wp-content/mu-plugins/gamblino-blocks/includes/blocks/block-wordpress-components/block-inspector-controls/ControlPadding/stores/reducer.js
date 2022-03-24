@@ -8,6 +8,7 @@ import {
     PADDING_VERTICAL_EM,
     PADDING_VERTICAL_PX,
     PADDING_UNIT,
+    PADDING_LINKED_SIDES,
 } from './types';
 
 import DEFAULT_STATE from './default-state';
@@ -32,6 +33,8 @@ const reducer = (state = DEFAULT_STATE, action) => {
             return { ...state, paddingVerticalEm: action.value };
         case PADDING_VERTICAL_PX:
             return { ...state, paddingVerticalPx: action.value };
+        case PADDING_LINKED_SIDES:
+            return { ...state, isPaddingLinkedSides: action.value };
         default:
             return state;
     }

@@ -8,7 +8,9 @@ const useActionPadding = (blockName) => {
 
     const setPaddingUnit = action && action.setPaddingUnit;
 
-    return { setPaddingValue, setPaddingUnit }
+    const setIsPaddingLinkedSides = action && action.setIsPaddingLinkedSides;
+
+    return { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides }
 }
 
 export default useActionPadding

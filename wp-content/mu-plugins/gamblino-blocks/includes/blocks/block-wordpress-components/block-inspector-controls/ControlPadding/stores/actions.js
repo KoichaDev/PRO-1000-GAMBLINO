@@ -8,6 +8,7 @@ import {
     PADDING_VERTICAL_EM,
     PADDING_VERTICAL_PX,
     PADDING_UNIT,
+    PADDING_LINKED_SIDES,
 } from './types';
 
 export const setBorderRadiusValue = (value) => {
@@ -74,3 +75,9 @@ export const setPaddingVerticalPxValue = (value) => {
     };
 }
 
+export const setIsPaddingLinkedSides = (value) => {
+    return {
+        type: PADDING_LINKED_SIDES,
+        value,
+    };
+}

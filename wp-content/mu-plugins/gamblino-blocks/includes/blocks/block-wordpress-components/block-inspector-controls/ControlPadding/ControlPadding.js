@@ -12,6 +12,7 @@ import { useSelect, useDispatch } from '@wordpress/data'
 // hooks
 import useSelectorsPadding from './hooks/useSelectorsPadding'
 import useActionPadding from './hooks/useActionPadding'
+import useUpdateEffect from '../../../../hooks/utilities/useUpdateEffect'
 
 // UI Component
 import { ButtonIcon } from '../../../../UI/Button';
@@ -24,16 +25,21 @@ import './ControlPadding.scss';
 
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
-
-    const { paddingValue } = useSelectorsPadding(blockName)
-    const { setPaddingValue, setPaddingUnit } = useActionPadding(blockName)
+    const { paddingValue, isPaddingLinkedSides } = useSelectorsPadding(blockName)
+    const { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides } = useActionPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
     useEffect(() => reduxControlPaddingStore(blockName), [])
+    useUpdateEffect(() => setIsPaddingLinkedSides(isClicked), [isClicked])
 
-    const onChangePaddingHandler = (e) => setPaddingValue(e.target.value )
+    const onChangePaddingHandler = (e) => setPaddingValue(e.target.value)
 
     const onChangeSelectPaddingHandler = (e) => setPaddingUnit(e.target.value)
+
+    const onClickButtonHandler = () => {
+        setIsClicked(prevClicked => !prevClicked)
+        // setIsPaddingLinkedSides(isClicked);
+    }
 
     return (
         <InspectorControls>
@@ -58,7 +64,7 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input type="number" {...restInput} aria-label='Vertical' />
+                            <input type="number" aria-label='Vertical' />
                             <select name="" id="" aria-label={__('Select unit', 'block-gamblino')}>
                                 <option value="px">px</option>
                                 <option value="px">em</option>
@@ -68,7 +74,7 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input type="number" {...restInput} aria-label='Horizontal' />
+                            <input type="number" aria-label='Horizontal' />
                             <select name="" id="" aria-label={__('Select unit', 'block-gamblino')}>
                                 <option value="px">px</option>
                                 <option value="px">em</option>
@@ -78,7 +84,7 @@ const ControlsRangeControl = ({ blockName }) => {
 
 
 
-                    <ButtonIcon onClick={() => setIsClicked(prevClicked => !prevClicked)}>
+                    <ButtonIcon onClick={onClickButtonHandler}>
                         {isClicked ? <MdOutlineLinkOff /> : <MdOutlineLink />}
                     </ButtonIcon>
                 </div>

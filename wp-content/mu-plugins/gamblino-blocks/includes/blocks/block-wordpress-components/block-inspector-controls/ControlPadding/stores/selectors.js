@@ -12,6 +12,8 @@ export const getPaddingVerticalEmValue = (state) => state.paddingVerticalEm
 
 export const getPaddingHorizontalValue = (state) => state.paddingHorizontal
 
-export const paddingHorizontalPxValue = (state) => state.paddingHorizontalPx
+export const getPaddingHorizontalPxValue = (state) => state.paddingHorizontalPx
 
-export const paddingHorizontalEm = (state) => state.paddingHorizontalEm 
+export const getPaddingHorizontalEm = (state) => state.paddingHorizontalEm
+
+export const getPaddingLinkedSides = (state) => state.isPaddingLinkedSides

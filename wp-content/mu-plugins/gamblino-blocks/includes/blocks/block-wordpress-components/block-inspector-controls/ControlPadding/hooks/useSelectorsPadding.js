@@ -11,7 +11,12 @@ const useSelectorsPadding = (blockName) => {
         return paddingUnitValue && paddingUnitValue.getPaddingUnit();
     }, [])
 
-    return { paddingValue, paddingUnit }
+    const isPaddingLinkedSides = useSelect(select => {
+        const isPaddingLinkedSidesValue = select(blockName);
+        return isPaddingLinkedSidesValue && isPaddingLinkedSidesValue.getPaddingLinkedSides();
+    }, [])
+
+    return { paddingValue, paddingUnit, isPaddingLinkedSides }
 }
 
 export default useSelectorsPadding;
