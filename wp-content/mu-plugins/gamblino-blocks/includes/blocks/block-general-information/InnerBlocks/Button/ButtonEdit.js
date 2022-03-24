@@ -21,11 +21,21 @@ import './ButtonEdit.scss';
 const ButtonEdit = ({ attributes, setAttributes }) => {
     const { text, borderRadius } = attributes;
 
-    const { paddingValue, paddingUnit, isPaddingLinkedSides } = useSelectorsPadding('blocks-control/padding')
+    const {
+        paddingValue,
+        paddingUnit,
+        paddingVerticalValue,
+        paddingVerticalUnit,
+        isPaddingLinkedSides,
+    } = useSelectorsPadding('blocks-control/padding')
 
-    const styles = { 
-        borderRadius: `${borderRadius}px`, 
-        padding: !isPaddingLinkedSides ? `${paddingValue}${paddingUnit}` : '1em 5em',
+    // padding styling
+    const padding = `${paddingValue}${paddingUnit}`
+    const paddingVertical = `${paddingVerticalValue}${paddingVerticalUnit}`
+
+    const styles = {
+        borderRadius: `${borderRadius}px`,
+        padding: !isPaddingLinkedSides ? padding : `${paddingVertical} 5em`,
     }
 
     return (
