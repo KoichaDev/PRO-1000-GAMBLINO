@@ -21,7 +21,12 @@ import './ButtonEdit.scss';
 const ButtonEdit = ({ attributes, setAttributes }) => {
     const { text, borderRadius } = attributes;
 
-    const { paddingValue, paddingUnit } = useSelectorsPadding('blocks-control/padding')
+    const { paddingValue, paddingUnit, isPaddingLinkedSides } = useSelectorsPadding('blocks-control/padding')
+
+    const styles = { 
+        borderRadius: `${borderRadius}px`, 
+        padding: !isPaddingLinkedSides ? `${paddingValue}${paddingUnit}` : '1em 5em',
+    }
 
     return (
         <div {...useBlockProps({
@@ -38,7 +43,7 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
 
             <InspectorControlsControlsPadding blockName='blocks-control/padding' />
 
-            <ButtonPrimary style={{ borderRadius: `${borderRadius}px`, padding: `${paddingValue}${paddingUnit}` }}>
+            <ButtonPrimary style={styles}>
                 <RichText
                     value={text}
                     onChange={(value) => setAttributes({ text: value })}
