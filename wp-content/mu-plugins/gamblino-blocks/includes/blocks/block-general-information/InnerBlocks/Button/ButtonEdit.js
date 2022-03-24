@@ -32,9 +32,9 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
     } = useSelectorsPadding('blocks-control/padding')
 
     // padding styling
-    const padding = `${paddingValue}${paddingUnit}`
-    const paddingVertical = `${paddingVerticalValue}${paddingVerticalUnit}`
-    const paddingHorizontal = `${paddingHorizontalValue}${paddingHorizontalUnit}`
+    const padding = `${paddingValue === '' ? 0 : paddingValue}${paddingUnit}`
+    const paddingVertical = `${paddingVerticalValue === '' ? 0 : paddingVerticalValue}${paddingVerticalUnit}`
+    const paddingHorizontal = `${paddingHorizontalValue === '' ? 0 : paddingHorizontalValue}${paddingHorizontalUnit}`
 
     const styles = {
         borderRadius: `${borderRadius}px`,

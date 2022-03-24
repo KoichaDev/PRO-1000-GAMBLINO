@@ -77,7 +77,7 @@ const ControlsRangeControl = ({ blockName }) => {
                                 value={paddingValue} 
                                 onChange={onChangePaddingHandler} 
                             />
-                            <select id="" aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectPaddingHandler}>
+                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectPaddingHandler}>
                                 <option value='px'>px</option>
                                 <option value='em'>em</option>
                             </select>
