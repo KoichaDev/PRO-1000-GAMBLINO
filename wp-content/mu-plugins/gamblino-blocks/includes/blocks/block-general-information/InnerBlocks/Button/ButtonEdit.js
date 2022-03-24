@@ -26,16 +26,19 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
         paddingUnit,
         paddingVerticalValue,
         paddingVerticalUnit,
+        paddingHorizontalValue,
+        paddingHorizontalUnit,
         isPaddingLinkedSides,
     } = useSelectorsPadding('blocks-control/padding')
 
     // padding styling
     const padding = `${paddingValue}${paddingUnit}`
     const paddingVertical = `${paddingVerticalValue}${paddingVerticalUnit}`
+    const paddingHorizontal = `${paddingHorizontalValue}${paddingHorizontalUnit}`
 
     const styles = {
         borderRadius: `${borderRadius}px`,
-        padding: !isPaddingLinkedSides ? padding : `${paddingVertical} 5em`,
+        padding: !isPaddingLinkedSides ? padding : `${paddingVertical} ${paddingHorizontal}`,
     }
 
     return (
