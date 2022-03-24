@@ -21,12 +21,31 @@ const useSelectorsPadding = (blockName) => {
         return paddingVerticalUnit && paddingVerticalUnit.getPaddingVerticalUnit();
     }, [])
 
+    const paddingHorizontalValue = useSelect(select => {
+        const paddingHorizontalValue = select(blockName);
+        return paddingHorizontalValue && paddingHorizontalValue.getPaddingHorizontalValue();
+    }, [])
+    
+    const paddingHorizontalUnit = useSelect(select => {
+        const paddingHorizontalUnit = select(blockName);
+        return paddingHorizontalUnit && paddingHorizontalUnit.getPaddingHorizontalUnit();
+    }, [])
+
+
     const isPaddingLinkedSides = useSelect(select => {
         const isPaddingLinkedSidesValue = select(blockName);
         return isPaddingLinkedSidesValue && isPaddingLinkedSidesValue.getPaddingLinkedSides();
     }, [])
 
-    return { paddingValue, paddingUnit, paddingVerticalValue, isPaddingLinkedSides, paddingVerticalUnit }
+    return { 
+        paddingValue, 
+        paddingUnit, 
+        paddingVerticalValue, 
+        isPaddingLinkedSides, 
+        paddingVerticalUnit, 
+        paddingHorizontalValue, 
+        paddingHorizontalUnit 
+    }
 }
 
 export default useSelectorsPadding;

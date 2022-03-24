@@ -7,7 +7,6 @@ import { useState, useEffect } from '@wordpress/element';
 import { InspectorControls } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { PaddingIcon } from '../../../../UI/Icons/Spaces'
-import { useSelect, useDispatch } from '@wordpress/data'
 
 // hooks
 import useSelectorsPadding from './hooks/useSelectorsPadding'
@@ -25,11 +24,25 @@ import './ControlPadding.scss';
 
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
-    const { paddingValue, paddingVerticalValue, paddingVerticalUnit } = useSelectorsPadding(blockName)
-    const { setPaddingValue, setPaddingUnit, setIsPaddingLinkedSides, setPaddingVerticalValue, setPaddingVerticalUnit } = useActionPadding(blockName)
+    const { 
+        paddingValue, 
+        paddingVerticalValue, 
+        paddingHorizontalValue, 
+    } = useSelectorsPadding(blockName)
+
+    const { 
+        setPaddingValue, 
+        setPaddingUnit, 
+        setIsPaddingLinkedSides, 
+        setPaddingVerticalValue, 
+        setPaddingVerticalUnit, 
+        setPaddingHorizontalValue, 
+        setPaddingHorizontalUnit 
+    } = useActionPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
     useEffect(() => reduxControlPaddingStore(blockName), [])
+    // we have to make sure to not render on the first render, otherwise, the dispatch of padding Linked Sides will not work, since the function doesn't exist yet.
     useUpdateEffect(() => setIsPaddingLinkedSides(isClicked), [isClicked])
 
     const onChangePaddingHandler = (e) => setPaddingValue(e.target.value);
@@ -40,16 +53,20 @@ const ControlsRangeControl = ({ blockName }) => {
 
     const onChangeSelectVerticalPaddingHandler = e => setPaddingVerticalUnit(e.target.value);
 
+    const onChangeHorizontalPaddingHandler = e => setPaddingHorizontalValue(e.target.value);
+
+    const onChangeSelectHorizontalPaddingHandler = e => setPaddingHorizontalUnit(e.target.value);
+
     const onClickButtonHandler = () => setIsClicked(prevClicked => !prevClicked);
 
     return (
         <InspectorControls>
             <PanelBody>
                 <h2>
-                    <strong>
-                        Dimensions
-                    </strong>
+                    <strong>Dimension</strong>
                 </h2>
+                
+                <p>Padding</p>
                 <div className='controls-padding'>
                     <PaddingIcon fillLeft={isClicked ? '#C5C7C9' : ''} fillRight={isClicked ? '#C5C7C9' : ''} />
 
@@ -75,7 +92,7 @@ const ControlsRangeControl = ({ blockName }) => {
                                 value={paddingVerticalValue} 
                                 onChange={onChangeVerticalPaddingHandler} 
                             />
-                            <select  id="" aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectVerticalPaddingHandler}>
+                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectVerticalPaddingHandler}>
                                 <option value="px">px</option>
                                 <option value="em">em</option>
                             </select>
@@ -84,8 +101,13 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input type="number" aria-label='Horizontal' />
-                            <select name="" id="" aria-label={__('Select unit', 'block-gamblino')}>
+                            <input 
+                                type="number" 
+                                aria-label='Horizontal' 
+                                value={paddingHorizontalValue}
+                                onChange={onChangeHorizontalPaddingHandler}
+                            />
+                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectHorizontalPaddingHandler}>
                                 <option value="px">px</option>
                                 <option value="em">em</option>
                             </select>

@@ -14,12 +14,18 @@ const useActionPadding = (blockName) => {
 
     const setPaddingVerticalUnit = action && action.setPaddingVerticalUnit;
 
+    const setPaddingHorizontalValue = action && action.setPaddingHorizontalValue;
+
+    const setPaddingHorizontalUnit = action && action.setPaddingHorizontalUnit;
+
     return {
         setPaddingValue,
         setPaddingUnit,
         setIsPaddingLinkedSides,
         setPaddingVerticalValue,
         setPaddingVerticalUnit,
+        setPaddingHorizontalValue,
+        setPaddingHorizontalUnit,
     }
 }
 

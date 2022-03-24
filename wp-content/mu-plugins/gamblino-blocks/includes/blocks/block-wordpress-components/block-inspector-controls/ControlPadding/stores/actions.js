@@ -37,7 +37,7 @@ export const setPaddingHorizontalValue = (value) => {
     };
 }
 
-export const setPaddingHorizontalUnitValue = (value) => {
+export const setPaddingHorizontalUnit = (value) => {
     return {
         type: PADDING_HORIZONTAL_UNIT,
         value,
