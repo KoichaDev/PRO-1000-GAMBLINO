@@ -20,7 +20,7 @@ import { ButtonIcon } from '../../../../UI/Button';
 import reduxControlPaddingStore from './stores/index';
 
 // styling
-import './ControlPadding.scss';
+import './Padding.scss';
 
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)

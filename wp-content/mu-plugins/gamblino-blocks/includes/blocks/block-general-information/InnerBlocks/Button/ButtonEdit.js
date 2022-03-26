@@ -6,12 +6,12 @@ import { useSelect } from '@wordpress/data'
 
 // WordPress component
 import '../../BlockConfiguration/BlockConfigurationSidebar';
-import InspectorControlsControlsPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/ControlPadding';
+import InspectorControlPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/Padding';
 import InspectorControlsRangeControl from '../../../block-wordpress-components/block-inspector-controls/ControlsRangeControl'
 
 // Hooks ControlPadding
-import useActionPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/hooks/useActionPadding';
-import useSelectorsPadding from '../../../block-wordpress-components/block-inspector-controls/ControlPadding/hooks/useSelectorsPadding';
+import useActionPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useActionPadding';
+import useSelectorsPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useSelectorsPadding';
 
 // React component
 import { ButtonPrimary } from '../../../../UI/Button';
@@ -54,7 +54,7 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
                 max={55}
             />
 
-            <InspectorControlsControlsPadding blockName='blocks-control/padding' />
+            <InspectorControlPadding blockName='blocks-control/padding' />
 
             <ButtonPrimary style={styles}>
                 <RichText
