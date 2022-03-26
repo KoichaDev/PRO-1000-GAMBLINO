@@ -1,8 +1,12 @@
 const metaDataButton = {
-    url: {
+    text: {
         type: 'string',
     },
-    text: {
+    borderRadiusBtn: {
+        type: 'number',
+        default: undefined,
+    },
+    padding: {
         type: 'string',
     }
 };
