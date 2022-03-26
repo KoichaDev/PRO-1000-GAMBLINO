@@ -1,4 +1,3 @@
-export const BORDER_RADIUS = 'BORDER_RADIUS';
 export const PADDING = 'PADDING';
 export const PADDING_UNIT = 'PADDING_UNIT';
 export const PADDING_VERTICAL = 'PADDING_VERTICAL';

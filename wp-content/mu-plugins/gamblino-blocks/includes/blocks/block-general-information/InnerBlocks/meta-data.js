@@ -4,7 +4,9 @@ import metaDataHeader from "./meta-data/meta-data-header";
 import metaDataBody from "./meta-data/meta-data-body";
 import metaDataProsCons from './meta-data/meta-data-pros-cons';
 import metaDataButton from './meta-data/meta-data-button';
-import controlsPaddingMetaData from '../../block-wordpress-components/block-inspector-controls/Padding/meta-data';
+import metaDataPaddingControl from '../../block-wordpress-components/block-inspector-controls/Padding/meta-data';
+import metaDataBorderRadiusControl from '../../block-wordpress-components/block-inspector-controls/BorderRadius/meta-data';
+
 
 const metaData = {
     title: __("General Information Header", "block-gamblino"),
@@ -20,7 +22,8 @@ const metaData = {
         ...metaDataBody,
         ...metaDataProsCons,
         ...metaDataButton,
-        ...controlsPaddingMetaData,
+        ...metaDataPaddingControl,
+        ...metaDataBorderRadiusControl,
     },
 };
 

@@ -1,8 +1,4 @@
-const ControlsPaddingMetaData = {
-    borderRadius: {
-        type: 'number',
-        default: '12'
-    },
+const paddingMetaData = {
     padding: {
         type: 'number',
     },
@@ -32,5 +28,5 @@ const ControlsPaddingMetaData = {
     }
 };
 
-export default ControlsPaddingMetaData
+export default paddingMetaData
 

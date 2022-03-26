@@ -1,16 +1,14 @@
 // Wordpress dependencies
 import { __ } from '@wordpress/i18n'
 import { useBlockProps, RichText } from '@wordpress/block-editor'
-import { useState, useEffect } from '@wordpress/element';
-import { useSelect } from '@wordpress/data'
 
 // WordPress component
 import '../../BlockConfiguration/BlockConfigurationSidebar';
 import InspectorControlPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/Padding';
-import InspectorControlsRangeControl from '../../../block-wordpress-components/block-inspector-controls/ControlsRangeControl'
+import InspectorControlBorderRadius from '../../../block-wordpress-components/block-inspector-controls/BorderRadius/BorderRadius';
 
-// Hooks ControlPadding
-import useActionPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useActionPadding';
+// Hooks Inspector Controls
+import useSelectorsBorderRadius from '../../../block-wordpress-components/block-inspector-controls/BorderRadius/hooks/useSelectorsBorderRadius';
 import useSelectorsPadding from '../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useSelectorsPadding';
 
 // React component
@@ -19,7 +17,9 @@ import { ButtonPrimary } from '../../../../UI/Button';
 import './ButtonEdit.scss';
 
 const ButtonEdit = ({ attributes, setAttributes }) => {
-    const { text, borderRadius } = attributes;
+    const { text } = attributes;
+
+    const { borderRadius } = useSelectorsBorderRadius('blocks-control/score-info-border-radius')
 
     const {
         paddingValue,
@@ -29,14 +29,14 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
         paddingHorizontalValue,
         paddingHorizontalUnit,
         isPaddingLinkedSides,
-    } = useSelectorsPadding('blocks-control/padding')
+    } = useSelectorsPadding('blocks-control/score-info-padding')
 
     // padding styling
     const padding = `${paddingValue === '' ? 0 : paddingValue}${paddingUnit}`
     const paddingVertical = `${paddingVerticalValue === '' ? 0 : paddingVerticalValue}${paddingVerticalUnit}`
     const paddingHorizontal = `${paddingHorizontalValue === '' ? 0 : paddingHorizontalValue}${paddingHorizontalUnit}`
 
-    const styles = {
+    const buttonStyle = {
         borderRadius: `${borderRadius}px`,
         padding: !isPaddingLinkedSides ? padding : `${paddingVertical} ${paddingHorizontal}`,
     }
@@ -46,17 +46,16 @@ const ButtonEdit = ({ attributes, setAttributes }) => {
             className: 'wp-block-gamblino-block-general-information__button'
         })}>
 
-            <InspectorControlsRangeControl
-                label={__("Button Border Radius", "team-members")}
-                value={+borderRadius}
-                onChange={(value) => setAttributes({ borderRadius: value })}
+            <InspectorControlBorderRadius 
+                label={__("Border Radius", "block-gamblino")}
+                blockName='blocks-control/score-info-border-radius' 
                 min={1}
-                max={55}
+                max={100}
             />
 
-            <InspectorControlPadding blockName='blocks-control/padding' />
+            <InspectorControlPadding blockName='blocks-control/score-info-padding' />
 
-            <ButtonPrimary style={styles}>
+            <ButtonPrimary style={buttonStyle}>
                 <RichText
                     value={text}
                     onChange={(value) => setAttributes({ text: value })}
