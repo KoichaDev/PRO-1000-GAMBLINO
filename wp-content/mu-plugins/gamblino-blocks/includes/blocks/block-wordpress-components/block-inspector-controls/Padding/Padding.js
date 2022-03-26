@@ -24,24 +24,24 @@ import './Padding.scss';
 
 const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
-    const { 
-        paddingValue, 
+    const {
+        paddingValue,
         paddingUnit,
         paddingVerticalUnit,
-        paddingVerticalValue, 
-        paddingHorizontalUnit, 
-        paddingHorizontalValue, 
+        paddingVerticalValue,
+        paddingHorizontalUnit,
+        paddingHorizontalValue,
 
     } = useSelectorsPadding(blockName)
 
-    const { 
-        setPaddingValue, 
-        setPaddingUnit, 
-        setIsPaddingLinkedSides, 
-        setPaddingVerticalValue, 
-        setPaddingVerticalUnit, 
-        setPaddingHorizontalValue, 
-        setPaddingHorizontalUnit 
+    const {
+        setPaddingValue,
+        setPaddingUnit,
+        setIsPaddingLinkedSides,
+        setPaddingVerticalValue,
+        setPaddingVerticalUnit,
+        setPaddingHorizontalValue,
+        setPaddingHorizontalUnit
     } = useActionPadding(blockName)
 
     // We have to use the useEffect in order to trigger the store's reducer, otherwise, this block doesn't get the chance to render fast enough
@@ -66,20 +66,16 @@ const ControlsRangeControl = ({ blockName }) => {
     return (
         <InspectorControls>
             <PanelBody>
-                <h2>
-                    <strong>Dimension</strong>
-                </h2>
-                
                 <p>Padding</p>
                 <div className='controls-padding'>
                     <PaddingIcon fillLeft={isClicked ? '#C5C7C9' : ''} fillRight={isClicked ? '#C5C7C9' : ''} />
 
                     {!isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input 
-                                type="number" 
-                                value={paddingValue} 
-                                onChange={onChangePaddingHandler} 
+                            <input
+                                type="number"
+                                value={paddingValue}
+                                onChange={onChangePaddingHandler}
                             />
                             <select aria-label={__('Select unit', 'block-gamblino')} value={paddingUnit} onChange={onChangeSelectPaddingHandler}>
                                 <option value='px'>px</option>
@@ -90,11 +86,12 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input 
-                                type="number" 
-                                aria-label='Vertical' 
-                                value={paddingVerticalValue} 
-                                onChange={onChangeVerticalPaddingHandler} 
+                            <input
+                                type="number"
+                                aria-label='Vertical'
+                                title='Vertical'
+                                value={paddingVerticalValue}
+                                onChange={onChangeVerticalPaddingHandler}
                             />
                             <select aria-label={__('Select unit', 'block-gamblino')} value={paddingVerticalUnit} onChange={onChangeSelectVerticalPaddingHandler}>
                                 <option value="px">px</option>
@@ -105,9 +102,10 @@ const ControlsRangeControl = ({ blockName }) => {
 
                     {isClicked &&
                         <div className='controls-padding_input-component'>
-                            <input 
-                                type="number" 
-                                aria-label='Horizontal' 
+                            <input
+                                type="number"
+                                aria-label='Horizontal'
+                                title='Horizontal'
                                 value={paddingHorizontalValue}
                                 onChange={onChangeHorizontalPaddingHandler}
                             />
