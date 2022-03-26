@@ -26,8 +26,12 @@ const ControlsRangeControl = ({ blockName }) => {
     const [isClicked, setIsClicked] = useState(false)
     const { 
         paddingValue, 
+        paddingUnit,
+        paddingVerticalUnit,
         paddingVerticalValue, 
+        paddingHorizontalUnit, 
         paddingHorizontalValue, 
+
     } = useSelectorsPadding(blockName)
 
     const { 
@@ -77,7 +81,7 @@ const ControlsRangeControl = ({ blockName }) => {
                                 value={paddingValue} 
                                 onChange={onChangePaddingHandler} 
                             />
-                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectPaddingHandler}>
+                            <select aria-label={__('Select unit', 'block-gamblino')} value={paddingUnit} onChange={onChangeSelectPaddingHandler}>
                                 <option value='px'>px</option>
                                 <option value='em'>em</option>
                             </select>
@@ -92,7 +96,7 @@ const ControlsRangeControl = ({ blockName }) => {
                                 value={paddingVerticalValue} 
                                 onChange={onChangeVerticalPaddingHandler} 
                             />
-                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectVerticalPaddingHandler}>
+                            <select aria-label={__('Select unit', 'block-gamblino')} value={paddingVerticalUnit} onChange={onChangeSelectVerticalPaddingHandler}>
                                 <option value="px">px</option>
                                 <option value="em">em</option>
                             </select>
@@ -107,7 +111,7 @@ const ControlsRangeControl = ({ blockName }) => {
                                 value={paddingHorizontalValue}
                                 onChange={onChangeHorizontalPaddingHandler}
                             />
-                            <select aria-label={__('Select unit', 'block-gamblino')} onChange={onChangeSelectHorizontalPaddingHandler}>
+                            <select aria-label={__('Select unit', 'block-gamblino')} value={paddingHorizontalUnit} onChange={onChangeSelectHorizontalPaddingHandler}>
                                 <option value="px">px</option>
                                 <option value="em">em</option>
                             </select>
