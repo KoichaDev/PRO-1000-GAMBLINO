@@ -7,9 +7,9 @@ import { useState, useEffect } from '@wordpress/element'
 import { ColorPicker, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 import { useBlockProps, RichText, BlockControls } from "@wordpress/block-editor";
 
-import './AboutBodyEdit.scss';
+import './BodyEdit.scss';
 
-const AboutBodyEdit = ({ attributes, setAttributes }) => {
+const BodyEdit = ({ attributes, setAttributes }) => {
     const { aboutTitle, aboutTitleTextColor, aboutBodyText, aboutBodyTextColor } = attributes
 
     const [isClickedTitleRichText, setIsClickedTitleRichText] = useState(false)
@@ -108,4 +108,4 @@ const AboutBodyEdit = ({ attributes, setAttributes }) => {
     </>
 }
 
-export default AboutBodyEdit
+export default BodyEdit

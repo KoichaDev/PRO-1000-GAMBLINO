@@ -8,8 +8,8 @@ import metaData from "./meta-data";
 import HeaderEdit from "./Header/HeaderEdit";
 import HeaderSave from "./Header/HeaderSave";
 
-import AboutBodyEdit from './AboutBody/AboutBodyEdit';
-import AboutBodySave from './AboutBody/AboutBodySave';
+import BodyEdit from './Body/BodyEdit';
+import BodySave from './Body/BodySave';
 
 import ProsConsEdit from './ProsConsList/ProsConsEdit';
 import ProsConsSave from './ProsConsList/ProsConsSave';
@@ -25,8 +25,8 @@ registerBlockType("gamblino-block/inner-blocks-header", {
 
 registerBlockType("gamblino-block/inner-blocks-body", {
     ...metaData,
-    edit: AboutBodyEdit,
-    save: AboutBodySave,
+    edit: BodyEdit,
+    save: BodySave,
 });
 
 registerBlockType("gamblino-block/inner-blocks-pros-cons", {

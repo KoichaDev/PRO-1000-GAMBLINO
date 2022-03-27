@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n'
 import { useBlockProps } from "@wordpress/block-editor";
 import { RichText } from "@wordpress/block-editor";
 
-const AboutBodySave = ({ attributes }) => {
+const BodySave = ({ attributes }) => {
   const { aboutTitle, aboutTitleTextColor, aboutBodyText, aboutBodyTextColor } = attributes
 
   return (
@@ -27,4 +27,4 @@ const AboutBodySave = ({ attributes }) => {
   );
 };
 
-export default AboutBodySave;
+export default BodySave;
