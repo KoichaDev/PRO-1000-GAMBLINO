@@ -4,27 +4,27 @@ const useActionPadding = (blockName) => {
 
     const action = useDispatch(blockName);
 
-    const setPaddingValue = action && action.setPaddingValue;
+    const setPadding = action && action.setPadding;
 
     const setPaddingUnit = action && action.setPaddingUnit;
 
     const setIsPaddingLinkedSides = action && action.setIsPaddingLinkedSides;
 
-    const setPaddingVerticalValue = action && action.setPaddingVerticalValue;
+    const setPaddingVertical = action && action.setPaddingVertical;
 
     const setPaddingVerticalUnit = action && action.setPaddingVerticalUnit;
 
-    const setPaddingHorizontalValue = action && action.setPaddingHorizontalValue;
+    const setPaddingHorizontal = action && action.setPaddingHorizontal;
 
     const setPaddingHorizontalUnit = action && action.setPaddingHorizontalUnit;
 
     return {
-        setPaddingValue,
+        setPadding,
         setPaddingUnit,
         setIsPaddingLinkedSides,
-        setPaddingVerticalValue,
+        setPaddingVertical,
         setPaddingVerticalUnit,
-        setPaddingHorizontalValue,
+        setPaddingHorizontal,
         setPaddingHorizontalUnit,
     }
 }

@@ -6,7 +6,6 @@ const DEFAULT_STATE = {
     paddingVerticalUnit: 'px',
     paddingHorizontal: '',
     paddingHorizontalUnit: 'px',
-    isPaddingLinkedSides: false,
 };
 
 export default DEFAULT_STATE

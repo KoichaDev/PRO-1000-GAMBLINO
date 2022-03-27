@@ -1,8 +1,8 @@
 import { useSelect } from '@wordpress/data'
 
-const useSelectorsPadding = (blockName) => {
+const useSelectorsPadding = (controlName) => {
     const borderRadius = useSelect(select => {
-        const borderRadiusStore = select(blockName)
+        const borderRadiusStore = select(controlName)
         return borderRadiusStore && borderRadiusStore.getBorderRadius();
     }, [])
 

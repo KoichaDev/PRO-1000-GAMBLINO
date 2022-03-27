@@ -1,8 +1,8 @@
 import { useDispatch } from '@wordpress/data'
 
-const useActionPadding = (blockName) => {
+const useActionPadding = (controlName) => {
 
-    const action = useDispatch(blockName);
+    const action = useDispatch(controlName);
 
     const setBorderRadius = action && action.setBorderRadius;
 

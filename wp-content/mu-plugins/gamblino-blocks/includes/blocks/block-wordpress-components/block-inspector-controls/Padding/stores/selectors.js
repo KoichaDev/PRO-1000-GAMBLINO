@@ -11,5 +11,3 @@ export const getPaddingVerticalUnit = (state) => state.paddingVerticalUnit
 export const getPaddingHorizontalValue = (state) => state.paddingHorizontal
 
 export const getPaddingHorizontalUnit = (state) => state.paddingHorizontalUnit
-
-export const getPaddingLinkedSides = (state) => state.isPaddingLinkedSides

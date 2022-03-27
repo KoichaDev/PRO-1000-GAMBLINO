@@ -2,12 +2,37 @@ const metaDataButton = {
     text: {
         type: 'string',
     },
-    borderRadiusBtn: {
+    btnBorderRadius: {
         type: 'number',
         default: undefined,
     },
-    padding: {
+    btnPadding: {
         type: 'string',
+        default: undefined,
+    },
+    btnPaddingUnit: {
+        type: 'string',
+        default: undefined,
+    },
+    btnPaddingVertical: {
+        type: 'string',
+        default: undefined,
+    },
+    btnPaddingVerticalUnit: {
+        type: 'string',
+        default: undefined,
+    },
+    btnPaddingHorizontal: {
+        type: 'string',
+        default: undefined,
+    },
+    btnPaddingHorizontalUnit: {
+        type: 'string',
+        default: undefined,
+    },
+    btnIsClickedLinkedSides: {
+        type: 'boolean',
+        default: undefined,
     }
 };
 

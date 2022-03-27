@@ -1,7 +1,7 @@
 import { useSelect } from '@wordpress/data'
 
 const useSelectorsPadding = (blockName) => {
-    const paddingValue = useSelect(select => {
+    const padding = useSelect(select => {
         const paddingStore = select(blockName)
         return paddingStore && paddingStore.getPaddingValue();
     }, [])
@@ -11,7 +11,7 @@ const useSelectorsPadding = (blockName) => {
         return paddingUnitValue && paddingUnitValue.getPaddingUnit();
     }, [])
 
-    const paddingVerticalValue = useSelect(select => {
+    const paddingVertical = useSelect(select => {
         const paddingVerticalValue = select(blockName);
         return paddingVerticalValue && paddingVerticalValue.getPaddingVerticalValue();
     }, [])
@@ -21,7 +21,7 @@ const useSelectorsPadding = (blockName) => {
         return paddingVerticalUnit && paddingVerticalUnit.getPaddingVerticalUnit();
     }, [])
 
-    const paddingHorizontalValue = useSelect(select => {
+    const paddingHorizontal = useSelect(select => {
         const paddingHorizontalValue = select(blockName);
         return paddingHorizontalValue && paddingHorizontalValue.getPaddingHorizontalValue();
     }, [])
@@ -31,20 +31,13 @@ const useSelectorsPadding = (blockName) => {
         return paddingHorizontalUnit && paddingHorizontalUnit.getPaddingHorizontalUnit();
     }, [])
 
-
-    const isPaddingLinkedSides = useSelect(select => {
-        const isPaddingLinkedSidesValue = select(blockName);
-        return isPaddingLinkedSidesValue && isPaddingLinkedSidesValue.getPaddingLinkedSides();
-    }, [])
-
     return { 
-        paddingValue, 
+        padding, 
         paddingUnit, 
-        paddingVerticalValue, 
-        isPaddingLinkedSides, 
+        paddingVertical, 
         paddingVerticalUnit, 
-        paddingHorizontalValue, 
-        paddingHorizontalUnit 
+        paddingHorizontal, 
+        paddingHorizontalUnit,
     }
 }
 
