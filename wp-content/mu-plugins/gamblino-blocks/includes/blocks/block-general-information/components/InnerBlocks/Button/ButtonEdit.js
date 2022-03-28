@@ -4,19 +4,18 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import { useState } from "@wordpress/element";
 
 // WordPress component
-import "../../BlockConfiguration/BlockConfigurationSidebar";
-import InspectorControlPadding from "../../../block-wordpress-components/block-inspector-controls/Padding/Padding";
-import InspectorControlBorderRadius from "../../../block-wordpress-components/block-inspector-controls/BorderRadius/BorderRadius";
+import InspectorControlPadding from "../../../../block-wordpress-components/block-inspector-controls/Padding/Padding";
+import InspectorControlBorderRadius from "../../../../block-wordpress-components/block-inspector-controls/BorderRadius/BorderRadius";
 
 // Hooks Inspector Controls
-import useSelectorsBorderRadius from "../../../block-wordpress-components/block-inspector-controls/BorderRadius/hooks/useSelectorsBorderRadius";
-import useActionBorderRadius from "../../../block-wordpress-components/block-inspector-controls/BorderRadius/hooks/useActionBorderRadius";
+import useSelectorsBorderRadius from "../../../../block-wordpress-components/block-inspector-controls/BorderRadius/hooks/useSelectorsBorderRadius";
+import useActionBorderRadius from "../../../../block-wordpress-components/block-inspector-controls/BorderRadius/hooks/useActionBorderRadius";
 
-import useActionPadding from "../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useActionPadding";
-import useSelectorsPadding from "../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useSelectorsPadding";
+import useActionPadding from "../../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useActionPadding";
+import useSelectorsPadding from "../../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useSelectorsPadding";
 
 // React component
-import { ButtonPrimary } from "../../../../UI/Button";
+import { ButtonPrimary } from "../../../../../UI/Button";
 
 import "./ButtonEdit.scss";
 

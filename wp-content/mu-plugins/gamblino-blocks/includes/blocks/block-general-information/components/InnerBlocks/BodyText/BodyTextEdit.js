@@ -7,7 +7,7 @@ import { useState, useEffect } from '@wordpress/element'
 import { ColorPicker, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 import { useBlockProps, RichText, BlockControls } from "@wordpress/block-editor";
 
-import './BodyEdit.scss';
+import './BodyTextEditor.scss';
 
 const BodyEdit = ({ attributes, setAttributes }) => {
     const { aboutTitle, aboutTitleTextColor, aboutBodyText, aboutBodyTextColor } = attributes

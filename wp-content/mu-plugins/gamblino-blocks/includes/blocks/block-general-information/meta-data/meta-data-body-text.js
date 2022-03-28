@@ -1,4 +1,4 @@
-const metaDataBody = {
+const metaDataBodyText = {
     aboutTitle: {
         type: 'string',
         source: 'html',
@@ -17,4 +17,4 @@ const metaDataBody = {
     }
 };
 
-export default metaDataBody;
+export default metaDataBodyText;

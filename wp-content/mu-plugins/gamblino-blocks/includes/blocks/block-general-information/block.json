@@ -18,6 +18,95 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"id": {
+			"type": "number",
+			"default": 0
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src",
+			"default": ""
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"author": {
+			"type": "string"
+		},
+		"postLastUpdated": {
+			"type": "string"
+		},
+		"topicName": {
+			"type": "string"
+		},
+		"experiences": {
+			"type": "string"
+		},
+		"tableTitle": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2"
+		},
+		"tableTitleColorPicker": {
+			"type": "string"
+		},
+		"tableTitleAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"tableList": {
+			"type": "array",
+			"selector": ".wp-block-gamblino-block-general-information-body__column-two table tbody tr",
+			"source": "query",
+			"default": [
+				{
+					"id": "",
+					"url": "",
+					"alt": "",
+					"textFeature": "Get Bonus",
+					"textDescription": "Casumo",
+					"textColor": "#505050"
+				}
+			],
+			"query": {
+				"id": {
+					"type": "number",
+					"default": 0
+				},
+				"url": {
+					"type": "string",
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "src",
+					"default": ""
+				},
+				"alt": {
+					"type": "string",
+					"source": "attribute",
+					"selector": "img",
+					"attribute": "alt",
+					"default": ""
+				},
+				"textFeature": {
+					"type": "string",
+					"source": "html",
+					"selector": "p"
+				},
+				"textDescription": {
+					"type": "string",
+					"source": "html",
+					"selector": "p"
+				}
+			}
+		}
+	},
 	"textdomain": "block-gamblino",
 	"editorScript": "file:../../../build/block-general-information.js",
 	"editorStyle": "file:../../../build/block-general-information.css",

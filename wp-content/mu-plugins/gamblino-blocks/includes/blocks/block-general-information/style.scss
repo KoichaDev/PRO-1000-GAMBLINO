@@ -5,8 +5,16 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-block-gamblino-info-bonus-review {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-gamblino-block-general-information {
+    display: grid;
+    border: 3px solid rgba(255, 130, 0, 0.5);
+    border-radius: 15px;
+
+    .wp-block-gamblino-block-general-information__column-one {
+        // grid-area: column-one;
+    }
+
+    .wp-block-gamblino-block-general-information__column-two {
+   // grid-area: column-two;
+    }
 }

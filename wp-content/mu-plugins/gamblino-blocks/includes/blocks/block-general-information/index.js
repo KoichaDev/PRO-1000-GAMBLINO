@@ -1,8 +1,8 @@
 // WP Block Dependencies
 import { registerBlockType } from "@wordpress/blocks";
 
-// Inner Blocks Components
-import './InnerBlocks'
+// Blocks Components
+import './components/InnerBlocks'
 
 // Internal Parent Block Dependencies
 import Edit from "./edit";
@@ -21,3 +21,4 @@ registerBlockType(name, {
 	edit: Edit,
 	save,
 });
+

@@ -7,7 +7,7 @@ import { ColorPicker } from '@wordpress/components';
 // Wordpress Components
 import ListPros from './ListPros';
 import ListCons from './ListCons'
-import BlockColorPickerToolbar from '../../../block-wordpress-components/block-controls/block-color-picker/BlockColorPickerToolbar'
+import BlockColorPickerToolbar from '../../../../block-wordpress-components/block-controls/block-color-picker/BlockColorPickerToolbar'
 
 // styles
 import './ProsCons.scss';

@@ -2,14 +2,11 @@
 import { registerBlockType } from "@wordpress/blocks";
 
 // Block meta
-import metaData from "./meta-data";
+import metaData from "../../meta-data/meta-data-block";
 
 // Block Components
-import HeaderEdit from "./Header/HeaderEdit";
-import HeaderSave from "./Header/HeaderSave";
-
-import BodyEdit from './Body/BodyEdit';
-import BodySave from './Body/BodySave';
+import BodyTextEdit from './BodyText/BodyTextEdit';
+import BodyTextSave from './BodyText/BodyTextSave';
 
 import ProsConsEdit from './ProsConsList/ProsConsEdit';
 import ProsConsSave from './ProsConsList/ProsConsSave';
@@ -17,16 +14,10 @@ import ProsConsSave from './ProsConsList/ProsConsSave';
 import ButtonEdit from './Button/ButtonEdit';
 import ButtonSave from './Button/ButtonSave';
 
-registerBlockType("gamblino-block/inner-blocks-header", {
+registerBlockType("gamblino-block/inner-blocks-body-text", {
     ...metaData,
-    edit: HeaderEdit,
-    save: HeaderSave,
-});
-
-registerBlockType("gamblino-block/inner-blocks-body", {
-    ...metaData,
-    edit: BodyEdit,
-    save: BodySave,
+    edit: BodyTextEdit,
+    save: BodyTextSave,
 });
 
 registerBlockType("gamblino-block/inner-blocks-pros-cons", {
