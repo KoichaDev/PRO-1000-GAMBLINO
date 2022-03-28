@@ -8,7 +8,7 @@ function save({attributes}) {
 	return (
 		<section {...useBlockProps.save()}>
 
-			<header>
+			<header className="wp-block-gamblino-block-general-information__header">
 				{url && (
 					<img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
 				)}

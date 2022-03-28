@@ -1,0 +1,21 @@
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	border: 5px solid #626262;
+	border-radius: 1em;
+}
+
+table thead {
+	background-color: #d4d4d4;
+}
+
+td,
+th {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #d4d4d4;
+}
