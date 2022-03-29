@@ -8,7 +8,7 @@ const metaDataProsCons = {
     },
     prosTextLists: {
         type: "array",
-        selector: ".wp-block-gamblino-block-general-information__review-3-pros-list li",
+        selector: ".wp-block-gamblino-block-general-information__review-3-pros-list ul li",
         source: "query",
         default: [{ text: "", textColor: '#589822' }],
         query: {
