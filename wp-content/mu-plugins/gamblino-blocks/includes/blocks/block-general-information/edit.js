@@ -5,7 +5,7 @@ import {
 	useBlockProps,
 	RichText,
 	BlockControls,
-	AlignmentToolbar,
+	AlignmentToolbar
 } from "@wordpress/block-editor";
 
 import Header from "./components/Header/Header";

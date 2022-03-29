@@ -16,7 +16,9 @@
 		"limitations"
 	],
 	"supports": {
-		"html": false
+		"html": false,
+		"align": ["wide", "full"]
+
 	},
 	"attributes": {
 		"id": {
