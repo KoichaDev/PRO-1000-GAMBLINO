@@ -1,9 +1,9 @@
-html :where(.wp-block) {
+/* html :where(.wp-block) {
     display: block;
     width: 100%;
     max-width: 80%;
     margin: 0;
-}
+} */
 
 body {
 	background-color: #fff7eb;
