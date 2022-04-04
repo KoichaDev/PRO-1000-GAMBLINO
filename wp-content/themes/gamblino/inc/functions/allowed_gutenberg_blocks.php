@@ -17,6 +17,8 @@ function gamblino_allowed_block_types( $allowed_blocks ) {
             'acf/block-carousel',
             'gamblino-block/info-bonus-review',
             'gamblino-block/general-information',
+            'cgb/block-cgb-a11y-table',
+            'cgb/a11y-table',
         );
  
     }
