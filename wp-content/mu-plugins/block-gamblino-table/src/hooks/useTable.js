@@ -79,3 +79,19 @@ export function setCursor(evt) {
         }, 1, node, caret);
     }
 }
+
+
+// Exit Cell State to disable button functions
+export function exitCellState(props) {
+    const { attributes, setAttributes } = props
+    const { buttonStates } = attributes
+
+    // Disable all buttons by building a new object with every property set to true (disabled)
+    let newButtonStates = {};
+    for (let prop in buttonStates) {
+        newButtonStates[prop] = true;
+    }
+    setAttributes({
+        buttonStates: newButtonStates
+    });
+}

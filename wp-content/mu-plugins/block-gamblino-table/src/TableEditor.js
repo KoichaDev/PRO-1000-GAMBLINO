@@ -4,7 +4,13 @@ import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
 import { doDelete } from './hooks/useTableToolbar'
-import { generateNewTable, enterCellState, setCursor } from './hooks/useTable'
+
+import { 
+    generateNewTable, 
+    enterCellState, 
+    exitCellState, 
+    setCursor 
+} from './hooks/useTable'
 
 import {
     toggleRowHeadings,
@@ -47,9 +53,7 @@ const TableEditor = (props) => {
         tableCaption = <caption
             className={captionClass}
             contenteditable='true'
-            onFocus={evt => {
-                exitCellState(evt);
-            }}
+            onFocus={() => exitCellState(props)}
         >
             {dataCaption}
         </caption>;
@@ -160,9 +164,7 @@ const TableEditor = (props) => {
             colspan={totalCols}
             className={footerClass}
             contenteditable='true'
-            onFocus={evt => {
-                exitCellState(evt);
-            }}
+            onFocus={() => exitCellState(props)}
         >
             {dataFooter}
         </td>;
@@ -234,20 +236,6 @@ const TableEditor = (props) => {
             numCols: endingCols.toString()
         });
     }
-
-    
-    // Exit Cell State to disable button functions
-    function exitCellState() {
-        // Disable all buttons by building a new object with every property set to true (disabled)
-        let newButtonStates = {};
-        for (let prop in buttonStates) {
-            newButtonStates[prop] = true;
-        }
-        props.setAttributes({
-            buttonStates: newButtonStates
-        });
-    }
-
 
     // Final Return
     return (
