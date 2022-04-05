@@ -15,6 +15,7 @@ import attributesTableData from './meta-data-attributes/attributes-table-data'
 // Table Components 
 import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
+import TableForm from './components/TableForm';
 
 // Table styling
 import './style.scss';
@@ -208,94 +209,24 @@ registerBlockType("gamblino-block/table", {
 					{tableBody}
 					{tableFooter}
 				</table>
-				<form className={formClass}>
-					<div>
-						<label for='addCaption'>{__('Add Caption')}</label>
-						<input
-							type='checkbox'
-							id='captionCheck'
-							checked={useCaption}
-							onChange={function (evt) {
-								props.setAttributes({ useCaption: evt.target.checked });
-							}}
-						/>
-					</div>
-					<div>
-						<label for='useColHeadings'>{__('Add Column Headings')}</label>
-						<input
-							type='checkbox'
-							id='useColHeadings'
-							checked={useColHeadings}
-							onChange={function (evt) {
-								if (evt.target.checked == true) {
-									props.setAttributes({ useColHeadings: true });
-								} else {
-									props.setAttributes({ useColHeadings: false });
-								}
-							}}
-						/>
-					</div>
-					<div>
-						<label for='numCols'>{__('Columns')}</label>
-						<input
-							type='number'
-							id='numCols'
-							value={numCols}
-							min='1'
-							step='1'
-							pattern='[0-9]*'
-							onChange={(evt) => props.setAttributes({ numCols: evt.target.value })}
-						/>
-					</div>
-					<div>
-						<label for='useRowHeadings'>{__('Add Row Headings')}</label>
-						<input
-							type='checkbox'
-							id='useRowHeadings'
-							checked={useRowHeadings}
-							onChange={function (evt) {
-								if (evt.target.checked == true) {
-									props.setAttributes({ useRowHeadings: true });
-								} else {
-									props.setAttributes({ useRowHeadings: false });
-								}
-							}}
-						/>
-					</div>
-					<div>
-						<label for='numRows'>{__('Rows')}</label>
-						<input
-							type='number'
-							id='numRows'
-							value={numRows}
-							min='1'
-							step='1'
-							pattern='[0-9]*'
-							onChange={(evt) => props.setAttributes({ numRows: evt.target.value })}
-						/>
-					</div>
-					<div>
-						<label for='addFooter'>{__('Add Footer')}</label>
-						<input
-							type='checkbox'
-							id='footerCheck'
-							checked={useFooter}
-							onChange={function (evt) {
-								props.setAttributes({ useFooter: evt.target.checked });
-							}}
-						/>
-					</div>
-					<button
-						type='submit'
-						onClick={evt => buildTable(evt)}
-					>
-						{__('Insert Table')}
-					</button>
-				</form>
+
+				<TableForm
+					formClassName={formClass}
+					useCaption={useCaption}
+					useColHeadings={useColHeadings}
+					useRowHeadings={useRowHeadings}
+					useFooter={useFooter}
+					numCols={numCols}
+					numRows={numRows}
+					onAddCreateTable={e => buildTableHandler(e)}
+					setAttributes={setAttributes}
+
+				/>
+
 			</div>
 		);
 		// Function that builds the table when the form is submitted
-		function buildTable(evt) {
+		function buildTableHandler(evt) {
 			evt.preventDefault();
 			// Only build the table and hide the form if there are rows and columns
 			if (numCols > 0 && numRows > 0) {
