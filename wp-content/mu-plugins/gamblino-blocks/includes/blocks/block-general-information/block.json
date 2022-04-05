@@ -71,12 +71,12 @@
 				"textColumnOne": {
 					"type": "string",
 					"source": "html",
-					"selector": "p"
+					"selector": "p.text-column-one"
 				},
 				"textColumnTwo": {
 					"type": "string",
 					"source": "html",
-					"selector": "div"
+					"selector": "p.text-column-two"
 				}
 			}
 		}

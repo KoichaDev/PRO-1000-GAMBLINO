@@ -14,7 +14,7 @@ import attributesTableData from './meta-data-attributes/attributes-table-data'
 
 // Table Components 
 import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
-import TableToolbarCRUD from './components/BlockEditor/TableToolbarCRUD'
+import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 
 // Table styling
 import './style.scss';
@@ -179,17 +179,17 @@ registerBlockType("gamblino-block/table", {
 		// Final Return
 		return (
 			<div>
-			
-				{/* <TableToolbarCRUD 
-				
-					buttonStates,
-				onClickInsertColumnBefore,
-				onClickInsertColumnAfter,
-				onClickInsertRowBefore,
-				onClickInsertRowAfter,
-				onClickDeleteColumn,
-				onClickDeleteRow
-				/> */}
+
+				<TableToolbarCell
+
+					buttonStates={buttonStates}
+					onClickInsertColumnBefore={() => () => doInsert('col', 'before')}
+					onClickInsertColumnAfter={() => doInsert('col', 'after')}
+					onClickInsertRowBefore={() => doInsert('row', 'before')}
+					onClickInsertRowAfter={() => doInsert('row', 'after')}
+					onClickDeleteColumn={() => doDelete('col')}
+					onClickDeleteRow={() => doDelete('row')}
+				/>
 				<ToggleTableCells
 					useCaption={useCaption}
 					toggleCaption={toggleCaption}
