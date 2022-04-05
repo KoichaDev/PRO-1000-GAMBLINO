@@ -4,12 +4,12 @@ import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
 import { doDelete } from './hooks/useTableToolbar'
+import { generateNewTable } from './hooks/useTable'
 
 import {
-    generateNewTable,
     toggleRowHeadings,
     toggleFooter,
-    toggleCaption, 
+    toggleCaption,
     toggleColHeadings
 } from './hooks/useTableInspector'
 
