@@ -3,7 +3,12 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { generateNewTable, toggleFooter, toggleCaption } from './hooks/useTable'
+import { 
+    generateNewTable, 
+    toggleRowHeadings, 
+    toggleFooter, 
+    toggleCaption 
+} from './hooks/useTableInspector'
 
 import { createElement } from '@wordpress/element'
 
@@ -354,76 +359,13 @@ const TableEditor = (props) => {
             });
         }
     }
-    // Inspector - toggle row headings
-    function toggleRowHeadings() {
-        if (useRowHeadings == false) {
-            // If the table has been built already
-            if (showTable == true) {
-                // Similar to our Do Insert function for a column
-                let endingRows = numRows;
-                let newBody = JSON.parse(JSON.stringify(dataBody));
-                let newHead = JSON.parse(JSON.stringify(dataHead));
-                // Update the body
-                for (var r = 0; r < endingRows; r++) {
-                    // Create a new cell
-                    let newCell = { content: '' };
-                    // Add the cell
-                    newBody[r].bodyCells.splice(0, 0, newCell);
-                }
-                // If there is a thead, update that too
-                if (useColHeadings == true) {
-                    // Create a new cell
-                    let newTh = { content: '' };
-                    // Add the cell
-                    newHead.splice(0, 0, newTh);
-                }
-                // Set Atts
-                props.setAttributes({
-                    useRowHeadings: true,
-                    dataBody: newBody,
-                    dataHead: newHead
-                });
-            }
-            // Else, the table has not been built yet and the form is showing, so only update useRowHeadings
-            else {
-                props.setAttributes({ useRowHeadings: true });
-            }
-        } else {
-            // If the table has been built already
-            if (showTable == true) {
-                let endingRows = numRows;
-                let newBody = JSON.parse(JSON.stringify(dataBody));
-                let newHead = JSON.parse(JSON.stringify(dataHead));
-                // Update the body
-                for (var r = 0; r < endingRows; r++) {
-                    // Remove the first cell
-                    newBody[r].bodyCells.splice(0, 1);
-                }
-                // If there is a thead, update that too
-                if (useColHeadings == true) {
-                    // Remove the first cell
-                    newHead.splice(0, 1);
-                }
-                // Set Atts
-                props.setAttributes({
-                    useRowHeadings: false,
-                    dataBody: newBody,
-                    dataHead: newHead
-                });
-            }
-            // Else, the table has not been built yet and the form is showing, so only update useRowHeadings
-            else {
-                props.setAttributes({ useRowHeadings: false });
-            }
-        }
-    }
+   
 
     // Final Return
     return (
         <div>
 
             <TableToolbarCell
-
                 buttonStates={buttonStates}
                 onClickInsertColumnBefore={() => () => doInsert('col', 'before')}
                 onClickInsertColumnAfter={() => doInsert('col', 'after')}
@@ -438,7 +380,7 @@ const TableEditor = (props) => {
                 useColHeadings={useColHeadings}
                 toggleColHeadings={toggleColHeadings}
                 useRowHeadings={useRowHeadings}
-                toggleRowHeadings={toggleRowHeadings}
+                toggleRowHeadings={() => toggleRowHeadings(props)}
                 useFooter={useFooter}
                 toggleFooter={() => toggleFooter(props)}
             />
