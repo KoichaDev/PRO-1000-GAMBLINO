@@ -4,7 +4,7 @@ import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
 import { doDelete } from './hooks/useTableToolbar'
-import { generateNewTable } from './hooks/useTable'
+import { generateNewTable, enterCellState, setCursor } from './hooks/useTable'
 
 import {
     toggleRowHeadings,
@@ -36,7 +36,6 @@ const TableEditor = (props) => {
     let numCols = parseInt(props.attributes.numCols, 10);
     let numRows = parseInt(props.attributes.numRows, 10);
 
-    var buttonsToEnable;
     // Caption
     let tableCaption, captionClass = 'is-hidden';
 
@@ -79,9 +78,7 @@ const TableEditor = (props) => {
             scope='col'
             contenteditable='true'
             data-buttons={currentThButtons}
-            onFocus={evt => {
-                enterCellState(evt);
-            }}
+            onFocus={evt => enterCellState(evt, props)}
         >
             {cell.content}
         </th>;
@@ -117,7 +114,7 @@ const TableEditor = (props) => {
                     'aria-label': ariaLabel,
                     contenteditable: 'true',
                     'data-buttons': '1,2,3,4,5,6',
-                    onFocus: (evt) => { enterCellState(evt); },
+                    onFocus: (evt) => { enterCellState(evt, props); },
                     onInput: (evt) => {
                         // Copy the dataBody
                         let newBody = JSON.parse(JSON.stringify(dataBody));
@@ -177,22 +174,7 @@ const TableEditor = (props) => {
         tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
     }
 
-    // Function that returns the cursor where it was, instead of the beginning of an input
-    function setCursor(evt) {
-        var node = evt.target;
-        var caret = window.getSelection().anchorOffset;
-        if (node.firstChild) {
-            setTimeout(function () {
-                let textNode = node.firstChild;
-                var range = document.createRange();
-                range.setStart(textNode, caret);
-                range.setEnd(textNode, caret);
-                var sel = window.getSelection();
-                sel.removeAllRanges();
-                sel.addRange(range);
-            }, 1, node, caret);
-        }
-    }
+    
     // Button Function: insert
     function doInsert(type, location) {
         let selectedRow = currentCell.row;
@@ -253,28 +235,7 @@ const TableEditor = (props) => {
         });
     }
 
-    // Enter Cell State to enable button functions
-    function enterCellState(evt) {
-        // Set enabled buttons
-        buttonsToEnable = evt.target.dataset.buttons.split(',');
-        let newButtonStates = {};
-        for (let prop in buttonStates) {
-            newButtonStates[prop] = true;
-        }
-        for (var b = 0; b < buttonsToEnable.length; b++) {
-            let enableVar = 'disabled' + buttonsToEnable[b];
-            newButtonStates[enableVar] = false;
-        }
-        // Set currently selected cell (convert row and column numbers to array keys - one less than the human-readable value in aria)
-        let cellLabel = evt.target.getAttribute('aria-label');
-        let cellCoords = cellLabel.split(' ');
-        let cellRow = parseInt(cellCoords[1], 10) - 1;
-        let cellCol = parseInt(cellCoords[3], 10) - 1;
-        props.setAttributes({
-            buttonStates: newButtonStates,
-            currentCell: { row: cellRow, col: cellCol }
-        });
-    }
+    
     // Exit Cell State to disable button functions
     function exitCellState() {
         // Disable all buttons by building a new object with every property set to true (disabled)
