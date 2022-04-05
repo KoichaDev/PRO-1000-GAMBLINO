@@ -3,7 +3,7 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { doDelete } from './hooks/useTable'
+import { doDelete } from './hooks/useTableToolbar'
 
 import {
     generateNewTable,
