@@ -112,6 +112,41 @@ export function toggleRowHeadings(props) {
     }
 }
 
+// Inspector - toggle col headings
+export function toggleColHeadings(props) {
+    const { attributes, setAttributes } = props
+    const { showTable, useRowHeadings, useColHeadings, numCols } = attributes
+
+    if (useColHeadings == false) {
+        // If the table has been built already, build the thead array and set attributes with it
+        if (showTable == true) {
+            // Just like in our Build Table function, if row headings is true, we need 1 extra column beyond the data-columns
+            let totalCols = numCols;
+            if (useRowHeadings == true) {
+                totalCols++;
+            }
+            // Build the thead attribute array
+            let newHead = [];
+            for (var i = 0; i < totalCols; i++) {
+                newHead[i] = { content: '' };
+            }
+            setAttributes({
+                useColHeadings: true,
+                dataHead: newHead
+            });
+        }
+        // Else, the table has not been built yet and the form is showing, so only update useColHeadings
+        else {
+            setAttributes({ useColHeadings: true });
+        }
+    } else {
+        setAttributes({
+            useColHeadings: false,
+            dataHead: []
+        });
+    }
+}
+
 
 
 

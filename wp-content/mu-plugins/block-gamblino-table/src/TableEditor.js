@@ -9,7 +9,8 @@ import {
     generateNewTable,
     toggleRowHeadings,
     toggleFooter,
-    toggleCaption
+    toggleCaption, 
+    toggleColHeadings
 } from './hooks/useTableInspector'
 
 import { createElement } from '@wordpress/element'
@@ -286,38 +287,6 @@ const TableEditor = (props) => {
         });
     }
 
-    // Inspector - toggle col headings
-    function toggleColHeadings() {
-        if (useColHeadings == false) {
-            // If the table has been built already, build the thead array and set attributes with it
-            if (showTable == true) {
-                // Just like in our Build Table function, if row headings is true, we need 1 extra column beyond the data-columns
-                let totalCols = numCols;
-                if (useRowHeadings == true) {
-                    totalCols++;
-                }
-                // Build the thead attribute array
-                let newHead = [];
-                for (var i = 0; i < totalCols; i++) {
-                    newHead[i] = { content: '' };
-                }
-                props.setAttributes({
-                    useColHeadings: true,
-                    dataHead: newHead
-                });
-            }
-            // Else, the table has not been built yet and the form is showing, so only update useColHeadings
-            else {
-                props.setAttributes({ useColHeadings: true });
-            }
-        } else {
-            props.setAttributes({
-                useColHeadings: false,
-                dataHead: []
-            });
-        }
-    }
-
 
     // Final Return
     return (
@@ -336,7 +305,7 @@ const TableEditor = (props) => {
                 useCaption={useCaption}
                 toggleCaption={() => toggleCaption(props)}
                 useColHeadings={useColHeadings}
-                toggleColHeadings={toggleColHeadings}
+                toggleColHeadings={() => toggleColHeadings}
                 useRowHeadings={useRowHeadings}
                 toggleRowHeadings={() => toggleRowHeadings(props)}
                 useFooter={useFooter}
