@@ -3,13 +3,13 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { doDelete } from './hooks/useTableToolbar'
+import { doDelete, doInsert } from './hooks/useTableToolbar'
 
-import { 
-    generateNewTable, 
-    enterCellState, 
-    exitCellState, 
-    setCursor 
+import {
+    generateNewTable,
+    enterCellState,
+    exitCellState,
+    setCursor
 } from './hooks/useTable'
 
 import {
@@ -25,7 +25,6 @@ const TableEditor = (props) => {
     const {
         attributes: {
             buttonStates,
-            currentCell,
             dataBody,
             dataCaption,
             dataFooter,
@@ -70,7 +69,7 @@ const TableEditor = (props) => {
     if (showTable) {
         headClass = '';
     }
-    const tableHeadData = dataHead.map(function (cell, colIndex) {
+    const tableHeadData = dataHead.map((cell, colIndex) => {
         ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
         let currentThButtons = '1,2,4,5';
         // If row headings are enabled, and this is the very first col TH, don't allow insert col before or delete col
@@ -176,77 +175,15 @@ const TableEditor = (props) => {
         tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
     }
 
-    
-    // Button Function: insert
-    function doInsert(type, location) {
-        let selectedRow = currentCell.row;
-        // If there is a table head
-        if (useColHeadings == true) {
-            selectedRow--;
-        }
-        let selectedCol = currentCell.col;
-        // If we are inserting after, add 1 to insert in the right place
-        if (location == 'after') {
-            selectedRow++;
-            selectedCol++;
-        }
-        let endingRows = numRows;
-        // 2 vars to track columns: allCols includes any potential THs; endingCols will be saved as numCols, and cannot contain THs
-        let allCols = numCols, endingCols = numCols;
-        // If row headings are enabled, add 1 extra cell to the row
-        if (useRowHeadings == true) {
-            allCols++;
-        }
-        let newBody = JSON.parse(JSON.stringify(dataBody));
-        let newHead = JSON.parse(JSON.stringify(dataHead));
-        if (type == 'row') {
-            // First create a row
-            let newRow = {
-                bodyCells: []
-            };
-            for (var c = 0; c < allCols; c++) {
-                newRow.bodyCells.push({ content: '' });
-            }
-            // Now insert the row (in this case splice isn't deleting anything because of the 0)
-            newBody.splice(selectedRow, 0, newRow);
-            // Increase the total number of rows
-            endingRows++;
-        } else if (type == 'col') {
-            // Update the body
-            for (var r = 0; r < endingRows; r++) {
-                // Create a new cell
-                let newCell = { content: '' };
-                // Add the cell
-                newBody[r].bodyCells.splice(selectedCol, 0, newCell);
-            }
-            // If there is a thead, update that too
-            if (useColHeadings == true) {
-                // Create a new cell
-                let newTh = { content: '' };
-                // Add the cell object
-                newHead.splice(selectedCol, 0, newTh);
-            }
-            // Increase the total number of cols
-            endingCols++;
-        }
-        props.setAttributes({
-            dataBody: newBody,
-            dataHead: newHead,
-            numRows: endingRows.toString(),
-            numCols: endingCols.toString()
-        });
-    }
-
     // Final Return
     return (
-        <div>
-
+        <>
             <TableToolbarCell
                 buttonStates={buttonStates}
-                onClickInsertColumnBefore={() => () => doInsert('col', 'before')}
-                onClickInsertColumnAfter={() => doInsert('col', 'after')}
-                onClickInsertRowBefore={() => doInsert('row', 'before')}
-                onClickInsertRowAfter={() => doInsert('row', 'after')}
+                onClickInsertColumnBefore={() => doInsert(props, 'col', 'before')}
+                onClickInsertColumnAfter={() => doInsert(props, 'col', 'after')}
+                onClickInsertRowBefore={() => doInsert(props, 'row', 'before')}
+                onClickInsertRowAfter={() => doInsert(props,'row', 'after')}
                 onClickDeleteColumn={() => doDelete(props, 'col')}
                 onClickDeleteRow={() => doDelete(props, 'row')}
             />
@@ -280,8 +217,7 @@ const TableEditor = (props) => {
                 onAddCreateTable={evt => generateNewTable(evt, numCols, numRows, props)}
                 setAttributes={setAttributes}
             />
-
-        </div>
+        </>
     );
 }
 
