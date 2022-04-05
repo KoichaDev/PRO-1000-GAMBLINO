@@ -3,11 +3,13 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { 
-    generateNewTable, 
-    toggleRowHeadings, 
-    toggleFooter, 
-    toggleCaption 
+import { doDelete } from './hooks/useTable'
+
+import {
+    generateNewTable,
+    toggleRowHeadings,
+    toggleFooter,
+    toggleCaption
 } from './hooks/useTableInspector'
 
 import { createElement } from '@wordpress/element'
@@ -64,39 +66,38 @@ const TableEditor = (props) => {
     if (showTable) {
         headClass = '';
     }
-    const tableHeadData = dataHead
-        .map(function (cell, colIndex) {
-            ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
-            let currentThButtons = '1,2,4,5';
-            // If row headings are enabled, and this is the very first col TH, don't allow insert col before or delete col
-            if (colIndex == 0 && useRowHeadings == true) {
-                currentThButtons = '2,4';
-            }
-            let currentTh = <th
-                aria-label={ariaLabel}
-                scope='col'
-                contenteditable='true'
-                data-buttons={currentThButtons}
-                onFocus={evt => {
-                    enterCellState(evt);
-                }}
-            >
-                {cell.content}
-            </th>;
-            currentTh.props.onInput = function (evt) {
-                // Copy the dataHead
-                let newHead = JSON.parse(JSON.stringify(dataHead));
-                // Create a new cell
-                let newTh = { content: evt.target.textContent };
-                // Replace the old cell with the new cell
-                newHead.splice(colIndex, 1, newTh);
-                // Save the dataHead attribute
-                props.setAttributes({ dataHead: newHead });
-                // Move the cursor back where it was
-                setCursor(evt);
-            };
-            return currentTh;
-        });
+    const tableHeadData = dataHead.map(function (cell, colIndex) {
+        ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
+        let currentThButtons = '1,2,4,5';
+        // If row headings are enabled, and this is the very first col TH, don't allow insert col before or delete col
+        if (colIndex == 0 && useRowHeadings == true) {
+            currentThButtons = '2,4';
+        }
+        let currentTh = <th
+            aria-label={ariaLabel}
+            scope='col'
+            contenteditable='true'
+            data-buttons={currentThButtons}
+            onFocus={evt => {
+                enterCellState(evt);
+            }}
+        >
+            {cell.content}
+        </th>;
+        currentTh.props.onInput = function (evt) {
+            // Copy the dataHead
+            let newHead = JSON.parse(JSON.stringify(dataHead));
+            // Create a new cell
+            let newTh = { content: evt.target.textContent };
+            // Replace the old cell with the new cell
+            newHead.splice(colIndex, 1, newTh);
+            // Save the dataHead attribute
+            props.setAttributes({ dataHead: newHead });
+            // Move the cursor back where it was
+            setCursor(evt);
+        };
+        return currentTh;
+    });
     if (tableHeadData.length) {
         tableHead = <thead className={headClass}><tr>{tableHeadData}</tr></thead>;
     } else {
@@ -175,8 +176,6 @@ const TableEditor = (props) => {
         tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
     }
 
-
-
     // Function that returns the cursor where it was, instead of the beginning of an input
     function setCursor(evt) {
         var node = evt.target;
@@ -252,48 +251,7 @@ const TableEditor = (props) => {
             numCols: endingCols.toString()
         });
     }
-    // Button Function: delete
-    function doDelete(type) {
-        let selectedRow = currentCell.row, selectedCol = currentCell.col,
-            shouldShowTable = showTable, endingRows = numRows, endingCols = numCols,
-            newBody = JSON.parse(JSON.stringify(dataBody)), newHead = JSON.parse(JSON.stringify(dataHead));
-        if (type == 'row') {
-            // If deleting the only row, set "showTable" to false, so only the form appears
-            if (newBody.length == 1) {
-                shouldShowTable = false;
-            }
-            // If there is a table head
-            if (useColHeadings == true) {
-                selectedRow--;
-            }
-            newBody.splice(selectedRow, 1);
-            endingRows--;
-        } else if (type == 'col') {
-            endingCols--;
-            // If deleting the only col, set "showTable" to false, so only the form appears
-            if (newBody[selectedRow].bodyCells.length == 1) {
-                shouldShowTable = false;
-            }
-            // Update the body
-            for (var r = 0; r < endingRows; r++) {
-                // Delete the cell
-                newBody[r].bodyCells.splice(selectedCol, 1);
-            }
-            // If there is a thead, update that too
-            if (useColHeadings == true) {
-                // Delete the cell
-                newHead.splice(selectedCol, 1);
-            }
-        }
-        // Save the atts
-        props.setAttributes({
-            dataBody: newBody,
-            dataHead: newHead,
-            showTable: shouldShowTable,
-            numRows: endingRows.toString(),
-            numCols: endingCols.toString()
-        });
-    }
+
     // Enter Cell State to enable button functions
     function enterCellState(evt) {
         // Set enabled buttons
@@ -359,7 +317,7 @@ const TableEditor = (props) => {
             });
         }
     }
-   
+
 
     // Final Return
     return (
@@ -371,8 +329,8 @@ const TableEditor = (props) => {
                 onClickInsertColumnAfter={() => doInsert('col', 'after')}
                 onClickInsertRowBefore={() => doInsert('row', 'before')}
                 onClickInsertRowAfter={() => doInsert('row', 'after')}
-                onClickDeleteColumn={() => doDelete('col')}
-                onClickDeleteRow={() => doDelete('row')}
+                onClickDeleteColumn={() => doDelete(props, 'col')}
+                onClickDeleteRow={() => doDelete(props, 'row')}
             />
             <ToggleTableCells
                 useCaption={useCaption}
