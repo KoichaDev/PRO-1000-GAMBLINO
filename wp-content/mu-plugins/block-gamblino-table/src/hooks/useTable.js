@@ -38,12 +38,24 @@ export function generateNewTable(evt, numCols, numRows, props) {
 
 // Inspector - toggle footer
 export function toggleFooter(props) {
-    const { attributes, setAttributes} = props;
+    const { attributes, setAttributes } = props;
     const { useFooter } = attributes;
 
-    if (useFooter == false) {
+    if (useFooter === false) {
         setAttributes({ useFooter: true });
     } else {
         setAttributes({ useFooter: false, dataFooter: '' });
+    }
+}
+
+// Inspector - toggle caption
+export function toggleCaption(props) {
+    const { attributes, setAttributes } = props;
+    const { useCaption } = attributes;
+
+    if (useCaption === false) {
+        setAttributes({ useCaption: true });
+    } else {
+        setAttributes({ useCaption: false, dataCaption: '' });
     }
 }

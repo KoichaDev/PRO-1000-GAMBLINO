@@ -3,7 +3,7 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { generateNewTable, toggleFooter } from './hooks/useTable'
+import { generateNewTable, toggleFooter, toggleCaption } from './hooks/useTable'
 
 import { createElement } from '@wordpress/element'
 
@@ -171,7 +171,7 @@ const TableEditor = (props) => {
     }
 
 
-   
+
     // Function that returns the cursor where it was, instead of the beginning of an input
     function setCursor(evt) {
         var node = evt.target;
@@ -322,14 +322,7 @@ const TableEditor = (props) => {
             buttonStates: newButtonStates
         });
     }
-    // Inspector - toggle caption
-    function toggleCaption() {
-        if (useCaption == false) {
-            props.setAttributes({ useCaption: true });
-        } else {
-            props.setAttributes({ useCaption: false, dataCaption: '' });
-        }
-    }
+
     // Inspector - toggle col headings
     function toggleColHeadings() {
         if (useColHeadings == false) {
@@ -441,7 +434,7 @@ const TableEditor = (props) => {
             />
             <ToggleTableCells
                 useCaption={useCaption}
-                toggleCaption={toggleCaption}
+                toggleCaption={() => toggleCaption(props)}
                 useColHeadings={useColHeadings}
                 toggleColHeadings={toggleColHeadings}
                 useRowHeadings={useRowHeadings}
