@@ -99,6 +99,7 @@ const TableColumn = ({ attributes, setAttributes }) => {
 								>
 									<td>
 										<RichText
+											className="p.text-column-one"
 											value={info.textColumnOne}
 											onChange={(value) => {
 												// prettier-ignore
@@ -110,7 +111,7 @@ const TableColumn = ({ attributes, setAttributes }) => {
 									</td>
 									<td>
 										<RichText
-											role="paragraph"
+											className='text-column-two"'
 											value={info.textColumnTwo}
 											onChange={(value) => {
 												// prettier-ignore

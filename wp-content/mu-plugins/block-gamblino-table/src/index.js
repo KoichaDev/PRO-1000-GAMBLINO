@@ -2,7 +2,7 @@
 import { __ } from '@wordpress/i18n'
 import { registerBlockType } from '@wordpress/blocks'
 import { Dashicon, FormToggle, PanelBody, PanelRow, Toolbar, Button, Tooltip } from '@wordpress/components';
-import { BlockControls, InspectorControls } from '@wordpress/block-editor'
+import { BlockControls } from '@wordpress/block-editor'
 import { createElement } from '@wordpress/element'
 
 // Meta Data for the Block
@@ -11,6 +11,10 @@ import attributesTableCells from './meta-data-attributes/attributes-table-cells'
 import attributesTableCaption from './meta-data-attributes/attributes-table-caption'
 import attributesTableHeadings from './meta-data-attributes/attributes-table-toggle-cells'
 import attributesTableData from './meta-data-attributes/attributes-table-data'
+
+// Table Components 
+import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
+import TableToolbarCRUD from './components/BlockEditor/TableToolbarCRUD'
 
 // Table styling
 import './style.scss';
@@ -26,7 +30,7 @@ registerBlockType("gamblino-block/table", {
 		...attributesTableData,
 		...attributesTableCaption,
 		...attributesTableHeadings,
-	
+
 	},
 	//////////////////// EDIT ////////////////////
 	edit: props => {
@@ -175,102 +179,29 @@ registerBlockType("gamblino-block/table", {
 		// Final Return
 		return (
 			<div>
-				<BlockControls key='a11y-form-controls'>
-					<Toolbar>
-						<Tooltip text="{ __('Insert Column Before') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doInsert('col', 'before')}
-								disabled={buttonStates.disabled1}
-							>
-								<Dashicon icon="table-col-before" />
-							</button>
-						</Tooltip>
-						<Tooltip text="{ __('Insert Column After') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doInsert('col', 'after')}
-								disabled={buttonStates.disabled2}
-							>
-								<Dashicon icon="table-col-after" />
-							</button>
-						</Tooltip>
-						<Tooltip text="{ __('Insert Row Before') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doInsert('row', 'before')}
-								disabled={buttonStates.disabled3}
-							>
-								<Dashicon icon="table-row-before" />
-							</button>
-						</Tooltip>
-						<Tooltip text="{ __('Insert Row After') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doInsert('row', 'after')}
-								disabled={buttonStates.disabled4}
-							>
-								<Dashicon icon="table-row-after" />
-							</button>
-						</Tooltip>
-					</Toolbar>
-					<Toolbar>
-						<Tooltip text="{ __('Delete Column') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doDelete('col')}
-								disabled={buttonStates.disabled5}
-							>
-								<Dashicon icon="table-col-delete" />
-							</button>
-						</Tooltip>
-						<Tooltip text="{ __('Delete Row') }">
-							<button
-								className='components-icon-button'
-								onClick={() => doDelete('row')}
-								disabled={buttonStates.disabled6}
-							>
-								<Dashicon icon="table-row-delete" />
-							</button>
-						</Tooltip>
-					</Toolbar>
-				</BlockControls>
-				<InspectorControls>
-					<PanelBody title="{ __('Table Options') }">
-						<PanelRow>
-							<label for='toggle-caption'>{__('Include a Caption')}</label>
-							<FormToggle
-								id='toggle-caption'
-								checked={useCaption}
-								onChange={toggleCaption}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<label for='toggle-col-headings'>{__('Include Column Headings')}</label>
-							<FormToggle
-								id='toggle-col-headings'
-								checked={useColHeadings}
-								onChange={toggleColHeadings}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<label for='toggle-row-headings'>{__('Include Row Headings')}</label>
-							<FormToggle
-								id='toggle-row-headings'
-								checked={useRowHeadings}
-								onChange={toggleRowHeadings}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<label for='toggle-footer'>{__('Include a Footer')}</label>
-							<FormToggle
-								id='toggle-footer'
-								checked={useFooter}
-								onChange={toggleFooter}
-							/>
-						</PanelRow>
-					</PanelBody>
-				</InspectorControls>
+			
+				{/* <TableToolbarCRUD 
+				
+					buttonStates,
+				onClickInsertColumnBefore,
+				onClickInsertColumnAfter,
+				onClickInsertRowBefore,
+				onClickInsertRowAfter,
+				onClickDeleteColumn,
+				onClickDeleteRow
+				/> */}
+				<ToggleTableCells
+					useCaption={useCaption}
+					toggleCaption={toggleCaption}
+					useColHeadings={useColHeadings}
+					toggleColHeadings={toggleColHeadings}
+					useRowHeadings={useRowHeadings}
+					toggleRowHeadings={toggleRowHeadings}
+					useFooter={useFooter}
+					toggleFooter={toggleFooter}
+				/>
+
+
 				<table className={className}>
 					{tableCaption}
 					{tableHead}

@@ -64,9 +64,8 @@ function save({ attributes }) {
 											</td>
 											<td>
 												<RichText.Content
-													role="paragraph"
 													className="text-column-two"
-													tagName="div"
+													tagName="p"
 													value={info.textColumnTwo}
 												/>
 											</td>
