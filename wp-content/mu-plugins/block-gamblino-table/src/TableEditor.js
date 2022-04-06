@@ -37,7 +37,7 @@ const TableEditor = (props) => {
         setAttributes
     } = props;
 
-    const [formClass, setFormClass] = useState()
+    const [isHiddenClassName, setIsHiddenClassName] = useState()
 
     let numCols = parseInt(props.attributes.numCols, 10);
     let numRows = parseInt(props.attributes.numRows, 10);
@@ -57,14 +57,14 @@ const TableEditor = (props) => {
             />
 
             <Table className={className}>
-                <TableCaption  {...props} />
+                <TableCaption isHiddenClassName={isHiddenClassName} {...props} />
                 <TableHead {...props} />
-                <TableBody formClass={formClass} setFormClass={setFormClass} {...props} />
+                <TableBody setIsHiddenClassName={setIsHiddenClassName} {...props} />
                 <TableFooter numCols={numCols} {...props} />
             </Table>
 
             <TableForm
-                formClassName={formClass}
+                formClassName={isHiddenClassName}
                 useCaption={useCaption}
                 useColHeadings={useColHeadings}
                 useRowHeadings={useRowHeadings}

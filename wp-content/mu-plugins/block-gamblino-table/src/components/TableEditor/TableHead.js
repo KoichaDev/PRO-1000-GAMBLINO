@@ -1,5 +1,7 @@
 import { setCursor } from '../../hooks/useTable'
-import { enterCellState} from '../../hooks/useTableCells'
+import { enterCellState } from '../../hooks/useTableCells'
+
+import { Thead } from '../UI/Table'
 
 const TableHead = ({ ...props }) => {
     const { attributes, setAttributes } = props
@@ -50,13 +52,13 @@ const TableHead = ({ ...props }) => {
         )
 
     });
-    
+
     if (tableHeadData.length) {
         tableHead = (
             <>
-                <thead className={headClass}>
+                <Thead isHidden={headClass} className={headClass}>
                     <tr>{tableHeadData}</tr>
-                </thead>
+                </Thead>
             </>
         )
     } else {

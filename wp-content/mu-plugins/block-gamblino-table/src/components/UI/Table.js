@@ -16,12 +16,6 @@ export const Table = styled.table`
         text-align:left;
     }
 
-    caption {
-        border: 1px solid #777;
-        border-bottom: none;
-        text-align: left;
-    }
-
     caption, tfoot {
         background:#fff;
     }
@@ -123,3 +117,20 @@ export const Table = styled.table`
         }        
     }
 `;
+
+export const Caption = styled.caption`
+    display: none;
+    padding: 3px;
+    background: #fff;
+    border: 1px solid #777;
+    border-bottom: none;
+    text-align: left;
+
+    &.is-hidden {
+        display: block;
+    }
+`
+
+export const Thead = styled.thead`
+    display: ${props => props.isHidden ? 'none' : 'block'};
+`

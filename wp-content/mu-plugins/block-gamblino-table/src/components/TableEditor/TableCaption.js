@@ -1,7 +1,9 @@
 import { setCursor } from '../../hooks/useTable'
 import { exitCellState } from '../../hooks/useTableCells'
 
-const TableCaption = ({ ...props }) => {
+import { Caption } from '../UI/Table'
+
+const TableCaption = ({ isHiddenClassName, ...props }) => {
     const { attributes, setAttributes } = props
     const { dataCaption, showTable, useCaption } = attributes;
 
@@ -12,24 +14,23 @@ const TableCaption = ({ ...props }) => {
     }
 
     const onInputHandler = (evt) => {
+        
+        setAttributes({
+            dataCaption: evt.target.textContent
+        });
         // Move the cursor back where it was
         setCursor(evt);
-        
-        setAttributes({ 
-            dataCaption: evt.target.textContent 
-        });
     }
-
     return (
         <>
-            {useCaption && <caption
-                className={captionClass}
+            {useCaption && <Caption
+                className={isHiddenClassName}
                 contenteditable='true'
                 onFocus={() => exitCellState(props)}
                 onInput={onInputHandler}
             >
                 {dataCaption}
-            </caption>
+            </Caption>
             }
         </>
     )

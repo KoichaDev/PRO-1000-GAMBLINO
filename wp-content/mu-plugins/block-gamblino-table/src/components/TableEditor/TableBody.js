@@ -6,7 +6,7 @@ import { setCursor } from '../../hooks/useTable'
 import { enterCellState } from '../../hooks/useTableCells'
 
 const TableBody = ({ ...props }) => {
-    const { setFormClass, attributes, setAttributes } = props;
+    const { setIsHiddenClassName, attributes, setAttributes } = props;
     const { dataBody, useRowHeadings } = attributes;
 
     let tableBody = '';
@@ -58,7 +58,7 @@ const TableBody = ({ ...props }) => {
 
     if (tableBodyData.length) {
         tableBody = <tbody>{tableBodyData}</tbody>;
-        setFormClass('is-hidden');
+        setIsHiddenClassName('is-hidden');
         // formClass = 'is-hidden';
     }
     return <>{tableBody}</>;
