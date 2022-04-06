@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TableSaveBody = ({ ...props }) => {
     const { attributes } = props;
     const { dataBody, useRowHeadings } = attributes;
