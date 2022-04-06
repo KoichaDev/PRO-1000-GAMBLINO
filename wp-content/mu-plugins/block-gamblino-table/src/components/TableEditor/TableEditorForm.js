@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n'
 import { Form } from '../UI/Form'
 
-const TableForm = (props) => {
+const TableEditorForm = (props) => {
     const {
         formClassName,
         onAddCreateTable,
@@ -98,4 +98,4 @@ const TableForm = (props) => {
     )
 }
 
-export default TableForm
+export default TableEditorForm

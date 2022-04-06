@@ -5,7 +5,7 @@ import { createElement } from '@wordpress/element'
 import { setCursor } from '../../hooks/useTable'
 import { enterCellState } from '../../hooks/useTableCells'
 
-const TableBody = ({ ...props }) => {
+const TableEditorBody = ({ ...props }) => {
     const { setIsHiddenClassName, attributes, setAttributes } = props;
     const { dataBody, useRowHeadings } = attributes;
 
@@ -64,4 +64,4 @@ const TableBody = ({ ...props }) => {
     return <>{tableBody}</>;
 }
 
-export default TableBody
+export default TableEditorBody

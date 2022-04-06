@@ -1,7 +1,7 @@
 import { setCursor } from '../../hooks/useTable'
 import { exitCellState } from '../../hooks/useTableCells'
 
-const TableFooter = ({ numCols, ...props }) => {
+const TableEditorFooter = ({ numCols, ...props }) => {
     const { attributes, setAttributes } = props
     const { showTable, dataFooter, useRowHeadings, useFooter } = attributes
 
@@ -48,4 +48,4 @@ const TableFooter = ({ numCols, ...props }) => {
     )
 }
 
-export default TableFooter
+export default TableEditorFooter

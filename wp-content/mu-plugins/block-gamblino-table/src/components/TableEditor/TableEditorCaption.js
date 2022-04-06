@@ -3,7 +3,7 @@ import { exitCellState } from '../../hooks/useTableCells'
 
 import { Caption } from '../UI/Table'
 
-const TableCaption = ({ isHiddenClassName, ...props }) => {
+const TableEditorCaption = ({ isHiddenClassName, ...props }) => {
     const { attributes, setAttributes } = props
     const { dataCaption, showTable, useCaption } = attributes;
 
@@ -36,4 +36,4 @@ const TableCaption = ({ isHiddenClassName, ...props }) => {
     )
 }
 
-export default TableCaption
+export default TableEditorCaption

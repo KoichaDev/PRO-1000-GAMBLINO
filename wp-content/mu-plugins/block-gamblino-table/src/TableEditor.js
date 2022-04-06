@@ -17,11 +17,11 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 
 // Table Editor Components
-import TableCaption from './components/TableEditor/TableCaption';
-import TableHead from './components/TableEditor/TableHead'
-import TableBody from './components/TableEditor/TableBody';
-import TableFooter from './components/TableEditor/TableFooter'
-import TableForm from './components/TableEditor/TableForm';
+import TableEditorCaption from './components/TableEditor/TableEditorCaption';
+import TableEditorHead from './components/TableEditor/TableEditorHead'
+import TableEditorBody from './components/TableEditor/TableEditorBody';
+import TableEditorFooter from './components/TableEditor/TableEditorFooter'
+import TableEditorForm from './components/TableEditor/TableEditorForm';
 
 // Table UI Component
 import { Table } from './components/UI/Table'
@@ -57,13 +57,13 @@ const TableEditor = (props) => {
             />
 
             <Table className={className}>
-                <TableCaption isHiddenClassName={isHiddenClassName} {...props} />
-                <TableHead {...props} />
-                <TableBody setIsHiddenClassName={setIsHiddenClassName} {...props} />
-                <TableFooter numCols={numCols} {...props} />
+                <TableEditorCaption isHiddenClassName={isHiddenClassName} {...props} />
+                <TableEditorHead {...props} />
+                <TableEditorBody setIsHiddenClassName={setIsHiddenClassName} {...props} />
+                <TableEditorFooter numCols={numCols} {...props} />
             </Table>
 
-            <TableForm
+            <TableEditorForm
                 formClassName={isHiddenClassName}
                 useCaption={useCaption}
                 useColHeadings={useColHeadings}

@@ -3,7 +3,7 @@ import { enterCellState } from '../../hooks/useTableCells'
 
 import { Thead } from '../UI/Table'
 
-const TableHead = ({ ...props }) => {
+const TableEditorHead = ({ ...props }) => {
     const { attributes, setAttributes } = props
     const { dataHead, showTable, useRowHeadings } = attributes
 
@@ -69,4 +69,4 @@ const TableHead = ({ ...props }) => {
     return <>{tableHead}</>
 }
 
-export default TableHead
+export default TableEditorHead
