@@ -8,6 +8,8 @@ const TableBody = ({ ...props }) => {
     const { setFormClass, attributes, setAttributes } = props;
     const { dataBody, useRowHeadings } = attributes;
 
+    console.log(useRowHeadings);
+
     let tableBody = '';
     let ariaLabel = '';
     let rowCounter = 1;

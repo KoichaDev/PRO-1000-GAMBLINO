@@ -163,7 +163,7 @@ const TableEditor = (props) => {
                 useCaption={useCaption}
                 toggleCaption={() => toggleCaption(props)}
                 useColHeadings={useColHeadings}
-                toggleColHeadings={() => toggleColHeadings}
+                toggleColHeadings={() => toggleColHeadings(props)}
                 useRowHeadings={useRowHeadings}
                 toggleRowHeadings={() => toggleRowHeadings(props)}
                 useFooter={useFooter}
