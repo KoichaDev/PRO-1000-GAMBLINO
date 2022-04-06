@@ -1,5 +1,6 @@
 import { useState } from '@wordpress/element'
-import { setCursor, exitCellState } from '../hooks/useTable'
+import { setCursor } from '../hooks/useTable'
+import { exitCellState } from '../hooks/useTableCells'
 
 const TableCaption = ({ ...props }) => {
     const { attributes, setAttributes } = props

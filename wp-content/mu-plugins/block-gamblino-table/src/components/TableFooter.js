@@ -1,4 +1,5 @@
-import { setCursor, exitCellState } from '../hooks/useTable'
+import { setCursor } from '../hooks/useTable'
+import { exitCellState } from '../hooks/useTableCells'
 
 const TableFooter = ({ numCols, ...props }) => {
     const { attributes, setAttributes } = props
@@ -16,26 +17,35 @@ const TableFooter = ({ numCols, ...props }) => {
     if (useRowHeadings === true) {
         totalCols++;
     }
-    if (useFooter === true) {
-        let tableFooterTd = <td
-            colspan={totalCols}
-            className={footerClass}
-            contenteditable='true'
-            onFocus={() => exitCellState(props)}
-        >
-            {dataFooter}
-        </td>;
-        tableFooterTd.props.onInput = (evt) => {
-            setAttributes({
-                dataFooter: evt.target.textContent
-            });
-            // Move the cursor back where it was
-            setCursor(evt);
-        };
-        tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
-    }
 
-    return <>{tableFooter}</>
+    const onInputHandler = (evt) => {
+        setAttributes({
+            dataFooter: evt.target.textContent
+        });
+        // Move the cursor back where it was
+        setCursor(evt);
+    }
+    return (
+        <>
+            {useFooter && (
+                <>
+                    <tfoot>
+                        <tr>
+                            <td
+                                colspan={totalCols}
+                                className={footerClass}
+                                contenteditable='true'
+                                onFocus={() => exitCellState(props)}
+                                onInput={onInputHandler}
+                            >
+                                {dataFooter}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </>
+            )}
+        </>
+    )
 }
 
 export default TableFooter

@@ -8,12 +8,7 @@ import TableForm from './components/TableForm';
 
 import { doDelete, doInsert } from './hooks/useTableToolbar'
 
-import {
-    generateNewTable,
-    enterCellState,
-    exitCellState,
-    setCursor
-} from './hooks/useTable'
+import { generateNewTable } from './hooks/useTable'
 
 import {
     toggleRowHeadings,
@@ -27,7 +22,6 @@ import TableCaption from './components/TableCaption';
 import TableHead from './components/TableHead'
 import TableBody from './components/TableBody';
 import TableFooter from './components/TableFooter'
-
 
 const TableEditor = (props) => {
     const {
