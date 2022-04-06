@@ -6,7 +6,6 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-
 import { generateNewTable } from './hooks/useTable'
 
 import {
@@ -21,6 +20,9 @@ import TableCaption from './components/TableCaption';
 import TableHead from './components/TableHead'
 import TableBody from './components/TableBody';
 import TableFooter from './components/TableFooter'
+
+// Table UI Component
+import { Table } from './components/UI/Table'
 
 const TableEditor = (props) => {
     const {
@@ -41,7 +43,7 @@ const TableEditor = (props) => {
 
     return (
         <>
-            <TableToolbarCell {...props}/>
+            <TableToolbarCell {...props} />
             <ToggleTableCells
                 useCaption={useCaption}
                 toggleCaption={() => toggleCaption(props)}
@@ -53,12 +55,12 @@ const TableEditor = (props) => {
                 toggleFooter={() => toggleFooter(props)}
             />
 
-            <table className={className}>
+            <Table className={className}>
                 <TableCaption  {...props} />
                 <TableHead {...props} />
                 <TableBody formClass={formClass} setFormClass={setFormClass} {...props} />
                 <TableFooter numCols={numCols} {...props} />
-            </table>
+            </Table>
 
             <TableForm
                 formClassName={formClass}

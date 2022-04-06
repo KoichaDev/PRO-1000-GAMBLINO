@@ -51,7 +51,7 @@ const TableHead = ({ ...props }) => {
 
     });
     
-    if (tableHeadData.length > 0) {
+    if (tableHeadData.length) {
         tableHead = (
             <>
                 <thead className={headClass}>

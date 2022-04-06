@@ -22,7 +22,8 @@
 		"@wordpress/edit-post": "^6.1.1",
 		"@wordpress/element": "^4.1.1",
 		"@wordpress/i18n": "^4.3.1",
-		"@wordpress/plugins": "^4.2.1"
+		"@wordpress/plugins": "^4.2.1",
+		"styled-components": "^5.3.5"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^22.1.0"
