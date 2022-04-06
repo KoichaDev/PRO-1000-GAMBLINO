@@ -1,3 +1,6 @@
+// Wordpress Dependencies
+import { useState } from '@wordpress/element'
+
 // Table Components 
 import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
@@ -19,13 +22,14 @@ import {
     toggleColHeadings
 } from './hooks/useTableInspector'
 
-import { createElement } from '@wordpress/element'
+// Table Components
+import TableBody from './components/TableBody';
+
 
 const TableEditor = (props) => {
     const {
         attributes: {
             buttonStates,
-            dataBody,
             dataCaption,
             dataFooter,
             dataHead,
@@ -38,11 +42,15 @@ const TableEditor = (props) => {
         setAttributes
     } = props;
 
+    const [formClass, setFormClass] = useState()
+
+
     let numCols = parseInt(props.attributes.numCols, 10);
     let numRows = parseInt(props.attributes.numRows, 10);
 
     // Caption
-    let tableCaption, captionClass = 'is-hidden';
+    let tableCaption = '';
+    let captionClass = 'is-hidden';
 
     if (showTable) {
         captionClass = '';
@@ -56,16 +64,20 @@ const TableEditor = (props) => {
         >
             {dataCaption}
         </caption>;
-        tableCaption.props.onInput = function (evt) {
+        tableCaption.props.onInput = (evt) => {
             props.setAttributes({ dataCaption: evt.target.textContent });
             // Move the cursor back where it was
             setCursor(evt);
         };
     }
     // Row Counter for aria labels - start at 1
-    let ariaLabel, rowCounter = 1;
+    let ariaLabel = '';
+    let rowCounter = 1;
+
     // Table Head
-    let tableHead, headClass = 'is-hidden';
+    let tableHead = '';
+    let headClass = 'is-hidden';
+
     if (showTable) {
         headClass = '';
     }
@@ -105,51 +117,13 @@ const TableEditor = (props) => {
         // If there is no table head, take rowCounter back down to 0, because Table Body has to increment it before output
         rowCounter--;
     }
-    // Table Body
-    let tableBody, formClass = '', tableBodyData = dataBody
-        .map((rows, rowIndex) => {
-            rowCounter++;
-            let rowCells = rows.bodyCells.map((cell, colIndex) => {
-                // Set up options
-                ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
-                let cellType = 'd';
-                let cellOptions = {
-                    'aria-label': ariaLabel,
-                    contenteditable: 'true',
-                    'data-buttons': '1,2,3,4,5,6',
-                    onFocus: (evt) => { enterCellState(evt, props); },
-                    onInput: (evt) => {
-                        // Copy the dataBody
-                        let newBody = JSON.parse(JSON.stringify(dataBody));
-                        // Create a new cell
-                        let newCell = { content: evt.target.textContent };
-                        // Replace the old cell
-                        newBody[rowIndex].bodyCells[colIndex] = newCell;
-                        // Set the attribute
-                        props.setAttributes({
-                            dataBody: newBody
-                        });
-                        // Move the cursor back where it was
-                        setCursor(evt);
-                    }
-                };
-                if (useRowHeadings == true && colIndex == 0) { cellType = 'h'; cellOptions['data-buttons'] = '2,3,4,6'; cellOptions.scope = 'row'; }
-                // Create the element - either a TD or a TH
-                let currentBodyCell = createElement(
-                    `t${cellType}`,
-                    cellOptions,
-                    cell.content
-                )
-                return currentBodyCell;
-            });
-            return (<tr>{rowCells}</tr>);
-        });
-    if (tableBodyData.length) {
-        tableBody = <tbody>{tableBodyData}</tbody>;
-        formClass = 'is-hidden';
-    }
+
+    // let formClass = '';
+
     // Table Footer
-    var tableFooter, footerClass = 'is-hidden';
+    let tableFooter = '';
+    let footerClass = 'is-hidden';
+
     if (showTable) {
         footerClass = '';
     }
@@ -174,8 +148,6 @@ const TableEditor = (props) => {
         };
         tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
     }
-
-    // Final Return
     return (
         <>
             <TableToolbarCell
@@ -183,7 +155,7 @@ const TableEditor = (props) => {
                 onClickInsertColumnBefore={() => doInsert(props, 'col', 'before')}
                 onClickInsertColumnAfter={() => doInsert(props, 'col', 'after')}
                 onClickInsertRowBefore={() => doInsert(props, 'row', 'before')}
-                onClickInsertRowAfter={() => doInsert(props,'row', 'after')}
+                onClickInsertRowAfter={() => doInsert(props, 'row', 'after')}
                 onClickDeleteColumn={() => doDelete(props, 'col')}
                 onClickDeleteRow={() => doDelete(props, 'row')}
             />
@@ -198,11 +170,10 @@ const TableEditor = (props) => {
                 toggleFooter={() => toggleFooter(props)}
             />
 
-
             <table className={className}>
                 {tableCaption}
                 {tableHead}
-                {tableBody}
+                <TableBody formClass={formClass} setFormClass={setFormClass} {...props} />
                 {tableFooter}
             </table>
 

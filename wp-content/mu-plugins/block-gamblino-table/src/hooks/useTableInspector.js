@@ -10,8 +10,6 @@ export function toggleRowHeadings(props) {
             useColHeadings,
         }, setAttributes } = props;
 
-    console.log(useRowHeadings);
-
     if (useRowHeadings == false) {
         // If the table has been built already
         if (showTable == true) {
