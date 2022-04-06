@@ -26,16 +26,13 @@ import {
 import TableCaption from './components/TableCaption';
 import TableHead from './components/TableHead'
 import TableBody from './components/TableBody';
+import TableFooter from './components/TableFooter'
 
 
 const TableEditor = (props) => {
     const {
         attributes: {
             buttonStates,
-            dataCaption,
-            dataFooter,
-            dataHead,
-            showTable,
             useCaption,
             useColHeadings,
             useFooter,
@@ -46,43 +43,9 @@ const TableEditor = (props) => {
 
     const [formClass, setFormClass] = useState()
 
-
     let numCols = parseInt(props.attributes.numCols, 10);
     let numRows = parseInt(props.attributes.numRows, 10);
 
-    // Row Counter for aria labels - start at 1
-    let ariaLabel = '';
-
-    // let formClass = '';
-
-    // Table Footer
-    let tableFooter = '';
-    let footerClass = 'is-hidden';
-
-    if (showTable) {
-        footerClass = '';
-    }
-    // Calculate colspan: if useRowHeadings is true, there should be 1 extra column
-    let totalCols = numCols;
-    if (useRowHeadings == true) {
-        totalCols++;
-    }
-    if (useFooter == true) {
-        let tableFooterTd = <td
-            colspan={totalCols}
-            className={footerClass}
-            contenteditable='true'
-            onFocus={() => exitCellState(props)}
-        >
-            {dataFooter}
-        </td>;
-        tableFooterTd.props.onInput = (evt) => {
-            props.setAttributes({ dataFooter: evt.target.textContent });
-            // Move the cursor back where it was
-            setCursor(evt);
-        };
-        tableFooter = <tfoot><tr>{tableFooterTd}</tr></tfoot>;
-    }
     return (
         <>
             <TableToolbarCell
@@ -109,7 +72,7 @@ const TableEditor = (props) => {
                 <TableCaption  {...props} />
                 <TableHead {...props} />
                 <TableBody formClass={formClass} setFormClass={setFormClass} {...props} />
-                {tableFooter}
+                <TableFooter numCols={numCols} {...props} />
             </table>
 
             <TableForm

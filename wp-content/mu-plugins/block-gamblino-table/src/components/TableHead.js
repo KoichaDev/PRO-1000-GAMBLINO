@@ -28,8 +28,6 @@ const TableHead = ({ ...props }) => {
     };
 
 
-
-
     const tableHeadData = dataHead.map((cell, colIndex) => {
         const ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
         let currentThButtons = '1,2,4,5';
@@ -37,21 +35,29 @@ const TableHead = ({ ...props }) => {
         if (colIndex == 0 && useRowHeadings == true) {
             currentThButtons = '2,4';
         }
-        let currentTh = <th
-            aria-label={ariaLabel}
-            scope='col'
-            contenteditable='true'
-            data-buttons={currentThButtons}
-            onFocus={evt => enterCellState(evt, props)}
-            onInput={onInputHandler}
-        >
-            {cell.content}
-        </th>;
+        return (
+            <th
+                aria-label={ariaLabel}
+                scope='col'
+                contenteditable='true'
+                data-buttons={currentThButtons}
+                onFocus={evt => enterCellState(evt, props)}
+                onInput={onInputHandler}
+            >
+                {cell.content}
+            </th>
+        )
 
-        return currentTh;
     });
+    
     if (tableHeadData.length > 0) {
-        tableHead = <thead className={headClass}><tr>{tableHeadData}</tr></thead>;
+        tableHead = (
+            <>
+                <thead className={headClass}>
+                    <tr>{tableHeadData}</tr>
+                </thead>
+            </>
+        )
     } else {
         // If there is no table head, take rowCounter back down to 0, because Table Body has to increment it before output
         rowCounter--;
