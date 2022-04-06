@@ -2,14 +2,12 @@
 import { createElement } from '@wordpress/element'
 
 // hooks
-import { setCursor } from '../hooks/useTable'
-import { enterCellState } from '../hooks/useTableCells'
+import { setCursor } from '../../hooks/useTable'
+import { enterCellState } from '../../hooks/useTableCells'
 
 const TableBody = ({ ...props }) => {
     const { setFormClass, attributes, setAttributes } = props;
     const { dataBody, useRowHeadings } = attributes;
-
-    console.log(useRowHeadings);
 
     let tableBody = '';
     let ariaLabel = '';

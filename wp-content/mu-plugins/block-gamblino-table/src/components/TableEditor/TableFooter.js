@@ -1,5 +1,5 @@
-import { setCursor } from '../hooks/useTable'
-import { exitCellState } from '../hooks/useTableCells'
+import { setCursor } from '../../hooks/useTable'
+import { exitCellState } from '../../hooks/useTableCells'
 
 const TableFooter = ({ numCols, ...props }) => {
     const { attributes, setAttributes } = props

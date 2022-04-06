@@ -1,11 +1,9 @@
-import { useState } from '@wordpress/element'
-import { setCursor } from '../hooks/useTable'
-import { exitCellState } from '../hooks/useTableCells'
+import { setCursor } from '../../hooks/useTable'
+import { exitCellState } from '../../hooks/useTableCells'
 
 const TableCaption = ({ ...props }) => {
     const { attributes, setAttributes } = props
     const { dataCaption, showTable, useCaption } = attributes;
-    // const [captionClass, setCaptionClass] = useState('is-hidden');
 
     let captionClass = 'is-hidden';
 

@@ -1,11 +1,8 @@
 // Wordpress Dependencies
 import { useState } from '@wordpress/element'
 
-// Table Components 
-import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
-import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
-import TableForm from './components/TableForm';
 
+// hooks
 import { generateNewTable } from './hooks/useTable'
 
 import {
@@ -15,11 +12,16 @@ import {
     toggleColHeadings
 } from './hooks/useTableInspector'
 
-// Table Components
-import TableCaption from './components/TableCaption';
-import TableHead from './components/TableHead'
-import TableBody from './components/TableBody';
-import TableFooter from './components/TableFooter'
+// Table Block Editor Components 
+import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
+import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
+
+// Table Editor Components
+import TableCaption from './components/TableEditor/TableCaption';
+import TableHead from './components/TableEditor/TableHead'
+import TableBody from './components/TableEditor/TableBody';
+import TableFooter from './components/TableEditor/TableFooter'
+import TableForm from './components/TableEditor/TableForm';
 
 // Table UI Component
 import { Table } from './components/UI/Table'
@@ -27,7 +29,6 @@ import { Table } from './components/UI/Table'
 const TableEditor = (props) => {
     const {
         attributes: {
-            buttonStates,
             useCaption,
             useColHeadings,
             useFooter,

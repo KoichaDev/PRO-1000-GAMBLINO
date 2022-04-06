@@ -1,5 +1,5 @@
-import { setCursor } from '../hooks/useTable'
-import { enterCellState} from '../hooks/useTableCells'
+import { setCursor } from '../../hooks/useTable'
+import { enterCellState} from '../../hooks/useTableCells'
 
 const TableHead = ({ ...props }) => {
     const { attributes, setAttributes } = props

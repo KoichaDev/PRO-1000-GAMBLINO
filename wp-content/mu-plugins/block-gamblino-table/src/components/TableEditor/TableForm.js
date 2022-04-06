@@ -1,20 +1,21 @@
 import { __ } from '@wordpress/i18n'
+import { Form } from '../UI/Form'
 
 const TableForm = (props) => {
-    const { 
-        formClassName, 
-        onAddCreateTable, 
-        useCaption, 
-        useColHeadings, 
-        numCols, 
+    const {
+        formClassName,
+        onAddCreateTable,
+        useCaption,
+        useColHeadings,
+        numCols,
         numRows,
         useRowHeadings,
-        useFooter, 
-        setAttributes 
+        useFooter,
+        setAttributes
     } = props
 
     return (
-        <form className={formClassName}>
+        <Form className={formClassName} isHidden={formClassName}>
             <div>
                 <label for='addCaption'>{__('Add Caption', 'block-gamblino')}</label>
                 <input
@@ -93,7 +94,7 @@ const TableForm = (props) => {
             >
                 {__('Insert Table', 'block-gamblino')}
             </button>
-        </form>
+        </Form>
     )
 }
 

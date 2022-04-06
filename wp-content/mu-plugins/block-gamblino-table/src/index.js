@@ -1,9 +1,6 @@
 // Wordpress Dependencies
 import { __ } from '@wordpress/i18n'
 import { registerBlockType } from '@wordpress/blocks'
-import { Dashicon, FormToggle, PanelBody, PanelRow, Toolbar, Button, Tooltip } from '@wordpress/components';
-import { BlockControls } from '@wordpress/block-editor'
-import { createElement } from '@wordpress/element'
 
 // Meta Data for the Block
 import attributesButtonStates from './meta-data-attributes/attributes-table-states'
@@ -13,11 +10,6 @@ import attributesTableHeadings from './meta-data-attributes/attributes-table-tog
 import attributesTableData from './meta-data-attributes/attributes-table-data'
 
 import TableEditor from './TableEditor'
-
-// Table Components 
-import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
-import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
-import TableForm from './components/TableForm';
 
 // Table styling
 import './style.scss';
