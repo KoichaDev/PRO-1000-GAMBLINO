@@ -1,26 +1,13 @@
+// Wordpress dependencies
 import { __ } from '@wordpress/i18n'
 import { BlockControls } from '@wordpress/block-editor'
 import { Dashicon, Toolbar, Tooltip } from '@wordpress/components';
 
-const TableToolbarCell = (props) => {
-    const {
-        buttonStates,
-        onClickInsertColumnBefore,
-        onClickInsertColumnAfter,
-        onClickInsertRowBefore,
-        onClickInsertRowAfter,
-        onClickDeleteColumn,
-        onClickDeleteRow
-    } = props;
+// hooks
+import { doDelete, doInsert } from '../../hooks/useTableToolbar'
 
-    const { 
-        disabled1, 
-        disabled2, 
-        disabled3, 
-        disabled4, 
-        disabled5, 
-        disabled6 
-    } = buttonStates
+const TableToolbarCell = ({ ...props }) => {
+    const { buttonStates } = props.attributes
 
     return (
         <BlockControls key='a11y-form-controls'>
@@ -29,8 +16,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickInsertColumnBefore}
-                        disabled={disabled1}
+                        onClick={() => doInsert(props, 'col', 'before')}
+                        disabled={buttonStates.disabled1}
                     >
                         <Dashicon icon="table-col-before" />
                     </button>
@@ -39,8 +26,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickInsertColumnAfter}
-                        disabled={disabled2}
+                        onClick={() => doInsert(props, 'col', 'after')}
+                        disabled={buttonStates.disabled2}
                     >
                         <Dashicon icon="table-col-after" />
                     </button>
@@ -49,8 +36,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickInsertRowBefore}
-                        disabled={disabled3}
+                        onClick={() => doInsert(props, 'row', 'before')}
+                        disabled={buttonStates.disabled3}
                     >
                         <Dashicon icon="table-row-before" />
                     </button>
@@ -59,8 +46,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickInsertRowAfter}
-                        disabled={disabled4}
+                        onClick={() => doInsert(props, 'row', 'after')}
+                        disabled={buttonStates.disabled4}
                     >
                         <Dashicon icon="table-row-after" />
                     </button>
@@ -71,8 +58,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickDeleteColumn}
-                        disabled={disabled5}
+                        onClick={() => doDelete(props, 'col')}
+                        disabled={buttonStates.disabled5}
                     >
                         <Dashicon icon="table-col-delete" />
                     </button>
@@ -81,8 +68,8 @@ const TableToolbarCell = (props) => {
                     <button
                         type="button"
                         className='components-icon-button'
-                        onClick={onClickDeleteRow}
-                        disabled={disabled6}
+                        onClick={() => doDelete(props, 'row')}
+                        disabled={buttonStates.disabled6}
                     >
                         <Dashicon icon="table-row-delete" />
                     </button>

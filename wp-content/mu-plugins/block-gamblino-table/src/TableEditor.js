@@ -6,7 +6,6 @@ import ToggleTableCells from './components/BlockEditor/ToggleTableCells'
 import TableToolbarCell from './components/BlockEditor/TableToolbarCell'
 import TableForm from './components/TableForm';
 
-import { doDelete, doInsert } from './hooks/useTableToolbar'
 
 import { generateNewTable } from './hooks/useTable'
 
@@ -42,15 +41,7 @@ const TableEditor = (props) => {
 
     return (
         <>
-            <TableToolbarCell
-                buttonStates={buttonStates}
-                onClickInsertColumnBefore={() => doInsert(props, 'col', 'before')}
-                onClickInsertColumnAfter={() => doInsert(props, 'col', 'after')}
-                onClickInsertRowBefore={() => doInsert(props, 'row', 'before')}
-                onClickInsertRowAfter={() => doInsert(props, 'row', 'after')}
-                onClickDeleteColumn={() => doDelete(props, 'col')}
-                onClickDeleteRow={() => doDelete(props, 'row')}
-            />
+            <TableToolbarCell {...props}/>
             <ToggleTableCells
                 useCaption={useCaption}
                 toggleCaption={() => toggleCaption(props)}
