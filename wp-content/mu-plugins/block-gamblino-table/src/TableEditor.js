@@ -77,7 +77,7 @@ const TableEditor = (props) => {
                 useFooter={useFooter}
                 numCols={numCols}
                 numRows={numRows}
-                onAddCreateTable={evt => generateNewTable(evt, numCols, numRows, props)}
+                onAddCreateTable={evt => generateNewTable(evt, props)}
                 setAttributes={setAttributes}
             />
         </>
