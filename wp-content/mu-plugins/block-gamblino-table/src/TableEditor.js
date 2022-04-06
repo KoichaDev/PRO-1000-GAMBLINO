@@ -23,6 +23,7 @@ import {
 } from './hooks/useTableInspector'
 
 // Table Components
+import TableCaption from './components/TableCaption';
 import TableBody from './components/TableBody';
 
 
@@ -48,28 +49,6 @@ const TableEditor = (props) => {
     let numCols = parseInt(props.attributes.numCols, 10);
     let numRows = parseInt(props.attributes.numRows, 10);
 
-    // Caption
-    let tableCaption = '';
-    let captionClass = 'is-hidden';
-
-    if (showTable) {
-        captionClass = '';
-    }
-
-    if (useCaption) {
-        tableCaption = <caption
-            className={captionClass}
-            contenteditable='true'
-            onFocus={() => exitCellState(props)}
-        >
-            {dataCaption}
-        </caption>;
-        tableCaption.props.onInput = (evt) => {
-            props.setAttributes({ dataCaption: evt.target.textContent });
-            // Move the cursor back where it was
-            setCursor(evt);
-        };
-    }
     // Row Counter for aria labels - start at 1
     let ariaLabel = '';
     let rowCounter = 1;
@@ -171,7 +150,7 @@ const TableEditor = (props) => {
             />
 
             <table className={className}>
-                {tableCaption}
+                <TableCaption  {...props} />
                 {tableHead}
                 <TableBody formClass={formClass} setFormClass={setFormClass} {...props} />
                 {tableFooter}
