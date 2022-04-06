@@ -1,6 +1,7 @@
 // Table Save Components
 import TableSaveCaption from "./components/TableSave/TableSaveCaption";
 import TableSaveHead from "./components/TableSave/TableSaveHead";
+import TableSaveBody from './components/TableSave/TableSaveBody'
 
 const TableSave = props => {
     const { attributes: { dataBody, dataFooter, dataHead, useColHeadings, useFooter, useRowHeadings }, className } = props;
@@ -9,20 +10,7 @@ const TableSave = props => {
     
    
   
-    // Table Body
-    let tableBody, tableBodyData = dataBody.map(function (rows) {
-        let eachRowCells = rows.bodyCells.map(function (cell, colIndex) {
-            if (useRowHeadings == true && colIndex == 0) {
-                return <th scope='row'>{cell.content.trim(' ')}</th>
-            } else {
-                return <td>{cell.content.trim(' ')}</td>
-            }
-        });
-        return <tr>{eachRowCells}</tr>;
-    });
-    if (tableBodyData.length) {
-        tableBody = <tbody>{tableBodyData}</tbody>;
-    }
+ 
     // Table Footer
     let tableFooter;
     // Calculate colspan: if useRowHeadings is true, there should be 1 extra column
@@ -37,7 +25,7 @@ const TableSave = props => {
         <table className={className}>
             <TableSaveCaption {...props} />
             <TableSaveHead {...props} />
-            {tableBody}
+            <TableSaveBody {...props} />
             {tableFooter}
         </table>
     );
