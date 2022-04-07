@@ -1,16 +1,33 @@
 // Wordpress dependencies
 import { __ } from '@wordpress/i18n'
-import { BlockControls } from '@wordpress/block-editor'
+import { useEffect } from '@wordpress/element';
+import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor'
 import { Dashicon, Toolbar, Tooltip } from '@wordpress/components';
 
 // hooks
 import { doDelete, doInsert } from '../../hooks/useTableToolbar'
+import useActionTextAlignment from '../../hooks/useActionTextAlignment'
+import useSelectorsTextAlignment from '../../hooks/useSelectorsTextAlignment'
+import TextAlignmentStore from '../../stores/index'
 
 const TableToolbarCell = ({ ...props }) => {
-    const { buttonStates } = props.attributes
+    const { attributes, setAttributes } = props;
+    const { buttonStates } = attributes
+
+    const { textAlignment } = useSelectorsTextAlignment("blocks-control/gamblino-table-text-alignment")
+    const { setTextAlignment } = useActionTextAlignment("blocks-control/gamblino-table-text-alignment")
+
+    useEffect(() => TextAlignmentStore("blocks-control/gamblino-table-text-alignment"), [])
+
+    const onChangeAlignmenToolbarHandler = (value) => {
+        setTextAlignment(value)
+        setAttributes({ textAlignment: value })
+    }
 
     return (
         <BlockControls key='a11y-form-controls'>
+
+            <AlignmentToolbar value={textAlignment} onChange={onChangeAlignmenToolbarHandler} />
             <Toolbar>
                 <Tooltip text={__('Insert Column Before', 'block-gamblino')}>
                     <button

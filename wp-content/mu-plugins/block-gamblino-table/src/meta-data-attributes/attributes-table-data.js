@@ -1,3 +1,5 @@
+import attributesTableSupports from "./attributes-table-supports";
+
 const attributeTableDataBody = {
     dataFooter: {
         type: 'string',
@@ -31,6 +33,13 @@ const attributeTableDataBody = {
                     content: {
                         type: 'string',
                         source: 'html'
+                    },
+                    textAlignment: {
+                        type: 'string',
+                        source: 'attribute',
+                        attribute: 'class',
+                        selector: `text-align-${attributesTableSupports.textAlignment.default}`,
+                        default: 'left',
                     }
                 }
             }

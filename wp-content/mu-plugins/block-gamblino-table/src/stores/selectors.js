@@ -1,0 +1,1 @@
+export const getTextAlignment = (state) => state.textAlignment

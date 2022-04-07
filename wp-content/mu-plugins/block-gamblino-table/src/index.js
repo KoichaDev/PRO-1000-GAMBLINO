@@ -8,9 +8,12 @@ import attributesTableCells from './meta-data-attributes/attributes-table-cells'
 import attributesTableCaption from './meta-data-attributes/attributes-table-caption'
 import attributesTableHeadings from './meta-data-attributes/attributes-table-toggle-cells'
 import attributesTableData from './meta-data-attributes/attributes-table-data'
+import attributesTableSupports from './meta-data-attributes/attributes-table-supports'
 
 import TableEditor from './TableEditor'
 import TableSave from './TableSave';
+
+import './editor.scss';
 
 // Table styling
 import './style.scss';
@@ -21,6 +24,7 @@ registerBlockType("gamblino-block/table", {
 	title: __('Gamblino Table', 'block-gamblino'),
 	icon: 'screenoptions',
 	category: 'gamblino',
+	
 	supports: {
 		className: false,
 		html: false,
@@ -28,12 +32,12 @@ registerBlockType("gamblino-block/table", {
 	},
 	keywords: [__('table'), __('gamblino'), __('block')],
 	attributes: {
-		...attributesButtonStates,
-		...attributesTableCells,
-		...attributesTableData,
+		...attributesTableSupports,
 		...attributesTableCaption,
 		...attributesTableHeadings,
-
+		...attributesTableData,
+		...attributesTableCells,
+		...attributesButtonStates,
 	},
 	edit: TableEditor,
 	save: TableSave

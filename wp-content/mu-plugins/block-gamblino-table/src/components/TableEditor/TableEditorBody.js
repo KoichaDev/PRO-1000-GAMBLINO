@@ -7,11 +7,10 @@ import { enterCellState } from '../../hooks/useTableCells'
 
 const TableEditorBody = ({ rowCounter, ...props }) => {
     const { setIsHiddenClassName, attributes, setAttributes } = props;
-    const { dataBody, useRowHeadings } = attributes;
+    const { textAlignment, dataBody, useRowHeadings } = attributes;
 
-    let tableBody = '';
+    let tableBodyContent = '';
     let ariaLabel = '';
-
     const tableBodyData = dataBody.map((rows, rowIndex) => {
         rowCounter++;
 
@@ -19,33 +18,42 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
             // Set up options
             ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
             let cellType = 'd';
-            let cellOptions = {
+
+            const cellOptions = {
                 'aria-label': ariaLabel,
                 contenteditable: 'true',
                 'data-buttons': '1,2,3,4,5,6',
-                onFocus: (evt) => { enterCellState(evt, props); },
+                class: `text-align-${textAlignment}`,
+                onFocus: (evt) => enterCellState(evt, props),
                 onInput: (evt) => {
                     // Copy the dataBody
+                    console.log(dataBody);
                     let newBody = JSON.parse(JSON.stringify(dataBody));
                     // Create a new cell
                     let newCell = { content: evt.target.textContent };
+                    // let textAlignmentClassName = { textAlignment: `text-align-${textAlignment}` }
                     // Replace the old cell
                     newBody[rowIndex].bodyCells[colIndex] = newCell;
+
+                    console.log(newBody);
+
+
                     // Set the attribute
                     setAttributes({
-                        dataBody: newBody
+                        dataBody: newBody,
                     });
                     // Move the cursor back where it was
                     setCursor(evt);
                 }
             };
+
             if (useRowHeadings == true && colIndex == 0) {
                 cellType = 'h';
                 cellOptions['data-buttons'] = '2,3,4,6';
                 cellOptions.scope = 'row';
             }
             // Create the element - either a TD or a TH
-            let currentBodyCell = createElement(
+            const currentBodyCell = createElement(
                 `t${cellType}`,
                 cellOptions,
                 cell.content
@@ -56,11 +64,11 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
     });
 
     if (tableBodyData.length) {
-        tableBody = <tbody>{tableBodyData}</tbody>;
+        tableBodyContent = <tbody>{tableBodyData}</tbody>;
         setIsHiddenClassName('is-hidden');
         // formClass = 'is-hidden';
     }
-    return <>{tableBody}</>;
+    return <>{tableBodyContent}</>;
 }
 
 export default TableEditorBody
