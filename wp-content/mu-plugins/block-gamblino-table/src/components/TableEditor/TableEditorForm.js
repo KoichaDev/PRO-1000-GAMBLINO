@@ -1,18 +1,15 @@
+// Wordpress dependency
 import { __ } from '@wordpress/i18n'
+
+// UI Component
 import { Form } from '../UI/Form'
 
-const TableEditorForm = (props) => {
-    const {
-        formClassName,
-        onAddCreateTable,
-        useCaption,
-        useColHeadings,
-        numCols,
-        numRows,
-        useRowHeadings,
-        useFooter,
-        setAttributes
-    } = props
+// hooks
+import { generateNewTable } from '../../hooks/useTable'
+
+const TableEditorForm = ({ formClassName, numCols, numRows, ...props }) => {
+    const { attributes, setAttributes } = props
+    const { useCaption, useColHeadings, useRowHeadings, useFooter } = attributes;
 
     return (
         <Form className={formClassName} isHidden={formClassName}>
@@ -90,7 +87,7 @@ const TableEditorForm = (props) => {
             </div>
             <button
                 type='submit'
-                onClick={onAddCreateTable}
+                onClick={evt => generateNewTable(evt, props)}
             >
                 {__('Insert Table', 'block-gamblino')}
             </button>

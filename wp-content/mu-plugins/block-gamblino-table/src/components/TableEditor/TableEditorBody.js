@@ -5,13 +5,12 @@ import { createElement } from '@wordpress/element'
 import { setCursor } from '../../hooks/useTable'
 import { enterCellState } from '../../hooks/useTableCells'
 
-const TableEditorBody = ({ ...props }) => {
+const TableEditorBody = ({ rowCounter, ...props }) => {
     const { setIsHiddenClassName, attributes, setAttributes } = props;
     const { dataBody, useRowHeadings } = attributes;
 
     let tableBody = '';
     let ariaLabel = '';
-    let rowCounter = 1;
 
     const tableBodyData = dataBody.map((rows, rowIndex) => {
         rowCounter++;

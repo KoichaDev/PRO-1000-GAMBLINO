@@ -1,20 +1,13 @@
 import { setCursor } from '../../hooks/useTable'
 import { exitCellState } from '../../hooks/useTableCells'
 
-import { Caption } from '../UI/Table'
+import './TableEditorCaption.scss'
 
 const TableEditorCaption = ({ isHiddenClassName, ...props }) => {
     const { attributes, setAttributes } = props
-    const { dataCaption, showTable, useCaption } = attributes;
-
-    let captionClass = 'is-hidden';
-
-    if (showTable) {
-        captionClass = ''
-    }
+    const { dataCaption, useCaption } = attributes;
 
     const onInputHandler = (evt) => {
-        
         setAttributes({
             dataCaption: evt.target.textContent
         });
@@ -23,15 +16,18 @@ const TableEditorCaption = ({ isHiddenClassName, ...props }) => {
     }
     return (
         <>
-            {useCaption && <Caption
-                className={isHiddenClassName}
-                contenteditable='true'
-                onFocus={() => exitCellState(props)}
-                onInput={onInputHandler}
-            >
-                {dataCaption}
-            </Caption>
-            }
+            {useCaption && (
+                <>
+                    <caption
+                        className={`table__caption ${isHiddenClassName}`}
+                        contenteditable='true'
+                        onFocus={(evt) => exitCellState(evt, props)}
+                        onInput={onInputHandler}
+                    >
+                        {dataCaption}
+                    </caption>
+                </>
+            )}
         </>
     )
 }

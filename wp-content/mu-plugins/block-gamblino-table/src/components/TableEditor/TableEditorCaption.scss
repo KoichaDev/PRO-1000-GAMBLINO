@@ -1,0 +1,12 @@
+.table__caption {
+	display: none;
+	padding: 0.625em;
+	background: #fff;
+	border: 1px solid #777;
+	border-bottom: none;
+	text-align: left;
+
+	&.is-hidden {
+		display: table-caption;
+	}
+}

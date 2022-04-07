@@ -3,15 +3,13 @@ import { enterCellState } from '../../hooks/useTableCells'
 
 import { Thead } from '../UI/Table'
 
-const TableEditorHead = ({ ...props }) => {
+const TableEditorHead = ({ rowCounter, ...props }) => {
     const { attributes, setAttributes } = props
     const { dataHead, showTable, useRowHeadings } = attributes
 
     // Table Head
     let tableHead = '';
     let headClass = 'is-hidden';
-
-    let rowCounter = 1;
 
     if (showTable) {
         headClass = '';
@@ -30,9 +28,10 @@ const TableEditorHead = ({ ...props }) => {
         setCursor(evt);
     };
 
+    let ariaLabel = '';
 
     const tableHeadData = dataHead.map((cell, colIndex) => {
-        const ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
+        ariaLabel = 'Row ' + rowCounter + ' Column ' + (colIndex + 1);
         let currentThButtons = '1,2,4,5';
         // If row headings are enabled, and this is the very first col TH, don't allow insert col before or delete col
         if (colIndex == 0 && useRowHeadings == true) {

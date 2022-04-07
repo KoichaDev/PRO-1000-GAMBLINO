@@ -17,9 +17,13 @@ import './style.scss';
 import './editor.scss';
 
 registerBlockType("gamblino-block/table", {
+	apiVersion: 2,
 	title: __('Gamblino Table', 'block-gamblino'),
 	icon: 'screenoptions',
 	category: 'gamblino',
+	support: {
+		className: false
+	},
 	attributes: {
 		...attributesButtonStates,
 		...attributesTableCells,
@@ -28,6 +32,6 @@ registerBlockType("gamblino-block/table", {
 		...attributesTableHeadings,
 
 	},
-	edit: TableEditor,	
+	edit: TableEditor,
 	save: TableSave
 });

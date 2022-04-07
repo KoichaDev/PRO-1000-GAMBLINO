@@ -3,15 +3,15 @@ export function enterCellState(evt, props) {
     const { attributes, setAttributes } = props
     const { buttonStates } = attributes
 
-    let buttonsToEnable;
-
     // Set enabled buttons
-    buttonsToEnable = evt.target.dataset.buttons.split(',');
+    const buttonsToEnable = evt.target.dataset.buttons.split(',');
+    console.log(buttonsToEnable);
+
     let newButtonStates = {};
     for (let prop in buttonStates) {
         newButtonStates[prop] = true;
     }
-    for (var b = 0; b < buttonsToEnable.length; b++) {
+    for (let b = 0; b < buttonsToEnable.length; b++) {
         let enableVar = 'disabled' + buttonsToEnable[b];
         newButtonStates[enableVar] = false;
     }
