@@ -1,5 +1,4 @@
-const TableSaveFooter = ({ ...props }) => {
-    const { attributes } = props;
+const TableSaveFooter = ({ ...attributes }) => {
     const { useFooter, dataFooter, useRowHeadings, numCols } = attributes
 
     let totalCols = parseInt(numCols, 10);

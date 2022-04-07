@@ -7,7 +7,7 @@ import TableSaveHead from "./components/TableSave/TableSaveHead";
 import TableSaveBody from './components/TableSave/TableSaveBody'
 import TabelSaveFooter from './components/TableSave/TableSaveFooter';
 
-const TableSave = props => {
+const TableSave = ({ attributes }) => {
 
     const tableBlockProps = useBlockProps.save({
         className: '[ gamblino-block-table ]'
@@ -16,10 +16,10 @@ const TableSave = props => {
 
     return (
         <table {...tableBlockProps}>
-            <TableSaveCaption {...props} />
-            <TableSaveHead {...props} />
-            <TableSaveBody {...props} />
-            <TabelSaveFooter {...props} />
+            <TableSaveCaption {...attributes} />
+            <TableSaveHead {...attributes} />
+            <TableSaveBody {...attributes} />
+            <TabelSaveFooter {...attributes} />
         </table>
     );
 }

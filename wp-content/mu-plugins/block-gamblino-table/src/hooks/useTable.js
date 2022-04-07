@@ -1,9 +1,9 @@
 // Function that builds the table when the form is submitted
-export function generateNewTable(evt, props) {
+export function generateNewTable(evt, numCols, numRows, props) {
     evt.preventDefault();
 
-    let numCols = parseInt(props.attributes.numCols, 10);
-    let numRows = parseInt(props.attributes.numRows, 10);
+    const { attributes, setAttributes } = props
+    const { useRowHeadings, useColHeadings } = attributes
 
     // Only build the table and hide the form if there are rows and columns
     if (numCols > 0 && numRows > 0) {
@@ -32,7 +32,7 @@ export function generateNewTable(evt, props) {
             newBody[row] = thisRow;
         }
         // Save atts
-        props.setAttributes({
+        setAttributes({
             dataHead: newHead,
             dataBody: newBody,
             showTable: true

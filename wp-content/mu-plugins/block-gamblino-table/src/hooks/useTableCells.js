@@ -5,7 +5,6 @@ export function enterCellState(evt, props) {
 
     // Set enabled buttons
     const buttonsToEnable = evt.target.dataset.buttons.split(',');
-    console.log(buttonsToEnable);
 
     let newButtonStates = {};
     for (let prop in buttonStates) {

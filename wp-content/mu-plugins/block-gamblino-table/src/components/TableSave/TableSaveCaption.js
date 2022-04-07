@@ -1,7 +1,6 @@
 import React from 'react'
 
-const TableSaveCaption = ({ ...props }) => {
-    const { attributes } = props
+const TableSaveCaption = ({ ...attributes }) => {
     const { dataCaption, useCaption } = attributes
     return (
         <>

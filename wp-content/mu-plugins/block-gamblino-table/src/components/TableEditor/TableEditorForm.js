@@ -11,6 +11,14 @@ const TableEditorForm = ({ formClassName, numCols, numRows, ...props }) => {
     const { attributes, setAttributes } = props
     const { useCaption, useColHeadings, useRowHeadings, useFooter } = attributes;
 
+    const onChangeUseColHeadingsHandler = (e) => {
+        if (e.target.checked == true) {
+            return setAttributes({ useColHeadings: true });
+        }
+        return setAttributes({ useColHeadings: false });
+
+    }
+
     return (
         <Form className={formClassName} isHidden={formClassName}>
             <div>
@@ -28,13 +36,7 @@ const TableEditorForm = ({ formClassName, numCols, numRows, ...props }) => {
                     type='checkbox'
                     id='useColHeadings'
                     checked={useColHeadings}
-                    onChange={(e) => {
-                        if (e.target.checked == true) {
-                            setAttributes({ useColHeadings: true });
-                        } else {
-                            setAttributes({ useColHeadings: false });
-                        }
-                    }}
+                    onChange={onChangeUseColHeadingsHandler}
                 />
             </div>
             <div>
@@ -87,7 +89,7 @@ const TableEditorForm = ({ formClassName, numCols, numRows, ...props }) => {
             </div>
             <button
                 type='submit'
-                onClick={evt => generateNewTable(evt, props)}
+                onClick={evt => generateNewTable(evt, numCols, numRows, props)}
             >
                 {__('Insert Table', 'block-gamblino')}
             </button>

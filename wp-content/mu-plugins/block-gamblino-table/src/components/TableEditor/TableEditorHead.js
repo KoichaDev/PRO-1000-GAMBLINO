@@ -3,30 +3,11 @@ import { enterCellState } from '../../hooks/useTableCells'
 
 import { Thead } from '../UI/Table'
 
-const TableEditorHead = ({ rowCounter, ...props }) => {
+const TableEditorHead = ({ isHiddenClassName, rowCounter, ...props }) => {
     const { attributes, setAttributes } = props
-    const { dataHead, showTable, useRowHeadings } = attributes
+    const { dataHead, useRowHeadings } = attributes
 
-    // Table Head
-    let tableHead = '';
-    let headClass = 'is-hidden';
-
-    if (showTable) {
-        headClass = '';
-    }
-
-    const onInputHandler = (evt) => {
-        // Copy the dataHead
-        let newHead = JSON.parse(JSON.stringify(dataHead));
-        // Create a new cell
-        let newTh = { content: evt.target.textContent };
-        // Replace the old cell with the new cell
-        newHead.splice(colIndex, 1, newTh);
-        // Save the dataHead attribute
-        setAttributes({ dataHead: newHead });
-        // Move the cursor back where it was
-        setCursor(evt);
-    };
+    let tableHeadContent = '';
 
     let ariaLabel = '';
 
@@ -37,25 +18,36 @@ const TableEditorHead = ({ rowCounter, ...props }) => {
         if (colIndex == 0 && useRowHeadings == true) {
             currentThButtons = '2,4';
         }
-        return (
-            <th
-                aria-label={ariaLabel}
-                scope='col'
-                contenteditable='true'
-                data-buttons={currentThButtons}
-                onFocus={evt => enterCellState(evt, props)}
-                onInput={onInputHandler}
-            >
-                {cell.content}
-            </th>
-        )
-
+        let currentTh = <th
+            aria-label={ariaLabel}
+            scope='col'
+            contenteditable='true'
+            data-buttons={currentThButtons}
+            onFocus={evt => {
+                enterCellState(evt, props);
+            }}
+        >
+            {cell.content}
+        </th>;
+        currentTh.props.onInput = function (evt) {
+            // Copy the dataHead
+            let newHead = JSON.parse(JSON.stringify(dataHead));
+            // Create a new cell
+            let newTh = { content: evt.target.textContent };
+            // Replace the old cell with the new cell
+            newHead.splice(colIndex, 1, newTh);
+            // Save the dataHead attribute
+            setAttributes({ dataHead: newHead });
+            // Move the cursor back where it was
+            setCursor(evt);
+        };
+        return currentTh;
     });
 
     if (tableHeadData.length) {
-        tableHead = (
+        tableHeadContent = (
             <>
-                <Thead isHidden={headClass} className={headClass}>
+                <Thead isHidden={isHiddenClassName} className={isHiddenClassName ? 'is-hidden' : ''}>
                     <tr>{tableHeadData}</tr>
                 </Thead>
             </>
@@ -65,7 +57,7 @@ const TableEditorHead = ({ rowCounter, ...props }) => {
         rowCounter--;
     }
 
-    return <>{tableHead}</>
+    return <>{tableHeadContent}</>
 }
 
 export default TableEditorHead

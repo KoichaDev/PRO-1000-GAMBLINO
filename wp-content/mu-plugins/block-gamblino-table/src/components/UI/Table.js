@@ -19,5 +19,5 @@ tr:nth-child(even) {
 `;
 
 export const Thead = styled.thead`
-    display: ${props => props.isHidden ? 'none' : 'table-header-group'};
+    display: ${props => props.isHidden ? 'table-header-group' : 'none'};
 `

@@ -1,5 +1,4 @@
-const TableSaveBody = ({ ...props }) => {
-    const { attributes } = props;
+const TableSaveBody = ({ ...attributes }) => {
     const { dataBody, useRowHeadings } = attributes;
 
     // Table Body

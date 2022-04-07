@@ -2,8 +2,6 @@
 import { useState } from '@wordpress/element'
 import { useBlockProps } from '@wordpress/block-editor'
 
-// hooks
-import { generateNewTable } from './hooks/useTable'
 
 import {
     toggleRowHeadings,
@@ -54,7 +52,7 @@ const TableEditor = (props) => {
                 className: '[ gamblino-block-table ]'
             })} >
                 <TableEditorCaption isHiddenClassName={isHiddenClassName} {...props} />
-                <TableEditorHead rowCounter={rowCounter} {...props} />
+                <TableEditorHead isHiddenClassName={isHiddenClassName} rowCounter={rowCounter} {...props} />
                 <TableEditorBody rowCounter={rowCounter} setIsHiddenClassName={setIsHiddenClassName} {...props} />
                 <TableEditorFooter numCols={numCols} {...props} />
             </Table>

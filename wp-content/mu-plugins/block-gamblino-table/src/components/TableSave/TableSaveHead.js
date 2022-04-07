@@ -1,28 +1,21 @@
-import React from 'react'
-
-const TableSaveHead = ({ ...props }) => {
-    const { attributes } = props;
+const TableSaveHead = ({ ...attributes }) => {
     const { useColHeadings, dataHead } = attributes
 
-    if (useColHeadings !== false) return;
+    let tableHeadContent = ''
+
+    if (useColHeadings === false) return;
 
     const tableHeadData = dataHead.map((cell) => {
         return (
             <th scope='col'>{cell.content.trim(' ')}</th>
         );
     });
-
+    if (tableHeadData.length) {
+        tableHeadContent = <thead><tr>{tableHeadData}</tr></thead>;
+    }
 
     return (
-        <>
-            {tableHeadData.length && (
-                <>
-                    <thead>
-                        <tr>{tableHeadData}</tr>
-                    </thead>
-                </>
-            )}
-        </>
+        <>{tableHeadContent}</>
     )
 }
 
