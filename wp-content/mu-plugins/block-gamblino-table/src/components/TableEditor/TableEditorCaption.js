@@ -21,7 +21,7 @@ const TableEditorCaption = ({ isHiddenClassName, ...props }) => {
                     <caption
                         className={`table__caption ${isHiddenClassName}`}
                         contenteditable='true'
-                        onFocus={(evt) => exitCellState(evt, props)}
+                        onFocus={() => exitCellState(props)}
                         onInput={onInputHandler}
                     >
                         {dataCaption}
