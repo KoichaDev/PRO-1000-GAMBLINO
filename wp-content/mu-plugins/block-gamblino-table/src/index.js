@@ -21,9 +21,12 @@ registerBlockType("gamblino-block/table", {
 	title: __('Gamblino Table', 'block-gamblino'),
 	icon: 'screenoptions',
 	category: 'gamblino',
-	support: {
-		className: false
+	supports: {
+		className: false,
+		html: false,
+		align: ["wide", "full"],
 	},
+	keywords: [__('table'), __('gamblino'), __('block')],
 	attributes: {
 		...attributesButtonStates,
 		...attributesTableCells,
