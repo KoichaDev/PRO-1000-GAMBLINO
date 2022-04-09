@@ -27,15 +27,14 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
                 onFocus: (evt) => enterCellState(evt, props),
                 onInput: (evt) => {
                     // Copy the dataBody
-                    console.log(dataBody);
-                    let newBody = JSON.parse(JSON.stringify(dataBody));
+                    const newBody = [...dataBody];
                     // Create a new cell
-                    let newCell = { content: evt.target.textContent };
-                    // let textAlignmentClassName = { textAlignment: `text-align-${textAlignment}` }
+                    const newCell = { 
+                        content: evt.target.textContent 
+                    };
+
                     // Replace the old cell
                     newBody[rowIndex].bodyCells[colIndex] = newCell;
-
-                    console.log(newBody);
 
 
                     // Set the attribute
@@ -58,6 +57,7 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
                 cellOptions,
                 cell.content
             )
+
             return currentBodyCell;
         });
         return (<tr>{rowCells}</tr>);
