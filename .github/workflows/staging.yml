@@ -19,7 +19,7 @@ jobs:
         run: |
           cd wp-content/themes/gamblino/
           rm -rf dist node_modules .parcel-cache
-          npm i
-          npm run prod
+          npm install --global yarn
+          yarn prod
       - name: rsync SSH with Staging WP Engine
         run: rsync -a wp-content/themes/gamblino/*** gamblinostg@gamblinostg.ssh.wpengine.net:/home/wpe-user/sites/gamblinostg/wp-content/themes/gamblino
