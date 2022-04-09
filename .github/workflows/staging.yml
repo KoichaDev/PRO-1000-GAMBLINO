@@ -1,7 +1,7 @@
 name: Deploy to Staging WP Engine server
 on: [workflow_dispatch]
 jobs:
-  wp-engine-prod:
+  preparing-workflow-to-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Install SSH key
@@ -15,11 +15,12 @@ jobs:
           ref: develop
       - name: Copying every local files existing on develop branch to Staging Server by using rSync SSH
         run: rsync -a --include='/wp-content/themes/gamblino/***' gamblinostg@gamblinostg.ssh.wpengine.net:sites/gamblinostg/wp-content/themes/gamblino
-      - name: Compile Webpack to Build from Virtual Machine
+      - name: Build front-end bundlers into static for staging WP Engine Staging Server
         run: |
           cd wp-content/themes/gamblino/
           rm -rf dist node_modules .parcel-cache
           npm install --global yarn
+          yarn
           yarn prod
       - name: rsync SSH with Staging WP Engine
         run: rsync -a wp-content/themes/gamblino/*** gamblinostg@gamblinostg.ssh.wpengine.net:/home/wpe-user/sites/gamblinostg/wp-content/themes/gamblino
