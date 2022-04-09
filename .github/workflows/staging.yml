@@ -1,0 +1,25 @@
+name: Deploy to Staging WP Engine server
+on: [workflow_dispatch]
+jobs:
+  wp-engine-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.PRIVATE_SSH }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: Checkout to develop
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+      - name: Copying every local files existing on develop branch to Staging Server by using rSync SSH
+        run: rsync -a --include='/wp-content/themes/gamblino/***' gamblinostg@gamblinostg.ssh.wpengine.net:sites/gamblinostg/wp-content/themes/gamblino
+      - name: Compile Webpack to Build from Virtual Machine
+        run: |
+          cd wp-content/themes/gamblino/
+          rm -rf dist node_modules .parcel-cache
+          npm i
+          npm run prod
+      - name: rsync SSH with Staging WP Engine
+        run: rsync -a wp-content/themes/gamblino/*** gamblinostg@gamblinostg.ssh.wpengine.net:/home/wpe-user/sites/gamblinostg/wp-content/themes/gamblino
