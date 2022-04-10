@@ -21,7 +21,15 @@
 		    'edit.php?post_type=casino-games',  // Slug
 		    false // Function
 		);
-
+		  
+        add_submenu_page(
+		    'page', // Parent slug
+		    'subpage', // Page title
+		    'Reviews', // Menu title
+		    'manage_options', // Capability
+		    'edit.php?post_type=reviews',  // Slug
+		    false // Function
+		);
         
         add_submenu_page(
 		    'page', // Parent slug

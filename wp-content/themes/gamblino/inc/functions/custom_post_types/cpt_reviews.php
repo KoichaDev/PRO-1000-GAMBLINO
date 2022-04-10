@@ -1,17 +1,17 @@
 <?php
 
-if (!function_exists('gamblino_cpt_casino_reviews')) {
+if (!function_exists('gamblino_cpt_reviews')) {
 
-    function gamblino_cpt_casino_reviews() {
+    function gamblino_cpt_reviews() {
 
         $labels = [
-            "name" => __("Casino Reviews Games", "gamblino"),
+            "name" => __("Reviews Games", "gamblino"),
             'all_items' => __('All Posts'),
-            "singular_name" => __("Casino Reviews", "gamblino"),
+            "singular_name" => __("Reviews", "gamblino"),
         ];
 
         $args = [
-            "label" => __("gamblino_cpt_casino_reviews", "gamblino"),
+            "label" => __("gamblino_cpt_reviews", "gamblino"),
             "labels" => $labels,
             "description" => "",
             "public" => true,
@@ -29,7 +29,7 @@ if (!function_exists('gamblino_cpt_casino_reviews')) {
             "map_meta_cap" => true,
             "hierarchical" => true,
             "rewrite" => [
-                "slug" => "casino-reviews",
+                "slug" => "reviews",
                 "with_front" => true
             ],
             "query_var" => true,
@@ -37,19 +37,19 @@ if (!function_exists('gamblino_cpt_casino_reviews')) {
             "supports" => ['title', 'editor', 'author', 'thumbnail'],
         ];
 
-        register_post_type("casino-reviews", $args);
+        register_post_type("reviews", $args);
     }
 
-    add_action('init', 'gamblino_cpt_casino_reviews');
+    add_action('init', 'gamblino_cpt_reviews');
 }
 
 // We want to hide "remove" the menu of the admin dashboard. No need to create duplicate menu functionality
 // Instead we, want to use the add_submenu_page() wp functionality to show this CPT instead 
-if (!function_exists('custom_post_types_casino_reviews')) {
+if (!function_exists('custom_post_types_reviews')) {
 
-     function custom_post_types_casino_reviews() {
-        remove_menu_page( 'edit.php?post_type=casino-reviews' );
+     function custom_post_types_reviews() {
+        remove_menu_page( 'edit.php?post_type=reviews' );
     }
 
-    add_action( 'admin_menu', 'custom_post_types_casino_reviews' );
+    add_action( 'admin_menu', 'custom_post_types_reviews' );
 }
