@@ -26,9 +26,9 @@
         add_submenu_page(
 		    'page', // Parent slug
 		    'subpage', // Page title
-		    'Reviews', // Menu title
+		    'Casino Reviews', // Menu title
 		    'manage_options', // Capability
-		    'edit.php?post_type=reviews',  // Slug
+		    'edit.php?post_type=casino-reviews',  // Slug
 		    false // Function
 		);
 
