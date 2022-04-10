@@ -11,6 +11,28 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
 
     let tableBodyContent = '';
     let ariaLabel = '';
+
+    const onInputHandler = (evt, rowIndex, colIndex) => {
+        // Copy the dataBody
+        const newBody = [...dataBody];
+        // Create a new cell
+        const newCell = {
+            content: evt.target.textContent
+        };
+
+        // Replace the old cell
+        newBody[rowIndex].bodyCells[colIndex] = newCell;
+
+
+        // Set the attribute
+        setAttributes({
+            dataBody: newBody,
+        });
+        // Move the cursor back where it was
+        setCursor(evt);
+    }
+
+
     const tableBodyData = dataBody.map((rows, rowIndex) => {
         rowCounter++;
 
@@ -25,25 +47,7 @@ const TableEditorBody = ({ rowCounter, ...props }) => {
                 'data-buttons': '1,2,3,4,5,6',
                 class: `text-align-${textAlignment}`,
                 onFocus: (evt) => enterCellState(evt, props),
-                onInput: (evt) => {
-                    // Copy the dataBody
-                    const newBody = [...dataBody];
-                    // Create a new cell
-                    const newCell = { 
-                        content: evt.target.textContent 
-                    };
-
-                    // Replace the old cell
-                    newBody[rowIndex].bodyCells[colIndex] = newCell;
-
-
-                    // Set the attribute
-                    setAttributes({
-                        dataBody: newBody,
-                    });
-                    // Move the cursor back where it was
-                    setCursor(evt);
-                }
+                onInput: (evt) => onInputHandler(evt, rowIndex, colIndex)
             };
 
             if (useRowHeadings == true && colIndex == 0) {
