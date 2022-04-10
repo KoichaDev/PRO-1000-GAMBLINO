@@ -15,6 +15,15 @@ jobs:
           ref: develop
       - name: Copying every local files existing on develop branch to Staging Server by using rSync SSH
         run: rsync -a --include='/wp-content/themes/gamblino/***' gamblinostg@gamblinostg.ssh.wpengine.net:sites/gamblinostg/wp-content/themes/gamblino
+      - name: Bundling the Gutenberg blocks assets 
+        run : |
+          cd wp-content/mu-plugins/gamblino-blocks
+          rm -rf dist node_modules 
+          npm install --global yarn
+          yarn
+          yarn build
+      - name: rsync SSH with by copying Gutenberg Blocks to the Staging server
+        run: rsync -a wp-content/mu-plugins/gamblino-blocks/*** gamblinostg@gamblinostg.ssh.wpengine.net:/home/wpe-user/sites/gamblinostg/wp-content/mu-plugins/gamblino-blocks
       - name: Build front-end bundlers into static for staging WP Engine Staging Server
         run: |
           cd wp-content/themes/gamblino/
