@@ -1,6 +1,6 @@
 <?php
 
-class Customize_Theme {
+class Customize_removal_panel {
 
   public static function init() {
     add_action( 'customize_register', [ get_called_class(), 'theme_customize_remove_widget_panel' ] );
@@ -16,4 +16,4 @@ class Customize_Theme {
   }
 }
 
-Customize_Theme::init();
+Customize_removal_panel::init();
