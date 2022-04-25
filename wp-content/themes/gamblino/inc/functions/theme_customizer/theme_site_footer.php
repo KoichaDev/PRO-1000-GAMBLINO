@@ -14,6 +14,7 @@ class Customize_theme_footer {
         $wp_customize -> add_setting('gamblino_site_info', [
             'default'           => '',
             'sanitize_callback' => 'gamblino_sanitize_site_info',
+            'transport'         => 'postMessage'
         ]);
 
         $wp_customize -> add_control( 'gamblino_site_info', [
