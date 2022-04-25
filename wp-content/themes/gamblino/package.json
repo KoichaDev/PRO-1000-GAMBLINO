@@ -3,19 +3,18 @@
 	"version": "1.0.0",
 	"description": "",
 	"output": "dist/main.js",
+	"source": "src/main.js",
+	"main": "dist/main.js",
 	"browserslist": "> 0.5%, last 2 versions, not dead",
 	"scripts": {
-		"dev": "parcel watch src/main.js --dist-dir dist",
+		"dev": "parcel src/main.js --dist-dir dist",
 		"prod": "parcel build src/main.js --dist-dir dist"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@parcel/transformer-sass": "2.4.1",
-		"parcel": "^2.3.2"
+		"parcel": "^2.5.0"
 	},
-	"dependencies": {
-		"@swc/helpers": "^0.3.3"
-	}
+	"dependencies": {}
 }
