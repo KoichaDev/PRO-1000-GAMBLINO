@@ -1,5 +1,6 @@
 <?php 
-    $site_info = get_theme_mod( 'gamblino_site_info', );
+    $site_info = get_theme_mod( 'gamblino_footer_site_info' );
+    wp_footer();
 
 ?>
 
@@ -15,9 +16,12 @@
             ],
         ];
 
-    echo wp_kses( $site_info, $allowed );
     
 ?>
+
+<div id="text-content" class="text-content">
+    <?php echo wp_kses( $site_info, $allowed ); ?>
+</div>
 
 </footer>
 </body>
