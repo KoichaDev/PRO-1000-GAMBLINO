@@ -9,7 +9,8 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header class='header'>
+<header class='[ header ]'>
+    <h1 id="header-blogname"><?php bloginfo( 'name' ); ?></h1>
         <img src="<?php echo get_template_directory_uri() . '/src/img/logo.png'; ?>" alt="<?php bloginfo('sitename'); ?>">
     <nav class='header__nav'>
         <ul>
