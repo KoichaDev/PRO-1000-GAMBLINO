@@ -1,0 +1,56 @@
+<?php 
+
+class Customizer_Footer_Site_Info {
+    public static function init() {
+        add_action( 'customize_register',  [ get_called_class(), 'gamblino_theme_customize_site_footer'] );
+    }
+
+    public static function gamblino_theme_customize_site_footer ( $wp_customize ) {        
+
+        // Partial refresh only refreshing a setion of a place on the page instead of whole website
+        // This will make it more performant for the page
+        $wp_customize -> selective_refresh -> add_partial( 'gamblino_footer_site_info_partial' , [
+            'settings'              => ['gamblino_footer_site_info'],
+            'selector'              => '.footer-main',
+            'container_inclusive'   => true,
+            'render_callback'       => function() {
+                get_footer();
+            } 
+        ]);
+
+        $wp_customize -> add_section( 'gamblino_site_footer_options', [
+            'title'             => esc_html__( 'Footer Options', 'gamblino' ),
+            'description'       => esc_html( 'Global footer settings', 'gamblino' ),
+        ]);
+
+        $wp_customize -> add_setting( 'gamblino_footer_site_info', [
+            'default'           => '',
+            'sanitize_callback' => 'gamblino_sanitize_site_info',
+            'transport'         => 'postMessage'
+        ]);
+
+        $wp_customize -> add_control( 'gamblino_footer_site_info', [
+            'type'      => 'text',
+            'label'     => esc_html('Site info', 'gamblino'),
+            'section'   =>  'gamblino_site_footer_options',
+        ]);
+
+        function gamblino_sanitize_site_info( $input ) {
+            $allowed = [
+                'a' => [
+                    'href' => [],
+                    'title' => [],
+                    'target' => [],
+                ],
+            ];
+
+            return wp_kses( $input, $allowed );
+        }
+    }
+}
+
+
+Customizer_Footer_Site_Info::init();
+
+
+

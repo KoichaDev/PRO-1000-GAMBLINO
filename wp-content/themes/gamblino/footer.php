@@ -4,24 +4,24 @@
 
 ?>
 
-<footer>
-<?php  
-    if(!$site_info) return;
+<footer class="[ footer-main ]">
+    <?php  
+        if(!$site_info) return;
 
-     $allowed = [
-            'a' => [
-                'href' => [],
-                'title' => [],
-                'target' => [],
-            ],
-        ];
+        $allowed = [
+                'a' => [
+                    'href' => [],
+                    'title' => [],
+                    'target' => [],
+                ],
+            ];
+    ?>
 
-    
-?>
-
-<div id="text-content" class="text-content">
-    <?php echo wp_kses( $site_info, $allowed ); ?>
-</div>
+    <div id="text-content" class="text-content">
+        <p>
+            <?php echo wp_kses( $site_info, $allowed ); ?>
+        </p>
+    </div>
 
 </footer>
 </body>

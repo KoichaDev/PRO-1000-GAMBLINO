@@ -22,9 +22,11 @@ class Controller {
 
     public function load_theme_customizer_model() {
          $wp_theme_customizer = get_theme_file_path("../gamblino/inc/functions/theme_customizer/*.php");
+         $wp_theme_customizer_level_2 = get_theme_file_path("../gamblino/inc/functions/theme_customizer/**/*.php");
     
-        // Autoload every files regarding Gutenberg Blocks archive template hierachy
         auto_load_files_from_folder( $wp_theme_customizer );
+        auto_load_files_from_folder( $wp_theme_customizer_level_2 );
+
     }
 
     public function load_custom_post_type_model() {

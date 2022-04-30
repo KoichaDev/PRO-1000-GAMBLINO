@@ -1,6 +1,6 @@
 <?php 
 
-class Site_Identify {
+class Customizer_Site_Identify {
     public static function init() {
         add_action( 'customize_register',  [ get_called_class(), 'gamblino_theme_customize_site_identidy'] );
     }
@@ -10,15 +10,17 @@ class Site_Identify {
 
         // Partial refresh only refreshing a setion of a place on the page instead of whole website
         // This will make it more performant for the page
-        $wp_customize -> selective_refresh -> add_partial('blogname', [
+        $wp_customize -> selective_refresh -> add_partial( 'blogname', [
             'selector'              => '#header-blogname',
             'container_inclusive'   => false,
             'render_callback'       => function() {
                 bloginfo( 'name' );
             } 
         ]);
+
+        add_theme_support( 'customize-selective-refresh-widgets' );
     }
 }
 
 
-Site_Identify::init();
+Customizer_Site_Identify::init();
