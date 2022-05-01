@@ -30,8 +30,8 @@ class ACF_Footer_Options {
             ));
             
             acf_add_options_sub_page(array(
-                'page_title' 	=> 'Social Media Links',
-                'menu_title'	=> 'Social Media',
+                'page_title' 	=> 'Social Media Icons',
+                'menu_title'	=> 'Social Media Icons',
                 'parent_slug'	=> 'footer-general-settings',
             ));
         }

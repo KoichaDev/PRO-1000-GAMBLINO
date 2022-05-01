@@ -4,13 +4,7 @@
     $footer_bg_color = get_theme_mod( 'gamblino_background_color_footer' );
     wp_footer();
 
-    $global_footer = new ACF_Footer_Flexible_Content( 'global_footer_flexible_content', 'global_footer_menu' );
-?>
-
-<footer class="[ footer-main ]" style="background-color: <?= $footer_bg_color; ?>">
-
-    <?php  
-        if(!$site_info) return;
+      if(!$site_info) return;
 
         $allowed = [
                 'a' => [
@@ -19,18 +13,11 @@
                     'target' => [],
                 ],
             ];
-    ?>
 
-    <?php
-        
+    $global_footer = new ACF_Footer_Flexible_Content( 'global_footer_flexible_content', 'global_footer_menu' );
+?>
 
-    // if( !get_field('global_footer_menu', 'options')) return;
-    //     var_dump(get_field('global_footer_menu', 'options'));
-   
-    
-    
-    ?>
-
+<footer class="[ footer-main ]" style="background-color: <?= $footer_bg_color; ?>">
     <div id="text-content" class="text-content">
         &nbsp; 
         <p>

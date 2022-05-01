@@ -1,0 +1,196 @@
+{
+    "key": "group_626dd0b6c208f",
+    "title": "Footer Global Social Media Icons",
+    "fields": [
+        {
+            "key": "field_626dd118aa229",
+            "label": "Add Social media Icons",
+            "name": "global_footer_social_media_repeater_field",
+            "type": "repeater",
+            "instructions": "Add Social Media icons",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_626dd576379d9",
+                    "label": "Image",
+                    "name": "image_group",
+                    "type": "group",
+                    "instructions": "Image to the Social Media Icons",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_626dd594379da",
+                            "label": "Add image to social media icon",
+                            "name": "add_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_626dd8256f45d",
+                            "label": "Add URL to the image",
+                            "name": "url",
+                            "type": "url",
+                            "instructions": "Add image to the Social Media URL Link icon",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_626dd5f6379db",
+                            "label": "Add Alt text",
+                            "name": "alt_text",
+                            "type": "text",
+                            "instructions": "If you have an image with a familiy on the beach for example, but you are stuffing key words for the sake of SEO inside like \"save car insurance\". Try to write e.g. \"Your familiy will save the car insurance and be saving money for another vacation\". It's helpful for SEO, but difficult for accessibility screen reader users. We want to both to be a win-win situation here.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Add alt text...",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_626dd33e1572a",
+                    "label": "Accessibility requirement",
+                    "name": "accessibility_group",
+                    "type": "group",
+                    "instructions": "This will benefits the SEO + accessibilities in general",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_626dd3761572b",
+                            "label": "Aria Label",
+                            "name": "aria_label",
+                            "type": "text",
+                            "instructions": "For more info: \r\nhttps:\/\/developer.mozilla.org\/en-US\/docs\/Web\/Accessibility\/ARIA\/Attributes\/aria-label",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Add a description...",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_626dd3da1572c",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "Will be visible when you are hovering the menu for approx. 2-3 seconds.\r\nFor more info:\r\nhttps:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Element\/title",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Add a title...",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_626dd278736ca",
+                    "label": "Add HTML attribute as \"no follow?\"",
+                    "name": "html_attr_no_follow",
+                    "type": "true_false",
+                    "instructions": "Triggering the HTML Attribute to have \"no follow\" vs \"follow\". The default value is \"no\".",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-social-media-icons"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1651366754
+}
