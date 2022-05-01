@@ -29,7 +29,7 @@
                 aria-label="<?= esc_attr_e('This is footer menu for '. $footer_menus['title'], 'gamblino') ?>"
             >
             <ul class="[ footer-nav-list ] [ flex-column ]">
-                <li class="footer-nav-list__title | text-2xl " aria-label="<?= $footer_menus['title']; ?>" >
+                <li class="[ footer-nav-list__title ] [ text-2xl fw-bold ]" aria-label="<?= $footer_menus['title']; ?>" >
                     <?= $footer_menus['title']; ?>    
                 </li>
                     <?php foreach ($footer_menus['menus'] as $footer_menu) : 
