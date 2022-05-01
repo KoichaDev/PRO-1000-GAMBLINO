@@ -16,22 +16,33 @@
                 ],
             ];
 
-    $global_footer_menu = new ACF_Footer_Flexible_Content( 'global_footer_flexible_content', 'global_footer_menu' );
-    $global_footer_social_media_icons = new ACF_Footer_Social_Media_Content();
-
-    var_dump($global_footer_social_media_icons -> get_social_media_groups());
-
-
+    $footer_flexible_content = new ACF_Footer_Flexible_Content( 'global_footer_flexible_content', 'global_footer_menu' );
+    $global_footer_social_media_icons = new ACF_Footer_Social_Media_Content();            
+    
+    $footer_menu_content = $footer_flexible_content -> menu_content;
 ?>
 
-<footer class="[ footer-main ]" style="background-color: <?= $footer_bg_color; ?>">
-    <div id="text-content" class="text-content">
-        &nbsp; 
-        <p>
-            <?php echo wp_kses( $site_info, $allowed ); ?>
-        </p>
-    </div>
-
-</footer>
+    <footer class="[ footer-main ]" style="background-color: <?= $footer_bg_color; ?>">
+        <?php if( !isset($footer_menu_content) ) return; ?>
+        <?php foreach ($footer_menu_content as $footer_menus) : ?>
+            <nav 
+                aria-label="This is footer menu for <?= $footer_menus['title']; ?>" 
+                class="[ footer-nav-container ]"
+            >
+                <p class="footer-nav-container__title" aria-label="<?= $footer_menus['title']; ?>"><?= $footer_menus['title']; ?></p>
+                <ul>
+                    
+                    <?php foreach ($footer_menus['menus'] as $footer_menu) : 
+                        $permalink = get_permalink($footer_menu['post_object'] -> ID);
+                        $post_title = $footer_menu['post_object'] -> post_title;
+                        ?>
+                        <li class="[ footer-nav-container__permalink ]">
+                            <a href="<?= $permalink; ?>"><?= $post_title; ?></a> 
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        <?php endforeach;  ?>
+    </footer>
 </body>
 </html>
