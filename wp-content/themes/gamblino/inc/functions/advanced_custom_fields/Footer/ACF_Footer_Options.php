@@ -34,6 +34,12 @@ class ACF_Footer_Options {
                 'menu_title'	=> 'Social Media Icons',
                 'parent_slug'	=> 'footer-general-settings',
             ));
+
+             acf_add_options_sub_page(array(
+                'page_title' 	=> 'Approval Outbound Links',
+                'menu_title'	=> 'Approval Outbound Links',
+                'parent_slug'	=> 'footer-general-settings',
+            ));
         }
 }
 
