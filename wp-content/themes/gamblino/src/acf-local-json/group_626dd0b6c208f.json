@@ -39,7 +39,7 @@
                         {
                             "key": "field_626dd594379da",
                             "label": "Add image to social media icon",
-                            "name": "add_image",
+                            "name": "image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -192,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1651366754
+    "modified": 1651434342
 }
