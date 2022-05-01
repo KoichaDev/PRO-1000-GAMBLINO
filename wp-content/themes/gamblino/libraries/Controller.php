@@ -10,6 +10,7 @@ class Controller {
         $this -> acf_model();
         $this -> load_theme_customizer_model();
         $this -> load_custom_post_type_model();
+        $this -> load_acf_model();
     }
 
     public function acf_model() {
@@ -26,7 +27,14 @@ class Controller {
     
         auto_load_files_from_folder( $wp_theme_customizer );
         auto_load_files_from_folder( $wp_theme_customizer_level_2 );
+    }
 
+    public function load_acf_model() {
+        $acf_files = get_theme_file_path("../gamblino/inc/functions/advanced_custom_fields/*.php");
+        $acf_files_level_2 = get_theme_file_path("../gamblino/inc/functions/advanced_custom_fields/**/*.php");
+    
+        auto_load_files_from_folder( $acf_files );
+        auto_load_files_from_folder( $acf_files_level_2 );
     }
 
     public function load_custom_post_type_model() {

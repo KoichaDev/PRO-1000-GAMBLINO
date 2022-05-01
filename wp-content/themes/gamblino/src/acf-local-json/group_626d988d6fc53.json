@@ -1,0 +1,114 @@
+{
+    "key": "group_626d988d6fc53",
+    "title": "Footer Menu",
+    "fields": [
+        {
+            "key": "field_626d9d140ff53",
+            "label": "Footer Menu",
+            "name": "global_footer_flexible_content",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_626da5abe0a15": {
+                    "key": "layout_626da5abe0a15",
+                    "name": "global_footer_menu",
+                    "label": "Footer Menu",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_626db0715a904",
+                            "label": "Menu Title",
+                            "name": "title_menu",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_626db0c1d1faf",
+                            "label": "Menu",
+                            "name": "sub_menu_repeater_field",
+                            "type": "repeater",
+                            "instructions": "Menu setup",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Menu",
+                            "sub_fields": [
+                                {
+                                    "key": "field_626db0faf751d",
+                                    "label": "Add Menu",
+                                    "name": "post_object",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": "",
+                                    "taxonomy": "",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "return_format": "object",
+                                    "ui": 1
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-footer-menu-setup"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1651363571
+}
