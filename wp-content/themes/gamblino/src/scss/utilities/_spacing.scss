@@ -66,6 +66,18 @@ $sides: left, top, bottom, right;
 	}
 	// Utility class for margin
 	.m {
+		&-auto {
+			margin: auto;
+		}
+
+		&x-auto {
+			margin: 0 auto;
+		}
+
+		&y-auto {
+			margin: auto 0;
+		}
+
 		&-#{$number} {
 			margin: $size-value;
 		}
