@@ -1,0 +1,42 @@
+{
+    "key": "group_626eda085c373",
+    "title": "Global Footer Settings",
+    "fields": [
+        {
+            "key": "field_626eda0e9f536",
+            "label": "Footer Background Color Picker",
+            "name": "footer_bg_color_picker",
+            "type": "color_picker",
+            "instructions": "Change the Footer backgrounds color",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FF8E00",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "footer-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1651432349
+}

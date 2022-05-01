@@ -3,7 +3,6 @@
     include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Social_Media_Content.php';
 
     $site_info = get_theme_mod( 'gamblino_footer_site_info' );
-    $footer_bg_color = get_theme_mod( 'gamblino_background_color_footer' );
     wp_footer();
 
       if(!$site_info) return;
@@ -22,7 +21,7 @@
     $footer_menu_content = $footer_flexible_content -> menu_content;
 ?>
 
-    <footer class="[ footer-main ]" style="background-color: <?= $footer_bg_color; ?>">
+    <footer class="[ footer-main ]">
         <?php if( !isset($footer_menu_content) ) return; ?>
         <?php foreach ($footer_menu_content as $footer_menus) : ?>
             <nav 
@@ -44,7 +43,7 @@
                                 } 
                             ?>
                             <a
-                                class="text-no-underline text-lg"
+                                class="[ footer-nav-container__permalink ] [ text-no-underline text-lg ]"
                                 href="<?= $permalink; ?>"
                                 aria-label="<?= esc_attr_e( 'Go to ' . $post_title . ' permalink', 'gamblino' ); ?>"
                                 title="<?= esc_attr_e('Go to ' . $post_title . ' permalink', 'gamblino'); ?>"

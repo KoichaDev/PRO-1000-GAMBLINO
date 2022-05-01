@@ -4,6 +4,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: 2em;
 	padding: 2em 5em;
+	background-color: #ff8e00;
 
 	@media screen and (max-width: 390px) {
 		grid-template-columns: 1fr;
