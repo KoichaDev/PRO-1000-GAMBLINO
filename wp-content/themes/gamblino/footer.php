@@ -26,18 +26,31 @@
         <?php if( !isset($footer_menu_content) ) return; ?>
         <?php foreach ($footer_menu_content as $footer_menus) : ?>
             <nav 
-                aria-label="This is footer menu for <?= $footer_menus['title']; ?>" 
-                class="[ footer-nav-container ]"
+                aria-label="<?= esc_attr_e('This is footer menu for '. $footer_menus['title'], 'gamblino') ?>"
             >
-                <p class="footer-nav-container__title" aria-label="<?= $footer_menus['title']; ?>"><?= $footer_menus['title']; ?></p>
-                <ul>
-                    
+            <ul class="[ footer-nav-list ] [ flex-column ]">
+                <li class="footer-nav-list__title | text-2xl " aria-label="<?= $footer_menus['title']; ?>" >
+                    <?= $footer_menus['title']; ?>    
+                </li>
                     <?php foreach ($footer_menus['menus'] as $footer_menu) : 
                         $permalink = get_permalink($footer_menu['post_object'] -> ID);
                         $post_title = $footer_menu['post_object'] -> post_title;
                         ?>
-                        <li class="[ footer-nav-container__permalink ]">
-                            <a href="<?= $permalink; ?>"><?= $post_title; ?></a> 
+                        <li class="flex-row items-center">
+                            <?php 
+                                if( $footer_menu['image'] ) {
+                                    $image_id = $footer_menu['image']['ID'];
+                                    echo wp_get_attachment_image($image_id, 'full');  
+                                } 
+                            ?>
+                            <a
+                                class="text-no-underline text-lg"
+                                href="<?= $permalink; ?>"
+                                aria-label="<?= esc_attr_e( 'Go to ' . $post_title . ' permalink', 'gamblino' ); ?>"
+                                title="<?= esc_attr_e('Go to ' . $post_title . ' permalink', 'gamblino'); ?>"
+                             >
+                             <?= $post_title; ?>
+                            </a> 
                         </li>
                     <?php endforeach; ?>
                 </ul>

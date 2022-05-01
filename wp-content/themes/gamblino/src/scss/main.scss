@@ -6,4 +6,10 @@
 
 @use './components';
 
-@use './layout'
+@use './composition';
+
+@use './layout';
+
+@use './utilities';
+
+@use './vendors';
