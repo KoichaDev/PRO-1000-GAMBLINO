@@ -37,7 +37,7 @@
                             $permalink = get_permalink($footer_menu['post_object'] -> ID);
                             $post_title = $footer_menu['post_object'] -> post_title;
                             ?>
-                            <li class="flex-row items-center">
+                            <li class="flex-row align-items-center">
                                 <?php 
                                     if( $footer_menu['image'] ) {
                                         $image_id = $footer_menu['image']['ID'];
@@ -61,7 +61,7 @@
 
          <nav class="[ footer-menus-2 ] [ flex-row ]" aria-label="About us Gamblino">
              <div class="[ social-media-icons ]">
-                <p class="text-lg text-align-center fw-bold">Follow Us</p>
+                <p class="social-media-icons__description | text-lg text-align-center fw-bold">Follow Us</p>
                 <div class="[ social-media-icons__permalinks ] [ flex-row mt-5 ]">
                     <?php foreach($social_media_menus as $social_media_menu) : 
                         $image_id = $social_media_menu['media']['image']['ID']; 
@@ -78,6 +78,8 @@
                     <?php endforeach; ?>
                 </div>
             </div>
+
+            <p class="footer-menus-2__description  | align-self-center m-auto">Gambling can be addictive, please play responsibly!</p>
         </nav>
     </footer>
 </body>

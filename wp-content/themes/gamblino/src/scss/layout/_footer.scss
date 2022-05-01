@@ -2,6 +2,10 @@
 	padding: 2em 5em;
 	background-color: #ff8e00;
 
+	@media screen and (max-width: 390px) {
+		padding: 0.5em;
+	}
+
 	.footer-menus-1 {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -24,7 +28,27 @@
 	.footer-menus-2 {
 		margin-top: 2em;
 
-		.social-media-icons__permalinks {
+		@media screen and (max-width: 51.25em) {
+			flex-direction: column;
+		}
+
+		@media screen and (max-width: 390px) {
+			padding: 0 2em;
+		}
+
+		.social-media-icons__description {
+			@media screen and (max-width: 51.25em) {
+				text-align: start;
+				margin-bottom: 1.5em;
+			}
+		}
+
+		.footer-menus-2__description {
+			@media screen and (max-width: 51.25em) {
+				align-self: start;
+				margin: 0;
+				text-align: start;
+			}
 		}
 	}
 }
