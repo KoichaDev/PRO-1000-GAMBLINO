@@ -21,8 +21,6 @@ class ACF_Footer_Social_Media_Content {
                 'no_follow' => get_sub_field('html_attr_no_follow'),
             ];
 
-        
-
            $this -> set_social_media_content( $social_media_groups );
         endwhile;
     }

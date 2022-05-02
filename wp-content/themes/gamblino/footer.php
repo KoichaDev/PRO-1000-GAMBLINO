@@ -1,6 +1,7 @@
 <?php
     include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Flexible_Content.php';
     include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Social_Media_Content.php';
+    include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Approval_Outbound_Links.php';
 
     $site_info = get_theme_mod( 'gamblino_footer_site_info' );
     wp_footer();
@@ -17,9 +18,13 @@
 
     $footer_flexible_content = new ACF_Footer_Flexible_Content( 'global_footer_flexible_content', 'global_footer_menu' );
     $footer_social_media_icons = new ACF_Footer_Social_Media_Content();            
+    $footer_approval_outbound_links = new ACF_Footer_Approval_Outbound_Links();
     
     $footer_menu_content = $footer_flexible_content -> menu_content;
     $social_media_menus = $footer_social_media_icons -> social_media_groups;
+    $approval_outbound_links = $footer_approval_outbound_links -> approval_links_content;
+
+    
 ?>
 
     <footer class="[ footer-main ]">
@@ -72,7 +77,12 @@
                         $title = $social_media_menu['accessibility_info']['title'];
                         $is_follow_attr = $social_media_menu['no_follow'];
                     ?>
-                    <a href="<?= $image_url; ?>" rel="<?= $is_follow_attr ? 'follow' : 'nofollow'; ?>">
+                    <a 
+                        href="<?= $image_url; ?>" 
+                        rel="<?= $is_follow_attr ? 'follow' : 'nofollow'; ?>"
+                        aria-label="<?= $aria_label; ?>"
+                        title="<?= $title; ?>"
+                    >
                         <?= wp_get_attachment_image($image_id, 'full'); ?>    
                     </a>
                     <?php endforeach; ?>
@@ -80,6 +90,29 @@
             </div>
 
             <p class="footer-menus-2__description  | align-self-center m-auto">Gambling can be addictive, please play responsibly!</p>
+                        
+            <?php if(!isset($approval_outbound_links)) return; ?>
+            <nav class="[ outbound-links ]" aria-label="This is approval outbound links where we have legit gamblino">
+                <?php foreach ($approval_outbound_links as  $approval_outbound_link) : 
+
+                        $image_id = $approval_outbound_link['media']['image']['ID']; 
+                        $image_alt_text = $approval_outbound_link['media']['alt_text'];
+                        $image_url = $approval_outbound_link['media']['url'];    
+                        
+                        $aria_label_outbound_links = $approval_outbound_link['accessibility_info']['aria_label'];
+                        $title_outbound_links = $approval_outbound_link['accessibility_info']['title'];
+                        $is_follow_attr_outbound_links = $approval_outbound_link['no_follow'];
+
+                    ?>
+                     <a 
+                        href="<?= $image_url; ?>" rel="<?= $is_follow_attr_outbound_links ? 'follow' : 'nofollow'; ?>"
+                        aria-label="<?= $aria_label_outbound_links; ?>"
+                        title="<?= $title_outbound_links; ?>"
+                        >
+                        <?= wp_get_attachment_image($image_id, 'full'); ?>    
+                    </a>
+                <?php endforeach; ?>
+            </nav>
         </nav>
     </footer>
 </body>
