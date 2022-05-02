@@ -1,5 +1,7 @@
 <?php
 
+include_once('inc/Loader.php');
+
 include_once('inc/functions/editor/block_editor_theme_category_setup.php');
 
 include_once('inc/functions/editor/block_editor_theme_setup.php');
@@ -13,8 +15,6 @@ include_once('inc/functions/acf_local_json.php');
 include_once('inc/helpers/auto_load_files.php');
 
 include_once('inc/helpers/print_message.php');
-
-include_once('libraries/Controller.php');
 
 include_once('inc/functions/custom_image_sizes.php');
 
