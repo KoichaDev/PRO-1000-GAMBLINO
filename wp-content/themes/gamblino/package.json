@@ -17,5 +17,7 @@
 		"@parcel/transformer-sass": "2.5.0",
 		"parcel": "latest"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@swc/helpers": "^0.3.10"
+	}
 }

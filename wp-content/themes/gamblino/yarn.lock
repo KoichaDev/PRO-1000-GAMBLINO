@@ -665,6 +665,11 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
+"@swc/helpers@^0.3.10":
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.3.10.tgz#b896c6813257f0ac3e8ffe4fe8baeeb5feaca26b"
+  integrity sha512-ZCioFJz6NcLAA4zQqN6BORE/SFu2tBdwRU3JXQgLBu6JETvFElAOpaP0HYjWpbnCHFEJ5o6c4wWT8QeLbRoe2w==
+
 "@swc/helpers@^0.3.6":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.3.8.tgz#5b9ecf4ee480ca00f1ffbc2d1a5d4eed0d1afe81"
