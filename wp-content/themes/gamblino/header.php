@@ -9,21 +9,18 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header id="header-main" class='[ header-main ]'>
-    <h1 id="header-blogname"><?php bloginfo( 'name' ); ?></h1>
-        <img src="<?php echo get_template_directory_uri() . '/src/img/logo.png'; ?>" alt="<?php bloginfo('sitename'); ?>">
-    <nav class='header__nav'>
-        <ul>
-            <li>
-                <p>Menu</p>
-            </li>
-            <li>
-                <input type="text" class='search-input' placeholder="Search something...">
-            </li>
-            <li>Home</li>
-            <li>Bonuses</li>
-            <li>Casinos</li>
-        </ul>
+<?php
+
+$header_bg_color = (new ACF_Navbar_Header) -> get_header_bg_color();
+
+
+echo $header_bg_color; ?>
+
+
+<header class='[ header-main ]' id="header-main" >
+    <!-- <h1 id="header-blogname"><?php bloginfo( 'name' ); ?></h1> -->
+    <nav class='[ mobile-navbar ]'>
+      <?php  include get_stylesheet_directory() . '/src/icons/hamburger-menu.svg'; ?>
     </nav>
 </header>
     

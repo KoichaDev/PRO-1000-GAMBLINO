@@ -1,0 +1,42 @@
+{
+    "key": "group_62703f4a5c9eb",
+    "title": "Global Navbar Settings",
+    "fields": [
+        {
+            "key": "field_62703f5a493ca",
+            "label": "Change Navbar background color",
+            "name": "global_header_color_picker",
+            "type": "color_picker",
+            "instructions": "Use this color picker to change the Navbar backgrounds color",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#1B4196",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "navbar-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1651523485
+}
