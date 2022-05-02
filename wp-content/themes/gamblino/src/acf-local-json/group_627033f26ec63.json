@@ -1,0 +1,251 @@
+{
+	"key": "group_627033f26ec63",
+	"title": "Global Navbar Category List (for phone/tablet)",
+	"fields": [
+		{
+			"key": "field_627034733027a",
+			"label": "Title",
+			"name": "navbar_phone_tablet_category_list_title",
+			"type": "text",
+			"instructions": "This title will be displayed above the category list",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_627033f273167",
+			"label": "Add Category List",
+			"name": "navbar_phone_tablet_category_list",
+			"type": "repeater",
+			"instructions": "The category list will only be available for phone and tablet version.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"collapsed": "",
+			"min": 0,
+			"max": 0,
+			"layout": "table",
+			"button_label": "",
+			"sub_fields": [
+				{
+					"key": "field_627035234193f",
+					"label": "General Content",
+					"name": "general_html_content_group",
+					"type": "group",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"layout": "block",
+					"sub_fields": [
+						{
+							"key": "field_6270358cedb50",
+							"label": "Category Title",
+							"name": "category_title",
+							"type": "text",
+							"instructions": "This will be displayed name for this category list",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"placeholder": "",
+							"prepend": "",
+							"append": "",
+							"maxlength": ""
+						},
+						{
+							"key": "field_627035c2edb51",
+							"label": "Add HTML attribute as \"no follow?\"",
+							"name": "html_attr_no_follow",
+							"type": "true_false",
+							"instructions": "Triggering the HTML Attribute to have \"no follow\" vs \"follow\". The default value is \"no\".",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"message": "",
+							"default_value": 0,
+							"ui": 1,
+							"ui_on_text": "",
+							"ui_off_text": ""
+						}
+					]
+				},
+				{
+					"key": "field_627033f274a55",
+					"label": "Image",
+					"name": "image_group",
+					"type": "group",
+					"instructions": "Image to the approval image links",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"layout": "block",
+					"sub_fields": [
+						{
+							"key": "field_627033f276331",
+							"label": "Add image",
+							"name": "image",
+							"type": "image",
+							"instructions": "",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"return_format": "array",
+							"preview_size": "thumbnail",
+							"library": "all",
+							"min_width": "",
+							"min_height": "",
+							"min_size": "",
+							"max_width": "",
+							"max_height": "",
+							"max_size": "",
+							"mime_types": ""
+						},
+						{
+							"key": "field_627033f27634c",
+							"label": "Add URL to the image",
+							"name": "url",
+							"type": "url",
+							"instructions": "Add image to the Social Media URL Link icon",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"placeholder": ""
+						},
+						{
+							"key": "field_627033f276363",
+							"label": "Add Alt text",
+							"name": "alt_text",
+							"type": "text",
+							"instructions": "If you have an image with a familiy on the beach for example, but you are stuffing key words for the sake of SEO inside like \"save car insurance\". Try to write e.g. \"Your familiy will save the car insurance and be saving money for another vacation\". It's helpful for SEO, but difficult for accessibility screen reader users. We want to both to be a win-win situation here.",
+							"required": 1,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"placeholder": "Add alt text...",
+							"prepend": "",
+							"append": "",
+							"maxlength": ""
+						}
+					]
+				},
+				{
+					"key": "field_627033f274a5e",
+					"label": "Accessibility requirement",
+					"name": "accessibility_group",
+					"type": "group",
+					"instructions": "This will benefits the SEO + accessibilities in general",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"layout": "block",
+					"sub_fields": [
+						{
+							"key": "field_627033f27d8b5",
+							"label": "Aria Label",
+							"name": "aria_label",
+							"type": "text",
+							"instructions": "For more info: \r\nhttps://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label",
+							"required": 1,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"placeholder": "Add a description...",
+							"prepend": "",
+							"append": "",
+							"maxlength": ""
+						},
+						{
+							"key": "field_627033f27d8be",
+							"label": "Title",
+							"name": "title",
+							"type": "text",
+							"instructions": "Will be visible when you are hovering the menu for approx. 2-3 seconds.\r\nFor more info:\r\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/title",
+							"required": 1,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"default_value": "",
+							"placeholder": "Add a title...",
+							"prepend": "",
+							"append": "",
+							"maxlength": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "acf-options-navbar-category-list"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1651521500
+}
