@@ -9,16 +9,14 @@
 </head>
 <body <?php body_class(); ?>>
 
-<?php
-
-$header_bg_color = (new ACF_Navbar_Header) -> get_header_bg_color();
+<?php $header_bg_color = (new ACF_Navbar_Header) -> get_header_bg_color(); ?>
 
 
-echo $header_bg_color; ?>
-
-
-<header class='[ header-main ]' id="header-main" >
-    <!-- <h1 id="header-blogname"><?php bloginfo( 'name' ); ?></h1> -->
+<header 
+  class='[ header-main ]' 
+  id="header-main"  
+  style="background-color: <?php echo $header_bg_color; ?>"
+>
     <nav class='[ mobile-navbar ]'>
       <?php  include get_stylesheet_directory() . '/src/icons/hamburger-menu.svg'; ?>
     </nav>

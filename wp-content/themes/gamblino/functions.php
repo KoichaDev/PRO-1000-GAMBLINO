@@ -1,6 +1,6 @@
 <?php
 
-include_once('inc/Loader.php');
+include_once('inc/AutoLoader.php');
 
 include_once('inc/functions/editor/block_editor_theme_category_setup.php');
 
@@ -29,4 +29,6 @@ include_once('inc/functions/rename_template_title.php');
 include_once('inc/functions/register_nav_menus.php');
 
 include_once('inc/functions/widget-menu.php');
+
+include_once('inc/Controller.php');
 
