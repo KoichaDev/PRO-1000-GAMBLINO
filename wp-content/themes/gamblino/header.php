@@ -9,7 +9,15 @@
 </head>
 <body <?php body_class(); ?>>
 
-<?php $header_bg_color = (new ACF_Navbar_Header) -> get_header_bg_color(); ?>
+<?php 
+  $navbar_header_object = new ACF_Navbar_Header(); 
+  $x = new ACF_Navbar_Image();
+
+  var_dump($x);
+  $header_bg_color = $navbar_header_object -> get_header_bg_color(); 
+
+  var_dump($header_bg_color);
+?>
 
 
 <header 
