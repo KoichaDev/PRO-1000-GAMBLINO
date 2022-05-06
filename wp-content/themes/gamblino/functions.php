@@ -1,6 +1,6 @@
 <?php
 
-include_once('inc/AutoLoader.php');
+require 'vendor/autoload.php';
 
 include_once('inc/functions/editor/block_editor_theme_category_setup.php');
 
