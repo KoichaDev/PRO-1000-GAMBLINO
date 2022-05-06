@@ -1,5 +1,4 @@
 <?php 
-
 	function create_custom_post_type_menu() {
 		// https://developer.wordpress.org/reference/functions/add_menu_page/
 		add_menu_page(

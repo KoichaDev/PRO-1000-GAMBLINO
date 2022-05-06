@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '1e99fe4300480e9a0c1872c1e27f9782' => $baseDir . '/lib/acf/index.php',
+    '4f1f0944f9e947d7caf6e49791e15c66' => $baseDir . '/config/index.php',
 );

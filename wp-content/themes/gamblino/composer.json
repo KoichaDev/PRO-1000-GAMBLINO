@@ -4,7 +4,8 @@
 			"./"
 		],
 		"files": [
-			"./lib/acf/index.php"
+			"./lib/acf/index.php",
+			"./config/index.php"
 		]
 	}
 }
