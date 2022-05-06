@@ -2,11 +2,11 @@
 
 class ACF_Footer_Options {
     
-    public static function init() {
-        static::Footer_Options();
+    public function __construct() {
+        $this -> Footer_Options();
     }
 
-    public static function Footer_Options() {
+    public function Footer_Options() {
         if( !function_exists('acf_add_options_page') ) return;
 
             acf_add_options_page(array(
@@ -42,5 +42,3 @@ class ACF_Footer_Options {
             ));
         }
 }
-
-ACF_Footer_Options::init();

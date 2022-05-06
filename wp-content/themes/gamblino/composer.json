@@ -1,7 +1,10 @@
 {
 	"autoload": {
 		"classmap": [
-			"./inc"
+			"./"
+		],
+		"files": [
+			"./lib/acf/index.php"
 		]
 	}
 }

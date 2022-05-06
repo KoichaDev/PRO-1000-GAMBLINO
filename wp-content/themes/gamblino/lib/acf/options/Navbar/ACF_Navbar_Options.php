@@ -2,11 +2,11 @@
 
 class ACF_Navbar_Options {
     
-    public static function init() {
-        static::Navbar_Options();
+    public function __construct() {
+        $this -> Navbar_Options();
     }
 
-    public static function Navbar_Options() {
+    public function Navbar_Options() {
         if( !function_exists('acf_add_options_page') ) return;
 
             acf_add_options_page(array(
@@ -24,5 +24,3 @@ class ACF_Navbar_Options {
             ));
         }
 }
-
-ACF_Navbar_Options::init();

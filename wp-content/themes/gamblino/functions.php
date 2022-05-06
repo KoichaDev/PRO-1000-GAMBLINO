@@ -29,6 +29,3 @@ include_once('inc/functions/rename_template_title.php');
 include_once('inc/functions/register_nav_menus.php');
 
 include_once('inc/functions/widget-menu.php');
-
-include_once('inc/Controller.php');
-

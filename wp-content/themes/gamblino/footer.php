@@ -1,8 +1,4 @@
 <?php
-    include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Flexible_Content.php';
-    include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Social_Media_Content.php';
-    include_once 'inc/functions/advanced_custom_fields/Footer/ACF_Footer_Approval_Outbound_Links.php';
-
     $site_info = get_theme_mod( 'gamblino_footer_site_info' );
     wp_footer();
 

@@ -4,19 +4,24 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite8ed736e6461f28ed38c222753dbf95b
+class ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af
 {
+    public static $files = array (
+        '1e99fe4300480e9a0c1872c1e27f9782' => __DIR__ . '/../..' . '/lib/acf/index.php',
+    );
+
     public static $classMap = array (
-        'ACF_Footer_Approval_Outbound_Links' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Footer/ACF_Footer_Approval_Outbound_Links.php',
-        'ACF_Footer_Flexible_Content' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Footer/ACF_Footer_Flexible_Content.php',
-        'ACF_Footer_Options' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Footer/ACF_Footer_Options.php',
-        'ACF_Footer_Social_Media_Content' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Footer/ACF_Footer_Social_Media_Content.php',
-        'ACF_Navbar_Header' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Navbar/ACF_Navbar_Header.php',
-        'ACF_Navbar_Image' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Navbar/ACF_Navbar_Image.php',
-        'ACF_Navbar_Options' => __DIR__ . '/../..' . '/inc/functions/advanced_custom_fields/Navbar/ACF_Navbar_Options.php',
-        'Autoloader' => __DIR__ . '/../..' . '/inc/AutoLoader.php',
+        'ACF_Footer_Approval_Outbound_Links' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Approval_Outbound_Links.php',
+        'ACF_Footer_Flexible_Content' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Flexible_Content.php',
+        'ACF_Footer_Options' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Options.php',
+        'ACF_Footer_Social_Media_Content' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Social_Media_Content.php',
+        'ACF_Navbar_Header' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Header.php',
+        'ACF_Navbar_Image' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Image.php',
+        'ACF_Navbar_Options' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Options.php',
+        'ComposerAutoloaderInit3810e7200504f1418ecd4edb7ef3f2af' => __DIR__ . '/..' . '/composer/autoload_real.php',
+        'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
+        'Composer\\Autoload\\ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Controller' => __DIR__ . '/../..' . '/inc/Controller.php',
         'Customize_removal_panel' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_remove_panel.php',
         'Customizer_Footer_Site_Info' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Footer_Site_Info.php',
         'Customizer_Register_Nav_Menu' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',
@@ -27,7 +32,7 @@ class ComposerStaticInite8ed736e6461f28ed38c222753dbf95b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInite8ed736e6461f28ed38c222753dbf95b::$classMap;
+            $loader->classMap = ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af::$classMap;
 
         }, null, ClassLoader::class);
     }
