@@ -1,4 +1,8 @@
 .header-main {
 	position: sticky;
-	padding: 1.5em;
+	padding: 1em;
+
+	.mobile-navbar {
+		padding: 0 1em;
+	}
 }

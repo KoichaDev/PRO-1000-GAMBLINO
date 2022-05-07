@@ -17,16 +17,27 @@
   $imagAltText = $navbarMenuImageGroupOptions -> getLogoImageAltText();
   $imageAriaLabel = $navbarMenuImageGroupOptions -> getLogoImageAriaLabel();
   $imageTitle = $navbarMenuImageGroupOptions -> getLogoImagetitle();
-
 ?>
 
 
 <header 
-  class='[ header-main ]' 
+  class='[ header-main ] ' 
   id="header-main"  
   style="background-color: <?php echo $header_bg_color ?>"
 >
-    <nav class='[ mobile-navbar ]'>
+    <nav class='[ mobile-navbar ] [ flex-row justify-content-between align-items-center ]'>
+      <a 
+        href="<?php echo home_url(); ?>"
+        rel="nofollow"
+        aria-label="<?php echo $imageAriaLabel ?>"
+        title="<?php echo $imageTitle; ?>"
+        >
+        <?php 
+          echo wp_get_attachment_image($imageId, 'thumbnail', false, [
+            'alt' => $imagAltText,
+          ]); 
+        ?>
+      </a>
       <?php  include get_stylesheet_directory() . '/src/icons/hamburger-menu.svg'; ?>
     </nav>
 </header>
