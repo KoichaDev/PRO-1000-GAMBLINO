@@ -23,7 +23,7 @@ class ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'CustomPostTypeMenu' => __DIR__ . '/../..' . '/config/cpt/CustomPostTypeMenu.php',
+        'CustomPostTypeMenu' => __DIR__ . '/../..' . '/config/CustomPostTypeMenu.php',
         'Customize_removal_panel' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_remove_panel.php',
         'Customizer_Footer_Site_Info' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Footer_Site_Info.php',
         'Customizer_Register_Nav_Menu' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',

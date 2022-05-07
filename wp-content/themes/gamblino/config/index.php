@@ -1,10 +1,7 @@
 <?php 
 
-foreach (glob(dirname(__FILE__) . '/**/*.php') as $filename) {
-    require_once $filename;
-}
-
 $customPostTypeMenu = new CustomPostTypeMenu();
-$customPostTypeMenu -> createSubMenuPage('Casino Games', 'casino-games');
-$customPostTypeMenu -> createSubMenuPage('Casino Reviews', 'casino-reviews');
-$customPostTypeMenu -> createSubMenuPage('Slots', 'slots');
+
+$customPostTypeMenu -> registerPostType('Casino Games', 'casino-games') -> createSubMenuPage('Casino Games', 'casino-games');
+$customPostTypeMenu -> registerPostType('Casino Reviews', 'casino-reviews') -> createSubMenuPage('Casino Reviews', 'casino-reviews');
+$customPostTypeMenu -> registerPostType('Slots', 'slots') -> createSubMenuPage('Slots', 'slots');
