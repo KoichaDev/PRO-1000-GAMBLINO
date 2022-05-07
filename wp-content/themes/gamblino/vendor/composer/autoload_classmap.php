@@ -17,6 +17,7 @@ return array(
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'CustomPostTypeMenu' => $baseDir . '/config/cpt/CustomPostTypeMenu.php',
     'Customize_removal_panel' => $baseDir . '/inc/functions/theme_customizer/Customizer_remove_panel.php',
     'Customizer_Footer_Site_Info' => $baseDir . '/inc/functions/theme_customizer/Customizer_Footer_Site_Info.php',
     'Customizer_Register_Nav_Menu' => $baseDir . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',
