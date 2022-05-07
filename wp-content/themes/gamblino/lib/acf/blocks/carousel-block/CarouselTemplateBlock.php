@@ -1,12 +1,15 @@
 <?php 
+
 $inline_style_width =  get_field('block_carousel_adjust_width_inline_style') . "%;";
 $inline_style_height =  get_field('block_carousel_adjust_height_inline_style') . "px;";
+
 ?>
 
 <div class="carousel" style="
   height: <?php echo $inline_style_height; ?>
   width: <?php echo $inline_style_width; ?>"
 >
+
   <button class="carousel__button carousel__button--left" id="button-left" aria-label="left Button to see more image">
     <i class="fas fa-chevron-left fa-3x"></i>
   </button>

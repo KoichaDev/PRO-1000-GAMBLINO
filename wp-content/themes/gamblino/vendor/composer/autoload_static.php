@@ -11,6 +11,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1e99fe4300480e9a0c1872c1e27f9782' => __DIR__ . '/../..' . '/lib/acf/index.php',
+        '58bc3999fbff28daa9b3ddbcfebce9f6' => __DIR__ . '/../..' . '/lib/acf/blocks/Loader.php',
         '7613ccbab639f51638539a8503fb58b5' => __DIR__ . '/../..' . '/lib/symphony/var-dumper.php',
         '4f1f0944f9e947d7caf6e49791e15c66' => __DIR__ . '/../..' . '/config/index.php',
     );
@@ -48,6 +49,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'ACF_Navbar_Image' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Image.php',
         'ACF_Navbar_Options' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Options.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'CarouselConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/carousel-block/CarouselConfigBlock.php',
         'ComposerAutoloaderInit7274cdd99a6cbe462eca3070aefe04ac' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac' => __DIR__ . '/..' . '/composer/autoload_static.php',
@@ -59,7 +61,6 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'Customizer_Site_Identify' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Site_Identify.php',
         'EnqueueScripts' => __DIR__ . '/../..' . '/config/themes/EnqueueScripts.php',
         'EnqueueStyles' => __DIR__ . '/../..' . '/config/themes/EnqueueStyles.php',
-        'Enqueue_script_and_styles' => __DIR__ . '/../..' . '/inc/functions/enqueue_scripts_and_styles.php',
         'LocalJsonPointer' => __DIR__ . '/../..' . '/lib/acf/local-json/LocalJsonPointer.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',

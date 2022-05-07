@@ -5,6 +5,7 @@
 		],
 		"files": [
 			"./lib/acf/index.php",
+			"./lib/acf/blocks/Loader.php",
 			"./lib/symphony/var-dumper.php",
 			"./config/index.php"
 		]

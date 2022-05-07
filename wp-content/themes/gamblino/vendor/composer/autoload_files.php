@@ -10,6 +10,7 @@ return array(
     'a4a119a56e50fbb293281d9a48007e0e' => $vendorDir . '/symfony/polyfill-php80/bootstrap.php',
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     '1e99fe4300480e9a0c1872c1e27f9782' => $baseDir . '/lib/acf/index.php',
+    '58bc3999fbff28daa9b3ddbcfebce9f6' => $baseDir . '/lib/acf/blocks/Loader.php',
     '7613ccbab639f51638539a8503fb58b5' => $baseDir . '/lib/symphony/var-dumper.php',
     '4f1f0944f9e947d7caf6e49791e15c66' => $baseDir . '/config/index.php',
 );
