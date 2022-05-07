@@ -57,6 +57,8 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'Customizer_Footer_Site_Info' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Footer_Site_Info.php',
         'Customizer_Register_Nav_Menu' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',
         'Customizer_Site_Identify' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Site_Identify.php',
+        'EnqueueScripts' => __DIR__ . '/../..' . '/config/themes/EnqueueScripts.php',
+        'EnqueueStyles' => __DIR__ . '/../..' . '/config/themes/EnqueueStyles.php',
         'Enqueue_script_and_styles' => __DIR__ . '/../..' . '/inc/functions/enqueue_scripts_and_styles.php',
         'LocalJsonPointer' => __DIR__ . '/../..' . '/lib/acf/local-json/LocalJsonPointer.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',

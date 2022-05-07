@@ -1,5 +1,8 @@
 <?php 
 
+new EnqueueScripts();
+new EnqueueStyles();
+
 $customPostTypeMenu = new CustomPostTypeMenu();
 
 $customPostTypeMenu -> registerPostType('Casino Games', 'casino-games') -> createSubMenuPage('Casino Games', 'casino-games');

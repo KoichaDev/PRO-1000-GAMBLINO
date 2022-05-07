@@ -16,8 +16,6 @@ include_once('inc/helpers/print_message.php');
 
 include_once('inc/functions/custom_image_sizes.php');
 
-include_once('inc/functions/enqueue_scripts_and_styles.php');
-
 include_once('inc/functions/autoload_blocks.php');
 
 include_once('inc/functions/feature_img.php');
