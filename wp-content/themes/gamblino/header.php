@@ -10,20 +10,21 @@
 <body <?php body_class(); ?>>
 
 <?php 
-  $navbar_header_object = new ACF_Navbar_Header(); 
-  $x = new ACF_Navbar_Image();
+  $header_bg_color = (new NavbarMenuColorOptions()) -> get_header_bg_color();
+  $navbarMenuImageGroupOptions = new NavbarMenuImageGroupOptions();
 
-  var_dump($x);
-  $header_bg_color = $navbar_header_object -> get_header_bg_color(); 
+  $imageId = $navbarMenuImageGroupOptions -> getLogoImageId();
+  $imagAltText = $navbarMenuImageGroupOptions -> getLogoImageAltText();
+  $imageAriaLabel = $navbarMenuImageGroupOptions -> getLogoImageAriaLabel();
+  $imageTitle = $navbarMenuImageGroupOptions -> getLogoImagetitle();
 
-  var_dump($header_bg_color);
 ?>
 
 
 <header 
   class='[ header-main ]' 
   id="header-main"  
-  style="background-color: <?php echo $header_bg_color; ?>"
+  style="background-color: <?php echo $header_bg_color ?>"
 >
     <nav class='[ mobile-navbar ]'>
       <?php  include get_stylesheet_directory() . '/src/icons/hamburger-menu.svg'; ?>

@@ -1,7 +1,13 @@
-<?php 
+<?php
 
-class ACF_Navbar_Options {
+class NavbarMenuOptions {
+    protected $header_bg_color = '';
     
+    protected $logoImageId = '';
+    protected $logoImageAltText = '';
+    protected $logoImageAriaLabel = '';
+    protected $logoImagetitle = '';
+
     public function __construct() {
         $this -> Navbar_Options();
     }
@@ -24,3 +30,4 @@ class ACF_Navbar_Options {
             ));
         }
 }
+
