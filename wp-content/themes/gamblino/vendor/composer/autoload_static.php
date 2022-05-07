@@ -29,6 +29,7 @@ class ComposerStaticInit3810e7200504f1418ecd4edb7ef3f2af
         'Customizer_Register_Nav_Menu' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',
         'Customizer_Site_Identify' => __DIR__ . '/../..' . '/inc/functions/theme_customizer/Customizer_Site_Identify.php',
         'Enqueue_script_and_styles' => __DIR__ . '/../..' . '/inc/functions/enqueue_scripts_and_styles.php',
+        'LocalJsonPointer' => __DIR__ . '/../..' . '/lib/acf/local-json/LocalJsonPointer.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

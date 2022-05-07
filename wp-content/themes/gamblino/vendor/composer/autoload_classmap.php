@@ -23,4 +23,5 @@ return array(
     'Customizer_Register_Nav_Menu' => $baseDir . '/inc/functions/theme_customizer/Customizer_Register_Nav_Menu.php',
     'Customizer_Site_Identify' => $baseDir . '/inc/functions/theme_customizer/Customizer_Site_Identify.php',
     'Enqueue_script_and_styles' => $baseDir . '/inc/functions/enqueue_scripts_and_styles.php',
+    'LocalJsonPointer' => $baseDir . '/lib/acf/local-json/LocalJsonPointer.php',
 );

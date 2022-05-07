@@ -10,8 +10,6 @@ include_once('inc/functions/allowed_gutenberg_blocks.php');
 
 include_once('inc/functions/acf_display_misc_fields.php');
 
-include_once('inc/functions/acf_local_json.php');
-
 include_once('inc/helpers/auto_load_files.php');
 
 include_once('inc/helpers/print_message.php');
