@@ -1,3 +1,4 @@
+import './header/navbar';
 // import './acf-blocks/card-block-one';
 import BlockCarousel from './acf-blocks/block-carousel';
 import './theme-customizer-preview';

@@ -1,0 +1,16 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	display: block;
+	width: 100%;
+	padding: 1em;
+	background: rgba(0, 0, 0, 0.5);
+
+	&[data-state='closed'] {
+		display: none;
+	}
+
+	&[data-state='opened'] {
+		display: block;
+	}
+}

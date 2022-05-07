@@ -10,8 +10,6 @@ include_once('inc/functions/allowed_gutenberg_blocks.php');
 
 include_once('inc/functions/acf_display_misc_fields.php');
 
-include_once('inc/functions/custom_image_sizes.php');
-
 include_once('inc/functions/feature_img.php');
 
 include_once('inc/functions/rename_template_title.php');

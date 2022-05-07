@@ -1,7 +1,6 @@
 <?php
 
 class NavbarMenuOptions {
-    protected $header_bg_color = '';
     
     protected $logoImageId = '';
     protected $logoImageAltText = '';

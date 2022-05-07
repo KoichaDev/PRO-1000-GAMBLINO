@@ -36,6 +36,23 @@
             "return_format": "string"
         },
         {
+            "key": "field_6276c7bac9f13",
+            "label": "Change Title for Color of the category menu",
+            "name": "global_header_color_text_picker",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#fff",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_62717608cde99",
             "label": "Image Logo",
             "name": "",
@@ -200,5 +217,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1651604485
+    "modified": 1651951629
 }

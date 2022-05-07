@@ -1,10 +1,10 @@
-$color-button: (
-	default-state: (
-		'mine-shaft': #302f2f,
-		'base': transparent,
-	),
-	hover-state: (
-		'primary': #0b5ed7,
-		'base': transparent,
-	),
-);
+:root {
+	--clr-neutral-100: hsl(0, 0%, 100%);
+	--clr-neutral-200: hsl(225, 100%, 98%);
+	--clr-neutral-400: hsla(223, 23%, 55%, 1);
+	--clr-neutral-800: hsl(223, 47%, 23%);
+
+	--clr-primary-200: hsl(225, 100%, 94%);
+	--clr-primary-300: hsl(245, 83%, 68%, 1);
+	--clr-primary-400: hsl(245, 75%, 52%);
+}

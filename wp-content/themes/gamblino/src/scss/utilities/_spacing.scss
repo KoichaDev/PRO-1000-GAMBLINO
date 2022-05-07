@@ -29,33 +29,33 @@ $sides: left, top, bottom, right;
 	// Utility class for padding
 	.p {
 		&-#{$number} {
-			margin: $size-value;
+			padding: $size-value;
 		}
 
 		&x-#{$number} {
-			margin-left: $size-value;
-			margin-right: $size-value;
+			padding-left: $size-value;
+			padding-right: $size-value;
 		}
 
 		&y-#{$number} {
-			margin-top: $size-value;
-			margin-bottom: $size-value;
+			padding-top: $size-value;
+			padding-bottom: $size-value;
 		}
 
 		&l-#{$number} {
-			margin-left: $size-value;
+			padding-left: $size-value;
 		}
 
 		&t-#{$number} {
-			margin-top: $size-value;
+			padding-top: $size-value;
 		}
 
 		&r-#{$number} {
-			margin-right: $size-value;
+			padding-right: $size-value;
 		}
 
 		&b-#{$number} {
-			margin-bottom: $size-value;
+			padding-bottom: $size-value;
 		}
 
 		// @each $side in $sides {
