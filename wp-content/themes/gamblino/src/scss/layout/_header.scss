@@ -2,7 +2,23 @@
 	position: sticky;
 	padding: 1em;
 
-	.mobile-navbar {
-		padding: 0 1em;
+	@media (max-width: 57em) {
+		.navbar-desktop {
+			display: none;
+		}
+
+		.navbar-mobile {
+			display: flex;
+		}
+	}
+
+	@media (min-width: 57em) {
+		.navbar-desktop {
+			display: flex;
+		}
+
+		.navbar-mobile {
+			display: none;
+		}
 	}
 }

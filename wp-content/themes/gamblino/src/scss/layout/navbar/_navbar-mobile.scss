@@ -1,0 +1,8 @@
+.navbar-mobile {
+	display: flex;
+	padding: 0 1em;
+
+	@media (max-width: 30em) {
+		padding: 0;
+	}
+}

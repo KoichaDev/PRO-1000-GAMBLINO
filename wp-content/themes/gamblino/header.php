@@ -25,7 +25,7 @@
   id="header-main"  
   style="background-color: <?php echo $header_bg_color ?>"
 >
-    <nav class='[ mobile-navbar ] [ flex-row justify-content-between align-items-center ]'>
+    <nav class='[ navbar-mobile ] [ flex-row justify-content-between align-items-center ]'>
       <a 
         href="<?php echo home_url(); ?>"
         rel="nofollow"
@@ -39,6 +39,10 @@
         ?>
       </a>
       <?php  include get_stylesheet_directory() . '/src/icons/hamburger-menu.svg'; ?>
+    </nav>
+
+    <nav class="[ navbar-desktop ]">
+          TODO: Create desktop navbar later
     </nav>
 </header>
     
