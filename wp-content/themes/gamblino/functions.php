@@ -12,8 +12,6 @@ include_once('inc/functions/acf_display_misc_fields.php');
 
 include_once('inc/helpers/auto_load_files.php');
 
-include_once('inc/helpers/print_message.php');
-
 include_once('inc/functions/custom_image_sizes.php');
 
 include_once('inc/functions/autoload_blocks.php');
