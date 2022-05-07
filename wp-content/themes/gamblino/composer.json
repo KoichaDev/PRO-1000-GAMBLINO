@@ -5,7 +5,11 @@
 		],
 		"files": [
 			"./lib/acf/index.php",
+			"./lib/symphony/var-dumper.php",
 			"./config/index.php"
 		]
+	},
+	"require-dev": {
+		"symfony/var-dumper": "v5.2.11"
 	}
 }
