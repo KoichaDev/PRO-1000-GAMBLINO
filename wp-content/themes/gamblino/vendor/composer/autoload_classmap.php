@@ -6,13 +6,13 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ACF_Footer_Approval_Outbound_Links' => $baseDir . '/lib/acf/options/Footer/ACF_Footer_Approval_Outbound_Links.php',
-    'ACF_Footer_Flexible_Content' => $baseDir . '/lib/acf/options/Footer/ACF_Footer_Flexible_Content.php',
-    'ACF_Footer_Options' => $baseDir . '/lib/acf/options/Footer/ACF_Footer_Options.php',
-    'ACF_Footer_Social_Media_Content' => $baseDir . '/lib/acf/options/Footer/ACF_Footer_Social_Media_Content.php',
-    'ACF_Navbar_Header' => $baseDir . '/lib/acf/options/Navbar/ACF_Navbar_Header.php',
-    'ACF_Navbar_Image' => $baseDir . '/lib/acf/options/Navbar/ACF_Navbar_Image.php',
-    'ACF_Navbar_Options' => $baseDir . '/lib/acf/options/Navbar/ACF_Navbar_Options.php',
+    'ACF_Footer_Approval_Outbound_Links' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Approval_Outbound_Links.php',
+    'ACF_Footer_Flexible_Content' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Flexible_Content.php',
+    'ACF_Footer_Options' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Options.php',
+    'ACF_Footer_Social_Media_Content' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Social_Media_Content.php',
+    'ACF_Navbar_Header' => $baseDir . '/lib/acf/options-settings/Navbar/ACF_Navbar_Header.php',
+    'ACF_Navbar_Image' => $baseDir . '/lib/acf/options-settings/Navbar/ACF_Navbar_Image.php',
+    'ACF_Navbar_Options' => $baseDir . '/lib/acf/options-settings/Navbar/ACF_Navbar_Options.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'CarouselConfigBlock' => $baseDir . '/lib/acf/blocks/carousel-block/CarouselConfigBlock.php',
     'ComposerAutoloaderInit7274cdd99a6cbe462eca3070aefe04ac' => $vendorDir . '/composer/autoload_real.php',

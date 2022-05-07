@@ -41,13 +41,13 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
     );
 
     public static $classMap = array (
-        'ACF_Footer_Approval_Outbound_Links' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Approval_Outbound_Links.php',
-        'ACF_Footer_Flexible_Content' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Flexible_Content.php',
-        'ACF_Footer_Options' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Options.php',
-        'ACF_Footer_Social_Media_Content' => __DIR__ . '/../..' . '/lib/acf/options/Footer/ACF_Footer_Social_Media_Content.php',
-        'ACF_Navbar_Header' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Header.php',
-        'ACF_Navbar_Image' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Image.php',
-        'ACF_Navbar_Options' => __DIR__ . '/../..' . '/lib/acf/options/Navbar/ACF_Navbar_Options.php',
+        'ACF_Footer_Approval_Outbound_Links' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Approval_Outbound_Links.php',
+        'ACF_Footer_Flexible_Content' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Flexible_Content.php',
+        'ACF_Footer_Options' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Options.php',
+        'ACF_Footer_Social_Media_Content' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Social_Media_Content.php',
+        'ACF_Navbar_Header' => __DIR__ . '/../..' . '/lib/acf/options-settings/Navbar/ACF_Navbar_Header.php',
+        'ACF_Navbar_Image' => __DIR__ . '/../..' . '/lib/acf/options-settings/Navbar/ACF_Navbar_Image.php',
+        'ACF_Navbar_Options' => __DIR__ . '/../..' . '/lib/acf/options-settings/Navbar/ACF_Navbar_Options.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'CarouselConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/carousel-block/CarouselConfigBlock.php',
         'ComposerAutoloaderInit7274cdd99a6cbe462eca3070aefe04ac' => __DIR__ . '/..' . '/composer/autoload_real.php',
