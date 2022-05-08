@@ -16,15 +16,14 @@ class RegisterMenus {
             'gamblino_header_menu' => esc_html__( 'Header Menu', 'gamblino' ),
          ]);
     }
+
+    public function getMenuId( $location ) {
+        // Get all the locations. 
+        $locations = get_nav_menu_locations();
+
+        // Get object ID by $location for the menu
+        $menuId = $locations[$location];
+
+        return !empty( $menuId ) ? $menuId : '';
+    }
 }
-
-// // More Information: 
-// // https://developer.wordpress.org/reference/functions/register_nav_menus/
-
-// if ( ! function_exists( 'gamblino_register_nav_menu' ) ) {
- 
-//     function gamblino_register_nav_menu(){
-      
-//     }
-//     add_action( 'after_setup_theme', 'gamblino_register_nav_menu', 0 );
-// }

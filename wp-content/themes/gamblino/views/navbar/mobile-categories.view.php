@@ -7,7 +7,15 @@
 
     $categoryTitle = (new NavbarMenuCategoryListOption()) -> getCategoryTitle();
 
-   
+
+    $registerMenus = new RegisterMenus();
+
+    $headerMenuId = $registerMenus-> getMenuId( 'gamblino_header_menu' );
+
+    $headerMenus =  wp_get_nav_menu_items( $headerMenuId );
+
+    dd($headerMenus);
+    
 ?>
 
 
@@ -41,12 +49,5 @@
     
     <?php include(get_template_directory() . '/views/navbar/parts/mobile-category-menu.php'); ?>
 
-    <nav>
-        <?
-            wp_nav_menu( [
-                'theme_location'    => "gamblino_header_menu",
-                'container_class'   => 'navbar-phone-menu-bottom',
-            ] );
-        ?>
-    </nav>
+    
 </header>

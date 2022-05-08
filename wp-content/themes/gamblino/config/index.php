@@ -3,7 +3,6 @@
 new EnqueueScripts();
 new EnqueueStyles();
 
-new RegisterMenus();
 
 $customPostTypeMenu = new CustomPostTypeMenu();
 
