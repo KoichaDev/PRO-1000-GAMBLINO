@@ -26,4 +26,18 @@ class RegisterMenus {
 
         return !empty( $menuId ) ? $menuId : '';
     }
+
+    public function getChildMenuItems( $menuArray, $parentId) {
+        $childMenuItems = [];
+
+        if(!empty($menuArray) && is_array($menuArray)) {
+            foreach($menuArray as $menuItem) {
+                if(intval( $menuItem -> menu_item_parent ) === $parentId) {
+                    $childMenuItems[] = $menuItem;
+                }
+            }
+        }
+
+        return $childMenuItems;
+    }
 }
