@@ -37,7 +37,7 @@
     style="background-color: <?= $header_bg_color; ?>"
     data-state="closed"
     >
-    <p class="text-xs" style="color: <?= $titleTextColor; ?>">
+    <p class="text-xs text-uppercase" style="color: <?= $titleTextColor; ?>">
         <?= $categoryTitle; ?>
     </p>
     <div class="[ navbar-phone-menu__container ] [ flex-row flex-wrap justify-content-between align-items-center my-5 ]">

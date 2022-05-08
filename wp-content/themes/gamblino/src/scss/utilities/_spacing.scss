@@ -24,6 +24,18 @@ $sizes: (
 
 $sides: left, top, bottom, right;
 
+.m-auto {
+	margin: auto;
+}
+
+.mx-auto {
+	margin: 0 auto;
+}
+
+.my-auto {
+	margin: auto 0;
+}
+
 @each $size-number, $size-value in $sizes {
 	$number: string.slice($size-number, 6);
 	// Utility class for padding
@@ -66,18 +78,6 @@ $sides: left, top, bottom, right;
 	}
 	// Utility class for margin
 	.m {
-		&-auto {
-			margin: auto;
-		}
-
-		&x-auto {
-			margin: 0 auto;
-		}
-
-		&y-auto {
-			margin: auto 0;
-		}
-
 		&-#{$number} {
 			margin: $size-value;
 		}
