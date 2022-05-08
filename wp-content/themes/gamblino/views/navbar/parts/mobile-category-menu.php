@@ -2,7 +2,7 @@
     $categoryItems = (new NavbarMenuCategoryListOption()) -> getCategoryItems();
 ?>
 
-<div class="[ navbar-phone-menu__container ] [ flex-row flex-wrap justify-content-between align-items-center my-5 ]">
+<nav class="[ navbar-phone-category-menu__container ] [ flex-row flex-wrap justify-content-between align-items-center my-5 ]">
     <?
         foreach ($categoryItems as $categoryItem) :
 
@@ -34,4 +34,4 @@
         ?>
         </a>
     <?php endforeach; ?>
-</div>
+</nav>

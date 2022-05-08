@@ -65,6 +65,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'NavbarMenuImageGroupOptions' => __DIR__ . '/../..' . '/lib/acf/options-settings/Navbar/NavbarMenuImageGroupOptions.php',
         'NavbarMenuOptions' => __DIR__ . '/../..' . '/lib/acf/options-settings/Navbar/NavbarMenuOptions.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+        'RegisterMenus' => __DIR__ . '/../..' . '/config/themes/Menus.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/AmqpCaster.php',
         'Symfony\\Component\\VarDumper\\Caster\\ArgsStub' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/ArgsStub.php',

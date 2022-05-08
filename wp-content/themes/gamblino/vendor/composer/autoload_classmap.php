@@ -30,6 +30,7 @@ return array(
     'NavbarMenuImageGroupOptions' => $baseDir . '/lib/acf/options-settings/Navbar/NavbarMenuImageGroupOptions.php',
     'NavbarMenuOptions' => $baseDir . '/lib/acf/options-settings/Navbar/NavbarMenuOptions.php',
     'PhpToken' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
+    'RegisterMenus' => $baseDir . '/config/themes/Menus.php',
     'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
     'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => $vendorDir . '/symfony/var-dumper/Caster/AmqpCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\ArgsStub' => $vendorDir . '/symfony/var-dumper/Caster/ArgsStub.php',

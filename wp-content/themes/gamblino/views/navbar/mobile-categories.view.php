@@ -29,8 +29,8 @@
     </button>
 </div>
 
-<nav 
-    class="[ navbar-phone-menu ] [ p-12 ]"
+<header 
+    class="[ navbar-phone-category-menu ] [ p-12 ]"
     id="navbar-phone-menu"
     style="background-color: <?= $header_bg_color; ?>"
     data-state="closed"
@@ -41,4 +41,12 @@
     
     <?php include(get_template_directory() . '/views/navbar/parts/mobile-category-menu.php'); ?>
 
-</nav>
+    <nav>
+        <?
+            wp_nav_menu( [
+                'theme_location'    => "gamblino_header_menu",
+                'container_class'   => 'navbar-phone-menu-bottom',
+            ] );
+        ?>
+    </nav>
+</header>
