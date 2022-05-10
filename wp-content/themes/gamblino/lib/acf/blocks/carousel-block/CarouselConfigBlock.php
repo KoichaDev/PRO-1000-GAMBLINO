@@ -5,7 +5,8 @@ class CarouselConfigBlock {
         public function __construct() {
 
             $this -> registerBlock();
-            require_once 'CarouselTemplateBlock.php';
+            // include_once('CarouselTemplateBlock.php');
+
         }
         
         public function registerBlock() {
@@ -22,7 +23,7 @@ class CarouselConfigBlock {
                 'name'              => 'block-carousel',
                 'title'             => __('Carousel block'),
                 'description'       => __('A Carousel Block to display images.'),
-                'render_template'   => 'CarouselTemplateBlock.php',
+                'render_template'   =>  'lib/acf/blocks/carousel-block/CarouselTemplateBlock.php',
                 'category'          => 'formatting',
                 'icon'              => 'admin-comments',
                 'keywords'          => array( 'casino', 'block', 'carousel', 'image', 'caption' ),

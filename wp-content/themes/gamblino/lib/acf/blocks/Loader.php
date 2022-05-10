@@ -1,3 +1,3 @@
 <?php 
 
-// new CarouselConfigBlock();
+new CarouselConfigBlock();

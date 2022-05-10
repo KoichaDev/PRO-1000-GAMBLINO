@@ -1,2 +1,2 @@
-import './footer-customizer';
-import './site-identify-customizer';
+// import './footer-customizer';
+// import './site-identify-customizer';
