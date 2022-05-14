@@ -29,16 +29,17 @@
 </div>
 
 <header 
-    class="[ navbar-phone-category-menu ] [ p-12 ]"
+    class="[ navbar-phone-category-menu ]"
     id="navbar-phone-menu"
     style="background-color: <?= $header_bg_color; ?>"
     data-state="closed"
     >
-    <p class="text-xs text-uppercase" style="color: <?= $titleTextColor; ?>">
-        <?= $categoryTitle; ?>
-    </p>
-    
-    <?php include(get_template_directory() . '/views/navbar/parts/mobile-category-menu.php'); ?>
+    <div class="p-12">
+        <p class="text-xs text-uppercase" style="color: <?= $titleTextColor; ?>">
+            <?= $categoryTitle; ?>
+        </p>
+        <?php include(get_template_directory() . '/views/navbar/parts/mobile-category-menu.php'); ?>
+    </div>
 
     <?php include(get_template_directory() . '/views/navbar/parts/mobile-menu.php'); ?>
 
