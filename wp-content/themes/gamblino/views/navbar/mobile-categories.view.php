@@ -20,7 +20,7 @@
         title="exit menu"
     >
         <i>
-            <?php include(get_template_directory() . '/src/icons/xmark-solid.svg'); ?>
+            <?php include(get_template_directory() . '/src/icons/font-awesome/xmark-solid.svg'); ?>
         </i>
         <span class="text-xs text-neutral-100 font-thin m-auto ">
             <?= esc_html__( 'cancel', 'gamblino' )?>
@@ -34,7 +34,7 @@
     style="background-color: <?= $header_bg_color; ?>"
     data-state="closed"
     >
-    <div class="p-12">
+    <div class="position-relative p-12">
         <p class="text-xs text-uppercase" style="color: <?= $titleTextColor; ?>">
             <?= $categoryTitle; ?>
         </p>
@@ -42,6 +42,4 @@
     </div>
 
     <?php include(get_template_directory() . '/views/navbar/parts/mobile-menu.php'); ?>
-
-
 </header>

@@ -1,4 +1,4 @@
-@use "sass:string";
+@use 'sass:string';
 
 $base-size: 1em;
 
@@ -20,6 +20,14 @@ $sizes: (
 	'size-14': $base-size * 2.5,
 	'size-15': $base-size * 2.75,
 	'size-16': $base-size * 3,
+	'size-17': $base-size * 3.25,
+	'size-18': $base-size * 3.5,
+	'size-19': $base-size * 3.75,
+	'size-20': $base-size * 4,
+	'size-21': $base-size * 4.25,
+	'size-22': $base-size * 4.5,
+	'size-23': $base-size * 4.75,
+	'size-24': $base-size * 5,
 );
 
 $sides: left, top, bottom, right;

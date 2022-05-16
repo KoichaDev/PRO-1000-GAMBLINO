@@ -1,12 +1,75 @@
 .navbar-phone-menus {
+	a {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	svg {
+		width: 10.5px;
+		height: 21.5px;
+		margin-right: 1em;
+		fill: #1b4196;
+	}
+
 	.navbar-phone-menus__title {
 		border-bottom: 1px solid #d7d7d7;
 	}
 
 	ul {
 		list-style: none;
+
 		.navbar-phone-menus__item-1 {
 			border-bottom: 1px solid #d7d7d7;
+
+			.navbar-phone-menus__item-2 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100vh;
+				width: calc(100% - 55px);
+
+				&[data-state='hidden'] {
+					display: none;
+				}
+
+				&[data-state='visible'] {
+					display: block;
+				}
+
+				.navbar-phone-menus__item-2-btn-back {
+					display: flex;
+					align-items: center;
+					gap: 0.75em;
+
+					svg {
+						margin: 0;
+						fill: #fff;
+					}
+				}
+
+				.navbar-phone-menus-item-2-sub-menu {
+					width: 100vw;
+					height: 100vh;
+					background: #eff3fc;
+
+					.navbar-phone-menus__item-3 {
+						position: absolute;
+						top: 0;
+						left: 0;
+						height: 100vh;
+						width: 100vw;
+
+						&[data-state='hidden'] {
+							display: none;
+						}
+
+						&[data-state='visible'] {
+							display: block;
+						}
+					}
+				}
+			}
 		}
 	}
 }
