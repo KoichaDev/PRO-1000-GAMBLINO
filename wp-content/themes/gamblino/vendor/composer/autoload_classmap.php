@@ -10,6 +10,7 @@ return array(
     'ACF_Footer_Flexible_Content' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Flexible_Content.php',
     'ACF_Footer_Options' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Options.php',
     'ACF_Footer_Social_Media_Content' => $baseDir . '/lib/acf/options-settings/Footer/ACF_Footer_Social_Media_Content.php',
+    'AllowedBlocks' => $baseDir . '/config/AllowedBlocks.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'CarouselConfigBlock' => $baseDir . '/lib/acf/blocks/carousel-block/CarouselConfigBlock.php',
     'ComposerAutoloaderInit7274cdd99a6cbe462eca3070aefe04ac' => $vendorDir . '/composer/autoload_real.php',
@@ -96,6 +97,7 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\Mbstring' => $vendorDir . '/symfony/polyfill-mbstring/Mbstring.php',
     'Symfony\\Polyfill\\Php80\\Php80' => $vendorDir . '/symfony/polyfill-php80/Php80.php',
     'Symfony\\Polyfill\\Php80\\PhpToken' => $vendorDir . '/symfony/polyfill-php80/PhpToken.php',
+    'TotalPostsConfigBlock' => $baseDir . '/lib/acf/blocks/total-posts-block/TotalPostsConfigBlock.php',
     'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
 );

@@ -45,6 +45,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'ACF_Footer_Flexible_Content' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Flexible_Content.php',
         'ACF_Footer_Options' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Options.php',
         'ACF_Footer_Social_Media_Content' => __DIR__ . '/../..' . '/lib/acf/options-settings/Footer/ACF_Footer_Social_Media_Content.php',
+        'AllowedBlocks' => __DIR__ . '/../..' . '/config/AllowedBlocks.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'CarouselConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/carousel-block/CarouselConfigBlock.php',
         'ComposerAutoloaderInit7274cdd99a6cbe462eca3070aefe04ac' => __DIR__ . '/..' . '/composer/autoload_real.php',
@@ -131,6 +132,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
+        'TotalPostsConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/total-posts-block/TotalPostsConfigBlock.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
