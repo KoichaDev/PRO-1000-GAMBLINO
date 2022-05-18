@@ -1,4 +1,8 @@
 .navbar-phone-menus {
+	p {
+		border-bottom: 1px solid #d7d7d7;
+		color: #818793;
+	}
 	a {
 		display: flex;
 		justify-content: space-between;
@@ -12,12 +16,12 @@
 		fill: #1b4196;
 	}
 
-	.navbar-phone-menus__title {
-		border-bottom: 1px solid #d7d7d7;
-	}
-
 	ul {
 		list-style: none;
+
+		li {
+			border-bottom: 1px solid #d7d7d7;
+		}
 
 		.navbar-phone-menus__item-1 {
 			border-bottom: 1px solid #d7d7d7;
@@ -59,6 +63,11 @@
 						left: 0;
 						height: 100vh;
 						width: 100vw;
+						background-color: #eff3fc;
+
+						li {
+							background-color: #eff3fc;
+						}
 
 						&[data-state='hidden'] {
 							display: none;

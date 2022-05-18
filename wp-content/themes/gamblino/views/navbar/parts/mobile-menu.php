@@ -15,7 +15,7 @@ $headerMenusItems =  wp_get_nav_menu_items( $headerMenuId );
 
 if(!empty($headerMenusItems) && is_array( $headerMenusItems )) : ?>
     <nav class="[ navbar-phone-menus ] [ bg-neutral-100  ] ">
-        <p class="py-5 pl-5 fw-bold text-xs "><?php echo esc_html_e( 'ALL PAGES', 'gamblino' ); ?></p>
+        <p class="py-7 pl-5 fw-bold text-xs "><?php echo esc_html_e( 'ALL PAGES', 'gamblino' ); ?></p>
         <ul>
             <?php 
                 foreach($headerMenusItems as $headerMenuItem) {
@@ -52,7 +52,7 @@ if(!empty($headerMenusItems) && is_array( $headerMenusItems )) : ?>
                                     </li>
                                     <li>
                                         <ul class="[ navbar-phone-menus-item-2-sub-menu ] [ pr-24 ]">
-                                            <li class="[ py-5 pl-5 text-base text-uppercase text-underline ]" style="color: #3d5da5;">
+                                            <li class="py-5 pl-5 text-base text-uppercase text-underline" style="color: #3d5da5;">
                                                 <?php echo esc_html_e( $headerMenuItem -> title, 'gamblino' ); ?>
                                             </li>
                                             <li class="flex-column pl-5 py-5 gap-2">
@@ -72,8 +72,8 @@ if(!empty($headerMenusItems) && is_array( $headerMenusItems )) : ?>
                                                             }
                                                         ?>
                                                     </a>
-                                                    <ul id="menu-item-active-3" class="[ navbar-phone-menus__item-3 ] [ pr-24 ]" data-state="hidden">
-                                                        <li class="py-5 pl-5" style="background-color: <?php echo $headerBackgroundColor?>; color: <?php echo $titleTextColor; ?>">
+                                                    <ul id="menu-item-active-3" class="[ navbar-phone-menus__item-3 ] [ pr-24 bg-neutral-100 ]" data-state="hidden">
+                                                        <li class="py-5 pl-5 w-inherit" style="background-color: <?php echo $headerBackgroundColor?>; color: <?php echo $titleTextColor; ?>">
                                                             <button 
                                                                 type="button" 
                                                                 id="btn-menu-3-back" 
@@ -85,17 +85,18 @@ if(!empty($headerMenusItems) && is_array( $headerMenusItems )) : ?>
                                                                 <?php echo esc_html_e( 'Back', 'gamblino' )?>
                                                             </button>
                                                         </li>
+                                                        <li class="mb-5 py-5 pl-5 text-base text-uppercase text-underline" style="color: #3d5da5; ">
+                                                                <?php echo esc_html_e( $childMenuItem -> title, 'gamblino' ); ?>
+                                                        </li>
                                                         <?php 
                                                             // Grand children Menu
                                                             $menuId2 = $childMenuItem -> ID;
                                                             $childMenuItems2 = $registerMenus -> getChildMenuItems( $headerMenusItems, $menuId2 );
                                                             $hasChildrenItem2 = !empty( $childMenuItems2 ) && is_array( $childMenuItems2 );
                                                             if($hasChildrenItem2) : ?>
-                                                            <!-- <li class="[ py-5 pl-5 text-base text-uppercase text-underline ]" style="color: #3d5da5; ">
-                                                                <?php echo esc_html_e( $childMenuItem -> title, 'gamblino' ); ?>
-                                                            </li> -->
+                                                          
                                                                 <?php foreach($childMenuItems2 as $childMenuItem2) : ?>
-                                                                    <li class="px-8 py-8 text-sm bg-neutral-100 text-sky-300 text-no-underline rounded shadow-md">
+                                                                    <li class="flex-column pl-5 py-1 gap-0 rounded">
                                                                         <a 
                                                                             role="button" 
                                                                             class="px-8 py-8 text-sm bg-neutral-100 text-sky-300 text-no-underline rounded shadow-md"

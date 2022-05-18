@@ -28,7 +28,7 @@
     </button>
 </div>
 
-<header 
+<div 
     class="[ navbar-phone-category-menu ]"
     id="navbar-phone-menu"
     style="background-color: <?= $header_bg_color; ?>"
@@ -42,4 +42,4 @@
     </div>
 
     <?php include(get_template_directory() . '/views/navbar/parts/mobile-menu.php'); ?>
-</header>
+</div>
