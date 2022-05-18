@@ -132,7 +132,7 @@ class ComposerStaticInit7274cdd99a6cbe462eca3070aefe04ac
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
-        'TotalPostsConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/total-posts-block/TotalPostsConfigBlock.php',
+        'TotalPostsConfigBlock' => __DIR__ . '/../..' . '/lib/acf/blocks/total-posts-block/TotalPostsArticleConfigBlock.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );

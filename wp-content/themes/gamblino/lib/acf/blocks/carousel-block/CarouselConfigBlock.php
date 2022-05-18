@@ -1,19 +1,9 @@
 <?php
 
 class CarouselConfigBlock {
-
-        public function __construct() {
-
-            $this -> registerBlock();
-            // include_once('CarouselTemplateBlock.php');
-
-        }
-        
-        public function registerBlock() {
-
+        public static function registerBlock() {
             add_action('acf/init', function() {
-                // require_once 'CarouselTemplateBlock.php';
-                  // Check function exists.
+
             if( !function_exists('acf_register_block_type') ) { 
                     return;
             }

@@ -1,6 +1,7 @@
 <?php 
 
-new CarouselConfigBlock();
+CarouselConfigBlock::registerBlock();
+TotalPostsConfigBlock::registerBlock();
 
 
 // foreach (glob(get_theme_file_path() . '/lib/acf/blocks/**/*.php') as $filename) {

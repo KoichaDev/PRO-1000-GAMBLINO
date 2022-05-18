@@ -17,7 +17,7 @@ class AllowedBlocks {
                     'core/columns',
                     'acf/card-block-1',
                     'acf/block-carousel',
-                    'acf/block-total-posts',
+                    'acf/block-total-post-articles',
                     'gamblino-block/info-bonus-review',
                     'gamblino-block/general-information',
                     'gamblino-block/table',
