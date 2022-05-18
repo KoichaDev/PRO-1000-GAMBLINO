@@ -23,10 +23,10 @@
         },
         {
             "key": "field_628552c42f70e",
-            "label": "Range for Total Posts",
+            "label": "Show Total Posts",
             "name": "gamblino_range_total_posts",
             "type": "range",
-            "instructions": "Filter how many posts you want it to be displayed on this block. Defalut value will always be maximum",
+            "instructions": "Filter how many posts you want it to be displayed on this block. Default value is -1, which means it will display all posts articles that exist on the block",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -65,6 +65,23 @@
             "min": "",
             "max": "",
             "return_format": "object"
+        },
+        {
+            "key": "field_62855d3470e53",
+            "label": "Background Color",
+            "name": "gamblino_all_posts_background_color",
+            "type": "color_picker",
+            "instructions": "Change the background color for the block",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -85,5 +102,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652906017
+    "modified": 1652909702
 }
