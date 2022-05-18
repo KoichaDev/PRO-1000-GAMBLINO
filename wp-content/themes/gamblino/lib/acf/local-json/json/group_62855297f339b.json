@@ -1,7 +1,72 @@
 {
     "key": "group_62855297f339b",
     "title": "Block - Total Posts Article",
-    "fields": [],
+    "fields": [
+        {
+            "key": "field_628553fa2f710",
+            "label": "Block Title",
+            "name": "gamblino_all_posts_main_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_628552c42f70e",
+            "label": "Range for Total Posts",
+            "name": "gamblino_range_total_posts",
+            "type": "range",
+            "instructions": "Filter how many posts you want it to be displayed on this block. Defalut value will always be maximum",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": -1,
+            "min": -1,
+            "max": 1000,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_628553bd2f70f",
+            "label": "Posts Types",
+            "name": "gamblino_all_posts_types",
+            "type": "relationship",
+            "instructions": "Choose which posts you want it to be displayed on the page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
     "location": [
         [
             {
@@ -20,5 +85,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652904613
+    "modified": 1652906017
 }
