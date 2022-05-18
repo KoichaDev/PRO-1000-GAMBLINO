@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			for (const button of goBackMenuLevelThree) {
 				button.addEventListener('click', () => {
 					const target = subMenu.querySelector('#menu-item-active-3') as HTMLUListElement;
-					target.dataset.state = 'hidden';
+					if (target !== null) {
+						target.dataset.state = 'hidden';
+					}
 				});
 			}
 		});
