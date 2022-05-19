@@ -9,7 +9,7 @@ $blockWidth = $block['align'];
 
 ?>
 
-<section class="<?php echo $blockWidth;?>" style="background-color: <?php echo $blockBackgroundColor; ?>">
+<section class="<?php echo $blockWidth;?> my-16 " style="background-color: <?php echo $blockBackgroundColor; ?>">
     <h2 class="text-3xl text-center pt-12"><?php echo $blockTitle; ?></h2>
     <div class="[ all-posts-container ] [ p-15 ]">
         <?php 
