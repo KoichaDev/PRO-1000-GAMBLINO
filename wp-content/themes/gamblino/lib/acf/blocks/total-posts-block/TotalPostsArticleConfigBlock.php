@@ -26,10 +26,11 @@ class TotalPostsConfigBlock {
                 'title'             => __( 'BlockTotal Posts Article block', 'gamblino' ),
                 'description'       => __('Display the block of total posts articles.'),
                 'render_template'   =>  get_template_directory() . '/lib/acf/blocks/total-posts-block/TotalPostsArticleTemplateBlock.php',
-                'align' => array( '', 'full' ),
+                'align'             => [ 'align-wide', 'full' ],
                 'category'          => 'gamblino',
                 'icon'              => file_get_contents(get_template_directory() . '/lib/acf/blocks/icons/total-posts.icon.svg'),
-                'keywords'          => array( 'casino', 'block', 'posts', 'total', 'latest', 'articles' ),
+                'keywords'          => [ 'casino', 'block', 'posts', 'total', 'latest', 'articles' ],
+                'enqueue_assets'    => (new EnqueueStyles()) -> enqueueStyles(),
             ));
         });    
     }

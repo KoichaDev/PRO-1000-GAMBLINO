@@ -5,7 +5,6 @@ class EnqueueScripts {
      public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueueScripts'] );
         add_action( 'customize_preview_init', [ $this, 'enqueueCustomizerLivePreview'] );
-
         add_filter( 'script_loader_tag', [ $this, 'enqueueScriptDefer' ], 10 );
     }
 
