@@ -22,6 +22,23 @@
             "maxlength": ""
         },
         {
+            "key": "field_62855d3470e53",
+            "label": "Set Background Color for this block",
+            "name": "gamblino_all_posts_background_color",
+            "type": "color_picker",
+            "instructions": "Change the background color for the block",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_628552c42f70e",
             "label": "Show Total Posts",
             "name": "gamblino_range_total_posts",
@@ -85,7 +102,7 @@
         },
         {
             "key": "field_62869775624f0",
-            "label": "Use Customized Posts instead?",
+            "label": "Use customized posts instead?",
             "name": "gamblino_all_is_customized_posts_visible",
             "type": "true_false",
             "instructions": "If checked is true by using customized posts, the default value to show litteraly all posts that exist will be turned off",
@@ -134,23 +151,6 @@
             "min": "",
             "max": "",
             "return_format": "object"
-        },
-        {
-            "key": "field_62855d3470e53",
-            "label": "Background Color",
-            "name": "gamblino_all_posts_background_color",
-            "type": "color_picker",
-            "instructions": "Change the background color for the block",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string"
         }
     ],
     "location": [
@@ -171,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652991246
+    "modified": 1652992138
 }
