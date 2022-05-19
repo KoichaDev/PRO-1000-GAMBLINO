@@ -5,6 +5,7 @@ class TotalPostsConfigBlock {
         public $title = '';
         public $countPosts = -1;
         public $blockBackgroundColor = '';
+        public $isVisibleCustomPosts = false;
 
         public function __construct() {
             $this -> registerBlock();
@@ -40,7 +41,7 @@ class TotalPostsConfigBlock {
        return $this -> countPosts = get_field('gamblino_range_total_posts');
     }
 
-    public function getPostsObject($countPosts = -1) {
+    public function getAllPostsObject($countPosts = -1) {
         $posts = get_posts([
             'numberposts' => $countPosts,
             'post_status' => 'publish',
@@ -50,7 +51,17 @@ class TotalPostsConfigBlock {
         return $posts;
     }
 
+    public function getRelationshipPosts() {
+        $postsRelationField = get_field('gamblino_all_posts_types');
+        if(!$postsRelationField) return;
+        return $postsRelationField;
+    }
+
     public function getBlockBackgroundColor() {
         return $this -> blockBackgroundColor = get_field('gamblino_all_posts_background_color');
+    }
+
+    public function isVisibleCustomPosts() {
+        return $this -> isVisibleCustomPosts = get_field('gamblino_all_is_customized_posts_visible');
     }
 }

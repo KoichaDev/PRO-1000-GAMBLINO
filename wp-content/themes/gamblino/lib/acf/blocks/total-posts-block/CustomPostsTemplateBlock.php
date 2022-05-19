@@ -1,17 +1,17 @@
-<?php 
-    CustomImage::generateImageSize('398x285', 398, 285, true);
+<?php
+$postsRelationFieldObjects = $blockTotalPostsArticle -> getRelationshipPosts();
 
-    add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+foreach ($postsRelationFieldObjects as $postsRelationFieldObject) {
+    setup_postdata($postsRelationFieldObject); 
 
-    foreach ($postsObject as $post) : 
-    $postId = $post -> ID;
-    $postTitle = $post -> post_title;
-    $postExcerpt = $post -> post_excerpt;
-    $postUrl = get_permalink($postId);
-    $postImage = get_the_post_thumbnail($postId, 'thumbnail', [
-    ]);
-?>
-    <article>
+        $postId = $postsRelationFieldObject -> ID;
+        $postTitle = $postsRelationFieldObject -> post_title;
+        $postExcerpt = $postsRelationFieldObject -> post_excerpt;
+        $postUrl = get_permalink($postId);
+        $postImage = get_the_post_thumbnail($postId, 'thumbnail');
+     ?>
+
+     <article>
         <?php echo $postImage; ?>
         <div class="p-7 bg-neutral-100">
             <time 
@@ -27,5 +27,11 @@
             </a>
         </div>
     </article>
+     
 
-<?php endforeach; ?>
+
+
+<?php 
+wp_reset_postdata();
+}
+?>

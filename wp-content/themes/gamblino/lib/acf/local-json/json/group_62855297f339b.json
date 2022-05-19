@@ -28,7 +28,15 @@
             "type": "range",
             "instructions": "Filter how many posts you want it to be displayed on this block. Default value is -1, which means it will display all posts articles that exist on the block",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62869775624f0",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -42,13 +50,40 @@
             "append": ""
         },
         {
+            "key": "field_62869775624f0",
+            "label": "Use Customized Posts?",
+            "name": "gamblino_all_is_customized_posts_visible",
+            "type": "true_false",
+            "instructions": "If checked is true by using customized posts, the default value to show litteraly all posts that exist will be turned off",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_628553bd2f70f",
             "label": "Posts Types",
             "name": "gamblino_all_posts_types",
             "type": "relationship",
             "instructions": "Choose which posts you want it to be displayed on the page",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62869775624f0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -102,5 +137,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652909702
+    "modified": 1652988632
 }
