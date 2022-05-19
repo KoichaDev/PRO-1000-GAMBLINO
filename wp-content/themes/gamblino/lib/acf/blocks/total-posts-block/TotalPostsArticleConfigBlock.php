@@ -4,6 +4,7 @@ class TotalPostsConfigBlock {
 
         public $title = '';
         public $countPosts = -1;
+        public $blockBackgroundColor = '';
 
         public function __construct() {
             $this -> registerBlock();
@@ -23,6 +24,7 @@ class TotalPostsConfigBlock {
                 'title'             => __( 'BlockTotal Posts Article block', 'gamblino' ),
                 'description'       => __('Display the block of total posts articles.'),
                 'render_template'   =>  get_template_directory() . '/lib/acf/blocks/total-posts-block/TotalPostsArticleTemplateBlock.php',
+                'align' => array( '', 'full' ),
                 'category'          => 'gamblino',
                 'icon'              => file_get_contents(get_template_directory() . '/lib/acf/blocks/icons/total-posts.icon.svg'),
                 'keywords'          => array( 'casino', 'block', 'posts', 'total', 'latest', 'articles' ),
@@ -46,5 +48,9 @@ class TotalPostsConfigBlock {
         ]);
 
         return $posts;
+    }
+
+    public function getBlockBackgroundColor() {
+        return $this -> blockBackgroundColor = get_field('gamblino_all_posts_background_color');
     }
 }
