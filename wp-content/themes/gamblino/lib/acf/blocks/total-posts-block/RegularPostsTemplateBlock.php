@@ -1,7 +1,8 @@
 <?php 
 
     $countPosts = $blockTotalPostsArticle -> getCountPosts();
-    $postsObject = $blockTotalPostsArticle -> getAllPostsObject($countPosts);
+    $postsDate = $blockTotalPostsArticle -> getPostsDateOrderType();
+    $postsObject = $blockTotalPostsArticle -> getAllPostsObject($countPosts, $postsDate);
 
     foreach ($postsObject as $post) : 
         $postId = $post -> ID;

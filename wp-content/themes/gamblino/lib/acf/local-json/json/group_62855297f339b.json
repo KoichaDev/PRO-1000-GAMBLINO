@@ -50,8 +50,42 @@
             "append": ""
         },
         {
+            "key": "field_62869f9652e3a",
+            "label": "Sort Posts by date",
+            "name": "gamblino_all_posts_sort_date_articles",
+            "type": "select",
+            "instructions": "Choose to sort the posts based on date",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62869775624f0",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sort-none": "Default",
+                "sort-descending": "Descending",
+                "sort-ascending": "Ascending"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_62869775624f0",
-            "label": "Use Customized Posts?",
+            "label": "Use Customized Posts instead?",
             "name": "gamblino_all_is_customized_posts_visible",
             "type": "true_false",
             "instructions": "If checked is true by using customized posts, the default value to show litteraly all posts that exist will be turned off",
@@ -137,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652988632
+    "modified": 1652991246
 }

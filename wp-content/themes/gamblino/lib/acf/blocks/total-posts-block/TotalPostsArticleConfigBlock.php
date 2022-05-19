@@ -5,6 +5,7 @@ class TotalPostsConfigBlock {
         public $title = '';
         public $countPosts = -1;
         public $blockBackgroundColor = '';
+        public $postsDateType = '';
         public $isVisibleCustomPosts = false;
 
         public function __construct() {
@@ -41,10 +42,25 @@ class TotalPostsConfigBlock {
        return $this -> countPosts = get_field('gamblino_range_total_posts');
     }
 
-    public function getAllPostsObject($countPosts = -1) {
+    public function getAllPostsObject($countPosts = -1, $postsDate = 'null') {
+        $postDateOrder = '';
+
+        if($postsDate === null | $postsDate === 'sort-none') {
+            $postDateOrder = '';
+        } 
+        if($postsDate === 'sort-ascending') {
+            $postDateOrder = 'ASC';
+        } 
+        
+        if($postsDate === 'sort-descending') {
+            $postDateOrder = 'DESC';
+        }
+
         $posts = get_posts([
             'numberposts' => $countPosts,
             'post_status' => 'publish',
+            'orderby'          => 'date',
+            'order'            => $postDateOrder,
             'post_type' => get_post_types('casino-games', 'casino-reviews', 'slots'),
         ]);
 
@@ -63,5 +79,9 @@ class TotalPostsConfigBlock {
 
     public function isVisibleCustomPosts() {
         return $this -> isVisibleCustomPosts = get_field('gamblino_all_is_customized_posts_visible');
+    }
+
+    public function getPostsDateOrderType() {
+        return $this -> postsDateType = get_field('gamblino_all_posts_sort_date_articles');
     }
 }
