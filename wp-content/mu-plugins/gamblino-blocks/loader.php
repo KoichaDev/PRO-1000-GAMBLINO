@@ -17,6 +17,7 @@ function gamblino_blocks_init() {
 	$blocks = [
 		'block-info-bonus-review/',
 		'block-general-information/',
+		'block-insert-review',
 	];
 
 	foreach ($blocks as $block) {

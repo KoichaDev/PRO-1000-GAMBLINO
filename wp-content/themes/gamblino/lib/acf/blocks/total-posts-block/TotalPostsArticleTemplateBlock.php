@@ -19,7 +19,5 @@ $blockWidth = $block['align'];
                 include get_template_directory() . '/lib/acf/blocks/total-posts-block/CustomPostsTemplateBlock.php';
             }
         ?>
-     
     </div>
-
 </section>

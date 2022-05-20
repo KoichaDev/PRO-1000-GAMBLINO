@@ -1,0 +1,19 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/insert-review",
+	"version": "1.0.0",
+	"title": "Block Insert Review",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Gamblino Info Bonus Review Block",
+	"keywords": ["gamblino", "bonus", "info", "review", "insert"],
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"attributes": {},
+	"textdomain": "block-gamblino",
+	"editorScript": "file:../../../build/block-insert-review.js",
+	"editorStyle": "file:../../../build/block-insert-review.css",
+	"style": "file:../../../build/style-block-insert-review.css"
+}
