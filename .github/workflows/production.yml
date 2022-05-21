@@ -1,25 +1,47 @@
-name: Deploy to PRODUCTION WP Engine server
 on: [workflow_dispatch]
+name: Deploy to PRODUCTION WP Engine server
 jobs:
-  wp-engine-prod:
+  preparing-workflow-to-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install SSH key
+      - name: "add: 🔐 Install SSH key"
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.PRIVATE_SSH }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: Checkout to main
+      - name: "checkout: 🚀 switch branch to develop"
         uses: actions/checkout@v2
         with:
-          ref: main
-      - name: Copying every local files existing on main branch to Staging Server by using rSync SSH
-        run: rsync -a --include='/wp-content/themes/gamblino/***' username@remote_host:sites/_site_name/wp-content/themes/gamblino
-      - name: Compile Webpack to Build from Virtual Machine
+          ref: develop
+      - name: "add: ✨ Install PHP Composer for this runner"
+        run: |
+          sudo apt update
+          sudo apt install wget php-cli php-zip unzip
+          wget -O composer-setup.php https://getcomposer.org/installer
+          sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+          sudo composer self-update
+          composer --version
+      - name: "update: 📦 composer dependencies for WordPress Gamblino theme"
+        run: |
+          cd wp-content/themes/gamblino
+          composer install
+        # - name: Copying every local files existing on develop branch to Staging Server by using rSync SSH
+      #   run: rsync -a --include='/wp-content/themes/gamblino/***' gamblinostg@gamblinostg.ssh.wpengine.net:sites/gamblinostg/wp-content/themes/gamblino
+      # - name: Bundling the Gutenberg blocks assets
+      # run: |
+      #   cd wp-content/mu-plugins/gamblino-blocks
+      #   rm -rf dist node_modules
+      #   npm install --global yarn
+      #   yarn
+      #   yarn build
+      # - name: rsync SSH with by copying Gutenberg Blocks to the Staging server
+      #   run: rsync -a wp-content/mu-plugins/gamblino-blocks/*** gamblinostg@gamblinostg.ssh.wpengine.net:/home/wpe-user/sites/gamblinostg/wp-content/mu-plugins/gamblino-blocks
+      - name: "update: ✨ compile front-end bundlers"
         run: |
           cd wp-content/themes/gamblino/
-          rm -rf dist node_modules .cache
-          npm i
-          npm run build
-      - name: Copying latest compiled build from Virtual machine to Staging WP Engine by using rSync SSH
-        run: rsync -a wp-content/themes/gamblino/*** username@remote_host:/home/wpe-user/sites/_site_name/wp-content/themes/gamblino
+          rm -rf dist node_modules .parcel-cache
+          npm install --global yarn
+          yarn
+          yarn prod
+      - name: "copy: 🚚 rsync using SSH local fildes and folder to push to Staging WP Engine"
+        run: rsync -a wp-content/themes/gamblino/*** gamblino@gamblino.ssh.wpengine.net:/home/wpe-user/sites/gamblino/wp-content/themes/gamblino
