@@ -6,9 +6,6 @@ $NavbarMenuColorOptions= new NavbarMenuColorOptions();
 $headerBackgroundColor = $NavbarMenuColorOptions -> getBackgroundColor();
 $titleTextColor = $NavbarMenuColorOptions -> getTitleTextColor();
 
-
-
-
 $headerMenuId = $registerMenus-> getMenuId( 'gamblino_header_menu' );
 
 $headerMenusItems =  wp_get_nav_menu_items( $headerMenuId );
