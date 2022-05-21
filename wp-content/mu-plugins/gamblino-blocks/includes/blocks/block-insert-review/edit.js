@@ -13,7 +13,7 @@ import Lists from "./component/Lists";
 import "./editor.scss";
 
 const Edit = ({ attributes, setAttributes }) => {
-	const { title, excerpt, lists } = attributes
+	const { title, description, lists } = attributes
 	return (
 		<section {...useBlockProps({
 			className: '[ block-insert-review ]'
@@ -27,10 +27,10 @@ const Edit = ({ attributes, setAttributes }) => {
 			/>
 			<RichText
 				tagName="p"
-				className="block-insert-review__excerpt"
-				value={excerpt}
-				onChange={(value) => setAttributes({ excerpt: value })}
-				placeholder={__("Add excerpt...", "block-gamblino")}
+				className="block-insert-review__description"
+				value={description}
+				onChange={(value) => setAttributes({ description: value })}
+				placeholder={__("Add description...", "block-gamblino")}
 			/>
 
 			<Lists lists={lists} setAttributes={setAttributes} />

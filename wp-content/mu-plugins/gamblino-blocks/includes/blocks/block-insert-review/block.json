@@ -17,7 +17,7 @@
 			"source": "html",
 			"selector": "h2"
 		},
-		"excerpt": {
+		"description": {
 			"type": "string",
 			"source": "html",
 			"selector": "p"
