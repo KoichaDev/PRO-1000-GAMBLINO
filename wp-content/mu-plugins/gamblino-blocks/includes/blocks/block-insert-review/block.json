@@ -21,6 +21,19 @@
 			"type": "string",
 			"source": "html",
 			"selector": "p"
+		},
+		"lists": {
+			"type": "array",
+			"selector": ".block-insert-review__lists li",
+			"source": "query",
+			"default": [{ "text": "lorem" }],
+			"query": {
+				"text": {
+					"type": "string",
+					"source": "html",
+					"selector": "p"
+				}
+			}
 		}
 	},
 	"textdomain": "block-gamblino",
