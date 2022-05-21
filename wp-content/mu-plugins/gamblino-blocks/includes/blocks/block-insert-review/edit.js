@@ -17,6 +17,7 @@ const Edit = ({ attributes, setAttributes }) => {
 	const allowedBlocks = [];
 
 	return <section {...useBlockProps()}>
+		<RichText />
 	</section>;
 };
 

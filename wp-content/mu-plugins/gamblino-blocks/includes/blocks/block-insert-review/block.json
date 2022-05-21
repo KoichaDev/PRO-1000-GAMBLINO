@@ -11,7 +11,18 @@
 		"html": false,
 		"align": ["wide", "full"]
 	},
-	"attributes": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2"
+		},
+		"excerpt": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		}
+	},
 	"textdomain": "block-gamblino",
 	"editorScript": "file:../../../build/block-insert-review.js",
 	"editorStyle": "file:../../../build/block-insert-review.css",
