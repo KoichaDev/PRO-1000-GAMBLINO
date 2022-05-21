@@ -18,7 +18,4 @@
         <?php include(get_template_directory() . '/views/navbar/mobile.view.php'); ?>
     </nav>
 
-    <nav class="[ navbar-desktop ]">
-            TODO: Create desktop navbar later
-    </nav>
 </header>
