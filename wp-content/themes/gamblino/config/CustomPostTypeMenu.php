@@ -78,7 +78,7 @@ class CustomPostTypeMenu {
 					],
 					"query_var" => true,
 					"menu_position" => 5,
-					"supports" => ['title', 'editor', 'author', 'thumbnail'],
+					"supports" => ['title', 'editor', 'author', 'thumbnail', 'excerpt'],
 				];
 
 				register_post_type($postTypeSlug, $args);
