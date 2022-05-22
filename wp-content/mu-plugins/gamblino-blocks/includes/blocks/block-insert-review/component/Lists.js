@@ -16,13 +16,13 @@ const Lists = ({ lists, setAttributes }) => {
         [(listsCopy[selectedIndexPosition][key] = value)];
 
         setAttributes({
-            text: listsCopy,
+            content: listsCopy,
         });
     };
 
     const newListHandler = () => {
         setAttributes({
-            lists: [...lists, { text: "" }],
+            lists: [...lists, { content: "" }],
         });
     };
 
@@ -61,9 +61,9 @@ const Lists = ({ lists, setAttributes }) => {
                             >
                                 <RichText
                                     tagName="p"
-                                    value={list.text}
+                                    value={list.content}
                                     onChange={(value) =>
-                                        onChangeTextHandler(index, "text", value)
+                                        onChangeTextHandler(index, "content", value)
                                     }
                                     allowedFormats={[
                                         "core/bold",

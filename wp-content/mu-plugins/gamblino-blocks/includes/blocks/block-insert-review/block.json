@@ -26,9 +26,9 @@
 			"type": "array",
 			"selector": ".block-insert-review__lists li",
 			"source": "query",
-			"default": [{ "text": "lorem" }],
+			"default": [],
 			"query": {
-				"text": {
+				"content": {
 					"type": "string",
 					"source": "html",
 					"selector": "p"
