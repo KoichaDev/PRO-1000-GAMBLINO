@@ -34,6 +34,20 @@
 					"selector": "p"
 				}
 			}
+		},
+		"buttonText": {
+			"type": "string",
+			"source": "html",
+			"selector": "a",
+			"default": ""
+		},
+		"buttonBackgroundColor": {
+			"type": "string",
+			"default": "#00a0d2"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#000"
 		}
 	},
 	"textdomain": "block-gamblino",

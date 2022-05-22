@@ -3,7 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps, InnerBlocks, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
-	const { title, description, lists } = attributes;
+	const { title, description, lists, buttonTextColor, buttonText } = attributes;
 	return (
 		<section {...useBlockProps.save()}>
 			{title ? <RichText.Content tagName="h2" value={title} /> : null}
@@ -23,6 +23,16 @@ function save({ attributes }) {
 					})}
 				</ul>
 			)}
+
+			{buttonText ? (
+				<RichText.Content
+					{...useBlockProps.save({
+						style: { color: buttonTextColor },
+					})}
+					tagName="a"
+					value={buttonText}
+				/>
+			) : null}
 		</section>
 	);
 }
