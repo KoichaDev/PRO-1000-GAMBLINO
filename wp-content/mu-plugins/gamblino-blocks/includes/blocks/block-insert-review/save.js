@@ -34,8 +34,8 @@ function save({ attributes }) {
 					{...useBlockProps.save({
 						className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
 						style: {
-							color: color,
-							backgroundColor: backgroundColor,
+							color,
+							backgroundColor,
 						},
 					})}
 					tagName="a"

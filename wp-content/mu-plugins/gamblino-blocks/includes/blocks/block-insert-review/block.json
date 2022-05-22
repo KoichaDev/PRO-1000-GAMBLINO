@@ -61,12 +61,10 @@
 			"type": "object",
 			"default": {
 				"backgroundColor": {
-					"type": "string",
-					"default": "#00a0d2"
+					"type": "string"
 				},
 				"color": {
-					"type": "string",
-					"default": "#000"
+					"type": "string"
 				},
 				"spacing": {
 					"padding": {
