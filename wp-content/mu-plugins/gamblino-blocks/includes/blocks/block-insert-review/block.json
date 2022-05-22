@@ -9,8 +9,12 @@
 	"keywords": ["gamblino", "bonus", "info", "review", "insert"],
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"]
+		"align": ["wide", "full"],
+		"spacing": {
+			"padding": true
+		}
 	},
+	"textdomain": "block-gamblino",
 	"attributes": {
 		"title": {
 			"type": "string",
@@ -41,16 +45,32 @@
 			"selector": "a",
 			"default": ""
 		},
-		"buttonBackgroundColor": {
-			"type": "string",
-			"default": "#00a0d2"
+		"buttonPadding": {
+			"type": "number",
+			"default": 0
 		},
-		"buttonTextColor": {
-			"type": "string",
-			"default": "#000"
+		"style": {
+			"type": "object",
+			"default": {
+				"backgroundColor": {
+					"type": "string",
+					"default": "#00a0d2"
+				},
+				"color": {
+					"type": "string",
+					"default": "#000"
+				},
+				"spacing": {
+					"padding": {
+						"top": "1em",
+						"right": "1em",
+						"bottom": "1em",
+						"left": "1em"
+					}
+				}
+			}
 		}
 	},
-	"textdomain": "block-gamblino",
 	"editorScript": "file:../../../build/block-insert-review.js",
 	"editorStyle": "file:../../../build/block-insert-review.css",
 	"style": "file:../../../build/style-block-insert-review.css"
