@@ -12,19 +12,40 @@ import {
     ToolbarGroup,
     ToolbarButton,
     ColorPicker,
-    __experimentalBoxControl as BoxControl,
     RangeControl,
 } from "@wordpress/components";
 
+import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
 import { SiShadow } from "react-icons/Si";
+import { AiOutlineBorder } from "react-icons/ai";
 
-const { __Visualizer: BoxControlVisualizer } = BoxControl;
+import { ButtonIcon } from "../../../UI/Button";
+import { PaddingIcon } from "../../../UI/Icons/Spaces";
 
 const Button = (props) => {
     const { onChange, value, placeholder, setAttributes, ...attributes } = props;
-    const { shadow, shadowOpacity, style } = attributes;
-    const { buttonBackgroundColor, buttonColor } = style;
+
+    const {
+        isBorderRadiusMenuOpen,
+        isShadowMenuOpen,
+        shadowOpacity,
+        buttonBorderRadius,
+        buttonBackgroundColor,
+        buttonColor,
+        buttonIsClickedLinkSides,
+        buttonPadding,
+        paddingSelectUnit,
+        buttonPaddingVertical,
+        paddingVerticalSelectUnit,
+        buttonPaddingHorizontal,
+        paddingHorizontalSelectUnit,
+    } = attributes;
+
+
+    // prettier-ignore
+    const [isClickedHorizontalField, setIsClickedHorizontalField] = useState(false);
+    const [isClickedVerticalField, setIsClickedVerticalField] = useState(false);
 
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
@@ -32,18 +53,16 @@ const Button = (props) => {
 
     const onChangeBackgroundColorHandler = (value) =>
         setAttributes({
-            style: {
-                buttonBackgroundColor: value,
-                buttonColor: buttonColor,
-            },
+            buttonBackgroundColor: value,
+            buttonColor: buttonColor,
+            buttonBorderRadius: `${buttonBorderRadius}px`,
         });
 
     const onChangeTextColorHandler = (value) => {
         setAttributes({
-            style: {
-                buttonBackgroundColor: buttonBackgroundColor,
-                buttonColor: value,
-            },
+            buttonBackgroundColor: buttonBackgroundColor,
+            buttonColor: value,
+            buttonBorderRadius: `${buttonBorderRadius}px`,
         });
     };
 
@@ -57,21 +76,177 @@ const Button = (props) => {
         setIsVisibleBackgroundColor(false);
     };
 
-    const shadowClass = shadow === true ? "has-shadow" : "";
-
     const onChangeShadowOpacityHandler = (value) => {
         setAttributes({ shadowOpacity: value });
     };
 
     const toggleShadowHandler = () => {
-        setAttributes({ shadow: !shadow });
+        setAttributes({ isShadowMenuOpen: !isShadowMenuOpen });
     };
+
+    const toggleButtonBorderRadiusHandler = () => {
+        setAttributes({ isBorderRadiusMenuOpen: !isBorderRadiusMenuOpen });
+    };
+
+    const onChangeButtonBorderRadiusHandler = (value) => {
+        setAttributes({
+            buttonBackgroundColor: buttonBackgroundColor,
+            buttonColor: buttonColor,
+            buttonBorderRadius: value,
+        });
+    };
+
+    let paddingIconContent = "";
+
+    if (!buttonIsClickedLinkSides) {
+        paddingIconContent = <PaddingIcon />;
+    } else {
+        if (isClickedVerticalField) {
+            paddingIconContent = (
+                <PaddingIcon
+                    fillTop={isClickedVerticalField ? "#C5C7C9" : ""}
+                    fillBottom={isClickedVerticalField ? "#C5C7C9" : ""}
+                />
+            );
+        } else {
+            paddingIconContent = (
+                <PaddingIcon
+                    fillTop="#1e1e1e"
+                    fillBottom="#1e1e1e"
+                    fillLeft={isClickedHorizontalField ? "#C5C7C9" : ""}
+                    fillRight={isClickedHorizontalField ? "#C5C7C9" : ""}
+                />
+            );
+        }
+    }
+
+    let paddingType = "";
+
+    if (!buttonIsClickedLinkSides) {
+        paddingType = `${buttonPadding}${paddingSelectUnit}`;
+    } else {
+        paddingType = `${buttonPaddingVertical}${paddingVerticalSelectUnit} ${buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
+    }
+
+    const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
     return (
         <>
             <InspectorControls>
+                <PanelBody>
+                    <p>
+                        <strong>Padding</strong>
+                    </p>
+                    <div className="controls-padding">
+                        {paddingIconContent}
 
-                {shadow && (
+                        {!buttonIsClickedLinkSides && (
+                            <div className="controls-padding_input-component">
+                                <input
+                                    type="number"
+                                    value={buttonPadding}
+                                    onChange={(e) =>
+                                        setAttributes({ buttonPadding: +e.target.value })
+                                    }
+                                />
+                                <select
+                                    aria-label={__("Select unit", "block-gamblino")}
+                                    value={paddingSelectUnit}
+                                    onChange={(e) =>
+                                        setAttributes({ paddingSelectUnit: e.target.value })
+                                    }
+                                >
+                                    <option value="px">px</option>
+                                    <option value="em">em</option>
+                                </select>
+                            </div>
+                        )}
+                        {buttonIsClickedLinkSides && (
+                            <div className="controls-padding_input-component">
+                                <input
+                                    type="number"
+                                    aria-label="Vertical"
+                                    title="Vertical"
+                                    value={buttonPaddingVertical}
+                                    onChange={(e) => {
+                                        setAttributes({ buttonPaddingVertical: +e.target.value });
+                                    }}
+                                    onClick={() => {
+                                        setIsClickedVerticalField(true);
+                                        setIsClickedHorizontalField(false);
+                                    }}
+                                />
+                                <select
+                                    aria-label={__("Select unit", "block-gamblino")}
+                                    value={paddingVerticalSelectUnit}
+                                    onChange={(e) =>
+                                        setAttributes({ paddingVerticalSelectUnit: e.target.value })
+                                    }
+                                >
+                                    <option value="px">px</option>
+                                    <option value="em">em</option>
+                                </select>
+                            </div>
+                        )}
+                        {buttonIsClickedLinkSides && (
+                            <div className="controls-padding_input-component">
+                                <input
+                                    type="number"
+                                    aria-label="Horizontal"
+                                    title="Horizontal"
+                                    value={buttonPaddingHorizontal}
+                                    onChange={(e) => {
+                                        setAttributes({ buttonPaddingHorizontal: +e.target.value });
+                                    }}
+                                    onClick={() => {
+                                        setIsClickedHorizontalField(true);
+                                        setIsClickedVerticalField(false);
+                                    }}
+                                />
+                                <select
+                                    aria-label={__("Select unit", "block-gamblino")}
+                                    value={paddingHorizontalSelectUnit}
+                                    onChange={(e) =>
+                                        setAttributes({
+                                            paddingHorizontalSelectUnit: e.target.value,
+                                        })
+                                    }
+                                >
+                                    <option value="px">px</option>
+                                    <option value="em">em</option>
+                                </select>
+                            </div>
+                        )}
+                        <ButtonIcon
+                            onClick={() => {
+                                setAttributes({
+                                    buttonIsClickedLinkSides: !buttonIsClickedLinkSides,
+                                });
+                            }}
+                        >
+                            {buttonIsClickedLinkSides ? (
+                                <MdOutlineLinkOff />
+                            ) : (
+                                <MdOutlineLink />
+                            )}
+                        </ButtonIcon>
+                    </div>
+                </PanelBody>
+
+                {isBorderRadiusMenuOpen && (
+                    <PanelBody title={__("Border Radius")}>
+                        <RangeControl
+                            label={__("Border Radius")}
+                            value={buttonBorderRadius}
+                            onChange={onChangeButtonBorderRadiusHandler}
+                            step={1}
+                            min={1}
+                            max={10}
+                        />
+                    </PanelBody>
+                )}
+
+                {isShadowMenuOpen && (
                     <PanelBody title={__("Shadow Settings", "block-gamblino")}>
                         <RangeControl
                             label={__("Shadow Opacity", "block-gamblino")}
@@ -84,13 +259,20 @@ const Button = (props) => {
                     </PanelBody>
                 )}
             </InspectorControls>
+
             <BlockControls
                 controls={[
                     {
                         icon: SiShadow,
                         title: __("Shadow", "block-gamblino"),
                         onClick: toggleShadowHandler,
-                        isActive: shadow,
+                        isActive: isShadowMenuOpen,
+                    },
+                    {
+                        icon: AiOutlineBorder,
+                        title: __("Border Radius", "block-gamblino"),
+                        onClick: toggleButtonBorderRadiusHandler,
+                        isActive: isBorderRadiusMenuOpen,
                     },
                 ]}
             >
@@ -106,36 +288,29 @@ const Button = (props) => {
                 </ToolbarGroup>
             </BlockControls>
 
-            <div
+            <RichText
                 {...useBlockProps({
-                    className: "[ block-insert-review__button-row ]",
+                    className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
+                    style: {
+                        display: "inline-block",
+                        color: buttonColor,
+                        backgroundColor: buttonBackgroundColor,
+                        borderRadius: `${buttonBorderRadius}px`,
+                        padding: paddingType,
+                    },
                 })}
-            >
-                <RichText
-                    {...useBlockProps({
-                        className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
-                        style: {
-                            color: buttonColor,
-                            backgroundColor: buttonBackgroundColor,
-                        },
-                    })}
-                    tagName="a"
-                    value={value}
-                    onChange={onChange}
-                    placeholder={__(placeholder, "block-gamblino")}
-                />
-                <BoxControlVisualizer
-                    values={style && style.spacing && style.spacing.padding}
-                    showValues={style && style.visualizers && style.visualizers.padding}
-                />
-            </div>
+                tagName="a"
+                value={value}
+                onChange={onChange}
+                placeholder={__(placeholder, "block-gamblino")}
+            />
 
             {isVisibleTextColor && (
                 <ColorPicker
                     color={buttonColor}
                     onChange={onChangeTextColorHandler}
                     enableAlpha
-                    defaultValue="#fff"
+                    defaultValue={buttonColor}
                 />
             )}
 
@@ -144,7 +319,7 @@ const Button = (props) => {
                     color={buttonBackgroundColor}
                     onChange={onChangeBackgroundColorHandler}
                     enableAlpha
-                    defaultValue="#6FCF97"
+                    defaultValue={buttonBackgroundColor}
                 />
             )}
         </>

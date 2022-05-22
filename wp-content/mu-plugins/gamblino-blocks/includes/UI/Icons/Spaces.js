@@ -1,5 +1,5 @@
 
-export const PaddingIcon = ({ fillLeft, fillRight}) => {
+export const PaddingIcon = ({ fillLeft, fillRight, fillBottom, fillTop }) => {
     return (
         <svg x="0px" y="0px" width="24px" height="24px"
             viewBox="0 0 24 24" enableBackground="new 0 0 24 24">
@@ -7,12 +7,12 @@ export const PaddingIcon = ({ fillLeft, fillRight}) => {
                 <g>
                     <g>
                         <g>
-                            <path d="M16,6H8C7.4,6,7,5.6,7,5s0.4-1,1-1h8c0.6,0,1,0.4,1,1S16.6,6,16,6z" />
+                            <path d="M16,6H8C7.4,6,7,5.6,7,5s0.4-1,1-1h8c0.6,0,1,0.4,1,1S16.6,6,16,6z" fill={fillTop} />
                         </g>
                     </g>
                     <g>
                         <g>
-                            <path d="M16,20H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h8c0.6,0,1,0.4,1,1S16.6,20,16,20z" />
+                            <path d="M16,20H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h8c0.6,0,1,0.4,1,1S16.6,20,16,20z" fill={fillBottom} />
                         </g>
                     </g>
                     <g>

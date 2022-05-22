@@ -1,4 +1,5 @@
 // WP Block Dependencies
+import { useEffect, useRef } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
 import { RichText } from "@wordpress/block-editor";
 
@@ -10,9 +11,18 @@ import Button from "./component/Button";
 import "./editor.scss";
 
 const Edit = ({ attributes, setAttributes }) => {
+
+	const titleRef = useRef();
+
+	useEffect(() => {
+		titleRef.current.focus();
+	}, [])
+
+
 	return (
 		<section className="[ block-insert-review ]">
 			<RichText
+				ref={titleRef}
 				tagName="h2"
 				className="block-insert-review__title"
 				value={attributes.title}

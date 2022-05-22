@@ -9,10 +9,6 @@
 	"keywords": ["gamblino", "bonus", "info", "review", "insert"],
 	"supports": {
 		"html": false,
-		"align": ["wide", "full"],
-		"spacing": {
-			"padding": true
-		},
 		"classname": false
 	},
 	"textdomain": "block-gamblino",
@@ -43,10 +39,9 @@
 		"buttonText": {
 			"type": "string",
 			"source": "html",
-			"selector": "a",
-			"default": ""
+			"selector": "a"
 		},
-		"shadow": {
+		"isShadowMenuOpen": {
 			"type": "boolean",
 			"default": false
 		},
@@ -54,24 +49,49 @@
 			"type": "number",
 			"default": 30
 		},
-		"style": {
-			"type": "object",
-			"default": {
-				"buttonBackgroundColor": {
-					"type": "string"
-				},
-				"buttonColor": {
-					"type": "string"
-				},
-				"spacing": {
-					"padding": {
-						"top": "1em",
-						"right": "1em",
-						"bottom": "1em",
-						"left": "1em"
-					}
-				}
-			}
+		"isBorderRadiusMenuOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonIsClickedLinkSides": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonPadding": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonPaddingHorizontal": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingHorizontalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonPaddingVertical": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingVerticalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonBorderRadius": {
+			"type": "number",
+			"default": 1
+		},
+		"buttonBackgroundColor": {
+			"type": "string",
+			"default": "#6FCF97"
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "#fff"
 		}
 	},
 	"editorScript": "file:../../../build/block-insert-review.js",

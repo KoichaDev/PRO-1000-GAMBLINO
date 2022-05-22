@@ -3,10 +3,35 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
-	const { title, description, lists, style, shadow, shadowOpacity, buttonText } = attributes;
-	const { buttonBackgroundColor, buttonColor } = style;
+	const {
+		title,
+		description,
+		lists,
+		isShadowMenuOpen,
+		shadowOpacity,
+		buttonText,
+		buttonBorderRadius,
+		buttonBackgroundColor,
+		buttonColor,
+		buttonIsClickedLinkSides,
+		buttonPadding,
+		paddingSelectUnit,
+		buttonPaddingHorizontal,
+		paddingHorizontalSelectUnit,
+		buttonPaddingVertical,
+		paddingVerticalSelectUnit
+	} = attributes;
 
-	const shadowClass = shadow === true ? "has-shadow" : "";
+
+	let paddingType = "";
+
+	if (!buttonIsClickedLinkSides) {
+		paddingType = `${+buttonPadding}${paddingSelectUnit}`;
+	} else {
+		paddingType = `${+buttonPaddingVertical}${paddingVerticalSelectUnit} ${+buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
+	}
+
+	const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
 	return (
 		<section {...useBlockProps.save()}>
@@ -33,8 +58,11 @@ function save({ attributes }) {
 					{...useBlockProps.save({
 						className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
 						style: {
+							display: "inline-block",
+							padding: paddingType,
 							color: buttonColor,
 							backgroundColor: buttonBackgroundColor,
+							borderRadius: `${buttonBorderRadius}px`,
 						},
 					})}
 					tagName="a"
