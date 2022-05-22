@@ -4,7 +4,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
 	const { title, description, lists, style, shadow, shadowOpacity, buttonText } = attributes;
-	const { backgroundColor, color } = style;
+	const { buttonBackgroundColor, buttonColor } = style;
 
 	const shadowClass = shadow === true ? "has-shadow" : "";
 
@@ -33,8 +33,8 @@ function save({ attributes }) {
 					{...useBlockProps.save({
 						className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
 						style: {
-							color,
-							backgroundColor,
+							color: buttonColor,
+							backgroundColor: buttonBackgroundColor,
 						},
 					})}
 					tagName="a"

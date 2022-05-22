@@ -24,8 +24,7 @@ const { __Visualizer: BoxControlVisualizer } = BoxControl;
 const Button = (props) => {
     const { onChange, value, placeholder, setAttributes, ...attributes } = props;
     const { shadow, shadowOpacity, style } = attributes;
-    const { padding, backgroundColor, color } = style;
-    const { top, right, bottom, left } = padding ?? {};
+    const { buttonBackgroundColor, buttonColor } = style;
 
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
@@ -34,16 +33,16 @@ const Button = (props) => {
     const onChangeBackgroundColorHandler = (value) =>
         setAttributes({
             style: {
-                backgroundColor: value,
-                color: color,
+                buttonBackgroundColor: value,
+                buttonColor: buttonColor,
             },
         });
 
     const onChangeTextColorHandler = (value) => {
         setAttributes({
             style: {
-                backgroundColor: backgroundColor,
-                color: value,
+                buttonBackgroundColor: buttonBackgroundColor,
+                buttonColor: value,
             },
         });
     };
@@ -71,6 +70,7 @@ const Button = (props) => {
     return (
         <>
             <InspectorControls>
+
                 {shadow && (
                     <PanelBody title={__("Shadow Settings", "block-gamblino")}>
                         <RangeControl
@@ -115,8 +115,8 @@ const Button = (props) => {
                     {...useBlockProps({
                         className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
                         style: {
-                            color: color,
-                            backgroundColor: backgroundColor,
+                            color: buttonColor,
+                            backgroundColor: buttonBackgroundColor,
                         },
                     })}
                     tagName="a"
@@ -132,7 +132,7 @@ const Button = (props) => {
 
             {isVisibleTextColor && (
                 <ColorPicker
-                    color={color}
+                    color={buttonColor}
                     onChange={onChangeTextColorHandler}
                     enableAlpha
                     defaultValue="#fff"
@@ -141,7 +141,7 @@ const Button = (props) => {
 
             {isVisibleBackgroundColor && (
                 <ColorPicker
-                    color={backgroundColor}
+                    color={buttonBackgroundColor}
                     onChange={onChangeBackgroundColorHandler}
                     enableAlpha
                     defaultValue="#6FCF97"

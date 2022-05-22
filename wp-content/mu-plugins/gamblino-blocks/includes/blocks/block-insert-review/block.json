@@ -57,10 +57,10 @@
 		"style": {
 			"type": "object",
 			"default": {
-				"backgroundColor": {
+				"buttonBackgroundColor": {
 					"type": "string"
 				},
-				"color": {
+				"buttonColor": {
 					"type": "string"
 				},
 				"spacing": {
