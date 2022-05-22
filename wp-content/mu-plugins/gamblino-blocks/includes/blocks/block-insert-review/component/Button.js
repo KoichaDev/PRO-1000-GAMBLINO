@@ -10,10 +10,12 @@ import {
 
 import {
     PanelBody,
+    RadioControl,
     ToolbarGroup,
     ToolbarButton,
     ColorPicker,
     __experimentalBoxControl as BoxControl,
+    RangeControl,
 } from "@wordpress/components";
 
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
@@ -29,7 +31,7 @@ const Button = ({
     setAttributes,
     ...attributes
 }) => {
-    const { style } = attributes;
+    const { shadow, shadowOpacity, style } = attributes;
     const { backgroundColor, color } = style;
 
     // prettier-ignore
@@ -60,9 +62,42 @@ const Button = ({
         setIsVisibleTextColor(false);
     };
 
+    const shadowClass = shadow === true ? "has-shadow" : "";
+
+    const onChangeShadowOpacityHandler = (value) => {
+        setAttributes({ shadowOpacity: value });
+    };
+
+    const toggleShadowHandler = () => {
+        setAttributes({ shadow: !shadow });
+    };
+
     return (
         <>
-            <BlockControls group="inline">
+            <InspectorControls>
+                {shadow && (
+                    <PanelBody title={__("Shadow Settings", "block-gamblino")}>
+                        <RangeControl
+                            label={__("Shadow Opacity", "block-gamblino")}
+                            value={shadowOpacity}
+                            onChange={onChangeShadowOpacityHandler}
+                            step={10}
+                            min={10}
+                            max={40}
+                        />
+                    </PanelBody>
+                )}
+            </InspectorControls>
+            <BlockControls
+                controls={[
+                    {
+                        icon: "admin-page",
+                        title: __("Shadow", "block-gamblino"),
+                        onClick: toggleShadowHandler,
+                        isActive: shadow,
+                    },
+                ]}
+            >
                 <ToolbarGroup>
                     <ToolbarButton
                         icon={CgFormatColor}
@@ -77,11 +112,12 @@ const Button = ({
 
             <div
                 {...useBlockProps({
-                    className: "",
+                    className: "[ block-insert-review__button-row ]",
                 })}
             >
                 <RichText
                     {...useBlockProps({
+                        className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
                         style: {
                             color: textColor,
                             backgroundColor: btnBackgroundColor,

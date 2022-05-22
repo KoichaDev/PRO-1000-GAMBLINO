@@ -49,6 +49,14 @@
 			"type": "number",
 			"default": 0
 		},
+		"shadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
+		},
 		"style": {
 			"type": "object",
 			"default": {

@@ -3,10 +3,12 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps, InnerBlocks, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
-	const { title, description, lists, style, buttonText } = attributes;
+	const { title, description, lists, style, shadow, shadowOpacity, buttonText } = attributes;
 	const { backgroundColor, color } = style;
 
-	console.log(style);
+	const shadowClass = shadow === true ? "has-shadow" : "";
+
+
 	return (
 		<section {...useBlockProps.save()}>
 			{title ? <RichText.Content tagName="h2" value={title} /> : null}
@@ -30,6 +32,7 @@ function save({ attributes }) {
 			{buttonText ? (
 				<RichText.Content
 					{...useBlockProps.save({
+						className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
 						style: {
 							color: color,
 							backgroundColor: backgroundColor,
