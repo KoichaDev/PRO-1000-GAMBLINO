@@ -14,16 +14,25 @@ import {
     ColorPicker,
 } from "@wordpress/components";
 
-import { CgFormatColor } from "react-icons/cg";
+import { CgFormatColor, CgColorBucket } from "react-icons/cg";
 
 const Button = ({ isVisible, onClick, onChange, value, placeholder, setAttributes, ...attributes }) => {
-    const [textColor, setTextColor] = useState(attributes.buttonTextColor);
+    const { buttonBackgroundColor, buttonTextColor } = attributes
+
+    const [backgroundColor, setBackgroundColor] = useState(buttonBackgroundColor);
+    const [textColor, setTextColor] = useState(buttonTextColor);
+    const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false)
 
     useEffect(() => {
         setTextColor(textColor)
         setAttributes({ buttonTextColor: textColor })
     }, [textColor]);
+
+    useEffect(() => {
+        setBackgroundColor(backgroundColor)
+        setAttributes({ buttonBackgroundColor: backgroundColor })
+    }, [backgroundColor])
 
     return (
         <>
@@ -33,6 +42,10 @@ const Button = ({ isVisible, onClick, onChange, value, placeholder, setAttribute
                         icon={CgFormatColor}
                         onClick={() => setIsVisibleTextColor(prevIsVisible => !prevIsVisible)}>
                     </ToolbarButton>
+                    <ToolbarButton
+                        icon={CgColorBucket}
+                        onClick={() => setIsVisibleBackgroundColor(prevIsVisible => !prevIsVisible)}>
+                    </ToolbarButton>
                 </ToolbarGroup>
             </BlockControls>
 
@@ -40,6 +53,7 @@ const Button = ({ isVisible, onClick, onChange, value, placeholder, setAttribute
                 {...useBlockProps({
                     style: {
                         color: textColor,
+                        backgroundColor: backgroundColor
                     },
                 })}
                 tagName="a"
@@ -55,7 +69,16 @@ const Button = ({ isVisible, onClick, onChange, value, placeholder, setAttribute
                     color={textColor}
                     onChange={(value) => setTextColor(value)}
                     enableAlpha
-                    defaultValue='#000'
+                    defaultValue={buttonTextColor}
+                />
+            )}
+
+            {isVisibleBackgroundColor && (
+                <ColorPicker
+                    color={backgroundColor}
+                    onChange={(value) => setBackgroundColor(value)}
+                    enableAlpha
+                    defaultValue={buttonBackgroundColor}
                 />
             )}
         </>
