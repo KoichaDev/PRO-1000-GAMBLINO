@@ -1,10 +1,9 @@
 import { __ } from "@wordpress/i18n";
-import { useState, useEffect } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import {
     useBlockProps,
     RichText,
     BlockControls,
-    AlignmentToolbar,
     InspectorControls,
 } from "@wordpress/block-editor";
 
@@ -15,7 +14,6 @@ import {
     ColorPicker,
     __experimentalBoxControl as BoxControl,
     RangeControl,
-    Panel,
 } from "@wordpress/components";
 
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
@@ -70,20 +68,9 @@ const Button = (props) => {
         setAttributes({ shadow: !shadow });
     };
 
-    const onChangePaddingHandler = (value) => {
-        setAttributes({
-            style: {
-                padding: value,
-            },
-        });
-    };
-
     return (
         <>
             <InspectorControls>
-                <PanelBody>
-                    <BoxControl value={padding} onChange={onChangePaddingHandler} />
-                </PanelBody>
                 {shadow && (
                     <PanelBody title={__("Shadow Settings", "block-gamblino")}>
                         <RangeControl
@@ -119,15 +106,19 @@ const Button = (props) => {
                 </ToolbarGroup>
             </BlockControls>
 
-            <div className="[ block-insert-review__button-row ]">
+            <div
+                {...useBlockProps({
+                    className: "[ block-insert-review__button-row ]",
+                })}
+            >
                 <RichText
-                    className={`${shadowClass} shadow-opacity-${shadowOpacity}`}
-                    style={{
-                        display: "block",
-                        padding: `${top} ${right} ${bottom} ${left}`,
-                        color: color,
-                        backgroundColor: backgroundColor,
-                    }}
+                    {...useBlockProps({
+                        className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
+                        style: {
+                            color: color,
+                            backgroundColor: backgroundColor,
+                        },
+                    })}
                     tagName="a"
                     value={value}
                     onChange={onChange}

@@ -12,7 +12,8 @@
 		"align": ["wide", "full"],
 		"spacing": {
 			"padding": true
-		}
+		},
+		"classname": false
 	},
 	"textdomain": "block-gamblino",
 	"attributes": {
@@ -44,10 +45,6 @@
 			"source": "html",
 			"selector": "a",
 			"default": ""
-		},
-		"buttonPadding": {
-			"type": "number",
-			"default": 0
 		},
 		"shadow": {
 			"type": "boolean",

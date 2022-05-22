@@ -1,13 +1,6 @@
 // WP Block Dependencies
 import { __ } from "@wordpress/i18n";
-import {
-	useBlockProps,
-	RichText,
-	BlockControls,
-	AlignmentToolbar,
-} from "@wordpress/block-editor";
-
-import { useState } from "@wordpress/element";
+import { RichText } from "@wordpress/block-editor";
 
 // Components
 import Lists from "./component/Lists";
@@ -17,14 +10,8 @@ import Button from "./component/Button";
 import "./editor.scss";
 
 const Edit = ({ attributes, setAttributes }) => {
-
-
 	return (
-		<section
-			{...useBlockProps({
-				className: "[ block-insert-review ]",
-			})}
-		>
+		<section className="[ block-insert-review ]">
 			<RichText
 				tagName="h2"
 				className="block-insert-review__title"
