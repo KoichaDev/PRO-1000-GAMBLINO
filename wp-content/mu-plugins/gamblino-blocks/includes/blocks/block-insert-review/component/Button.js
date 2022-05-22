@@ -34,17 +34,29 @@ const Button = ({ isVisible, onClick, onChange, value, placeholder, setAttribute
         setAttributes({ buttonBackgroundColor: backgroundColor })
     }, [backgroundColor])
 
+    const onClickTextColor = () => {
+        setIsVisibleTextColor(prevIsVisible => !prevIsVisible)
+        setIsVisibleBackgroundColor(false)
+    }
+
+    const onClickBackgrouncColor = () => {
+        setIsVisibleBackgroundColor(prevIsVisible => !prevIsVisible)
+        setIsVisibleTextColor(false)
+    }
+
+
     return (
         <>
             <BlockControls group="inline">
                 <ToolbarGroup>
                     <ToolbarButton
                         icon={CgFormatColor}
-                        onClick={() => setIsVisibleTextColor(prevIsVisible => !prevIsVisible)}>
+
+                        onClick={onClickTextColor}>
                     </ToolbarButton>
                     <ToolbarButton
                         icon={CgColorBucket}
-                        onClick={() => setIsVisibleBackgroundColor(prevIsVisible => !prevIsVisible)}>
+                        onClick={onClickBackgrouncColor}>
                     </ToolbarButton>
                 </ToolbarGroup>
             </BlockControls>
