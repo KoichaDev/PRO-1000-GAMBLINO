@@ -26,6 +26,7 @@ const Edit = ({ attributes, setAttributes }) => {
 				tagName="h2"
 				className="block-insert-review__title"
 				value={attributes.title}
+				allowedFormats={["core/bold", "core/italic"]}
 				onChange={(value) => setAttributes({ title: value })}
 				placeholder={__("Add a title...", "block-gamblino")}
 			/>
