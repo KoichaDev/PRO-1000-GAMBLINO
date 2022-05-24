@@ -1,7 +1,7 @@
 // WP Block Dependencies
 import { useEffect, useRef } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { RichText } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 // Components
 import Lists from "./component/Lists";
@@ -11,16 +11,15 @@ import Button from "./component/Button";
 import "./editor.scss";
 
 const Edit = ({ attributes, setAttributes }) => {
-
+	const { buttonTextAlignment } = attributes
 	const titleRef = useRef();
 
 	useEffect(() => {
 		titleRef.current.focus();
-	}, [])
-
+	}, []);
 
 	return (
-		<section className="[ block-insert-review ]">
+		<section {...useBlockProps()} className="[ block-insert-review ]">
 			<RichText
 				ref={titleRef}
 				tagName="h2"
@@ -40,13 +39,16 @@ const Edit = ({ attributes, setAttributes }) => {
 
 			<Lists lists={attributes.lists} setAttributes={setAttributes} />
 
-			<Button
-				onChange={(value) => setAttributes({ buttonText: value })}
-				value={attributes.buttonText}
-				placeholder="Add text.."
-				{...attributes}
-				setAttributes={setAttributes}
-			/>
+			<div class={`text-${buttonTextAlignment}`}>
+				<Button
+					className="mt-9"
+					onChange={(value) => setAttributes({ buttonText: value })}
+					value={attributes.buttonText}
+					placeholder="Add text.."
+					attributes={attributes}
+					setAttributes={setAttributes}
+				/>
+			</div>
 		</section>
 	);
 };

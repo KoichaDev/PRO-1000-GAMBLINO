@@ -41,6 +41,10 @@
 			"source": "html",
 			"selector": "a"
 		},
+		"buttonTextAlignment": {
+			"type": "string",
+			"default": "left"
+		},
 		"isShadowMenuOpen": {
 			"type": "boolean",
 			"default": false

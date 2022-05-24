@@ -14,14 +14,14 @@ function save({ attributes }) {
 		buttonBackgroundColor,
 		buttonColor,
 		buttonIsClickedLinkSides,
+		buttonTextAlignment,
 		buttonPadding,
 		paddingSelectUnit,
 		buttonPaddingHorizontal,
 		paddingHorizontalSelectUnit,
 		buttonPaddingVertical,
-		paddingVerticalSelectUnit
+		paddingVerticalSelectUnit,
 	} = attributes;
-
 
 	let paddingType = "";
 
@@ -35,10 +35,20 @@ function save({ attributes }) {
 
 	return (
 		<section {...useBlockProps.save()}>
-			{title ? <RichText.Content tagName="h2" value={title} /> : null}
+			{title ? (
+				<RichText.Content
+					className="block-insert-review__title"
+					tagName="h2"
+					value={title}
+				/>
+			) : null}
 
 			{description ? (
-				<RichText.Content tagName="p" value={description} />
+				<RichText.Content
+					className="block-insert-review__description"
+					tagName="p"
+					value={description}
+				/>
 			) : null}
 
 			{lists.length > 0 && (
@@ -54,20 +64,22 @@ function save({ attributes }) {
 			)}
 
 			{buttonText ? (
-				<RichText.Content
-					{...useBlockProps.save({
-						className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
-						style: {
-							display: "inline-block",
-							padding: paddingType,
-							color: buttonColor,
-							backgroundColor: buttonBackgroundColor,
-							borderRadius: `${buttonBorderRadius}px`,
-						},
-					})}
-					tagName="a"
-					value={buttonText}
-				/>
+				<div class={`text-${buttonTextAlignment}`}>
+					<RichText.Content
+						{...useBlockProps.save({
+							className: `mt-9 ${shadowClass} shadow-opacity-${shadowOpacity}`,
+							style: {
+								display: "inline-block",
+								padding: paddingType,
+								color: buttonColor,
+								backgroundColor: buttonBackgroundColor,
+								borderRadius: `${buttonBorderRadius}px`,
+							},
+						})}
+						tagName="a"
+						value={buttonText}
+					/>
+				</div>
 			) : null}
 		</section>
 	);

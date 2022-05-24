@@ -1,10 +1,11 @@
 import { __ } from "@wordpress/i18n";
-import { useState } from "@wordpress/element";
+import { useState, useEffect } from "@wordpress/element";
 import {
     useBlockProps,
     RichText,
     BlockControls,
     InspectorControls,
+    AlignmentToolbar,
 } from "@wordpress/block-editor";
 
 import {
@@ -24,7 +25,13 @@ import { ButtonIcon } from "../../../UI/Button";
 import { PaddingIcon } from "../../../UI/Icons/Spaces";
 
 const Button = (props) => {
-    const { onChange, value, placeholder, setAttributes, ...attributes } = props;
+    const {
+        onChange,
+        value,
+        placeholder,
+        setAttributes,
+        attributes,
+    } = props;
 
     const {
         isBorderRadiusMenuOpen,
@@ -34,6 +41,7 @@ const Button = (props) => {
         buttonBackgroundColor,
         buttonColor,
         buttonIsClickedLinkSides,
+        buttonTextAlignment,
         buttonPadding,
         paddingSelectUnit,
         buttonPaddingVertical,
@@ -44,6 +52,7 @@ const Button = (props) => {
 
     const [toggleToolbarMenu, setToggleToolbarMenu] = useState(false);
 
+    console.log(toggleToolbarMenu);
 
     // prettier-ignore
     const [isClickedHorizontalField, setIsClickedHorizontalField] = useState(false);
@@ -286,6 +295,12 @@ const Button = (props) => {
                             },
                         ]}
                     >
+                        <AlignmentToolbar
+                            value={buttonTextAlignment}
+                            onChange={(value) =>
+                                setAttributes({ buttonTextAlignment: value })
+                            }
+                        />
                         <ToolbarGroup>
                             <ToolbarButton
                                 icon={CgFormatColor}
@@ -314,7 +329,8 @@ const Button = (props) => {
                 tagName="a"
                 value={value}
                 onChange={onChange}
-                onClick={() => setToggleToolbarMenu(prevToggle => !prevToggle)}
+                onClick={() => setToggleToolbarMenu(true)}
+                onBlur={() => setToggleToolbarMenu(false)}
                 placeholder={__(placeholder, "block-gamblino")}
             />
 

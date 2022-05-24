@@ -71,15 +71,17 @@ const Lists = ({ lists, setAttributes }) => {
                         </li>
                     );
                 })}
-                <Tooltip text={__("Add feature text", "block-gamblino")}>
-                    <button
-                        type="button"
-                        aria-label={__("Add feature text", "block-gamblino")}
-                        onClick={newListHandler}
-                    >
-                        <Icon icon="plus" />
-                    </button>
-                </Tooltip>
+                <li>
+                    <Tooltip text={__("Add feature text", "block-gamblino")}>
+                        <button
+                            type="button"
+                            aria-label={__("Add feature text", "block-gamblino")}
+                            onClick={newListHandler}
+                        >
+                            <Icon icon="plus" />
+                        </button>
+                    </Tooltip>
+                </li>
             </ul>
         </>
     );

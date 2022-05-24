@@ -1,30 +1,46 @@
-.block-insert-review__lists {
-	list-style: none;
-	padding: 0;
-
-	li p {
-		background: #fff;
-		padding: 1em 0;
-		text-indent: 1rem;
-	}
-}
-
-.has-shadow {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-	&.shadow-opacity-10 {
-		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+.wp-block-gamblino-block-insert-review {
+	.block-insert-review__title {
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 
-	&.shadow-opacity-20 {
+	.block-insert-review__description {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+	.block-insert-review__lists {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		margin-top: 1em;
+		padding: 0;
+		list-style: none;
+
+		li p {
+			background: #fff;
+			padding: 1em 0;
+			text-indent: 1rem;
+		}
+	}
+
+	.has-shadow {
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	}
 
-	&.shadow-opacity-30 {
-		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
-	}
+		&.shadow-opacity-10 {
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+		}
 
-	&.shadow-opacity-40 {
-		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+		&.shadow-opacity-20 {
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		}
+
+		&.shadow-opacity-30 {
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+		}
+
+		&.shadow-opacity-40 {
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+		}
 	}
 }
