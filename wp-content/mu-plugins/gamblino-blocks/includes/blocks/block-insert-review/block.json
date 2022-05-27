@@ -45,6 +45,10 @@
 			"type": "string",
 			"default": "left"
 		},
+		"isButtonPaddingMenuOpen": {
+			"type": "boolean",
+			"default": false
+		},
 		"isShadowMenuOpen": {
 			"type": "boolean",
 			"default": false

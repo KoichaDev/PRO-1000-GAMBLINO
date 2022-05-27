@@ -9,6 +9,7 @@ function save({ attributes }) {
 		lists,
 		isShadowMenuOpen,
 		shadowOpacity,
+		isButtonPaddingMenuOpen,
 		buttonText,
 		buttonBorderRadius,
 		buttonBackgroundColor,
