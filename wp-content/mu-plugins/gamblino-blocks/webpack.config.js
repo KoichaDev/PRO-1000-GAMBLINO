@@ -8,5 +8,10 @@ module.exports = {
         'block-info-bonus-review': './includes/blocks/block-info-bonus-review',
         'block-general-information': './includes/blocks/block-general-information',
         'block-insert-review': './includes/blocks/block-insert-review'
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'includes/')
+        }
     }
 };
