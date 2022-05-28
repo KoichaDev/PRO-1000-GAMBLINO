@@ -22,7 +22,7 @@ import { SiShadow } from "react-icons/Si";
 import { AiOutlineBorder } from "react-icons/ai";
 
 import { ButtonIcon } from "@/common/UI/Button";
-import { PaddingIcon } from "@/common/UI/Icons/Spaces";
+import { PaddingIcon } from "@/common/Icons/Spaces";
 
 const withFocusOutside = (WrappedComponent) => {
     return withFocusOutsideHOC(

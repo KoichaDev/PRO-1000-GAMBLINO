@@ -6,7 +6,7 @@ import { __ } from "@wordpress/i18n";
 import { useState, useEffect } from "@wordpress/element";
 import { InspectorControls } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
-import { PaddingIcon } from "@/common/UI/Icons/Spaces";
+import { PaddingIcon } from "@/common/Icons/Spaces";
 
 // UI Component
 import { ButtonIcon } from "@/common/UI/Button";
