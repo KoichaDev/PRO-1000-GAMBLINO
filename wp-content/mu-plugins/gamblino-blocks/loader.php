@@ -20,12 +20,8 @@ class Loader {
 	}
 
 	public static function gamblino_register_blocks_type() {
-		$blocks = [
-			'block-info-bonus-review/',
-			'block-general-information/',
-			'block-insert-review',
-		];
-
+		$blocks = scandir(plugin_dir_path( __FILE__ ) . 'src/blocks');
+		
 		foreach ($blocks as $block) {
 			register_block_type( plugin_dir_path( __FILE__ ) . 'src/blocks/' . $block );
 		}
