@@ -24,34 +24,7 @@ import { AiOutlineBorder } from "react-icons/ai";
 import { ButtonIcon } from "@/common/UI/Button";
 import { PaddingIcon } from "@/common/Icons/Spaces";
 
-const withFocusOutside = (WrappedComponent) => {
-    return withFocusOutsideHOC(
-        class extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    focusOutside: true,
-                };
-            }
-
-            handleFocusOutside() {
-                this.setState({ focusOutside: true });
-            }
-
-            render() {
-                return (
-                    <WrappedComponent
-                        {...this.props}
-                        isFocusOutside={this.state.focusOutside}
-                        setIsFocusOutside={(focusOutside) => {
-                            this.setState({ focusOutside });
-                        }}
-                    />
-                );
-            }
-        }
-    );
-};
+import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
 const Button = (props) => {
     const {
@@ -391,4 +364,4 @@ const Button = (props) => {
     );
 };
 
-export default withFocusOutside(Button);
+export default ElementWithFocusOutside(Button);
