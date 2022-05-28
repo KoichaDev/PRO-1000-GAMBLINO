@@ -10,8 +10,9 @@ import Button from "@/common/wordpress/buttons/Button";
 // WP Block styles
 import "./editor.scss";
 
-const Edit = ({ attributes, setAttributes }) => {
-	const { buttonTextAlignment } = attributes
+const Edit = (props) => {
+	const { attributes, setAttributes } = props
+	const { buttonTextAlignment } = attributes;
 	const titleRef = useRef();
 
 	useEffect(() => {
@@ -37,7 +38,7 @@ const Edit = ({ attributes, setAttributes }) => {
 				placeholder={__("Add description...", "block-gamblino")}
 			/>
 
-			<Lists lists={attributes.lists} setAttributes={setAttributes} />
+			<Lists {...props} />
 
 			<div class={`text-${buttonTextAlignment}`}>
 				<Button

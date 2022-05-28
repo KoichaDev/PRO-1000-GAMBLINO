@@ -3,7 +3,11 @@ import { useState } from "@wordpress/element";
 import { RichText, BlockControls } from "@wordpress/block-editor";
 import { Icon, Tooltip } from "@wordpress/components";
 
-const Lists = ({ lists, setAttributes }) => {
+import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
+
+const Lists = (props) => {
+    const { attributes, setAttributes, isFocusOutside, setIsFocusOutside } = props;
+    const { lists } = attributes;
     const [selectedText, setSelectedText] = useState(undefined);
 
     const onChangeTextHandler = (selectedIndexPosition, key, value) => {
@@ -35,7 +39,7 @@ const Lists = ({ lists, setAttributes }) => {
 
     return (
         <>
-            {lists[selectedText] && (
+            {!isFocusOutside && (
                 <BlockControls
                     controls={[
                         {
@@ -52,7 +56,10 @@ const Lists = ({ lists, setAttributes }) => {
                         <li
                             key={index}
                             onKeyDown={(e) => e.key === "enter" && setSelectedText(index)}
-                            onClick={() => setSelectedText(index)}
+                            onClick={() => {
+                                setSelectedText(index);
+                                setIsFocusOutside(false);
+                            }}
                         >
                             <RichText
                                 tagName="p"
@@ -87,4 +94,4 @@ const Lists = ({ lists, setAttributes }) => {
     );
 };
 
-export default Lists;
+export default ElementWithFocusOutside(Lists);
