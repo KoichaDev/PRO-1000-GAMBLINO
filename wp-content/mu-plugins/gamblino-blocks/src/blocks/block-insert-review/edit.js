@@ -5,7 +5,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 // Components
 import Lists from "./component/Lists";
-import Button from "./component/Button";
+import Button from "@/common/wordpress/buttons/Button";
 
 // WP Block styles
 import "./editor.scss";

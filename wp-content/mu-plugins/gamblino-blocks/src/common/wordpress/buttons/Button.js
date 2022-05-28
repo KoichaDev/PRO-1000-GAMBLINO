@@ -13,18 +13,18 @@ import {
     ToolbarButton,
     ColorPicker,
     RangeControl,
-    withFocusOutside as withFocusOutsideHOC,
 } from "@wordpress/components";
 
 import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
-import { CgFormatColor, CgColorBucket } from "react-icons/cg";
-import { SiShadow } from "react-icons/Si";
-import { AiOutlineBorder } from "react-icons/ai";
 
 import { ButtonIcon } from "@/common/UI/Button";
 import { PaddingIcon } from "@/common/Icons/Spaces";
 
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
+
+import ToolbarBlockControls from "./components/ToolbarBlockControls";
+
+import "./Button.scss";
 
 const Button = (props) => {
     const {
@@ -55,7 +55,6 @@ const Button = (props) => {
         paddingHorizontalSelectUnit,
     } = attributes;
 
-
     // prettier-ignore
     const [isClickedHorizontalField, setIsClickedHorizontalField] = useState(false);
     const [isClickedVerticalField, setIsClickedVerticalField] = useState(false);
@@ -79,12 +78,12 @@ const Button = (props) => {
         });
     };
 
-    const onClickBackgrouncColor = () => {
+    const onClickBackgrouncColorHandler = () => {
         setIsVisibleBackgroundColor((prevIsVisible) => !prevIsVisible);
         setIsVisibleTextColor(false);
     };
 
-    const onClickTextColor = () => {
+    const onClickTextColorHandler = () => {
         setIsVisibleTextColor((prevIsVisible) => !prevIsVisible);
         setIsVisibleBackgroundColor(false);
     };
@@ -275,55 +274,11 @@ const Button = (props) => {
                         )}
                     </InspectorControls>
 
-                    <BlockControls
-                        controls={[
-                            {
-                                icon: PaddingIcon,
-                                title: __("Padding", "block-gamblino"),
-                                onClick: () => {
-                                    setAttributes({
-                                        isButtonPaddingMenuOpen: !isButtonPaddingMenuOpen,
-                                    });
-                                },
-                                isActive: isButtonPaddingMenuOpen,
-                            },
-                            {
-                                icon: SiShadow,
-                                title: __("Shadow", "block-gamblino"),
-                                onClick: () => {
-                                    setAttributes({ isShadowMenuOpen: !isShadowMenuOpen });
-                                },
-                                isActive: isShadowMenuOpen,
-                            },
-                            {
-                                icon: AiOutlineBorder,
-                                title: __("Border Radius", "block-gamblino"),
-                                onClick: () => {
-                                    setAttributes({
-                                        isBorderRadiusMenuOpen: !isBorderRadiusMenuOpen,
-                                    });
-                                },
-                                isActive: isBorderRadiusMenuOpen,
-                            },
-                        ]}
-                    >
-                        <AlignmentToolbar
-                            value={buttonTextAlignment}
-                            onChange={(value) =>
-                                setAttributes({ buttonTextAlignment: value })
-                            }
-                        />
-                        <ToolbarGroup>
-                            <ToolbarButton
-                                icon={CgFormatColor}
-                                onClick={onClickTextColor}
-                            ></ToolbarButton>
-                            <ToolbarButton
-                                icon={CgColorBucket}
-                                onClick={onClickBackgrouncColor}
-                            ></ToolbarButton>
-                        </ToolbarGroup>
-                    </BlockControls>
+                    <ToolbarBlockControls
+                        {...props}
+                        onClickBackgrouncColor={onClickBackgrouncColorHandler}
+                        onClickTextColor={onClickTextColorHandler}
+                    />
                 </>
             )}
 
