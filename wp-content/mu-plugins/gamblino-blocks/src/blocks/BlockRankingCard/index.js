@@ -1,9 +1,12 @@
 // WP Block Dependencies
 import { registerBlockType } from "@wordpress/blocks";
 
+// Registered Block types for InnerBlocks
+import "./components/registerBlockTypes";
+
 // Internal Parent Block Dependencies
-import Edit from "./edit";
-import save from "./save";
+import CardBlockEdit from "./CardBlockEdit";
+import CardBlockSave from "./CardBlockSave";
 
 // block meta data
 import json from './block.json'
@@ -15,7 +18,7 @@ const { name, ...settings } = json
 
 registerBlockType(name, {
 	...settings,
-	edit: Edit,
-	save,
+	edit: CardBlockEdit,
+	save: CardBlockSave,
 });
 

@@ -5,7 +5,7 @@
 	"title": "Block Ranking Card",
 	"category": "gamblino",
 	"icon": "smiley",
-	"description": "Gamblino Info Bonus Review Block",
+	"description": "Show Gamblino Ranking Card what is the best",
 	"keywords": ["gamblino", "ranking", "card"],
 	"supports": {
 		"html": false,
