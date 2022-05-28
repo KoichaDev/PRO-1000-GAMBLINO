@@ -7,7 +7,8 @@ module.exports = {
     entry: {
         'block-info-bonus-review': './src/blocks/block-info-bonus-review',
         'block-general-information': './src/blocks/block-general-information',
-        'block-insert-review': './src/blocks/block-insert-review'
+        'block-insert-review': './src/blocks/block-insert-review',
+        'block-ranking-card': './src/blocks/rankingCardBlock'
     },
     resolve: {
         alias: {

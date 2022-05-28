@@ -1,0 +1,19 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/ranking-card",
+	"version": "1.0.0",
+	"title": "Block Ranking Card",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Gamblino Info Bonus Review Block",
+	"keywords": ["gamblino", "ranking", "card"],
+	"supports": {
+		"html": false,
+		"classname": false
+	},
+	"textdomain": "block-gamblino",
+	"attributes": {},
+	"editorScript": "file:../../../build/block-ranking-card.js",
+	"editorStyle": "file:../../../build/block-ranking-card.css",
+	"style": "file:../../../build/style-block-ranking-card.css"
+}
