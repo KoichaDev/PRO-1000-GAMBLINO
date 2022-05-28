@@ -3,22 +3,65 @@ import { __ } from "@wordpress/i18n";
 import { PanelBody, RangeControl } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/block-editor";
 
+import { useState } from "@wordpress/element";
+
+import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
+
+import { PaddingIcon } from "@/common/Icons/Spaces";
+
 import { ButtonIcon } from "@/common/UI/Button";
 
-const InspectorControls = (props) => {
+const MenuInspectorControls = (props) => {
     const {
-        isButtonPaddingMenuOpen,
-        paddingIconContent,
+        onChangeButtonBorderRadius,
+        onChangeShadowOpacity,
+        attributes,
+        setAttributes,
+    } = props;
+
+    const {
+        isBorderRadiusMenuOpen,
+        isShadowMenuOpen,
+        shadowOpacity,
+        buttonBorderRadius,
         buttonIsClickedLinkSides,
+        isButtonPaddingMenuOpen,
         buttonPadding,
         paddingSelectUnit,
         buttonPaddingVertical,
-        setIsClickedVerticalField,
-        setIsClickedHorizontalField,
-        isBorderRadiusMenuOpen,
-        isShadowMenuOpen,
-        buttonBorderRadius,
-    } = props;
+        paddingVerticalSelectUnit,
+        buttonPaddingHorizontal,
+        paddingHorizontalSelectUnit,
+    } = attributes;
+
+    // prettier-ignore
+    const [isClickedHorizontalField, setIsClickedHorizontalField] = useState(false);
+    const [isClickedVerticalField, setIsClickedVerticalField] = useState(false);
+
+    let paddingIconContent = "";
+
+    if (!buttonIsClickedLinkSides) {
+        paddingIconContent = <PaddingIcon />;
+    } else {
+        if (isClickedVerticalField) {
+            paddingIconContent = (
+                <PaddingIcon
+                    fillTop={isClickedVerticalField ? "#C5C7C9" : ""}
+                    fillBottom={isClickedVerticalField ? "#C5C7C9" : ""}
+                />
+            );
+        } else {
+            paddingIconContent = (
+                <PaddingIcon
+                    fillTop="#1e1e1e"
+                    fillBottom="#1e1e1e"
+                    fillLeft={isClickedHorizontalField ? "#C5C7C9" : ""}
+                    fillRight={isClickedHorizontalField ? "#C5C7C9" : ""}
+                />
+            );
+        }
+    }
+
     return (
         <>
             <InspectorControls>
@@ -135,10 +178,10 @@ const InspectorControls = (props) => {
                         <RangeControl
                             label={__("Border Radius")}
                             value={buttonBorderRadius}
-                            onChange={onChangeButtonBorderRadiusHandler}
+                            onChange={onChangeButtonBorderRadius}
                             step={1}
                             min={1}
-                            max={10}
+                            max={40}
                         />
                     </PanelBody>
                 )}
@@ -148,7 +191,7 @@ const InspectorControls = (props) => {
                         <RangeControl
                             label={__("Shadow Opacity", "block-gamblino")}
                             value={shadowOpacity}
-                            onChange={onChangeShadowOpacityHandler}
+                            onChange={onChangeShadowOpacity}
                             step={10}
                             min={10}
                             max={40}
@@ -160,4 +203,4 @@ const InspectorControls = (props) => {
     );
 };
 
-export default InspectorControls;
+export default MenuInspectorControls;

@@ -1,27 +1,12 @@
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
-import {
-    RichText,
-    BlockControls,
-    InspectorControls,
-    AlignmentToolbar,
-} from "@wordpress/block-editor";
+import { RichText } from "@wordpress/block-editor";
 
-import {
-    PanelBody,
-    ToolbarGroup,
-    ToolbarButton,
-    ColorPicker,
-    RangeControl,
-} from "@wordpress/components";
-
-import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
-
-import { ButtonIcon } from "@/common/UI/Button";
-import { PaddingIcon } from "@/common/Icons/Spaces";
+import { ColorPicker } from "@wordpress/components";
 
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
+import MenuInspectorControls from "./components/MenuInspectorControls";
 import ToolbarBlockControls from "./components/ToolbarBlockControls";
 
 import "./Button.scss";
@@ -38,15 +23,12 @@ const Button = (props) => {
     } = props;
 
     const {
-        isBorderRadiusMenuOpen,
         isShadowMenuOpen,
         shadowOpacity,
         buttonBorderRadius,
         buttonBackgroundColor,
         buttonColor,
         buttonIsClickedLinkSides,
-        buttonTextAlignment,
-        isButtonPaddingMenuOpen,
         buttonPadding,
         paddingSelectUnit,
         buttonPaddingVertical,
@@ -54,10 +36,6 @@ const Button = (props) => {
         buttonPaddingHorizontal,
         paddingHorizontalSelectUnit,
     } = attributes;
-
-    // prettier-ignore
-    const [isClickedHorizontalField, setIsClickedHorizontalField] = useState(false);
-    const [isClickedVerticalField, setIsClickedVerticalField] = useState(false);
 
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
@@ -100,30 +78,6 @@ const Button = (props) => {
         });
     };
 
-    let paddingIconContent = "";
-
-    if (!buttonIsClickedLinkSides) {
-        paddingIconContent = <PaddingIcon />;
-    } else {
-        if (isClickedVerticalField) {
-            paddingIconContent = (
-                <PaddingIcon
-                    fillTop={isClickedVerticalField ? "#C5C7C9" : ""}
-                    fillBottom={isClickedVerticalField ? "#C5C7C9" : ""}
-                />
-            );
-        } else {
-            paddingIconContent = (
-                <PaddingIcon
-                    fillTop="#1e1e1e"
-                    fillBottom="#1e1e1e"
-                    fillLeft={isClickedHorizontalField ? "#C5C7C9" : ""}
-                    fillRight={isClickedHorizontalField ? "#C5C7C9" : ""}
-                />
-            );
-        }
-    }
-
     let paddingType = "";
 
     if (!buttonIsClickedLinkSides) {
@@ -138,141 +92,11 @@ const Button = (props) => {
         <>
             {!isFocusOutside && (
                 <>
-                    <InspectorControls>
-                        {isButtonPaddingMenuOpen && (
-                            <PanelBody>
-                                <p>
-                                    <strong>Padding</strong>
-                                </p>
-                                <div className="controls-padding">
-                                    {paddingIconContent}
-
-                                    {!buttonIsClickedLinkSides && (
-                                        <div className="controls-padding_input-component">
-                                            <input
-                                                type="number"
-                                                value={buttonPadding}
-                                                onChange={(e) =>
-                                                    setAttributes({ buttonPadding: +e.target.value })
-                                                }
-                                            />
-                                            <select
-                                                aria-label={__("Select unit", "block-gamblino")}
-                                                value={paddingSelectUnit}
-                                                onChange={(e) =>
-                                                    setAttributes({ paddingSelectUnit: e.target.value })
-                                                }
-                                            >
-                                                <option value="px">px</option>
-                                                <option value="em">em</option>
-                                            </select>
-                                        </div>
-                                    )}
-                                    {buttonIsClickedLinkSides && (
-                                        <div className="controls-padding_input-component">
-                                            <input
-                                                type="number"
-                                                aria-label="Vertical"
-                                                title="Vertical"
-                                                value={buttonPaddingVertical}
-                                                onChange={(e) => {
-                                                    setAttributes({
-                                                        buttonPaddingVertical: +e.target.value,
-                                                    });
-                                                }}
-                                                onClick={() => {
-                                                    setIsClickedVerticalField(true);
-                                                    setIsClickedHorizontalField(false);
-                                                }}
-                                            />
-                                            <select
-                                                aria-label={__("Select unit", "block-gamblino")}
-                                                value={paddingVerticalSelectUnit}
-                                                onChange={(e) =>
-                                                    setAttributes({
-                                                        paddingVerticalSelectUnit: e.target.value,
-                                                    })
-                                                }
-                                            >
-                                                <option value="px">px</option>
-                                                <option value="em">em</option>
-                                            </select>
-                                        </div>
-                                    )}
-                                    {buttonIsClickedLinkSides && (
-                                        <div className="controls-padding_input-component">
-                                            <input
-                                                type="number"
-                                                aria-label="Horizontal"
-                                                title="Horizontal"
-                                                value={buttonPaddingHorizontal}
-                                                onChange={(e) => {
-                                                    setAttributes({
-                                                        buttonPaddingHorizontal: +e.target.value,
-                                                    });
-                                                }}
-                                                onClick={() => {
-                                                    setIsClickedHorizontalField(true);
-                                                    setIsClickedVerticalField(false);
-                                                }}
-                                            />
-                                            <select
-                                                aria-label={__("Select unit", "block-gamblino")}
-                                                value={paddingHorizontalSelectUnit}
-                                                onChange={(e) =>
-                                                    setAttributes({
-                                                        paddingHorizontalSelectUnit: e.target.value,
-                                                    })
-                                                }
-                                            >
-                                                <option value="px">px</option>
-                                                <option value="em">em</option>
-                                            </select>
-                                        </div>
-                                    )}
-                                    <ButtonIcon
-                                        onClick={() => {
-                                            setAttributes({
-                                                buttonIsClickedLinkSides: !buttonIsClickedLinkSides,
-                                            });
-                                        }}
-                                    >
-                                        {buttonIsClickedLinkSides ? (
-                                            <MdOutlineLinkOff />
-                                        ) : (
-                                            <MdOutlineLink />
-                                        )}
-                                    </ButtonIcon>
-                                </div>
-                            </PanelBody>
-                        )}
-
-                        {isBorderRadiusMenuOpen && (
-                            <PanelBody title={__("Border Radius")}>
-                                <RangeControl
-                                    label={__("Border Radius")}
-                                    value={buttonBorderRadius}
-                                    onChange={onChangeButtonBorderRadiusHandler}
-                                    step={1}
-                                    min={1}
-                                    max={10}
-                                />
-                            </PanelBody>
-                        )}
-
-                        {isShadowMenuOpen && (
-                            <PanelBody title={__("Shadow Settings", "block-gamblino")}>
-                                <RangeControl
-                                    label={__("Shadow Opacity", "block-gamblino")}
-                                    value={shadowOpacity}
-                                    onChange={onChangeShadowOpacityHandler}
-                                    step={10}
-                                    min={10}
-                                    max={40}
-                                />
-                            </PanelBody>
-                        )}
-                    </InspectorControls>
+                    <MenuInspectorControls
+                        onChangeButtonBorderRadius={onChangeButtonBorderRadiusHandler}
+                        onChangeShadowOpacity={onChangeShadowOpacityHandler}
+                        {...props}
+                    />
 
                     <ToolbarBlockControls
                         {...props}
