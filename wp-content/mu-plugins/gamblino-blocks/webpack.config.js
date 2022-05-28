@@ -5,13 +5,13 @@ const path = require("path");
 module.exports = {
     ...defaultConfig,
     entry: {
-        'block-info-bonus-review': './includes/blocks/block-info-bonus-review',
-        'block-general-information': './includes/blocks/block-general-information',
-        'block-insert-review': './includes/blocks/block-insert-review'
+        'block-info-bonus-review': './src/blocks/block-info-bonus-review',
+        'block-general-information': './src/blocks/block-general-information',
+        'block-insert-review': './src/blocks/block-insert-review'
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'includes/')
+            '@': path.resolve(__dirname, 'src/')
         }
     }
 };

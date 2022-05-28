@@ -3,7 +3,7 @@ import useSelectorsBorderRadius from '../../../../block-wordpress-components/blo
 import useSelectorsPadding from '../../../../block-wordpress-components/block-inspector-controls/Padding/hooks/useSelectorsPadding';
 
 // React component
-import { ButtonPrimary } from '../../../../../UI/Button';
+import { ButtonPrimary } from '@/common/UI/Button';
 
 
 const ButtonSave = () => {

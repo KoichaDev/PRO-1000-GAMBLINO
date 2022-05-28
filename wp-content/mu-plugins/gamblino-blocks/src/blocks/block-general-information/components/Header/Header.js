@@ -7,11 +7,11 @@ import { useEffect } from "@wordpress/element";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 // WordPress components
-import BlockMediaPlaceholder from "../../../block-wordpress-components/block-media/BlockMediaPlaceholder";
+import BlockMediaPlaceholder from "@/blocks/block-wordpress-components/block-media/BlockMediaPlaceholder";
 
 // hooks
-import { useGetCurrentPostAuthorName } from "../../../../hooks/useSelectCore";
-import { useGetCurrentPost } from "../../../../hooks/useSelectCoreEditor";
+import { useGetCurrentPostAuthorName } from "@/hooks/useSelectCore";
+import { useGetCurrentPost } from "@/hooks/useSelectCoreEditor";
 
 // styles
 import "./HeaderEdit.scss";
