@@ -2,11 +2,12 @@ import { __ } from "@wordpress/i18n";
 
 import { MediaPlaceholder } from "@wordpress/block-editor";
 import { isBlobURL } from "@wordpress/blob";
-import { Spinner } from "@wordpress/components";
+import { Spinner, withNotices } from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
 
-const ImageEdit = ({ attributes, setAttributes }) => {
+const ImageEdit = (props) => {
+    const { attributes, setAttributes, noticeOperations, noticeUI } = props;
     const { url, alt } = attributes;
 
     const onSelectImageHandler = (image) => {
@@ -29,8 +30,13 @@ const ImageEdit = ({ attributes, setAttributes }) => {
         setAttributes({
             id: undefined,
             url: newUrl,
-            alt: ''
+            alt: "",
         });
+    };
+
+    const onUploadErrorHandler = (message) => {
+        noticeOperations.removeAllNotices();
+        noticeOperations.createErrorNotice(message);
     };
 
     return (
@@ -41,7 +47,6 @@ const ImageEdit = ({ attributes, setAttributes }) => {
                         }`}
                 >
                     <img src={url} alt={alt} />
-
                     {isBlobURL(url) && <Spinner />}
                 </div>
             )}
@@ -50,7 +55,8 @@ const ImageEdit = ({ attributes, setAttributes }) => {
                 icon={BsImage}
                 onSelect={onSelectImageHandler}
                 onSelectURL={onSelectURLHandler}
-                onError={(value) => console.log(value)}
+                onError={onUploadErrorHandler}
+                notices={noticeUI}
                 accept="image/*"
                 allowedTypes={["image"]}
                 disableMediaButtons={url ? true : false}
@@ -59,4 +65,4 @@ const ImageEdit = ({ attributes, setAttributes }) => {
     );
 };
 
-export default ImageEdit;
+export default withNotices(ImageEdit);
