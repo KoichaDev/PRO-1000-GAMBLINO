@@ -8,9 +8,9 @@ import { BsImage } from "react-icons/bs";
 
 const ImageEdit = ({ attributes, setAttributes }) => {
     const { url, alt } = attributes;
-    console.log(attributes);
-    const onSelectImageHandler = (value) => {
-        if (!value || !value.url) {
+
+    const onSelectImageHandler = (image) => {
+        if (!image || !image.url) {
             setAttributes({
                 id: undefined,
                 url: undefined,
@@ -19,16 +19,27 @@ const ImageEdit = ({ attributes, setAttributes }) => {
         }
 
         setAttributes({
-            id: value.id,
-            url: value.url,
-            alt: value.alt,
+            id: image.id,
+            url: image.url,
+            alt: image.alt,
+        });
+    };
+
+    const onSelectURLHandler = (newUrl) => {
+        setAttributes({
+            id: undefined,
+            url: newUrl,
+            alt: ''
         });
     };
 
     return (
         <>
             {url && (
-                <div className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""}`}>
+                <div
+                    className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""
+                        }`}
+                >
                     <img src={url} alt={alt} />
 
                     {isBlobURL(url) && <Spinner />}
@@ -38,7 +49,7 @@ const ImageEdit = ({ attributes, setAttributes }) => {
             <MediaPlaceholder
                 icon={BsImage}
                 onSelect={onSelectImageHandler}
-                onSelectURL={(value) => console.log(value)}
+                onSelectURL={onSelectURLHandler}
                 onError={(value) => console.log(value)}
                 accept="image/*"
                 allowedTypes={["image"]}
