@@ -2,7 +2,11 @@ import { __ } from "@wordpress/i18n";
 
 import { useState, useEffect } from "@wordpress/element";
 
-import { MediaPlaceholder } from "@wordpress/block-editor";
+import {
+    MediaPlaceholder,
+    BlockControls,
+    MediaReplaceFlow,
+} from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 
@@ -27,12 +31,12 @@ const ImageEdit = (props) => {
 
     useEffect(() => {
         if (isBlobURL(url)) {
-            setblobURL(url)
+            setblobURL(url);
         } else {
             revokeBlobURL(blobURL);
-            setblobURL()
+            setblobURL();
         }
-    }, [url])
+    }, [url]);
 
     const onSelectImageHandler = (image) => {
         if (!image || !image.url) {
@@ -65,6 +69,25 @@ const ImageEdit = (props) => {
 
     return (
         <>
+            <BlockControls group="inline">
+                <MediaReplaceFlow
+                    name={__(
+                        <>
+                            <BsImage /> Replace Image
+                        </>,
+                        "block-gamblino"
+                    )}
+                    mediaId={id}
+                    mediaURL={url}
+                    onSelect={onSelectImageHandler}
+                    onSelectURL={onSelectURLHandler}
+                    onError={onUploadErrorHandler}
+                    notices={noticeUI}
+                    accept="image/*"
+                    allowedTypes={["image"]}
+                />
+            </BlockControls>
+
             {url && (
                 <div
                     className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""
