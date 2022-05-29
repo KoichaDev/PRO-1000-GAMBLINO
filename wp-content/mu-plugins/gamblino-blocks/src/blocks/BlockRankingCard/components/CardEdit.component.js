@@ -4,11 +4,7 @@ import Image from "./Image/Image.component";
 
 const CardEdit = (props) => {
     return (
-        <div
-            {...useBlockProps({
-                className: "[ ranking-card ]",
-            })}
-        >
+        <div {...useBlockProps()} className="[ ranking-card ]">
             <Image {...props} />
         </div>
     );
