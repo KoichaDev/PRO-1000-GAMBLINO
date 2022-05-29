@@ -20,6 +20,20 @@
 		[data-type="gamblino-block/ranking-card"] {
 			max-width: none;
 			margin: 0;
+
+			.media-image {
+				position: relative;
+
+				&.is-loading img {
+					opacity: 0.3;
+				}
+
+				.components-spinner {
+					position: absolute;
+					inset: 0;
+					margin: auto;
+				}
+			}
 		}
 
 		> [data-type="gamblino-block/ranking-card"] {
