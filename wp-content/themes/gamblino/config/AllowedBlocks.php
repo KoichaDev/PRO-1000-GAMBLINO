@@ -22,6 +22,7 @@ class AllowedBlocks {
                     'gamblino-block/general-information',
                     'gamblino-block/insert-review',
                     'gamblino-block/table',
+                    "gamblino-block/ranking-cards",
                     "gamblino-block/ranking-card"
                 );
         

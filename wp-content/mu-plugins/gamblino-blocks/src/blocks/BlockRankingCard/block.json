@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "gamblino-block/ranking-card",
+	"name": "gamblino-block/ranking-cards",
 	"version": "1.0.0",
 	"title": "Block Ranking Card",
 	"category": "gamblino",
@@ -18,7 +18,7 @@
 			"default": 3
 		}
 	},
-	"editorScript": "file:../../../build/block-ranking-card.js",
-	"editorStyle": "file:../../../build/block-ranking-card.css",
-	"style": "file:../../../build/style-block-ranking-card.css"
+	"editorScript": "file:../../../build/block-ranking-cards.js",
+	"editorStyle": "file:../../../build/block-ranking-cards.css",
+	"style": "file:../../../build/style-block-ranking-cards.css"
 }

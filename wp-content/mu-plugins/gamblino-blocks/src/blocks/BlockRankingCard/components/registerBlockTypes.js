@@ -6,10 +6,10 @@ import { IoMdSquare } from "react-icons/io";
 import CardEdit from "./CardEdit.component";
 import CardSave from "./CardSave.component";
 
-registerBlockType("gamblino/ranking-card", {
+registerBlockType("gamblino-block/ranking-card", {
     title: __("Ranking Card", "block-gamblino"),
     description: __("Ranking Card Container", "block-gamblino"),
-    parent: ["gamblino-block/ranking-card"],
+    parent: ["gamblino-block/ranking-cards"],
     supports: {
         html: false,
         classname: false,

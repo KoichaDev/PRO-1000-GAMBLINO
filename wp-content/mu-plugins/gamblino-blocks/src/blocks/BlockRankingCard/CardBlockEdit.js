@@ -14,10 +14,10 @@ import "./editor.scss";
 const EditCardBlock = ({ attributes, setAttributes }) => {
 	const { columns } = attributes;
 
-	const innerContentTemplate = [
-		["gamblino/ranking-card"],
-		["gamblino/ranking-card"],
-		["gamblino/ranking-card"],
+	const templateContent = [
+		["gamblino-block/ranking-card"],
+		["gamblino-block/ranking-card"],
+		["gamblino-block/ranking-card"],
 	];
 
 	return (
@@ -39,8 +39,8 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 			</InspectorControls>
 
 			<InnerBlocks
-				allowedBlocks={["gamblino/ranking-card"]}
-				template={innerContentTemplate}
+				allowedBlocks={["gamblino-block/ranking-card"]}
+				template={templateContent}
 				orientation={columns === 1 ? "vertical" : "horizontal"}
 			/>
 		</div>

@@ -1,0 +1,29 @@
+.wp-block-gamblino-block-ranking-cards {
+	display: block;
+
+	@for $i from 1 through 6 {
+		&.columns-#{$i} {
+			> .block-editor-inner-blocks
+				> .block-editor-block-list__layout
+				> [data-type="gamblino-block/ranking-card"] {
+				width: calc(100% / #{$i} - 20px);
+			}
+		}
+	}
+
+	> .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -10px;
+		margin-right: -10px;
+
+		[data-type="gamblino-block/ranking-card"] {
+			max-width: none;
+			margin: 0;
+		}
+
+		> [data-type="gamblino-block/ranking-card"] {
+			margin: 10px;
+		}
+	}
+}

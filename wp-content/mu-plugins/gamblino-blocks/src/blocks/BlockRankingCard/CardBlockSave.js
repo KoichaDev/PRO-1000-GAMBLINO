@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 const SaveCardBlock = ({ attributes }) => {

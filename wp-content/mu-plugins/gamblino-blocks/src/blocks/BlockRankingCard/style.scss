@@ -1,4 +1,4 @@
-.wp-block-gamblino-block-ranking-card {
+.wp-block-gamblino-block-ranking-cards {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 2em;
@@ -10,7 +10,7 @@
 
 	@for $i from 1 through 6 {
 		&.columns-#{$i} {
-			.wp-block-gamblino-ranking-card {
+			.wp-block-gamblino-block-ranking-card {
 				width: calc(100% / #{$i} - 20px);
 			}
 		}
