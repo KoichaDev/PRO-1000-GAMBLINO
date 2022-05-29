@@ -5,7 +5,8 @@ function gamblino_block_editor_theme_setup() {
 	add_editor_style( 'style-editor.css' );
 	
 	
-	add_theme_support( 'align-wide');
+	add_theme_support( 'align-wide' );
+
 
 	add_theme_support( 'custom-spacing' );
 }

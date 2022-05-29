@@ -4,9 +4,8 @@ const SaveCardBlock = ({ attributes }) => {
 	const { columns } = attributes;
 	return (
 		<div
-			{...useBlockProps.save({
-				className: `columns-${columns}`,
-			})}
+			{...useBlockProps.save()}
+			className={`[ ranking-card-block ] [ columns-${columns} ]`}
 		>
 			<InnerBlocks.Content />
 		</div>

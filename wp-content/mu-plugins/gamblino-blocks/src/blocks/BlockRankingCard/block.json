@@ -9,7 +9,8 @@
 	"keywords": ["gamblino", "ranking", "card"],
 	"supports": {
 		"html": false,
-		"alignWide": true
+		"align": ["wide", "full"],
+		"className": false
 	},
 	"textdomain": "block-gamblino",
 	"attributes": {

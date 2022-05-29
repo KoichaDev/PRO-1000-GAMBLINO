@@ -23,7 +23,7 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 	return (
 		<div
 			{...useBlockProps({
-				className: `columns-${columns}`,
+				className: `[ ranking-card-block ] [ columns-${columns} ]`,
 			})}
 		>
 			<InspectorControls>
