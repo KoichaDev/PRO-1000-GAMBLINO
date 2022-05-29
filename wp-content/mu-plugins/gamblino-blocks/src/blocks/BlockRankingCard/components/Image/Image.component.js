@@ -8,9 +8,10 @@ import {
     MediaReplaceFlow,
 } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
-import { Spinner, withNotices } from "@wordpress/components";
+import { Spinner, withNotices, ToolbarButton } from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa";
 
 const ImageEdit = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
@@ -67,26 +68,44 @@ const ImageEdit = (props) => {
         noticeOperations.createErrorNotice(message);
     };
 
+    const removeImageHandler = () => {
+        setAttributes({
+            id: undefined,
+            url: undefined,
+            alt: "",
+        });
+    };
+
     return (
         <>
-            <BlockControls group="inline">
-                <MediaReplaceFlow
-                    name={__(
-                        <>
-                            <BsImage /> Replace Image
-                        </>,
-                        "block-gamblino"
-                    )}
-                    mediaId={id}
-                    mediaURL={url}
-                    onSelect={onSelectImageHandler}
-                    onSelectURL={onSelectURLHandler}
-                    onError={onUploadErrorHandler}
-                    notices={noticeUI}
-                    accept="image/*"
-                    allowedTypes={["image"]}
-                />
-            </BlockControls>
+            {url && (
+                <BlockControls group="inline">
+                    <MediaReplaceFlow
+                        name={__(
+                            <>
+                                <BsImage /> Replace Image
+                            </>,
+                            "block-gamblino"
+                        )}
+                        mediaId={id}
+                        mediaURL={url}
+                        onSelect={onSelectImageHandler}
+                        onSelectURL={onSelectURLHandler}
+                        onError={onUploadErrorHandler}
+                        notices={noticeUI}
+                        accept="image/*"
+                        allowedTypes={["image"]}
+                    />
+                    <ToolbarButton onClick={removeImageHandler}>
+                        {__(
+                            <>
+                                <FaTrash /> Remove Image
+                            </>,
+                            "block-gamblino"
+                        )}
+                    </ToolbarButton>
+                </BlockControls>
+            )}
 
             {url && (
                 <div
