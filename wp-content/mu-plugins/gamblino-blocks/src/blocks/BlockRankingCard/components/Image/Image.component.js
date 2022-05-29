@@ -6,9 +6,16 @@ import {
     MediaPlaceholder,
     BlockControls,
     MediaReplaceFlow,
+    InspectorControls,
 } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
-import { Spinner, withNotices, ToolbarButton } from "@wordpress/components";
+import {
+    Spinner,
+    withNotices,
+    ToolbarButton,
+    PanelBody,
+    TextareaControl,
+} from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
@@ -76,8 +83,25 @@ const ImageEdit = (props) => {
         });
     };
 
+    const onChangeAltTextHandler = (newAlt) => { };
+
     return (
         <>
+            <InspectorControls>
+                <PanelBody title={__("Image Settings", "block-gamblino")}>
+                    {url && !isBlobURL(url) && (
+                        <TextareaControl
+                            label={__("Alt Text", "block-gamblino")}
+                            value={alt}
+                            onChange={(value) => setAttributes({ alt: value })}
+                            help={__(
+                                "Alternative text describes your image to people can't see it. Add a short description with its key details. This alt text will only change for this block, and not in general whole image of the media replacement of it",
+                                "block-gamblino"
+                            )}
+                        />
+                    )}
+                </PanelBody>
+            </InspectorControls>
             {url && (
                 <BlockControls group="inline">
                     <MediaReplaceFlow
