@@ -1,13 +1,15 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
-const CardEdit = () => {
+import Image from "./Image/Image.component";
+
+const CardEdit = (props) => {
     return (
         <div
             {...useBlockProps({
                 className: "[ ranking-card ]",
             })}
         >
-            CardEdit.component
+            <Image {...props} />
         </div>
     );
 };
