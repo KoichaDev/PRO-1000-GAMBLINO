@@ -1,23 +1,21 @@
 import { registerBlockType } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 
-import { CgImage } from "react-icons/cg";
+import { IoMdSquare } from "react-icons/io";
 
-import IMAGE_ATTRIBUTES from "./Image/image.attributes";
-import ImageEdit from "./Image/ImageEdit.component";
-import ImageSave from "./Image/ImageSave.component";
+import CardEdit from "./CardEdit.component";
+import CardSave from "./CardSave.component";
 
-registerBlockType("gamblino/ranking-card-image", {
-    title: __("Image", "block-gamblino"),
-    description: __("Image for the card", "block-gamblino"),
-    parent: ["gamblino/ranking-card"],
+registerBlockType("gamblino/ranking-card", {
+    title: __("Ranking Card", "block-gamblino"),
+    description: __("Ranking Card Container", "block-gamblino"),
+    parent: ["gamblino-block/ranking-card"],
     supports: {
         html: false,
+        classname: false,
     },
-    icon: CgImage,
-    attributes: {
-        ...IMAGE_ATTRIBUTES,
-    },
-    edit: ImageEdit,
-    save: ImageSave,
+    icon: IoMdSquare,
+    attributes: {},
+    edit: CardEdit,
+    save: CardSave,
 });

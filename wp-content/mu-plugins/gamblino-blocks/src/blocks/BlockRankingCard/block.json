@@ -9,10 +9,15 @@
 	"keywords": ["gamblino", "ranking", "card"],
 	"supports": {
 		"html": false,
-		"classname": false
+		"alignWide": true
 	},
 	"textdomain": "block-gamblino",
-	"attributes": {},
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 3
+		}
+	},
 	"editorScript": "file:../../../build/block-ranking-card.js",
 	"editorStyle": "file:../../../build/block-ranking-card.css",
 	"style": "file:../../../build/style-block-ranking-card.css"

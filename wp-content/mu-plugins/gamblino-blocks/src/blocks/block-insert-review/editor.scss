@@ -1,18 +1,29 @@
-.block-insert-review__lists {
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-	padding: 0;
-	list-style: none;
+.wp-block-gamblino-block-ranking-card {
+	display: block;
 
-	li p {
-		background: #fff;
-		padding: 1em 0;
-		text-indent: 1rem;
+	@for $i from 1 through 6 {
+		&.columns-#{$i} {
+			> .block-editor-inner-blocks
+				> .block-editor-block-list__layout
+				> [data-type="gamblino/ranking-card"] {
+				width: calc(100% / #{$i} - 20px);
+			}
+		}
 	}
-}
 
-.block-insert-review__button-row {
-	display: inline-block;
-	padding: 0 !important;
+	> .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -10px;
+		margin-right: -10px;
+
+		[data-type="gamblino/ranking-card"] {
+			max-width: none;
+			margin: 0;
+		}
+
+		> [data-type="gamblino/ranking-card"] {
+			margin: 10px;
+		}
+	}
 }

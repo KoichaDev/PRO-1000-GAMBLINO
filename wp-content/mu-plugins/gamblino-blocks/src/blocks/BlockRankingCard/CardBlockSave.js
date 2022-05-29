@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
 
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-
-const SaveCardBlock = () => {
+const SaveCardBlock = ({ attributes }) => {
+	const { columns } = attributes;
 	return (
-		<section {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({
+				className: `columns-${columns}`,
+			})}
+		>
 			<InnerBlocks.Content />
-		</section>
-	)
-}
+		</div>
+	);
+};
 
-export default SaveCardBlock
+export default SaveCardBlock;
