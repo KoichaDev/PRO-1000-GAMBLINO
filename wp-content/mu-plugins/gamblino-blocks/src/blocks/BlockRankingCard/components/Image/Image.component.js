@@ -2,11 +2,14 @@ import { __ } from "@wordpress/i18n";
 
 import { useState, useEffect } from "@wordpress/element";
 
+import { useSelect } from "@wordpress/data";
+
 import {
     MediaPlaceholder,
     BlockControls,
     MediaReplaceFlow,
     InspectorControls,
+    store as BlockEditorStore,
 } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import {
@@ -15,15 +18,51 @@ import {
     ToolbarButton,
     PanelBody,
     TextareaControl,
+    SelectControl,
 } from "@wordpress/components";
 
-import { BsImage } from "react-icons/bs";
+import { BsCheckLg, BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
 const ImageEdit = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
     const { id, url, alt } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
+
+    const imageObject = useSelect(
+        (select) => {
+            const { getMedia } = select("core");
+            return id ? getMedia(id) : null;
+        },
+        [id]
+    );
+
+    const imageSizes = useSelect((select) => {
+        return select(BlockEditorStore).getSettings().imageSizes;
+    }, []);
+
+    const getImageSizeOptions = () => {
+        if (!imageObject) return [];
+
+        const options = [];
+
+        const sizes = imageObject.media_details.sizes;
+
+        for (const key in sizes) {
+            const size = sizes[key];
+
+            const imageSize = imageSizes.find((size) => size.slug === key);
+
+            if (imageSize) {
+                options.push({
+                    label: imageSize.name,
+                    value: size.source_url,
+                });
+            }
+        }
+
+        return options;
+    };
 
     // Checking if the image is a blob url and if it is, it is setting the url to undefined and the alt
     // to an empty string. This is to avoid the spinner logo to "hang up" when reloading the current window of our block.
@@ -83,12 +122,19 @@ const ImageEdit = (props) => {
         });
     };
 
-    const onChangeAltTextHandler = (newAlt) => { };
-
     return (
         <>
             <InspectorControls>
                 <PanelBody title={__("Image Settings", "block-gamblino")}>
+                    {id && (
+                        <SelectControl
+                            label={__("Image Size", "block-gamblino")}
+                            options={getImageSizeOptions()}
+                            value={url}
+                            onChange={(newUrl) => setAttributes({ url: newUrl })}
+                        />
+                    )}
+
                     {url && !isBlobURL(url) && (
                         <TextareaControl
                             label={__("Alt Text", "block-gamblino")}
