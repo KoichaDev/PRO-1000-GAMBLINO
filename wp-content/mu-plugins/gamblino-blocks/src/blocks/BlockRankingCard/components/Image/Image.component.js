@@ -1,14 +1,38 @@
 import { __ } from "@wordpress/i18n";
 
+import { useState, useEffect } from "@wordpress/element";
+
 import { MediaPlaceholder } from "@wordpress/block-editor";
-import { isBlobURL } from "@wordpress/blob";
+import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
 
 const ImageEdit = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
-    const { url, alt } = attributes;
+    const { id, url, alt } = attributes;
+    const [blobURL, setblobURL] = useState(undefined);
+
+    // Checking if the image is a blob url and if it is, it is setting the url to undefined and the alt
+    // to an empty string. This is to avoid the spinner logo to "hang up" when reloading the current window of our block.
+    // This edge case will happen if the user is trying to upload an image and reload the website right away
+    useEffect(() => {
+        if (!id && isBlobURL(url)) {
+            setAttributes({
+                url: undefined,
+                alt: "",
+            });
+        }
+    }, []);
+
+    useEffect(() => {
+        if (isBlobURL(url)) {
+            setblobURL(url)
+        } else {
+            revokeBlobURL(blobURL);
+            setblobURL()
+        }
+    }, [url])
 
     const onSelectImageHandler = (image) => {
         if (!image || !image.url) {
