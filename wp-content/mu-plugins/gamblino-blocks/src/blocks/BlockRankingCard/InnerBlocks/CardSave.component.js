@@ -1,13 +1,14 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 const CardSave = ({ attributes }) => {
     const { url, alt, id } = attributes;
 
     return (
-        <div className="[ ranking-card ]">
+        <div {...useBlockProps.save()} className="[ ranking-card ]">
             {url && (
                 <img src={url} alt={alt} className={id ? `wp-image-${id}` : null} />
             )}
+            <InnerBlocks.Content />
         </div>
     );
 };
