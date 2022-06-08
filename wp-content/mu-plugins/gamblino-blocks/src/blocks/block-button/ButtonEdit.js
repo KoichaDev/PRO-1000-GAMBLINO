@@ -1,20 +1,18 @@
 import { __ } from "@wordpress/i18n";
-import { useState } from "@wordpress/element";
-import { RichText } from "@wordpress/block-editor";
+import { useState, Fragment } from "@wordpress/element";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 import { ColorPicker } from "@wordpress/components";
 
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
-import MenuInspectorControls from "./components/MenuInspectorControls";
-import ToolbarBlockControls from "./components/ToolbarBlockControls";
+import InspectorPanelControls from "./components/InspectorPanelControls";
+import ToolbarGroupControl from "./components/ToolbarGroupControl";
 
-import "./Button.scss";
+import "./editor.scss";
 
 const Button = (props) => {
     const {
-        onChange,
-        value,
         placeholder,
         setAttributes,
         attributes,
@@ -23,6 +21,8 @@ const Button = (props) => {
     } = props;
 
     const {
+        buttonText,
+        buttonTextAlignment,
         isShadowMenuOpen,
         shadowOpacity,
         buttonBorderRadius,
@@ -89,16 +89,18 @@ const Button = (props) => {
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
     return (
-        <>
+        <div {...useBlockProps({
+            className: `text-${buttonTextAlignment}`
+        })}>
             {!isFocusOutside && (
                 <>
-                    <MenuInspectorControls
+                    <InspectorPanelControls
                         onChangeButtonBorderRadius={onChangeButtonBorderRadiusHandler}
                         onChangeShadowOpacity={onChangeShadowOpacityHandler}
                         {...props}
                     />
 
-                    <ToolbarBlockControls
+                    <ToolbarGroupControl
                         {...props}
                         onClickBackgrouncColor={onClickBackgrouncColorHandler}
                         onClickTextColor={onClickTextColorHandler}
@@ -116,8 +118,8 @@ const Button = (props) => {
                     padding: paddingType,
                 }}
                 tagName="a"
-                value={value}
-                onChange={onChange}
+                value={buttonText}
+                onChange={(value) => setAttributes({ buttonText: value })}
                 onClick={() => setIsFocusOutside(false)}
                 placeholder={__(placeholder, "block-gamblino")}
             />
@@ -139,7 +141,7 @@ const Button = (props) => {
                     defaultValue={buttonBackgroundColor}
                 />
             )}
-        </>
+        </div>
     );
 };
 

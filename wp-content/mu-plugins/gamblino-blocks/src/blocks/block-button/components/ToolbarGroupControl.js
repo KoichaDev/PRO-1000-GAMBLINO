@@ -13,7 +13,7 @@ import {
     ToolbarButton,
 } from "@wordpress/components";
 
-const ToolbarBlockControls = (props) => {
+const ToolbarGroupControl = (props) => {
     const {
         attributes,
         setAttributes,
@@ -79,4 +79,4 @@ const ToolbarBlockControls = (props) => {
     );
 };
 
-export default ToolbarBlockControls;
+export default ToolbarGroupControl;

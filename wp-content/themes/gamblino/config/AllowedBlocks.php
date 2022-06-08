@@ -23,7 +23,8 @@ class AllowedBlocks {
                     'gamblino-block/insert-review',
                     'gamblino-block/table',
                     "gamblino-block/ranking-cards",
-                    "gamblino-block/ranking-card"
+                    "gamblino-block/ranking-card",
+                    'gamblino-block/button',
                 );
         
             }

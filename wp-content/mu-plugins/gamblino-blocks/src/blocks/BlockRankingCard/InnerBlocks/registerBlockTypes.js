@@ -3,8 +3,8 @@ import { __ } from "@wordpress/i18n";
 
 import { IoMdSquare } from "react-icons/io";
 
-import CardEdit from "./CardEdit.component";
-import CardSave from "./CardSave.component";
+import CardEdit from "./CardEdit";
+import CardSave from "./CardSave";
 
 import IMAGE_ATTRIBUTES from "./Image/image.attributes";
 

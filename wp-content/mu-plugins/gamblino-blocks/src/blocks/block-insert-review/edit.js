@@ -5,7 +5,6 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 // Components
 import Lists from "./component/Lists";
-import Button from "@/common/wordpress/buttons/Button";
 
 // WP Block styles
 import "./editor.scss";
@@ -40,15 +39,15 @@ const Edit = (props) => {
 
 			<Lists {...props} />
 
-			<div class={`text-${buttonTextAlignment}`}>
-				<Button
+			<div class={`[ text-${buttonTextAlignment} ]`}>
+				{/* <Button
 					className="mt-9"
 					onChange={(value) => setAttributes({ buttonText: value })}
 					value={attributes.buttonText}
 					placeholder="Add text.."
 					attributes={attributes}
 					setAttributes={setAttributes}
-				/>
+				/> */}
 			</div>
 		</section>
 	);

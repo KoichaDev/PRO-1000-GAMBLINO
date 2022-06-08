@@ -11,7 +11,7 @@ import { PaddingIcon } from "@/common/Icons/Spaces";
 
 import { ButtonIcon } from "@/common/UI/Button";
 
-const MenuInspectorControls = (props) => {
+const InspectorPanelControls = (props) => {
     const {
         onChangeButtonBorderRadius,
         onChangeShadowOpacity,
@@ -39,7 +39,6 @@ const MenuInspectorControls = (props) => {
     const [isClickedVerticalField, setIsClickedVerticalField] = useState(false);
 
     let paddingIconContent = "";
-
     if (!buttonIsClickedLinkSides) {
         paddingIconContent = <PaddingIcon />;
     } else {
@@ -61,7 +60,6 @@ const MenuInspectorControls = (props) => {
             );
         }
     }
-
     return (
         <>
             <InspectorControls>
@@ -203,4 +201,4 @@ const MenuInspectorControls = (props) => {
     );
 };
 
-export default MenuInspectorControls;
+export default InspectorPanelControls;

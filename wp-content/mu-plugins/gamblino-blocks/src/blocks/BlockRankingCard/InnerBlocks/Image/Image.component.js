@@ -21,7 +21,7 @@ import {
     SelectControl,
 } from "@wordpress/components";
 
-import { BsCheckLg, BsImage } from "react-icons/bs";
+import { BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
 const ImageEdit = (props) => {

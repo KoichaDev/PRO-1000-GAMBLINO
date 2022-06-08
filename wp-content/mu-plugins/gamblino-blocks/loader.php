@@ -21,10 +21,12 @@ class Loader {
 
 	public static function gamblino_register_blocks_type() {
 		$blocks = scandir(plugin_dir_path( __FILE__ ) . 'src/blocks');
+		$blocksCommon = scandir(plugin_dir_path( __FILE__ ) . 'src/blocks/common');
+
 		
 		foreach ($blocks as $block) {
 			register_block_type( plugin_dir_path( __FILE__ ) . 'src/blocks/' . $block );
-		}
+		}     
 	}
 
 	public static function enqueueStyles() {

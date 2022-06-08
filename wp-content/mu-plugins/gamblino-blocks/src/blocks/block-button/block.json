@@ -1,0 +1,84 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/button",
+	"version": "1.0.0",
+	"title": "Block Button",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Just a simple Gamblino Block Button",
+	"keywords": ["gamblino", "button", "link"],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "block-gamblino",
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"source": "html",
+			"selector": "a"
+		},
+		"buttonTextAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"isButtonPaddingMenuOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"isShadowMenuOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"shadowOpacity": {
+			"type": "number",
+			"default": 30
+		},
+		"isBorderRadiusMenuOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonIsClickedLinkSides": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonPadding": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonPaddingHorizontal": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingHorizontalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonPaddingVertical": {
+			"type": "number",
+			"default": 12
+		},
+		"paddingVerticalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"buttonBorderRadius": {
+			"type": "number",
+			"default": 1
+		},
+		"buttonBackgroundColor": {
+			"type": "string",
+			"default": "#6FCF97"
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "#fff"
+		}
+	},
+	"editorScript": "file:../../../build/block-button.js",
+	"editorStyle": "file:../../../build/block-button.css",
+	"style": "file:../../../build/style-block-button.css"
+}
