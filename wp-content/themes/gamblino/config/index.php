@@ -2,7 +2,6 @@
 
 new EnqueueScripts();
 new EnqueueStyles();
-AllowedBlocks::init();
 
 
 $customPostTypeMenu = new CustomPostTypeMenu();

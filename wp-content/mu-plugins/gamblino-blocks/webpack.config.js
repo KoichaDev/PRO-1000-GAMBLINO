@@ -9,7 +9,7 @@ module.exports = {
         'block-general-information': './src/blocks/block-general-information',
         'block-insert-review': './src/blocks/block-insert-review',
         'block-ranking-cards': './src/blocks/BlockRankingCard',
-        'block-button': './src/blocks/block-button',
+        'block-button': './src/blocks/common/block-button',
     },
     resolve: {
         alias: {
