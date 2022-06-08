@@ -1,14 +1,14 @@
+// Wordpress components
 import { __ } from "@wordpress/i18n";
-
 import { PanelBody, RangeControl } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/block-editor";
-
 import { useState } from "@wordpress/element";
 
+// React Icons
 import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
 
+// UI Icons
 import { PaddingIcon } from "@/common/Icons/Spaces";
-
 import { ButtonIcon } from "@/common/UI/Button";
 
 const InspectorPanelControls = (props) => {

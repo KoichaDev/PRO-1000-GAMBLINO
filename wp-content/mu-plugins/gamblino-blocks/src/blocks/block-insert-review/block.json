@@ -9,7 +9,8 @@
 	"keywords": ["gamblino", "bonus", "info", "review", "insert"],
 	"supports": {
 		"html": false,
-		"classname": false
+		"classname": false,
+		"align": ["wide", "full"]
 	},
 	"textdomain": "block-gamblino",
 	"attributes": {

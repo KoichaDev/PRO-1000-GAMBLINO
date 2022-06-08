@@ -1,38 +1,9 @@
 // WP Block Dependencies
 import { __ } from "@wordpress/i18n";
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import { useBlockProps, RichText, InnerBlocks } from "@wordpress/block-editor";
 
 function save({ attributes }) {
-	const {
-		title,
-		description,
-		lists,
-		isShadowMenuOpen,
-		shadowOpacity,
-		isButtonPaddingMenuOpen,
-		buttonText,
-		buttonBorderRadius,
-		buttonBackgroundColor,
-		buttonColor,
-		buttonIsClickedLinkSides,
-		buttonTextAlignment,
-		buttonPadding,
-		paddingSelectUnit,
-		buttonPaddingHorizontal,
-		paddingHorizontalSelectUnit,
-		buttonPaddingVertical,
-		paddingVerticalSelectUnit,
-	} = attributes;
-
-	let paddingType = "";
-
-	if (!buttonIsClickedLinkSides) {
-		paddingType = `${+buttonPadding}${paddingSelectUnit}`;
-	} else {
-		paddingType = `${+buttonPaddingVertical}${paddingVerticalSelectUnit} ${+buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
-	}
-
-	const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
+	const { title, description, lists } = attributes;
 
 	return (
 		<section {...useBlockProps.save()}>
@@ -63,25 +34,7 @@ function save({ attributes }) {
 					})}
 				</ul>
 			)}
-
-			{buttonText ? (
-				<div class={`text-${buttonTextAlignment}`}>
-					<RichText.Content
-						{...useBlockProps.save({
-							className: `mt-9 ${shadowClass} shadow-opacity-${shadowOpacity}`,
-							style: {
-								display: "inline-block",
-								padding: paddingType,
-								color: buttonColor,
-								backgroundColor: buttonBackgroundColor,
-								borderRadius: `${buttonBorderRadius}px`,
-							},
-						})}
-						tagName="a"
-						value={buttonText}
-					/>
-				</div>
-			) : null}
+			<InnerBlocks.Content />
 		</section>
 	);
 }

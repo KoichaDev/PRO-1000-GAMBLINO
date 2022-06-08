@@ -1,17 +1,15 @@
+// Wordpress components
 import { __ } from "@wordpress/i18n";
-
 import { BlockControls, AlignmentToolbar } from "@wordpress/block-editor";
+import { ToolbarGroup, ToolbarButton } from "@wordpress/components";
 
+// React Icons
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
 import { SiShadow } from "react-icons/Si";
 import { AiOutlineBorder } from "react-icons/ai";
 
+// UI Icon
 import { PaddingIcon } from "@/common/Icons/Spaces";
-
-import {
-    ToolbarGroup,
-    ToolbarButton,
-} from "@wordpress/components";
 
 const ToolbarGroupControl = (props) => {
     const {

@@ -1,19 +1,21 @@
+// Wordpress components
 import { __ } from "@wordpress/i18n";
-import { useState, Fragment } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import { RichText, useBlockProps } from "@wordpress/block-editor";
-
 import { ColorPicker } from "@wordpress/components";
 
+// HOC Component
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
+// Button components
 import InspectorPanelControls from "./components/InspectorPanelControls";
 import ToolbarGroupControl from "./components/ToolbarGroupControl";
 
+// Button editor styling
 import "./editor.scss";
 
 const Button = (props) => {
     const {
-        placeholder,
         setAttributes,
         attributes,
         isFocusOutside,
@@ -89,9 +91,11 @@ const Button = (props) => {
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
     return (
-        <div {...useBlockProps({
-            className: `text-${buttonTextAlignment}`
-        })}>
+        <div
+            {...useBlockProps({
+                className: `text-${buttonTextAlignment}`,
+            })}
+        >
             {!isFocusOutside && (
                 <>
                     <InspectorPanelControls
@@ -117,11 +121,13 @@ const Button = (props) => {
                     borderRadius: `${buttonBorderRadius}px`,
                     padding: paddingType,
                 }}
+                aria-label={__("Button text", "block-gamblino")}
                 tagName="a"
                 value={buttonText}
                 onChange={(value) => setAttributes({ buttonText: value })}
                 onClick={() => setIsFocusOutside(false)}
-                placeholder={__(placeholder, "block-gamblino")}
+                placeholder={__("text...", "block-gamblino")}
+                allowedFormats={["core/bold", "core/italic", "core/link"]}
             />
 
             {isVisibleTextColor && (

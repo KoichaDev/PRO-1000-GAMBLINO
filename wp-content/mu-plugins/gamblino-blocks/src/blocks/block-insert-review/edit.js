@@ -1,7 +1,7 @@
 // WP Block Dependencies
 import { useEffect, useRef } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import { useBlockProps, RichText, InnerBlocks } from "@wordpress/block-editor";
 
 // Components
 import Lists from "./component/Lists";
@@ -10,8 +10,7 @@ import Lists from "./component/Lists";
 import "./editor.scss";
 
 const Edit = (props) => {
-	const { attributes, setAttributes } = props
-	const { buttonTextAlignment } = attributes;
+	const { attributes, setAttributes } = props;
 	const titleRef = useRef();
 
 	useEffect(() => {
@@ -39,16 +38,7 @@ const Edit = (props) => {
 
 			<Lists {...props} />
 
-			<div class={`[ text-${buttonTextAlignment} ]`}>
-				{/* <Button
-					className="mt-9"
-					onChange={(value) => setAttributes({ buttonText: value })}
-					value={attributes.buttonText}
-					placeholder="Add text.."
-					attributes={attributes}
-					setAttributes={setAttributes}
-				/> */}
-			</div>
+			<InnerBlocks template={[["gamblino-block/button"]]} />
 		</section>
 	);
 };
