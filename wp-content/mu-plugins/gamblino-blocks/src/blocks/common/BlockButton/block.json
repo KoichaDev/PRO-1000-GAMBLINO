@@ -11,8 +11,13 @@
 		"html": false,
 		"align": ["wide", "full"]
 	},
+
 	"textdomain": "block-gamblino",
 	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
 		"buttonText": {
 			"type": "string",
 			"source": "html",
