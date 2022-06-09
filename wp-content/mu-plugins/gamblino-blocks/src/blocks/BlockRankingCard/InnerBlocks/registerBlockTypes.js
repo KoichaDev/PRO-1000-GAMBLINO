@@ -6,7 +6,6 @@ import { IoMdSquare } from "react-icons/io";
 import CardEdit from "./CardEdit";
 import CardSave from "./CardSave";
 
-import IMAGE_ATTRIBUTES from "./Image/image.attributes";
 
 registerBlockType("gamblino-block/ranking-card", {
     title: __("Ranking Card", "block-gamblino"),
@@ -17,9 +16,6 @@ registerBlockType("gamblino-block/ranking-card", {
         classname: false,
     },
     icon: IoMdSquare,
-    attributes: {
-        ...IMAGE_ATTRIBUTES,
-    },
     edit: CardEdit,
     save: CardSave,
 });

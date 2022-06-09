@@ -5,6 +5,7 @@ import { useState, useEffect } from "@wordpress/element";
 import { useSelect } from "@wordpress/data";
 
 import {
+    useBlockProps,
     MediaPlaceholder,
     BlockControls,
     MediaReplaceFlow,
@@ -24,7 +25,7 @@ import {
 import { BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
-const ImageEdit = (props) => {
+const EditBlockImage = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
     const { id, url, alt } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
@@ -123,7 +124,7 @@ const ImageEdit = (props) => {
     };
 
     return (
-        <>
+        <div {...useBlockProps()}>
             <InspectorControls>
                 <PanelBody title={__("Image Settings", "block-gamblino")}>
                     {id && (
@@ -197,8 +198,8 @@ const ImageEdit = (props) => {
                 allowedTypes={["image"]}
                 disableMediaButtons={url ? true : false}
             />
-        </>
+        </div>
     );
 };
 
-export default withNotices(ImageEdit);
+export default withNotices(EditBlockImage);

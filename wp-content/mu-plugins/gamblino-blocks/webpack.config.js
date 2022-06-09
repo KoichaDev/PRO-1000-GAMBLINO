@@ -10,6 +10,7 @@ module.exports = {
         'block-insert-review': './src/blocks/block-insert-review',
         'block-ranking-cards': './src/blocks/BlockRankingCard',
         'block-button': './src/blocks/common/BlockButton',
+        'block-image': './src/blocks/common/BlockImage',
     },
     resolve: {
         alias: {

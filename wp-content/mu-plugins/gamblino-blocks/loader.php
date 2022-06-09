@@ -93,6 +93,8 @@ class Loader {
                     "gamblino-block/ranking-cards",
                     "gamblino-block/ranking-card",
                     'gamblino-block/button',
+                    'gamblino-block/image',
+
                 );
         
             }

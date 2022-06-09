@@ -1,0 +1,37 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/image",
+	"version": "1.0.0",
+	"title": "Block Image",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Just a simple Gamblino Image Block",
+	"keywords": ["gamblino", "image", "preview"],
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+
+	"textdomain": "block-gamblino",
+	"attributes": {
+		"id": {
+			"type": "number"
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		}
+	},
+	"editorScript": "file:../../../../build/block-image.js",
+	"editorStyle": "file:../../../../build/block-image.css",
+	"style": "file:../../../../build/style-block-image.css"
+}

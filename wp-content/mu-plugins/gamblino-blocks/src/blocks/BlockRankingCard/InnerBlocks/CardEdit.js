@@ -1,6 +1,5 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-import Image from "./Image/Image.component";
 
 import "./CardEdit.scss";
 
@@ -14,6 +13,8 @@ const CardEdit = (props) => {
             },
         ],
         ["core/paragraph", { placeholder: "text..." }],
+        ["gamblino-block/button", { placeholder: "text...", className: '[ hello-world ]' }],
+
     ];
     return (
         <div
