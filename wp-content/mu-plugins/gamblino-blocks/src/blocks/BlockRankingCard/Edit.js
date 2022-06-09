@@ -39,7 +39,7 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 			</InspectorControls>
 
 			<InnerBlocks
-				allowedBlocks={["gamblino-block/ranking-card"]}
+				allowedBlocks={(["gamblino-block/ranking-card"])}
 				template={templateContent}
 				orientation={columns === 1 ? "vertical" : "horizontal"}
 			/>
