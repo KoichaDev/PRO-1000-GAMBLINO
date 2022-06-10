@@ -11,20 +11,15 @@ import {
     PanelBody,
     TextareaControl,
     SelectControl,
-    RangeControl,
 } from "@wordpress/components";
 
 import ButtonImageSizePanelBody from "./PanelBody/ButtonImageSizePanelBody";
 import PositionPanelBody from "./PanelBody/PositionPanelBody";
+import MarginPanelBody from "./PanelBody/MarginPanelBody";
 
 const ControlsInspectorPanel = ({ ...props }) => {
     const { attributes, setAttributes } = props;
-    const {
-        id,
-        url,
-        alt,
-        margin,
-    } = attributes;
+    const { id, url, alt } = attributes;
 
     const imageObject = useSelect(
         (select) => {
@@ -86,51 +81,8 @@ const ControlsInspectorPanel = ({ ...props }) => {
                 )}
             </PanelBody>
             <ButtonImageSizePanelBody {...props} />
-            <PanelBody title={__("Image Spacing", "block-gamblino")}>
-                <p>
-                    <strong>Margin</strong>
-                </p>
-                <RangeControl
-                    label={__("Top", "team-members")}
-                    value={margin.top}
-                    onChange={(value) =>
-                        setAttributes({ margin: { ...margin, top: value } })
-                    }
-                    min={-9999}
-                    max={9999}
-                />
-                <RangeControl
-                    label={__("Right", "team-members")}
-                    value={margin.right}
-                    onChange={(value) =>
-                        setAttributes({ margin: { ...margin, right: value } })
-                    }
-                    min={-9999}
-                    max={9999}
-                />
-                <RangeControl
-                    label={__("Bottom", "team-members")}
-                    value={margin.bottom}
-                    onChange={(value) =>
-                        setAttributes({
-                            margin: { ...margin, bottom: value },
-                        })
-                    }
-                    min={-9999}
-                    max={9999}
-                />{" "}
-                <RangeControl
-                    label={__("Left", "team-members")}
-                    value={margin.left}
-                    onChange={(value) =>
-                        setAttributes({ margin: { ...margin, left: value } })
-                    }
-                    min={-9999}
-                    max={9999}
-                />
-            </PanelBody>
+            <MarginPanelBody {...props} />
             <PositionPanelBody {...props} />
-
         </InspectorControls>
     );
 };
