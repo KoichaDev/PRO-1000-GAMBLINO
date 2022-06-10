@@ -20,6 +20,19 @@ const MarginSpacing = ({ ...props }) => {
         return options;
     };
 
+    let minRangeValue = 0;
+    let maxRangeValue = 0;
+
+    if (marginUnit === "px") {
+        minRangeValue = -9999;
+        maxRangeValue = 9999;
+    }
+
+    if (marginUnit === "em" || marginUnit === "rem") {
+        minRangeValue = 0;
+        maxRangeValue = 20;
+    }
+
     return (
         <PanelBody title={__("Margin", "block-gamblino")}>
             <SelectControl
@@ -34,8 +47,8 @@ const MarginSpacing = ({ ...props }) => {
                 onChange={(value) =>
                     setAttributes({ margin: { ...margin, top: value } })
                 }
-                min={-9999}
-                max={9999}
+                min={minRangeValue}
+                max={maxRangeValue}
             />
             <RangeControl
                 label={__("Right", "team-members")}
@@ -43,8 +56,8 @@ const MarginSpacing = ({ ...props }) => {
                 onChange={(value) =>
                     setAttributes({ margin: { ...margin, right: value } })
                 }
-                min={-9999}
-                max={9999}
+                min={minRangeValue}
+                max={maxRangeValue}
             />
             <RangeControl
                 label={__("Bottom", "team-members")}
@@ -54,8 +67,8 @@ const MarginSpacing = ({ ...props }) => {
                         margin: { ...margin, bottom: value },
                     })
                 }
-                min={-9999}
-                max={9999}
+                min={minRangeValue}
+                max={maxRangeValue}
             />{" "}
             <RangeControl
                 label={__("Left", "team-members")}
@@ -63,8 +76,8 @@ const MarginSpacing = ({ ...props }) => {
                 onChange={(value) =>
                     setAttributes({ margin: { ...margin, left: value } })
                 }
-                min={-9999}
-                max={9999}
+                min={minRangeValue}
+                max={maxRangeValue}
             />
         </PanelBody>
     );
