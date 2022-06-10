@@ -1,6 +1,11 @@
 .ranking-card-block {
 	display: block;
 
+	.wp-columns {
+		flex-direction: column !important;
+		margin: 0 !important;
+	}
+
 	@for $i from 1 through 6 {
 		&.columns-#{$i} {
 			> .block-editor-inner-blocks

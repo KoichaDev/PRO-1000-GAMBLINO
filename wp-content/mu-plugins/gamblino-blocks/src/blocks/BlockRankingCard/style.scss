@@ -8,6 +8,10 @@
 	margin-left: -10px;
 	margin-right: -10px;
 
+	.wp-columns {
+		flex-direction: column !important;
+	}
+
 	@for $i from 1 through 6 {
 		&.columns-#{$i} {
 			.wp-block-gamblino-block-ranking-card {

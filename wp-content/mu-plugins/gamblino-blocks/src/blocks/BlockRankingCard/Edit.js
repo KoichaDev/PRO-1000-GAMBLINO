@@ -14,6 +14,7 @@ import "./editor.scss";
 const EditCardBlock = ({ attributes, setAttributes }) => {
 	const { columns } = attributes;
 
+	// prettier-ignore
 	const templateContent = [
 		["gamblino-block/ranking-card"],
 		["gamblino-block/ranking-card"],
@@ -39,7 +40,7 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 			</InspectorControls>
 
 			<InnerBlocks
-				allowedBlocks={(["gamblino-block/ranking-card"])}
+				allowedBlocks={["gamblino-block/ranking-card"]}
 				template={templateContent}
 				orientation={columns === 1 ? "vertical" : "horizontal"}
 			/>

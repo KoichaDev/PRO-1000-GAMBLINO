@@ -1,0 +1,18 @@
+.ranking-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.ranking-card__top-image {
+		position: absolute;
+		left: 27.5%;
+		bottom: 100%;
+		margin-bottom: -1em;
+	}
+
+	.ranking-card__content-image img {
+		margin-top: 1em;
+	}
+}

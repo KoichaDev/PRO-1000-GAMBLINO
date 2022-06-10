@@ -33,6 +33,10 @@
 		"imageDimension": {
 			"type": "string",
 			"default": "100%"
+		},
+		"imageSizeVariant": {
+			"type": "string",
+			"default": "primary"
 		}
 	},
 	"editorScript": "file:../../../../build/block-image.js",

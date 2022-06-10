@@ -28,14 +28,36 @@ import { FaTrash } from "react-icons/fa";
 
 const EditBlockImage = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
-    const { id, url, alt, imageDimension, imageSizeVariant } = attributes;
+    const {
+        id,
+        url,
+        alt,
+        imageDimension,
+        imageSizeVariant,
+    } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
 
     const [buttons, setButtons] = useState({
-        twentyFive: { id: 1, label: "25%", value: imageDimension === "25%" ? true : false },
-        fifty: { id: 2, label: "50%", value: imageDimension === "50%" ? true : false },
-        seevntyFive: { id: 3, label: "75%", value: imageDimension === "75%" ? true : false },
-        oneHundred: { id: 4, label: "100%", value: imageDimension === "100%" ? true : false },
+        twentyFive: {
+            id: 1,
+            label: "25%",
+            value: imageDimension === "25%" ? true : false,
+        },
+        fifty: {
+            id: 2,
+            label: "50%",
+            value: imageDimension === "50%" ? true : false,
+        },
+        seevntyFive: {
+            id: 3,
+            label: "75%",
+            value: imageDimension === "75%" ? true : false,
+        },
+        oneHundred: {
+            id: 4,
+            label: "100%",
+            value: imageDimension === "100%" ? true : false,
+        },
     });
 
     const imageObject = useSelect(
@@ -131,7 +153,6 @@ const EditBlockImage = (props) => {
         });
     };
 
-
     const setSelected = (id) => {
         setButtons((currentButtons) => {
             return Object.fromEntries(
@@ -143,13 +164,13 @@ const EditBlockImage = (props) => {
         });
     };
 
-
-    const getVariantButtonTypes = (value) => (!value ? "small" : imageSizeVariant);
+    const getVariantButtonTypes = (value) =>
+        !value ? "small" : imageSizeVariant;
 
     const buttonImageHandler = (button) => {
-        setAttributes({ imageDimension: button.label })
-        setSelected(button.id)
-    }
+        setAttributes({ imageDimension: button.label });
+        setSelected(button.id);
+    };
 
     return (
         <div {...useBlockProps()}>
@@ -166,7 +187,7 @@ const EditBlockImage = (props) => {
 
                     {url && !isBlobURL(url) && (
                         <TextareaControl
-                            label={__("Alt Text", "block-gamblino")}
+                            label={__("Alt text (alternative text)", "block-gamblino")}
                             value={alt}
                             onChange={(value) => setAttributes({ alt: value })}
                             help={__(
