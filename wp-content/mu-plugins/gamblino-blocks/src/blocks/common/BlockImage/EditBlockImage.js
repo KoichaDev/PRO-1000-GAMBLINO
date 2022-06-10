@@ -1,6 +1,7 @@
 import { __ } from "@wordpress/i18n";
 
 import { useState, useEffect } from "@wordpress/element";
+import { Button, ButtonGroup } from "@wordpress/components";
 
 import { useSelect } from "@wordpress/data";
 
@@ -27,8 +28,15 @@ import { FaTrash } from "react-icons/fa";
 
 const EditBlockImage = (props) => {
     const { attributes, setAttributes, noticeOperations, noticeUI } = props;
-    const { id, url, alt } = attributes;
+    const { id, url, alt, imageDimension, imageSizeVariant } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
+
+    const [buttons, setButtons] = useState({
+        twentyFive: { id: 1, label: "25%", value: imageDimension === "25%" ? true : false },
+        fifty: { id: 2, label: "50%", value: imageDimension === "50%" ? true : false },
+        seevntyFive: { id: 3, label: "75%", value: imageDimension === "75%" ? true : false },
+        oneHundred: { id: 4, label: "100%", value: imageDimension === "100%" ? true : false },
+    });
 
     const imageObject = useSelect(
         (select) => {
@@ -123,6 +131,26 @@ const EditBlockImage = (props) => {
         });
     };
 
+
+    const setSelected = (id) => {
+        setButtons((currentButtons) => {
+            return Object.fromEntries(
+                Object.entries(currentButtons).map(([key, button]) => {
+                    const newValue = button.value ? false : id === button.id;
+                    return [key, { ...button, value: newValue }];
+                })
+            );
+        });
+    };
+
+
+    const getVariantButtonTypes = (value) => (!value ? "small" : imageSizeVariant);
+
+    const buttonImageHandler = (button) => {
+        setAttributes({ imageDimension: button.label })
+        setSelected(button.id)
+    }
+
     return (
         <div {...useBlockProps()}>
             <InspectorControls>
@@ -147,6 +175,22 @@ const EditBlockImage = (props) => {
                             )}
                         />
                     )}
+                </PanelBody>
+
+                <PanelBody title={__("Image Dimension", "block-gamblino")}>
+                    <ButtonGroup>
+                        {Object.values(buttons).map((button) => {
+                            return (
+                                <Button
+                                    key={button.label}
+                                    variant={getVariantButtonTypes(button.value)}
+                                    onClick={buttonImageHandler.bind(null, button)}
+                                >
+                                    {button.label}
+                                </Button>
+                            );
+                        })}
+                    </ButtonGroup>
                 </PanelBody>
             </InspectorControls>
             {url && (
@@ -183,7 +227,7 @@ const EditBlockImage = (props) => {
                     className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""
                         }`}
                 >
-                    <img src={url} alt={alt} />
+                    <img src={url} alt={alt} style={{ width: imageDimension }} />
                     {isBlobURL(url) && <Spinner />}
                 </div>
             )}

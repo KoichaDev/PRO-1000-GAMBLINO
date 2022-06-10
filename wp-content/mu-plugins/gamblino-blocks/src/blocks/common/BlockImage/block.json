@@ -29,6 +29,10 @@
 			"selector": "img",
 			"attribute": "alt",
 			"default": ""
+		},
+		"imageDimension": {
+			"type": "string",
+			"default": "100%"
 		}
 	},
 	"editorScript": "file:../../../../build/block-image.js",
