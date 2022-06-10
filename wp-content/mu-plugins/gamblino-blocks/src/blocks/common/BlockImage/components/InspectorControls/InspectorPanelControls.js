@@ -1,31 +1,21 @@
 import { __ } from "@wordpress/i18n";
 
-import { useState, useEffect } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 
 import { useSelect } from "@wordpress/data";
-import { Button, ButtonGroup, Panel } from "@wordpress/components";
+import { Button, ButtonGroup } from "@wordpress/components";
 
 import {
-    useBlockProps,
-    MediaPlaceholder,
-    BlockControls,
-    MediaReplaceFlow,
     InspectorControls,
     store as BlockEditorStore,
 } from "@wordpress/block-editor";
-import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
+import { isBlobURL } from "@wordpress/blob";
 import {
-    Spinner,
-    withNotices,
-    ToolbarButton,
     PanelBody,
     TextareaControl,
     SelectControl,
     RangeControl,
 } from "@wordpress/components";
-
-import { BsImage } from "react-icons/bs";
-import { FaTrash } from "react-icons/fa";
 
 const InspectorPanelControls = ({ ...props }) => {
     const { attributes, setAttributes } = props;
@@ -270,7 +260,8 @@ const InspectorPanelControls = ({ ...props }) => {
             </PanelBody>
 
             {positionAbsoluteConfigurationContent}
-        </InspectorControls>)
-}
+        </InspectorControls>
+    );
+};
 
-export default InspectorPanelControls
+export default InspectorPanelControls;
