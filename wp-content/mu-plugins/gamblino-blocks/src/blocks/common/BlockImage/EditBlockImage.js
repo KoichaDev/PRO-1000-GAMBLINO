@@ -38,10 +38,10 @@ const EditBlockImage = (props) => {
         displayPosition,
         positionType,
         positionValue,
+        margin,
     } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
 
-    console.log(positionValue);
     const [buttons, setButtons] = useState({
         twentyFive: {
             id: 1,
@@ -64,8 +64,6 @@ const EditBlockImage = (props) => {
             value: imageDimension === "100%" ? true : false,
         },
     });
-
-    console.log(positionValue);
 
     const imageObject = useSelect(
         (select) => {
@@ -248,6 +246,13 @@ const EditBlockImage = (props) => {
         left: `${positionValue.left}%`,
     };
 
+    const marginStyle = {
+        marginTop: `${margin.top}px`,
+        marginRight: `${margin.right}px`,
+        marginBottom: `${margin.bottom}px`,
+        marginLeft: `${margin.left}px`,
+    };
+
     return (
         <div {...useBlockProps()}>
             <InspectorControls>
@@ -287,6 +292,49 @@ const EditBlockImage = (props) => {
                             );
                         })}
                     </ButtonGroup>
+                </PanelBody>
+                <PanelBody title={__("Image Spacing", "block-gamblino")}>
+                    <p>
+                        <strong>Margin</strong>
+                    </p>
+                    <RangeControl
+                        label={__("Top", "team-members")}
+                        value={margin.top}
+                        onChange={(value) =>
+                            setAttributes({ margin: { ...margin, top: value } })
+                        }
+                        min={-9999}
+                        max={9999}
+                    />
+                    <RangeControl
+                        label={__("Right", "team-members")}
+                        value={margin.right}
+                        onChange={(value) =>
+                            setAttributes({ margin: { ...margin, right: value } })
+                        }
+                        min={-9999}
+                        max={9999}
+                    />
+                    <RangeControl
+                        label={__("Bottom", "team-members")}
+                        value={margin.bottom}
+                        onChange={(value) =>
+                            setAttributes({
+                                margin: { ...margin, bottom: value },
+                            })
+                        }
+                        min={-9999}
+                        max={9999}
+                    />{" "}
+                    <RangeControl
+                        label={__("Left", "team-members")}
+                        value={margin.left}
+                        onChange={(value) =>
+                            setAttributes({ margin: { ...margin, left: value } })
+                        }
+                        min={-9999}
+                        max={9999}
+                    />
                 </PanelBody>
                 <PanelBody title={__("Position Element", "block-gamblino")}>
                     <SelectControl
@@ -340,6 +388,7 @@ const EditBlockImage = (props) => {
                             width: imageDimension,
                             position: positionType,
                             ...positionStyle,
+                            ...marginStyle,
                         }}
                     />
                     {isBlobURL(url) && <Spinner />}

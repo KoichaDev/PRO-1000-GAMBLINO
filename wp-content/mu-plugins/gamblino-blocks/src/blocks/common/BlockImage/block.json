@@ -40,7 +40,7 @@
 		},
 		"displayPosition": {
 			"type": "array",
-			"default": ["Static", "Relative", "Absolute", "Fixed"]
+			"default": ["Static", "Relative", "Absolute"]
 		},
 		"positionType": {
 			"type": "string",
@@ -53,6 +53,15 @@
 				"left": 0,
 				"right": 0,
 				"bottom": 0
+			}
+		},
+		"margin": {
+			"type": "object",
+			"default": {
+				"top": 0,
+				"right": 0,
+				"bottom": 0,
+				"left": 0
 			}
 		}
 	},
