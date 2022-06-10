@@ -28,7 +28,7 @@ const CardEdit = ({ attributes, setAttributes }) => {
                 </PanelBody>
             </InspectorControls>
             <div
-                className="rounded-2xl border-solid border-amber-400 p-10"
+                className="position-relative rounded-2xl border-solid border-amber-400 p-10"
                 style={{ backgroundColor: backgroundColor, marginTop: '2em' }}
             >
                 <div className="[ ranking-card ] [ bg-neutral-100 ]">

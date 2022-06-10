@@ -37,6 +37,23 @@
 		"imageSizeVariant": {
 			"type": "string",
 			"default": "primary"
+		},
+		"displayPosition": {
+			"type": "array",
+			"default": ["Static", "Relative", "Absolute", "Fixed"]
+		},
+		"positionType": {
+			"type": "string",
+			"default": "static"
+		},
+		"positionValue": {
+			"type": "object",
+			"default": {
+				"top": 0,
+				"left": 0,
+				"right": 0,
+				"bottom": 0
+			}
 		}
 	},
 	"editorScript": "file:../../../../build/block-image.js",

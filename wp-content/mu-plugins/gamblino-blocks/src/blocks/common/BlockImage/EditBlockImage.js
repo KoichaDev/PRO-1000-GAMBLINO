@@ -1,7 +1,7 @@
 import { __ } from "@wordpress/i18n";
 
 import { useState, useEffect } from "@wordpress/element";
-import { Button, ButtonGroup } from "@wordpress/components";
+import { Button, ButtonGroup, Panel } from "@wordpress/components";
 
 import { useSelect } from "@wordpress/data";
 
@@ -21,6 +21,7 @@ import {
     PanelBody,
     TextareaControl,
     SelectControl,
+    RangeControl,
 } from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
@@ -34,9 +35,13 @@ const EditBlockImage = (props) => {
         alt,
         imageDimension,
         imageSizeVariant,
+        displayPosition,
+        positionType,
+        positionValue,
     } = attributes;
     const [blobURL, setblobURL] = useState(undefined);
 
+    console.log(positionValue);
     const [buttons, setButtons] = useState({
         twentyFive: {
             id: 1,
@@ -59,6 +64,8 @@ const EditBlockImage = (props) => {
             value: imageDimension === "100%" ? true : false,
         },
     });
+
+    console.log(positionValue);
 
     const imageObject = useSelect(
         (select) => {
@@ -91,6 +98,21 @@ const EditBlockImage = (props) => {
                 });
             }
         }
+
+        return options;
+    };
+
+    const getDisplayPosition = () => {
+        if (!displayPosition) return [];
+
+        const options = [];
+
+        displayPosition.map((position) => {
+            options.push({
+                label: position,
+                value: position.toLowerCase(),
+            });
+        });
 
         return options;
     };
@@ -164,12 +186,66 @@ const EditBlockImage = (props) => {
         });
     };
 
-    const getVariantButtonTypes = (value) =>
-        !value ? "small" : imageSizeVariant;
+    // prettier-ignore
+    const getVariantButtonTypes = (value) => !value ? "small" : imageSizeVariant;
 
     const buttonImageHandler = (button) => {
         setAttributes({ imageDimension: button.label });
         setSelected(button.id);
+    };
+
+    let positionAbsoluteConfigurationContent = "";
+
+    if (positionType === "absolute") {
+        positionAbsoluteConfigurationContent = (
+            <PanelBody>
+                <RangeControl
+                    label={__("Top %", "team-members")}
+                    value={positionValue.top}
+                    onChange={(value) =>
+                        setAttributes({ positionValue: { ...positionValue, top: value } })
+                    }
+                    min={0}
+                    max={100}
+                />
+                <RangeControl
+                    label={__("Right %", "team-members")}
+                    value={positionValue.right}
+                    onChange={(value) =>
+                        setAttributes({ positionValue: { ...positionValue, right: value } })
+                    }
+                    min={0}
+                    max={100}
+                />
+                <RangeControl
+                    label={__("Bottom %", "team-members")}
+                    value={positionValue.bottom}
+                    onChange={(value) =>
+                        setAttributes({
+                            positionValue: { ...positionValue, bottom: value },
+                        })
+                    }
+                    min={0}
+                    max={100}
+                />{" "}
+                <RangeControl
+                    label={__("Left %", "team-members")}
+                    value={positionValue.left}
+                    onChange={(value) =>
+                        setAttributes({ positionValue: { ...positionValue, left: value } })
+                    }
+                    min={0}
+                    max={100}
+                />
+            </PanelBody>
+        );
+    }
+
+    const positionStyle = positionType === "absolute" && {
+        top: `${positionValue.top}%`,
+        right: `${positionValue.right}%`,
+        bottom: `${positionValue.bottom}%`,
+        left: `${positionValue.left}%`,
     };
 
     return (
@@ -197,7 +273,6 @@ const EditBlockImage = (props) => {
                         />
                     )}
                 </PanelBody>
-
                 <PanelBody title={__("Image Dimension", "block-gamblino")}>
                     <ButtonGroup>
                         {Object.values(buttons).map((button) => {
@@ -213,6 +288,16 @@ const EditBlockImage = (props) => {
                         })}
                     </ButtonGroup>
                 </PanelBody>
+                <PanelBody title={__("Position Element", "block-gamblino")}>
+                    <SelectControl
+                        label={__("Position", "block-gamblino")}
+                        options={getDisplayPosition()}
+                        value={positionType}
+                        onChange={(value) => setAttributes({ positionType: value })}
+                    />
+                </PanelBody>
+
+                {positionAbsoluteConfigurationContent}
             </InspectorControls>
             {url && (
                 <BlockControls group="inline">
@@ -248,7 +333,15 @@ const EditBlockImage = (props) => {
                     className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""
                         }`}
                 >
-                    <img src={url} alt={alt} style={{ width: imageDimension }} />
+                    <img
+                        src={url}
+                        alt={alt}
+                        style={{
+                            width: imageDimension,
+                            position: positionType,
+                            ...positionStyle,
+                        }}
+                    />
                     {isBlobURL(url) && <Spinner />}
                 </div>
             )}
