@@ -1,9 +1,6 @@
 import { __ } from "@wordpress/i18n";
 
-import { useState } from "@wordpress/element";
-
 import { useSelect } from "@wordpress/data";
-import { Button, ButtonGroup } from "@wordpress/components";
 
 import {
     InspectorControls,
@@ -17,14 +14,14 @@ import {
     RangeControl,
 } from "@wordpress/components";
 
-const InspectorPanelControls = ({ ...props }) => {
+import ButtonImageSizeInspectorControls from "./ButtonImageSizeInspectorControls";
+
+const ControlsInspectorPanel = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const {
         id,
         url,
         alt,
-        imageDimension,
-        imageSizeVariant,
         displayPosition,
         positionType,
         positionValue,
@@ -80,47 +77,6 @@ const InspectorPanelControls = ({ ...props }) => {
         return options;
     };
 
-    const [buttons, setButtons] = useState({
-        twentyFive: {
-            id: 1,
-            label: "25%",
-            value: imageDimension === "25%" ? true : false,
-        },
-        fifty: {
-            id: 2,
-            label: "50%",
-            value: imageDimension === "50%" ? true : false,
-        },
-        seevntyFive: {
-            id: 3,
-            label: "75%",
-            value: imageDimension === "75%" ? true : false,
-        },
-        oneHundred: {
-            id: 4,
-            label: "100%",
-            value: imageDimension === "100%" ? true : false,
-        },
-    });
-
-    const setSelected = (id) => {
-        setButtons((currentButtons) => {
-            return Object.fromEntries(
-                Object.entries(currentButtons).map(([key, button]) => {
-                    const newValue = button.value ? false : id === button.id;
-                    return [key, { ...button, value: newValue }];
-                })
-            );
-        });
-    };
-
-    // prettier-ignore
-    const getVariantButtonTypes = (value) => !value ? "small" : imageSizeVariant;
-
-    const buttonImageHandler = (button) => {
-        setAttributes({ imageDimension: button.label });
-        setSelected(button.id);
-    };
 
     let positionAbsoluteConfigurationContent = "";
 
@@ -192,21 +148,7 @@ const InspectorPanelControls = ({ ...props }) => {
                     />
                 )}
             </PanelBody>
-            <PanelBody title={__("Image Dimension", "block-gamblino")}>
-                <ButtonGroup>
-                    {Object.values(buttons).map((button) => {
-                        return (
-                            <Button
-                                key={button.label}
-                                variant={getVariantButtonTypes(button.value)}
-                                onClick={buttonImageHandler.bind(null, button)}
-                            >
-                                {button.label}
-                            </Button>
-                        );
-                    })}
-                </ButtonGroup>
-            </PanelBody>
+            <ButtonImageSizeInspectorControls {...props} />
             <PanelBody title={__("Image Spacing", "block-gamblino")}>
                 <p>
                     <strong>Margin</strong>
@@ -264,4 +206,4 @@ const InspectorPanelControls = ({ ...props }) => {
     );
 };
 
-export default InspectorPanelControls;
+export default ControlsInspectorPanel;
