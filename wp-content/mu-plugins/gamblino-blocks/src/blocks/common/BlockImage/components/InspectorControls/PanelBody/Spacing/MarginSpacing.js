@@ -1,5 +1,12 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, RangeControl, SelectControl } from "@wordpress/components";
+import {
+    PanelBody,
+    RangeControl,
+    SelectControl,
+    Button,
+} from "@wordpress/components";
+
+import "./MarginSpacing.scss";
 
 const MarginSpacing = ({ ...props }) => {
     const { attributes, setAttributes } = props;
@@ -33,14 +40,36 @@ const MarginSpacing = ({ ...props }) => {
         maxRangeValue = 20;
     }
 
+    const resetValueHandler = () => {
+        setAttributes({ marginUnit: "px" });
+        setAttributes({
+            margin: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+            }
+        });
+    };
+
     return (
         <PanelBody title={__("Margin", "block-gamblino")}>
-            <SelectControl
-                label={__("Unit Type", "block-gamblino")}
-                options={getDisplayPosition()}
-                value={marginUnit}
-                onChange={(value) => setAttributes({ marginUnit: value })}
-            />
+            <div className="margin-spacing-control">
+                <SelectControl
+                    label={__("Unit Type", "block-gamblino")}
+                    options={getDisplayPosition()}
+                    value={marginUnit}
+                    onChange={(value) => setAttributes({ marginUnit: value })}
+                />
+                <Button
+                    title="Reset"
+                    onClick={resetValueHandler}
+                    variant="primary"
+                    isDestructive
+                >
+                    Reset
+                </Button>
+            </div>
             <RangeControl
                 label={__("Top", "team-members")}
                 value={margin.top}
