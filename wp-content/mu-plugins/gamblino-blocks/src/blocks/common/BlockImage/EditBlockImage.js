@@ -21,6 +21,7 @@ const EditBlockImage = (props) => {
 		positionType,
 		positionValue,
 		margin,
+		marginUnit,
 	} = attributes;
 	const [blobURL, setblobURL] = useState(undefined);
 
@@ -82,10 +83,10 @@ const EditBlockImage = (props) => {
 	};
 
 	const marginStyle = {
-		marginTop: `${margin.top}px`,
-		marginRight: `${margin.right}px`,
-		marginBottom: `${margin.bottom}px`,
-		marginLeft: `${margin.left}px`,
+		marginTop: `${margin.top}${marginUnit}`,
+		marginRight: `${margin.right}${marginUnit}`,
+		marginBottom: `${margin.bottom}${marginUnit}`,
+		marginLeft: `${margin.left}${marginUnit}`,
 	};
 
 	return (

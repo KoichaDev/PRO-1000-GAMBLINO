@@ -55,6 +55,14 @@
 				"bottom": 0
 			}
 		},
+		"marginUnitArray": {
+			"type": "array",
+			"default": ["px", "em", "rem"]
+		},
+		"marginUnit": {
+			"type": "string",
+			"default": "px"
+		},
 		"margin": {
 			"type": "object",
 			"default": {

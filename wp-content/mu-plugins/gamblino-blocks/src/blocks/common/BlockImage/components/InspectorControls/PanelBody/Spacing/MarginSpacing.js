@@ -1,11 +1,33 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, RangeControl } from "@wordpress/components";
+import { PanelBody, RangeControl, SelectControl } from "@wordpress/components";
 
 const MarginSpacing = ({ ...props }) => {
     const { attributes, setAttributes } = props;
-    const { margin } = attributes;
+    const { margin, marginUnitArray, marginUnit } = attributes;
+
+    const getDisplayPosition = () => {
+        if (!marginUnitArray) return [];
+
+        const options = [];
+
+        marginUnitArray.map((position) => {
+            options.push({
+                label: position,
+                value: position.toLowerCase(),
+            });
+        });
+
+        return options;
+    };
+
     return (
         <PanelBody title={__("Margin", "block-gamblino")}>
+            <SelectControl
+                label={__("Unit Type", "block-gamblino")}
+                options={getDisplayPosition()}
+                value={marginUnit}
+                onChange={(value) => setAttributes({ marginUnit: value })}
+            />
             <RangeControl
                 label={__("Top", "team-members")}
                 value={margin.top}
