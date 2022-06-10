@@ -1,14 +1,11 @@
 import { __ } from "@wordpress/i18n";
 import { PanelBody, RangeControl } from "@wordpress/components";
 
-const MarginPanelBody = ({ ...props }) => {
+const MarginSpacing = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { margin } = attributes;
     return (
-        <PanelBody title={__("Image Spacing", "block-gamblino")}>
-            <p>
-                <strong>Margin</strong>
-            </p>
+        <PanelBody title={__("Margin", "block-gamblino")}>
             <RangeControl
                 label={__("Top", "team-members")}
                 value={margin.top}
@@ -51,4 +48,4 @@ const MarginPanelBody = ({ ...props }) => {
     );
 };
 
-export default MarginPanelBody;
+export default MarginSpacing;

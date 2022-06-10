@@ -5,7 +5,7 @@ import {
     RangeControl,
 } from "@wordpress/components";
 
-const PositionPanelBody = ({ ...props }) => {
+const DisplayPositionPanelBody = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { positionType, positionValue, displayPosition } = attributes;
 
@@ -86,4 +86,4 @@ const PositionPanelBody = ({ ...props }) => {
     );
 };
 
-export default PositionPanelBody;
+export default DisplayPositionPanelBody;

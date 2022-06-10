@@ -1,9 +1,8 @@
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
 import { Button, ButtonGroup } from "@wordpress/components";
-import { PanelBody } from "@wordpress/components";
 
-const ButtonImageSizePanelBody = ({ ...props }) => {
+const ButtonImageSize = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { imageDimension, imageSizeVariant } = attributes;
 
@@ -49,22 +48,20 @@ const ButtonImageSizePanelBody = ({ ...props }) => {
         setSelected(button.id);
     };
     return (
-        <PanelBody title={__("Image Dimension", "block-gamblino")}>
-            <ButtonGroup>
-                {Object.values(buttons).map((button) => {
-                    return (
-                        <Button
-                            key={button.label}
-                            variant={getVariantButtonTypes(button.value)}
-                            onClick={buttonImageHandler.bind(null, button)}
-                        >
-                            {button.label}
-                        </Button>
-                    );
-                })}
-            </ButtonGroup>
-        </PanelBody>
+        <ButtonGroup>
+            {Object.values(buttons).map((button) => {
+                return (
+                    <Button
+                        key={button.label}
+                        variant={getVariantButtonTypes(button.value)}
+                        onClick={buttonImageHandler.bind(null, button)}
+                    >
+                        {button.label}
+                    </Button>
+                );
+            })}
+        </ButtonGroup>
     );
 };
 
-export default ButtonImageSizePanelBody;
+export default ButtonImageSize;
