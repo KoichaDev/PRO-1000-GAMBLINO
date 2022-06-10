@@ -8,7 +8,7 @@ import { Spinner, withNotices } from "@wordpress/components";
 
 import { BsImage } from "react-icons/bs";
 
-import ControlsInspectorPanel from "./components/InspectorControls/ControlsInspectorPanel";
+import PanelInspectorControls from "./components/InspectorControls/PanelInspectorControls";
 import ToolbarGroupControl from "./components/ToolbarGroupControl";
 
 const EditBlockImage = (props) => {
@@ -90,7 +90,7 @@ const EditBlockImage = (props) => {
 
 	return (
 		<div {...useBlockProps()}>
-			<ControlsInspectorPanel {...props} />
+			<PanelInspectorControls {...props} />
 
 			<ToolbarGroupControl
 				onSelect={onSelectImageHandler}
