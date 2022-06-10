@@ -14,7 +14,8 @@ import {
     RangeControl,
 } from "@wordpress/components";
 
-import ButtonImageSizeInspectorControls from "./ButtonImageSizeInspectorControls";
+import ButtonImageSizePanelBody from "./PanelBody/ButtonImageSizePanelBody";
+import PositionPanelBody from "./PanelBody/PositionPanelBody";
 
 const ControlsInspectorPanel = ({ ...props }) => {
     const { attributes, setAttributes } = props;
@@ -22,11 +23,9 @@ const ControlsInspectorPanel = ({ ...props }) => {
         id,
         url,
         alt,
-        displayPosition,
-        positionType,
-        positionValue,
         margin,
     } = attributes;
+
     const imageObject = useSelect(
         (select) => {
             const { getMedia } = select("core");
@@ -62,68 +61,6 @@ const ControlsInspectorPanel = ({ ...props }) => {
         return options;
     };
 
-    const getDisplayPosition = () => {
-        if (!displayPosition) return [];
-
-        const options = [];
-
-        displayPosition.map((position) => {
-            options.push({
-                label: position,
-                value: position.toLowerCase(),
-            });
-        });
-
-        return options;
-    };
-
-
-    let positionAbsoluteConfigurationContent = "";
-
-    if (positionType === "absolute") {
-        positionAbsoluteConfigurationContent = (
-            <PanelBody>
-                <RangeControl
-                    label={__("Top %", "team-members")}
-                    value={positionValue.top}
-                    onChange={(value) =>
-                        setAttributes({ positionValue: { ...positionValue, top: value } })
-                    }
-                    min={0}
-                    max={100}
-                />
-                <RangeControl
-                    label={__("Right %", "team-members")}
-                    value={positionValue.right}
-                    onChange={(value) =>
-                        setAttributes({ positionValue: { ...positionValue, right: value } })
-                    }
-                    min={0}
-                    max={100}
-                />
-                <RangeControl
-                    label={__("Bottom %", "team-members")}
-                    value={positionValue.bottom}
-                    onChange={(value) =>
-                        setAttributes({
-                            positionValue: { ...positionValue, bottom: value },
-                        })
-                    }
-                    min={0}
-                    max={100}
-                />{" "}
-                <RangeControl
-                    label={__("Left %", "team-members")}
-                    value={positionValue.left}
-                    onChange={(value) =>
-                        setAttributes({ positionValue: { ...positionValue, left: value } })
-                    }
-                    min={0}
-                    max={100}
-                />
-            </PanelBody>
-        );
-    }
     return (
         <InspectorControls>
             <PanelBody title={__("Image Settings", "block-gamblino")}>
@@ -148,7 +85,7 @@ const ControlsInspectorPanel = ({ ...props }) => {
                     />
                 )}
             </PanelBody>
-            <ButtonImageSizeInspectorControls {...props} />
+            <ButtonImageSizePanelBody {...props} />
             <PanelBody title={__("Image Spacing", "block-gamblino")}>
                 <p>
                     <strong>Margin</strong>
@@ -192,16 +129,8 @@ const ControlsInspectorPanel = ({ ...props }) => {
                     max={9999}
                 />
             </PanelBody>
-            <PanelBody title={__("Position Element", "block-gamblino")}>
-                <SelectControl
-                    label={__("Position", "block-gamblino")}
-                    options={getDisplayPosition()}
-                    value={positionType}
-                    onChange={(value) => setAttributes({ positionType: value })}
-                />
-            </PanelBody>
+            <PositionPanelBody {...props} />
 
-            {positionAbsoluteConfigurationContent}
         </InspectorControls>
     );
 };

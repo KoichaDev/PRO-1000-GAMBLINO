@@ -3,7 +3,7 @@ import { useState } from "@wordpress/element";
 import { Button, ButtonGroup } from "@wordpress/components";
 import { PanelBody } from "@wordpress/components";
 
-const ButtonImageSizeInspectorControls = ({ ...props }) => {
+const ButtonImageSizePanelBody = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { imageDimension, imageSizeVariant } = attributes;
 
@@ -67,4 +67,4 @@ const ButtonImageSizeInspectorControls = ({ ...props }) => {
     );
 };
 
-export default ButtonImageSizeInspectorControls;
+export default ButtonImageSizePanelBody;
