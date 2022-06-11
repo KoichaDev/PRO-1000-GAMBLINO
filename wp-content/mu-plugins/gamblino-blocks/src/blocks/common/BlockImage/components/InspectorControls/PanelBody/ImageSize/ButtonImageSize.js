@@ -27,6 +27,11 @@ const ButtonImageSize = ({ ...props }) => {
             label: "100%",
             value: imageDimension === "100%" ? true : false,
         },
+        auto: {
+            id: 5,
+            label: "auto",
+            value: imageDimension === "auto" ? true : false,
+        },
     });
 
     const setSelected = (id) => {

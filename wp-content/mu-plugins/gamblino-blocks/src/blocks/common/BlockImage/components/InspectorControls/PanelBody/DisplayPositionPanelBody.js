@@ -35,7 +35,7 @@ const DisplayPositionPanelBody = ({ ...props }) => {
                     onChange={(value) =>
                         setAttributes({ positionValue: { ...positionValue, top: value } })
                     }
-                    min={0}
+                    min={-100}
                     max={100}
                 />
                 <RangeControl
@@ -44,7 +44,7 @@ const DisplayPositionPanelBody = ({ ...props }) => {
                     onChange={(value) =>
                         setAttributes({ positionValue: { ...positionValue, right: value } })
                     }
-                    min={0}
+                    min={-100}
                     max={100}
                 />
                 <RangeControl
@@ -55,7 +55,7 @@ const DisplayPositionPanelBody = ({ ...props }) => {
                             positionValue: { ...positionValue, bottom: value },
                         })
                     }
-                    min={0}
+                    min={-100}
                     max={100}
                 />{" "}
                 <RangeControl
@@ -64,7 +64,7 @@ const DisplayPositionPanelBody = ({ ...props }) => {
                     onChange={(value) =>
                         setAttributes({ positionValue: { ...positionValue, left: value } })
                     }
-                    min={0}
+                    min={-100}
                     max={100}
                 />
             </PanelBody>

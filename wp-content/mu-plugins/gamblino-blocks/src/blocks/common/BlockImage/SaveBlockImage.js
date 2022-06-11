@@ -33,18 +33,23 @@ const SaveBlockImage = ({ attributes }) => {
     const className = id ? `wp-image-${id}` : null;
 
     return (
-        <div
-            {...useBlockProps.save({
-                style: {
-                    width: imageDimension,
-                    position: positionType,
-                    ...positionStyle,
-                    ...marginStyle,
-                },
-            })}
-        >
-            {url && <img src={url} className={className} alt={alt} />}
-        </div>
+        <>
+            {url && (
+                <img
+                    src={url}
+                    className={className}
+                    alt={alt}
+                    {...useBlockProps.save({
+                        style: {
+                            width: imageDimension,
+                            position: positionType,
+                            ...positionStyle,
+                            ...marginStyle,
+                        },
+                    })}
+                />
+            )}
+        </>
     );
 };
 

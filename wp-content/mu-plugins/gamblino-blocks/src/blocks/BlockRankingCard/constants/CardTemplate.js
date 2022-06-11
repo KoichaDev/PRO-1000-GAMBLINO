@@ -1,7 +1,7 @@
 // Prettier-ignore
 export const cardContentTemplates = [
     ["core/columns", { className: '[ wp-columns ]' }, [
-        ["core/column", {}, [
+        ["core/column", [
             ["gamblino-block/image", { className: 'ranking-card__top-image' }],
         ]],
         ["core/columns", { className: '[ wp-columns ]' }, [

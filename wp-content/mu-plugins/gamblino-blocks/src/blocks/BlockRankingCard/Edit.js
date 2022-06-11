@@ -9,6 +9,8 @@ import {
 import { PanelBody, RangeControl } from "@wordpress/components";
 
 // WP Block styles
+import "@/styles/reset/block/wp-core-columns.scss";
+import "@/styles/reset/block/wp-core-image.scss";
 import "./editor.scss";
 
 const EditCardBlock = ({ attributes, setAttributes }) => {
@@ -16,9 +18,15 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 
 	// prettier-ignore
 	const templateContent = [
-		["gamblino-block/ranking-card"],
-		["gamblino-block/ranking-card"],
-		["gamblino-block/ranking-card"],
+		["gamblino-block/ranking-card", {
+			className: 'position-relative'
+		}],
+		["gamblino-block/ranking-card", {
+			className: 'position-relative'
+		}],
+		["gamblino-block/ranking-card", {
+			className: 'position-relative'
+		}],
 	];
 
 	return (

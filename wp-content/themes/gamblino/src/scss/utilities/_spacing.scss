@@ -36,6 +36,10 @@ $sides: left, top, bottom, right;
 	margin: auto;
 }
 
+.m-auto-important {
+	margin: auto !important;
+}
+
 .mx-auto {
 	margin: 0 auto;
 }

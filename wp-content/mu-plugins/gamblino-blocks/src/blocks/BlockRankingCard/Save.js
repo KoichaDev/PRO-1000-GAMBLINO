@@ -1,11 +1,11 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 const SaveCardBlock = ({ attributes }) => {
-	const { columns } = attributes;
+	const { columns, align } = attributes;
 	return (
 		<div
 			{...useBlockProps.save()}
-			className={`[ ranking-card-block ] [ columns-${columns} ]`}
+			className={`[ ranking-card-block ] [ columns-${columns} ${align} ]`}
 		>
 			<InnerBlocks.Content />
 		</div>

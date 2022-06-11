@@ -1,12 +1,18 @@
 .ranking-card {
-	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
-	.ranking-card__top-image {
-		margin-bottom: -1em;
+	.ranking-card__top-image > div {
+		position: initial !important;
+	}
+
+	.ranking-card__top-image img {
+		position: absolute;
+		display: block;
+		width: auto;
+		max-width: none;
 	}
 
 	.ranking-card__content-image img {
