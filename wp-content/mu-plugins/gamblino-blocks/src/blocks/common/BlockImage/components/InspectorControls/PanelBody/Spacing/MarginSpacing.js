@@ -36,7 +36,7 @@ const MarginSpacing = ({ ...props }) => {
     }
 
     if (marginUnit === "em" || marginUnit === "rem") {
-        minRangeValue = 0;
+        minRangeValue = -20;
         maxRangeValue = 20;
     }
 
@@ -84,6 +84,8 @@ const MarginSpacing = ({ ...props }) => {
                     options={getDisplayPosition()}
                     value={marginUnit}
                     onChange={(value) => setAttributes({ marginUnit: value })}
+                    help={__('if the px value is > 16, then use em/rem unit value instead', 'block-gamblino')}
+
                 />
                 <Button
                     title="Reset"

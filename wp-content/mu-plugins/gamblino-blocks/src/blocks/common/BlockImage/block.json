@@ -40,7 +40,7 @@
 		},
 		"displayPosition": {
 			"type": "array",
-			"default": ["Static", "Relative", "Absolute"]
+			"default": ["Inherit", "Static", "Relative", "Absolute"]
 		},
 		"positionType": {
 			"type": "string",

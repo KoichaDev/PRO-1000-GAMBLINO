@@ -92,7 +92,6 @@ const EditBlockImage = (props) => {
 		marginLeft: `${margin.left}${marginUnit}`,
 	};
 
-	console.log(marginStyle);
 	return (
 		<div {...useBlockProps()}>
 			<PanelInspectorControls {...props} />
