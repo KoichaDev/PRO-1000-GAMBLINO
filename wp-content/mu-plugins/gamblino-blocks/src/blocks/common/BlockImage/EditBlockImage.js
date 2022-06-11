@@ -6,7 +6,7 @@ import { useBlockProps, MediaPlaceholder } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 
-import { BsImage } from "react-icons/bs";
+import { BsCheckLg, BsImage } from "react-icons/bs";
 
 import PanelInspectorControls from "./components/InspectorControls/PanelInspectorControls";
 import ToolbarGroupControl from "./components/ToolbarGroupControl";
@@ -22,8 +22,11 @@ const EditBlockImage = (props) => {
 		positionValue,
 		margin,
 		marginUnit,
+		marginAuto,
+		isResetMargin,
 	} = attributes;
 	const [blobURL, setblobURL] = useState(undefined);
+
 
 	// Checking if the image is a blob url and if it is, it is setting the url to undefined and the alt
 	// to an empty string. This is to avoid the spinner logo to "hang up" when reloading the current window of our block.
@@ -82,13 +85,14 @@ const EditBlockImage = (props) => {
 		left: `${positionValue.left}%`,
 	};
 
-	const marginStyle = {
+	const marginStyle = isResetMargin === true ? marginAuto : {
 		marginTop: `${margin.top}${marginUnit}`,
 		marginRight: `${margin.right}${marginUnit}`,
 		marginBottom: `${margin.bottom}${marginUnit}`,
 		marginLeft: `${margin.left}${marginUnit}`,
 	};
 
+	console.log(marginStyle);
 	return (
 		<div {...useBlockProps()}>
 			<PanelInspectorControls {...props} />

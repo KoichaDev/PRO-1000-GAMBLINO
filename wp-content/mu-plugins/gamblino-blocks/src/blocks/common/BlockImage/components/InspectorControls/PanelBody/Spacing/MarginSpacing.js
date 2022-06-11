@@ -40,15 +40,39 @@ const MarginSpacing = ({ ...props }) => {
         maxRangeValue = 20;
     }
 
+    const onChangeMarginTopHandler = (value) => {
+        setAttributes({ isResetMargin: false });
+        setAttributes({ margin: { ...margin, top: value } });
+    };
+
+    const onChangeMarginRightHandler = (value) => {
+        setAttributes({ isResetMargin: false });
+        setAttributes({ margin: { ...margin, right: value } });
+    };
+
+    const onChangeMarginBottomHandler = (value) => {
+        setAttributes({ isResetMargin: false });
+        setAttributes({
+            margin: { ...margin, bottom: value },
+        });
+    };
+
+    const onChangeMarginLeftHandler = (value) => {
+        setAttributes({ isResetMargin: false });
+        setAttributes({ margin: { ...margin, left: value } });
+    };
+
     const resetValueHandler = () => {
+        setAttributes({ isResetMargin: true });
         setAttributes({ marginUnit: "px" });
+        setAttributes({ margin: "auto" });
         setAttributes({
             margin: {
                 top: 0,
                 right: 0,
                 bottom: 0,
                 left: 0,
-            }
+            },
         });
     };
 
@@ -73,38 +97,28 @@ const MarginSpacing = ({ ...props }) => {
             <RangeControl
                 label={__("Top", "team-members")}
                 value={margin.top}
-                onChange={(value) =>
-                    setAttributes({ margin: { ...margin, top: value } })
-                }
+                onChange={onChangeMarginTopHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
             />
             <RangeControl
                 label={__("Right", "team-members")}
                 value={margin.right}
-                onChange={(value) =>
-                    setAttributes({ margin: { ...margin, right: value } })
-                }
+                onChange={onChangeMarginRightHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
             />
             <RangeControl
                 label={__("Bottom", "team-members")}
                 value={margin.bottom}
-                onChange={(value) =>
-                    setAttributes({
-                        margin: { ...margin, bottom: value },
-                    })
-                }
+                onChange={onChangeMarginBottomHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
             />{" "}
             <RangeControl
                 label={__("Left", "team-members")}
                 value={margin.left}
-                onChange={(value) =>
-                    setAttributes({ margin: { ...margin, left: value } })
-                }
+                onChange={onChangeMarginLeftHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
             />

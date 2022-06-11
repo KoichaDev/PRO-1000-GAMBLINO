@@ -71,6 +71,16 @@
 				"bottom": 0,
 				"left": 0
 			}
+		},
+		"marginAuto": {
+			"type": "string",
+			"default": {
+				"margin": "auto"
+			}
+		},
+		"isResetMargin": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"editorScript": "file:../../../../build/block-image.js",
