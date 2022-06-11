@@ -4,14 +4,7 @@ import { InspectorControls } from "@wordpress/block-editor";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import { cardContentTemplates } from "../constants/CardTemplate";
 
-import {
-    ToolbarButton,
-    PanelBody,
-    TextareaControl,
-    SelectControl,
-    ColorPicker,
-    ColorPalette,
-} from "@wordpress/components";
+import { PanelBody, ColorPalette } from "@wordpress/components";
 
 import "./editor.scss";
 
@@ -29,7 +22,7 @@ const CardEdit = ({ attributes, setAttributes }) => {
             </InspectorControls>
             <div
                 className="position-relative rounded-2xl border-solid border-amber-400 p-10"
-                style={{ backgroundColor: backgroundColor, marginTop: '2em' }}
+                style={{ backgroundColor: backgroundColor, marginTop: "2em" }}
             >
                 <div className="[ ranking-card ] [ bg-neutral-100 ]">
                     <InnerBlocks template={cardContentTemplates} />

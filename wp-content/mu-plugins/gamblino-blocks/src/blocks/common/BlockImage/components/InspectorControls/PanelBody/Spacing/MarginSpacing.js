@@ -99,6 +99,7 @@ const MarginSpacing = ({ ...props }) => {
             <RangeControl
                 label={__("Top", "team-members")}
                 value={margin.top}
+                step={0.01}
                 onChange={onChangeMarginTopHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
@@ -106,6 +107,7 @@ const MarginSpacing = ({ ...props }) => {
             <RangeControl
                 label={__("Right", "team-members")}
                 value={margin.right}
+                step={0.01}
                 onChange={onChangeMarginRightHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
@@ -113,13 +115,15 @@ const MarginSpacing = ({ ...props }) => {
             <RangeControl
                 label={__("Bottom", "team-members")}
                 value={margin.bottom}
+                step={0.01}
                 onChange={onChangeMarginBottomHandler}
                 min={minRangeValue}
                 max={maxRangeValue}
-            />{" "}
+            />
             <RangeControl
                 label={__("Left", "team-members")}
                 value={margin.left}
+                step={0.01}
                 onChange={onChangeMarginLeftHandler}
                 min={minRangeValue}
                 max={maxRangeValue}

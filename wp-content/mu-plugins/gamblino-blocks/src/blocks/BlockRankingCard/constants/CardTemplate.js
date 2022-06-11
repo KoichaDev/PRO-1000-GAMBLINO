@@ -9,7 +9,7 @@ export const cardContentTemplates = [
                 ["gamblino-block/image", { className: 'ranking-card__content-image' }],
             ]],
             ["core/column", {
-                className: "bg-color-neutral-200",
+                className: "rounded-2xl",
             }, [
                     [
                         "core/paragraph",
@@ -19,7 +19,7 @@ export const cardContentTemplates = [
                     ],
                 ]],
             ["core/column", {}, [
-                ["gamblino-block/button", { className: "[ hello-world ]" },],
+                ["gamblino-block/button"],
             ]],
         ]],
 
