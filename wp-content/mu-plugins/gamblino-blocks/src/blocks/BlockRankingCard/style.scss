@@ -1,12 +1,18 @@
+@import "../../styles/reset/block/wp-core-columns";
+
 .ranking-card-block {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	gap: 1.5em;
+	justify-content: space-around;
 	margin: 1.75em auto;
 	background: #fff;
 	border: 3px solid rgba(255, 130, 0, 0.5);
 	border-radius: 15px;
+
+	@media screen and(max-width: 51.25em) {
+		margin: 6em auto;
+		gap: 5em;
+	}
 
 	.ranking-card {
 		display: flex;
@@ -16,6 +22,11 @@
 
 		.wp-block-columns {
 			margin: 0;
+			flex-direction: column;
+		}
+
+		.wp-column-paragraph {
+			padding: 1em 0;
 		}
 	}
 
@@ -39,6 +50,10 @@
 				width: calc(100% / #{$i} - 55px);
 
 				@media screen and(max-width: 51.25em) {
+					margin: auto;
+					width: calc(1em + 50vw);
+				}
+				@media screen and(max-width: 30em) {
 					margin: auto;
 					width: calc(1em + 80vw);
 				}

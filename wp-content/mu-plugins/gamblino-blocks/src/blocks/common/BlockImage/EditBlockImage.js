@@ -106,7 +106,7 @@ const EditBlockImage = (props) => {
 
 			{url && (
 				<div
-					className={`[ media-image ] ${isBlobURL(url) ? " [ is-loading ]" : ""
+					className={`[ media-image ] [ mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
 						}`}
 				>
 					<img

@@ -9,7 +9,7 @@ const CardSave = ({ attributes }) => {
             style={{ backgroundColor: backgroundColor }}
         >
             <div className="p-10">
-                <div className="[ ranking-card ] [ bg-neutral-100 ]">
+                <div className="[ ranking-card ]">
                     <InnerBlocks.Content />
                 </div>
             </div>

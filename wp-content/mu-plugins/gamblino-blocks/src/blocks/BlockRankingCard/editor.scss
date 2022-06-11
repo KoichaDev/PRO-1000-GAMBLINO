@@ -1,6 +1,6 @@
 .ranking-card-block {
 	display: block;
-	padding: 2em;
+	padding: 1em;
 
 	.wp-columns {
 		flex-direction: column !important;
@@ -12,7 +12,8 @@
 			> .block-editor-inner-blocks
 				> .block-editor-block-list__layout
 				> [data-type="gamblino-block/ranking-card"] {
-				width: calc(100% / #{$i} - 20px);
+				width: calc(100% / #{$i} - 55px);
+				margin: 2em auto;
 			}
 		}
 	}
