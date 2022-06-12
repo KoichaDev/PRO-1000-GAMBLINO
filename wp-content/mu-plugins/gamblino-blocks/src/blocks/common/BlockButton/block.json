@@ -11,7 +11,6 @@
 		"html": false,
 		"align": ["wide", "full"]
 	},
-
 	"textdomain": "block-gamblino",
 	"attributes": {
 		"align": {
@@ -26,11 +25,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"isNewTabLinkURL": {
-			"type": "boolean",
-			"default": false
-		},
-		"isEnteredNewLinkURL": {
+		"isNewTabLinkURLToggled": {
 			"type": "boolean",
 			"default": false
 		},

@@ -4,6 +4,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
     const {
+        isNewTabLinkURLToggled,
         linkURL,
         isRelToggled,
         isShadowMenuOpen,
@@ -49,9 +50,11 @@ function save({ attributes }) {
                                 color: buttonColor,
                                 backgroundColor: buttonBackgroundColor,
                                 borderRadius: `${buttonBorderRadius}px`,
+                                textDecoration: 'none'
                             },
                         })}
                         href={linkURL}
+                        // target={isNewTabLinkURLToggled ? "_blank" : "_self"}
                         rel={isRelToggled ? "follow" : "no-follow"}
                         tagName="a"
                         value={buttonText}

@@ -24,6 +24,7 @@ const Button = (props) => {
     } = props;
 
     const {
+        isNewTabLinkURLToggled,
         linkURL,
         isLinkToolbarButtonOpen,
         isRelToggled,
@@ -109,11 +110,13 @@ const Button = (props) => {
                         backgroundColor: buttonBackgroundColor,
                         borderRadius: `${buttonBorderRadius}px`,
                         padding: paddingType,
+                        textDecoration: 'none'
                     }}
                     href={linkURL}
                     aria-label={__("Button text", "block-gamblino")}
                     tagName="a"
                     value={buttonText}
+                    // target={isNewTabLinkURLToggled ? "_blank" : "_self"}
                     rel={isRelToggled ? "follow" : "no-follow"}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}

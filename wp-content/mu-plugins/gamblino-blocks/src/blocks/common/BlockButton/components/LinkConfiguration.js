@@ -1,8 +1,9 @@
 import { __ } from "@wordpress/i18n";
 import { useState, useEffect } from "@wordpress/element";
 import { ToggleControl } from "@wordpress/components";
+import { useBlockProps } from "@wordpress/block-editor";
 
-import ElementWithFocusOutside from '@/hoc/ElementWithFocusOutside';
+import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
 import EnterIcon from "../icon/EnterIcon";
 import GlobalIcon from "../icon/GlobalIcon";
@@ -10,29 +11,20 @@ import GlobalIcon from "../icon/GlobalIcon";
 import "./LinkConfiguration.scss";
 
 const LinkConfiguration = ({ ...props }) => {
-    const { attributes, setAttributes } = props;
-    const {
-        linkURL,
-        isNewTabLinkURL,
-        isEnteredNewLinkURL,
-        isRelToggled,
-    } = attributes;
+    const { attributes, setAttributes, isFocusOutside } = props;
+    const { linkURL, isNewTabLinkURLToggled, isRelToggled } = attributes;
 
     const [enteredURL, setEnteredURL] = useState(linkURL);
-
-    // Checking if the linkURL is empty, if it is, it sets the isEnteredNewLinkURL to false right away of the input element
-    useEffect(() => {
-        if (isEnteredNewLinkURL.length === 0) {
-            return setAttributes({ isEnteredNewLinkURL: false });
-        }
-
-        return setAttributes({ isEnteredNewLinkURL: true });
-    }, [isEnteredNewLinkURL]);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
+        if (enteredURL.length === 0) {
+            return setAttributes({ isLinkToolbarButtonOpen: true });
+        }
+
         setAttributes({ linkURL: enteredURL });
+        setAttributes({ isLinkToolbarButtonOpen: false });
     };
 
     return (
@@ -47,7 +39,7 @@ const LinkConfiguration = ({ ...props }) => {
                 />
 
                 <button className="form-link__submit" type="submit">
-                    <EnterIcon />
+                    <EnterIcon color={enteredURL.length === 0 ? "#BCBCBC" : "#000"} />
                 </button>
             </form>
 
@@ -71,21 +63,28 @@ const LinkConfiguration = ({ ...props }) => {
                 </div>
             )}
 
-            <ToggleControl
-                label={__("Open in new tab", "block-gamblino")}
-                checked={isNewTabLinkURL}
-                onChange={() => setAttributes({ isNewTabLinkURL: !isNewTabLinkURL })}
-            />
+            {/* TODO: Check later why target property is not working  correctly */}
+            {/* <div className="toggle-container">
+                <ToggleControl
+                    label={__("Open in new tab", "block-gamblino")}
+                    checked={isNewTabLinkURLToggled}
+                    onChange={() => {
+                        setAttributes({ isNewTabLinkURLToggled: !isNewTabLinkURLToggled });
+                    }}
+                />
+            </div> */}
 
-            <ToggleControl
-                label={
-                    !isRelToggled
-                        ? __("Not following", "block-gamblino")
-                        : __("Following", "block-gamblino")
-                }
-                checked={isRelToggled}
-                onChange={() => setAttributes({ isRelToggled: !isRelToggled })}
-            />
+            <div className="toggle-container">
+                <ToggleControl
+                    label={
+                        !isRelToggled
+                            ? __("Not following", "block-gamblino")
+                            : __("Following", "block-gamblino")
+                    }
+                    checked={isRelToggled}
+                    onChange={() => setAttributes({ isRelToggled: !isRelToggled })}
+                />
+            </div>
         </div>
     );
 };
