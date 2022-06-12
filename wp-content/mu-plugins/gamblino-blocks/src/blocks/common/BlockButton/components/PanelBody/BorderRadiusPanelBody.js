@@ -20,7 +20,6 @@ const BorderRadius = ({ ...props }) => {
             {isBorderRadiusMenuOpen && (
                 <PanelBody title={__("Border Radius", 'block-gamblino')}>
                     <RangeControl
-                        label={__("Border Radius")}
                         value={buttonBorderRadius}
                         onChange={onChangeButtonBorderRadiusHandler}
                         step={1}

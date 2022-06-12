@@ -55,7 +55,7 @@ const PaddingPanelBody = ({ ...props }) => {
     return (
         <>
             {isButtonPaddingMenuOpen && (
-                <PanelBody title={__("Border Radius", 'block-gamblino')}>
+                <PanelBody title={__("Padding", 'block-gamblino')}>
                     <div className="controls-padding">
                         {paddingIconContent}
 
