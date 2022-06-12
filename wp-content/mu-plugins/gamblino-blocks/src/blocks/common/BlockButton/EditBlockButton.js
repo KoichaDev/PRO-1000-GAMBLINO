@@ -72,14 +72,6 @@ const Button = (props) => {
         setAttributes({ shadowOpacity: value });
     };
 
-    const onChangeButtonBorderRadiusHandler = (value) => {
-        setAttributes({
-            buttonBackgroundColor: buttonBackgroundColor,
-            buttonColor: buttonColor,
-            buttonBorderRadius: value,
-        });
-    };
-
     let paddingType = "";
 
     if (!buttonIsClickedLinkSides) {
@@ -99,7 +91,6 @@ const Button = (props) => {
             {!isFocusOutside && (
                 <>
                     <InspectorPanelControls
-                        onChangeButtonBorderRadius={onChangeButtonBorderRadiusHandler}
                         onChangeShadowOpacity={onChangeShadowOpacityHandler}
                         {...props}
                     />

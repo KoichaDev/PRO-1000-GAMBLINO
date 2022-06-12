@@ -11,6 +11,8 @@ import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
 import { PaddingIcon } from "@/common/Icons/Spaces";
 import { ButtonIcon } from "@/common/UI/Button";
 
+import BorderRadius from "./BorderRadius/BorderRadius";
+
 const InspectorPanelControls = (props) => {
     const {
         onChangeButtonBorderRadius,
@@ -171,18 +173,7 @@ const InspectorPanelControls = (props) => {
                     </PanelBody>
                 )}
 
-                {isBorderRadiusMenuOpen && (
-                    <PanelBody title={__("Border Radius")}>
-                        <RangeControl
-                            label={__("Border Radius")}
-                            value={buttonBorderRadius}
-                            onChange={onChangeButtonBorderRadius}
-                            step={1}
-                            min={1}
-                            max={40}
-                        />
-                    </PanelBody>
-                )}
+                <BorderRadius {...props} />
 
                 {isShadowMenuOpen && (
                     <PanelBody title={__("Shadow Settings", "block-gamblino")}>
