@@ -2,10 +2,10 @@ import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
 import { ToggleControl } from "@wordpress/components";
 
-import EnterIcon from "../icon/EnterIcon";
-import GlobalIcon from "../icon/GlobalIcon";
+import EnterIcon from "../../icons/EnterIcon";
+import GlobalIcon from "../../icons/GlobalIcon";
 
-import "./LinkConfiguration.scss";
+import "./LinkConfigurationToolbar.scss";
 
 const LinkConfiguration = ({ ...props }) => {
     const { attributes, setAttributes } = props;

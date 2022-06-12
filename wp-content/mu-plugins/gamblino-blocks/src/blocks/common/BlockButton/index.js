@@ -2,7 +2,7 @@
 import { registerBlockType } from "@wordpress/blocks";
 
 // Button Icon
-import ButtonIcon from './icon/ButtonIcon';
+import ButtonIcon from './icons/ButtonIcon';
 
 // Button Component
 import EditBlockButton from "./EditBlockButton";

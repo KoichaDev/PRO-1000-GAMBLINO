@@ -13,7 +13,7 @@ import { AiOutlineBorder } from "react-icons/ai";
 // UI Icon
 import { PaddingIcon } from "@/common/Icons/Spaces";
 
-const ToolbarGroupControl = (props) => {
+const MenuGroupControlToolbar = (props) => {
     const {
         attributes,
         setAttributes,
@@ -88,4 +88,4 @@ const ToolbarGroupControl = (props) => {
     );
 };
 
-export default ToolbarGroupControl;
+export default MenuGroupControlToolbar;

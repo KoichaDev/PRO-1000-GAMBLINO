@@ -8,9 +8,9 @@ import { ColorPicker } from "@wordpress/components";
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
 // Button components
-import InspectorPanelControls from "./components/InspectorPanelControls";
-import ToolbarGroupControl from "./components/ToolbarGroupControl";
-import LinkConfiguration from "./components/LinkConfiguration";
+import InspectorPanelControls from "./components/InspectorControls/InspectorPanelControls";
+import MenuGroupControlToolbar from "./components/Toolbar/MenuGroupControlToolbar";
+import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationToolbar";
 
 // Button editor styling
 import "./editor.scss";
@@ -98,7 +98,7 @@ const Button = (props) => {
                 <>
                     <InspectorPanelControls {...props} />
 
-                    <ToolbarGroupControl
+                    <MenuGroupControlToolbar
                         {...props}
                         onClickBackgrouncColor={onClickBackgrouncColorHandler}
                         onClickTextColor={onClickTextColorHandler}
@@ -128,7 +128,7 @@ const Button = (props) => {
                     placeholder={__("text...", "block-gamblino")}
                     allowedFormats={["core/bold", "core/italic", "core/link"]}
                 />
-                {isLinkToolbarButtonOpen && !isFocusOutside && <LinkConfiguration {...props} />}
+                {isLinkToolbarButtonOpen && !isFocusOutside && <LinkConfigurationToolbar {...props} />}
             </div>
 
             {isVisibleTextColor && (
