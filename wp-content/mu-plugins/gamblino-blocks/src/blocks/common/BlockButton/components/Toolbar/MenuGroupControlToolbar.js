@@ -1,7 +1,11 @@
 // Wordpress components
 import { __ } from "@wordpress/i18n";
 import { BlockControls, AlignmentToolbar } from "@wordpress/block-editor";
-import { ToolbarGroup, ToolbarButton } from "@wordpress/components";
+import {
+    ToolbarGroup,
+    ToolbarButton,
+    DropdownMenu,
+} from "@wordpress/components";
 
 // React Icons
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
@@ -12,6 +16,8 @@ import { AiOutlineBorder } from "react-icons/ai";
 
 // UI Icon
 import { PaddingIcon } from "@/common/Icons/Spaces";
+import ButtonStylingIcon from "../../icons/ButtonStylingIcon";
+import BorderRadiusIcon from '../../icons/BordeRadiusIcon'
 
 const MenuGroupControlToolbar = (props) => {
     const {
@@ -30,61 +36,70 @@ const MenuGroupControlToolbar = (props) => {
     } = attributes;
 
     return (
-        <BlockControls
-            controls={[
-                {
-                    icon: PaddingIcon,
-                    title: __("Padding", "block-gamblino"),
-                    onClick: () => {
-                        setAttributes({
-                            isButtonPaddingMenuOpen: !isButtonPaddingMenuOpen,
-                        });
-                    },
-                    isActive: isButtonPaddingMenuOpen,
-                },
-                {
-                    icon: SiShadow,
-                    title: __("Shadow", "block-gamblino"),
-                    onClick: () => {
-                        setAttributes({ isShadowMenuOpen: !isShadowMenuOpen });
-                    },
-                    isActive: isShadowMenuOpen,
-                },
-                {
-                    icon: AiOutlineBorder,
-                    title: __("Border Radius", "block-gamblino"),
-                    onClick: () => {
-                        setAttributes({
-                            isBorderRadiusMenuOpen: !isBorderRadiusMenuOpen,
-                        });
-                    },
-                    isActive: isBorderRadiusMenuOpen,
-                },
-            ]}
-        >
-            <AlignmentToolbar
-                value={buttonTextAlignment}
-                onChange={(value) => setAttributes({ buttonTextAlignment: value })}
-            />
-            <ToolbarGroup>
-                <ToolbarButton
-                    title={__("Link Configuration", "block-gamblino")}
-                    icon={MdLink}
-                    value={isLinkToolbarButtonOpen}
-                    onClick={() => setAttributes({ isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen })}
-                ></ToolbarButton>
-            </ToolbarGroup>
-            <ToolbarGroup>
-                <ToolbarButton
-                    icon={CgFormatColor}
-                    onClick={onClickTextColor}
-                ></ToolbarButton>
-                <ToolbarButton
-                    icon={CgColorBucket}
-                    onClick={onClickBackgrouncColor}
-                ></ToolbarButton>
-            </ToolbarGroup>
-        </BlockControls>
+        <>
+            <BlockControls>
+                <AlignmentToolbar
+                    value={buttonTextAlignment}
+                    onChange={(value) => setAttributes({ buttonTextAlignment: value })}
+                />
+                <ToolbarGroup>
+                    <DropdownMenu
+                        icon={ButtonStylingIcon}
+                        label={__("Styling", "block-gamblino")}
+                        controls={[
+                            {
+                                icon: PaddingIcon,
+                                title: __("Padding", "block-gamblino"),
+                                onClick: () => {
+                                    setAttributes({
+                                        isButtonPaddingMenuOpen: !isButtonPaddingMenuOpen,
+                                    });
+                                },
+                                isActive: isButtonPaddingMenuOpen,
+                            },
+                            {
+                                icon: SiShadow,
+                                title: __("Shadow", "block-gamblino"),
+                                onClick: () => {
+                                    setAttributes({ isShadowMenuOpen: !isShadowMenuOpen });
+                                },
+                                isActive: isShadowMenuOpen,
+                            },
+                            {
+                                icon: BorderRadiusIcon,
+                                title: __("Border Radius", "block-gamblino"),
+                                onClick: () => {
+                                    setAttributes({
+                                        isBorderRadiusMenuOpen: !isBorderRadiusMenuOpen,
+                                    });
+                                },
+                                isActive: isBorderRadiusMenuOpen,
+                            },
+                            {
+                                icon: CgColorBucket,
+                                title: __("Background Color", "block-gamblino"),
+                                onClick: onClickBackgrouncColor,
+                            },
+                            {
+                                icon: CgFormatColor,
+                                title: __("Text color", "block-gamblino"),
+                                onClick: onClickTextColor,
+                            },
+                        ]}
+                    />
+                    <ToolbarButton
+                        title={__("Link Configuration", "block-gamblino")}
+                        icon={MdLink}
+                        value={isLinkToolbarButtonOpen}
+                        onClick={() =>
+                            setAttributes({
+                                isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen,
+                            })
+                        }
+                    ></ToolbarButton>
+                </ToolbarGroup>
+            </BlockControls>
+        </>
     );
 };
 
