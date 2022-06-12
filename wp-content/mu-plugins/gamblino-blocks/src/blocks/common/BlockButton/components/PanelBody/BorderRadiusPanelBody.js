@@ -18,7 +18,7 @@ const BorderRadius = ({ ...props }) => {
     return (
         <>
             {isBorderRadiusMenuOpen && (
-                <PanelBody title={__("Border Radius")}>
+                <PanelBody title={__("Border Radius", 'block-gamblino')}>
                     <RangeControl
                         label={__("Border Radius")}
                         value={buttonBorderRadius}
