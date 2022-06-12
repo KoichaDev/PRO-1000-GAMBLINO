@@ -68,10 +68,6 @@ const Button = (props) => {
         setIsVisibleBackgroundColor(false);
     };
 
-    const onChangeShadowOpacityHandler = (value) => {
-        setAttributes({ shadowOpacity: value });
-    };
-
     let paddingType = "";
 
     if (!buttonIsClickedLinkSides) {
@@ -90,10 +86,7 @@ const Button = (props) => {
         >
             {!isFocusOutside && (
                 <>
-                    <InspectorPanelControls
-                        onChangeShadowOpacity={onChangeShadowOpacityHandler}
-                        {...props}
-                    />
+                    <InspectorPanelControls {...props} />
 
                     <ToolbarGroupControl
                         {...props}

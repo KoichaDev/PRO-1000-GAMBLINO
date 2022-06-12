@@ -11,21 +11,15 @@ import { MdOutlineLink, MdOutlineLinkOff } from "react-icons/md";
 import { PaddingIcon } from "@/common/Icons/Spaces";
 import { ButtonIcon } from "@/common/UI/Button";
 
-import BorderRadius from "./BorderRadius/BorderRadius";
+import BorderRadiusPanelBody from "./PanelBody/BorderRadiusPanelBody";
+import ShadowPanelBody from "./PanelBody/ShadowPanelBody";
 
 const InspectorPanelControls = (props) => {
-    const {
-        onChangeButtonBorderRadius,
-        onChangeShadowOpacity,
-        attributes,
-        setAttributes,
-    } = props;
+    const { onChangeShadowOpacity, attributes, setAttributes } = props;
 
     const {
-        isBorderRadiusMenuOpen,
         isShadowMenuOpen,
         shadowOpacity,
-        buttonBorderRadius,
         buttonIsClickedLinkSides,
         isButtonPaddingMenuOpen,
         buttonPadding,
@@ -173,20 +167,8 @@ const InspectorPanelControls = (props) => {
                     </PanelBody>
                 )}
 
-                <BorderRadius {...props} />
-
-                {isShadowMenuOpen && (
-                    <PanelBody title={__("Shadow Settings", "block-gamblino")}>
-                        <RangeControl
-                            label={__("Shadow Opacity", "block-gamblino")}
-                            value={shadowOpacity}
-                            onChange={onChangeShadowOpacity}
-                            step={10}
-                            min={10}
-                            max={40}
-                        />
-                    </PanelBody>
-                )}
+                <BorderRadiusPanelBody {...props} />
+                <ShadowPanelBody {...props} />
             </InspectorControls>
         </>
     );
