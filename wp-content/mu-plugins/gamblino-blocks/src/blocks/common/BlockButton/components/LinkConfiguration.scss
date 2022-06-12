@@ -14,7 +14,7 @@
 		transition: box-shadow 0.1s linear;
 		font-size: 16px;
 		line-height: normal;
-		padding: 11px 36px 11px 16px;
+		padding: 11px 16px 11px 16px;
 		margin: 0;
 		border: 1px solid #ddd;
 		border-radius: 2px;
@@ -25,7 +25,7 @@
 
 		.form-link__submit {
 			position: absolute;
-			left: 74%;
+			left: 80%;
 			bottom: 22%;
 			display: inline-flex;
 			text-decoration: none;
@@ -50,7 +50,18 @@
 		align-items: center;
 		gap: 1em;
 		padding: 0.5em;
+		width: 100%;
+		background-color: #fff;
 		border: 1px solid #ddd;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #f0f0f0;
+
+			p {
+				color: #007cba;
+			}
+		}
 
 		.url-container__description {
 			display: flex;
@@ -60,6 +71,7 @@
 			p {
 				margin: 0;
 				padding: 0;
+				font-size: 13px;
 				line-height: 1.5rem;
 			}
 		}

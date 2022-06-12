@@ -1,9 +1,6 @@
 import { __ } from "@wordpress/i18n";
-import { useState, useEffect } from "@wordpress/element";
+import { useState } from "@wordpress/element";
 import { ToggleControl } from "@wordpress/components";
-import { useBlockProps } from "@wordpress/block-editor";
-
-import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
 import EnterIcon from "../icon/EnterIcon";
 import GlobalIcon from "../icon/GlobalIcon";
@@ -11,10 +8,15 @@ import GlobalIcon from "../icon/GlobalIcon";
 import "./LinkConfiguration.scss";
 
 const LinkConfiguration = ({ ...props }) => {
-    const { attributes, setAttributes, isFocusOutside } = props;
+    const { attributes, setAttributes } = props;
     const { linkURL, isNewTabLinkURLToggled, isRelToggled } = attributes;
 
     const [enteredURL, setEnteredURL] = useState(linkURL);
+
+    const onClickEnteredURLButtonHandler = () => {
+        setAttributes({ linkURL: enteredURL });
+        setAttributes({ isLinkToolbarButtonOpen: false });
+    };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -44,7 +46,11 @@ const LinkConfiguration = ({ ...props }) => {
             </form>
 
             {enteredURL.length !== 0 && (
-                <div className="url-container">
+                <button
+                    type="button"
+                    className="url-container"
+                    onClick={onClickEnteredURLButtonHandler}
+                >
                     <GlobalIcon />
                     <div className="url-container__description">
                         <p>
@@ -53,14 +59,16 @@ const LinkConfiguration = ({ ...props }) => {
                         <p
                             style={{
                                 color: "#757575",
-                                fontSize: ".9rem",
+                                fontSize: "11.7px",
                                 lineHeight: 1.3,
                             }}
                         >
-                            Press ENTER to add this link
+                            Press <span style={{ color: "#007cba" }}>ENTER</span> or{" "}
+                            <span style={{ color: "#007cba" }}>CLICK HERE</span> to add this
+                            link
                         </p>
                     </div>
-                </div>
+                </button>
             )}
 
             {/* TODO: Check later why target property is not working  correctly */}
@@ -89,4 +97,4 @@ const LinkConfiguration = ({ ...props }) => {
     );
 };
 
-export default ElementWithFocusOutside(LinkConfiguration);
+export default (LinkConfiguration);

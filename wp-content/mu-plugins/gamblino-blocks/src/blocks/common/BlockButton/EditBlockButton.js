@@ -1,6 +1,6 @@
 // Wordpress components
 import { __ } from "@wordpress/i18n";
-import { useState } from "@wordpress/element";
+import { useState, useEffect } from "@wordpress/element";
 import { RichText, useBlockProps } from "@wordpress/block-editor";
 import { ColorPicker } from "@wordpress/components";
 
@@ -22,7 +22,6 @@ const Button = (props) => {
         isFocusOutside,
         setIsFocusOutside,
     } = props;
-
     const {
         isNewTabLinkURLToggled,
         linkURL,
@@ -47,6 +46,12 @@ const Button = (props) => {
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false);
+
+    useEffect(() => {
+        if (!isFocusOutside) {
+            setAttributes({ isLinkToolbarButtonOpen: false });
+        }
+    }, [isFocusOutside])
 
     const onChangeBackgroundColorHandler = (value) =>
         setAttributes({
@@ -123,7 +128,7 @@ const Button = (props) => {
                     placeholder={__("text...", "block-gamblino")}
                     allowedFormats={["core/bold", "core/italic", "core/link"]}
                 />
-                {isLinkToolbarButtonOpen && <LinkConfiguration {...props} />}
+                {isLinkToolbarButtonOpen && !isFocusOutside && <LinkConfiguration {...props} />}
             </div>
 
             {isVisibleTextColor && (
