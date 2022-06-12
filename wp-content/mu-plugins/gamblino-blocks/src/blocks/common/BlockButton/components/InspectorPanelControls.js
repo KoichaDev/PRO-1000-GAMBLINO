@@ -6,11 +6,13 @@ import { InspectorControls } from "@wordpress/block-editor";
 import BorderRadiusPanelBody from "./PanelBody/BorderRadiusPanelBody";
 import ShadowPanelBody from "./PanelBody/ShadowPanelBody";
 import PaddingPanelBody from "./PanelBody/PaddingPanelBody";
+import RelFollowPanelBody from "./PanelBody/RelFollowPanelBody";
 
 const InspectorPanelControls = (props) => {
     return (
         <>
             <InspectorControls>
+                <RelFollowPanelBody {...props} />
                 <PaddingPanelBody {...props} />
                 <BorderRadiusPanelBody {...props} />
                 <ShadowPanelBody {...props} />

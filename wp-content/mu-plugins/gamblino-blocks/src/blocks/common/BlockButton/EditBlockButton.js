@@ -10,6 +10,7 @@ import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 // Button components
 import InspectorPanelControls from "./components/InspectorPanelControls";
 import ToolbarGroupControl from "./components/ToolbarGroupControl";
+import LinkConfiguration from "./components/LinkConfiguration";
 
 // Button editor styling
 import "./editor.scss";
@@ -23,6 +24,9 @@ const Button = (props) => {
     } = props;
 
     const {
+        linkURL,
+        isLinkToolbarButtonOpen,
+        isRelToggled,
         buttonText,
         buttonTextAlignment,
         isShadowMenuOpen,
@@ -96,23 +100,28 @@ const Button = (props) => {
                 </>
             )}
 
-            <RichText
-                className={`${shadowClass} shadow-opacity-${shadowOpacity}`}
-                style={{
-                    display: "inline-block",
-                    color: buttonColor,
-                    backgroundColor: buttonBackgroundColor,
-                    borderRadius: `${buttonBorderRadius}px`,
-                    padding: paddingType,
-                }}
-                aria-label={__("Button text", "block-gamblino")}
-                tagName="a"
-                value={buttonText}
-                onChange={(value) => setAttributes({ buttonText: value })}
-                onClick={() => setIsFocusOutside(false)}
-                placeholder={__("text...", "block-gamblino")}
-                allowedFormats={["core/bold", "core/italic", "core/link"]}
-            />
+            <div className="position-relative">
+                <RichText
+                    className={`${shadowClass} shadow-opacity-${shadowOpacity}`}
+                    style={{
+                        display: "inline-block",
+                        color: buttonColor,
+                        backgroundColor: buttonBackgroundColor,
+                        borderRadius: `${buttonBorderRadius}px`,
+                        padding: paddingType,
+                    }}
+                    href={linkURL}
+                    aria-label={__("Button text", "block-gamblino")}
+                    tagName="a"
+                    value={buttonText}
+                    rel={isRelToggled ? "follow" : "no-follow"}
+                    onChange={(value) => setAttributes({ buttonText: value })}
+                    onClick={() => setIsFocusOutside(false)}
+                    placeholder={__("text...", "block-gamblino")}
+                    allowedFormats={["core/bold", "core/italic", "core/link"]}
+                />
+                {isLinkToolbarButtonOpen && <LinkConfiguration {...props} />}
+            </div>
 
             {isVisibleTextColor && (
                 <ColorPicker

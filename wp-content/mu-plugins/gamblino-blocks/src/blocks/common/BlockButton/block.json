@@ -18,10 +18,34 @@
 			"type": "string",
 			"default": "full"
 		},
+		"isLinkToolbarButtonOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkURL": {
+			"type": "string",
+			"default": ""
+		},
+		"isNewTabLinkURL": {
+			"type": "boolean",
+			"default": false
+		},
+		"isEnteredNewLinkURL": {
+			"type": "boolean",
+			"default": false
+		},
+		"isRelToggled": {
+			"type": "boolean",
+			"default": false
+		},
 		"buttonText": {
 			"type": "string",
 			"source": "html",
 			"selector": "a"
+		},
+		"textDecoration": {
+			"type": "string",
+			"default": "none"
 		},
 		"buttonTextAlignment": {
 			"type": "string",

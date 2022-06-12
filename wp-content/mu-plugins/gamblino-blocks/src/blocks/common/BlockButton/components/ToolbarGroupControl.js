@@ -5,7 +5,9 @@ import { ToolbarGroup, ToolbarButton } from "@wordpress/components";
 
 // React Icons
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
+import { BiLink, BiUnlink } from "react-icons/bi";
 import { SiShadow } from "react-icons/Si";
+import { MdLink } from "react-icons/md";
 import { AiOutlineBorder } from "react-icons/ai";
 
 // UI Icon
@@ -20,6 +22,7 @@ const ToolbarGroupControl = (props) => {
     } = props;
 
     const {
+        isLinkToolbarButtonOpen,
         isBorderRadiusMenuOpen,
         isShadowMenuOpen,
         buttonTextAlignment,
@@ -63,6 +66,14 @@ const ToolbarGroupControl = (props) => {
                 value={buttonTextAlignment}
                 onChange={(value) => setAttributes({ buttonTextAlignment: value })}
             />
+            <ToolbarGroup>
+                <ToolbarButton
+                    title={__("Link Configuration", "block-gamblino")}
+                    icon={MdLink}
+                    value={isLinkToolbarButtonOpen}
+                    onClick={() => setAttributes({ isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen })}
+                ></ToolbarButton>
+            </ToolbarGroup>
             <ToolbarGroup>
                 <ToolbarButton
                     icon={CgFormatColor}

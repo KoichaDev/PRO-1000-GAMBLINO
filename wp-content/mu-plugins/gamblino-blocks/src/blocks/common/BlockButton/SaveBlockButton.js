@@ -4,6 +4,8 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
     const {
+        linkURL,
+        isRelToggled,
         isShadowMenuOpen,
         shadowOpacity,
         buttonText,
@@ -33,9 +35,11 @@ function save({ attributes }) {
     return (
         <>
             {buttonText ? (
-                <div {...useBlockProps.save({
-                    className: `[ text-${buttonTextAlignment} ]`
-                })}>
+                <div
+                    {...useBlockProps.save({
+                        className: `[ text-${buttonTextAlignment} ]`,
+                    })}
+                >
                     <RichText.Content
                         {...useBlockProps.save({
                             className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
@@ -47,6 +51,8 @@ function save({ attributes }) {
                                 borderRadius: `${buttonBorderRadius}px`,
                             },
                         })}
+                        href={linkURL}
+                        rel={isRelToggled ? "follow" : "no-follow"}
                         tagName="a"
                         value={buttonText}
                     />
