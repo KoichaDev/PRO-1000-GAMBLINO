@@ -189,7 +189,7 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
             )}
 
             {/* TODO: Check later why target property is not working  correctly */}
-            {/* <div className="toggle-container">
+            <div className="toggle-container">
                 <ToggleControl
                     label={__("Open in new tab", "block-gamblino")}
                     checked={isNewTabLinkURLToggled}
@@ -197,7 +197,7 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
                         setAttributes({ isNewTabLinkURLToggled: !isNewTabLinkURLToggled });
                     }}
                 />
-            </div> */}
+            </div>
 
             <div className="toggle-container">
                 <ToggleControl

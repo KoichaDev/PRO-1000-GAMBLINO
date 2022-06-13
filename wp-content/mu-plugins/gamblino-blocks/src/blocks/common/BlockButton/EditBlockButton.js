@@ -132,8 +132,8 @@ const Button = (props) => {
                     aria-label={__("Button text", "block-gamblino")}
                     tagName="a"
                     value={buttonText}
-                    // target={isNewTabLinkURLToggled ? "_blank" : "_self"}
-                    rel={isRelToggled ? "follow" : "no-follow"}
+                    {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
+                    {...(isRelToggled === true ? { rel: "nofollow" } : {})}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}
                     placeholder={__("text...", "block-gamblino")}

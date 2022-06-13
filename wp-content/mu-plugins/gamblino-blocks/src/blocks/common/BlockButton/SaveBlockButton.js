@@ -50,12 +50,18 @@ function save({ attributes }) {
                                 color: buttonColor,
                                 backgroundColor: buttonBackgroundColor,
                                 borderRadius: `${buttonBorderRadius}px`,
-                                textDecoration: 'none'
+                                textDecoration: "none",
                             },
                         })}
                         href={linkURL}
-                        // target={isNewTabLinkURLToggled ? "_blank" : "_self"}
-                        rel={isRelToggled ? "follow" : "no-follow"}
+                        {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
+                        {...(isNewTabLinkURLToggled
+                            ? {
+                                rel: isRelToggled
+                                    ? "following noopener noreferrer"
+                                    : "nofollow noopener noreferrer",
+                            }
+                            : {})}
                         tagName="a"
                         value={buttonText}
                     />
