@@ -8,7 +8,7 @@ import GlobalIcon from "../../icons/GlobalIcon";
 
 import "./LinkConfigurationToolbar.scss";
 
-const LinkConfiguration = ({ ...props }) => {
+const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const { attributes, setAttributes } = props;
     const { linkURL, isNewTabLinkURLToggled, isRelToggled } = attributes;
 
@@ -17,6 +17,7 @@ const LinkConfiguration = ({ ...props }) => {
     const [enteredURLText, setEnteredURLText] = useState(linkURL);
     const [postsTextSearch, setPostsTextSearch] = useState([]);
 
+    onAddEnteredURLText(enteredURLText);
 
     useEffect(() => {
         const posts = postsCollection.map((post) => {

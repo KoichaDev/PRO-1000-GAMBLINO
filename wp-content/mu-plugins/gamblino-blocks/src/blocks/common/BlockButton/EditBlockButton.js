@@ -6,6 +6,7 @@ import { ColorPicker } from "@wordpress/components";
 
 // HOC Component
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
+import useUpdateEffect from "@/hooks/utilities/useUpdateEffect";
 
 // Button components
 import InspectorPanelControls from "./components/InspectorControls/InspectorPanelControls";
@@ -46,12 +47,22 @@ const Button = (props) => {
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false);
+    const [enteredURLText, setEnteredURLText] = useState("");
+
+    // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the 
+    // attributes as empty string. By using this custom hook, It runs the callback 
+    // function only after the first render
+    useUpdateEffect(() => {
+        if (isFocusOutside === true) {
+            setAttributes({ linkURL: enteredURLText });
+        }
+    }, [isFocusOutside]);
 
     useEffect(() => {
         if (!isFocusOutside) {
             setAttributes({ isLinkToolbarButtonOpen: false });
         }
-    }, [isFocusOutside])
+    }, [isFocusOutside]);
 
     const onChangeBackgroundColorHandler = (value) =>
         setAttributes({
@@ -115,7 +126,7 @@ const Button = (props) => {
                         backgroundColor: buttonBackgroundColor,
                         borderRadius: `${buttonBorderRadius}px`,
                         padding: paddingType,
-                        textDecoration: 'none'
+                        textDecoration: "none",
                     }}
                     href={linkURL}
                     aria-label={__("Button text", "block-gamblino")}
@@ -128,7 +139,12 @@ const Button = (props) => {
                     placeholder={__("text...", "block-gamblino")}
                     allowedFormats={["core/bold", "core/italic", "core/link"]}
                 />
-                {isLinkToolbarButtonOpen && !isFocusOutside && <LinkConfigurationToolbar {...props} />}
+                {isLinkToolbarButtonOpen && !isFocusOutside && (
+                    <LinkConfigurationToolbar
+                        onAddEnteredURLText={(value) => setEnteredURLText(value)}
+                        {...props}
+                    />
+                )}
             </div>
 
             {isVisibleTextColor && (
