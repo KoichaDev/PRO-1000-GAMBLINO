@@ -18,21 +18,21 @@ const LinkConfiguration = ({ ...props }) => {
     const [enteredURLText, setEnteredURLText] = useState(linkURL);
     const [postsTextSearch, setPostsTextSearch] = useState([]);
 
-    console.log(postsCollection);
-
     useEffect(() => {
         const posts = postsCollection.map((post) => {
             return {
                 id: post.id,
                 title: post.title.rendered,
                 url: post.link,
+                type: post.type,
+                status: post.status,
             };
         });
 
         const textSearch = useTextSearch(posts, {
             textInput: enteredURLText,
             fields: ["title"],
-            storeFields: ["title", "url"],
+            storeFields: ["title", "url", "type", "status"],
             prefix: true,
         });
 
@@ -56,11 +56,11 @@ const LinkConfiguration = ({ ...props }) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        if (enteredURLText.length === 0) {
-            return setAttributes({ isLinkToolbarButtonOpen: true });
-        }
+        // if (enteredURLText.length === 0) {
+        //     return setAttributes({ isLinkToolbarButtonOpen: true });
+        // }
 
-        setAttributes({ linkURL: enteredURL });
+        setAttributes({ linkURL: enteredURLText });
         setAttributes({ isLinkToolbarButtonOpen: false });
     };
 
@@ -76,7 +76,7 @@ const LinkConfiguration = ({ ...props }) => {
                 />
 
                 <button className="form-link__submit" type="submit">
-                    <EnterIcon color={enteredURLText.length === 0 ? "#BCBCBC" : "#000"} />
+                    <EnterIcon color="#000" />
                 </button>
             </form>
 
@@ -106,42 +106,66 @@ const LinkConfiguration = ({ ...props }) => {
                         </div>
                     </button>
 
-                    {!isLoaded ? <Spinner /> : postsTextSearch.map((post) => {
-                        const { id, title, url: link } = post;
-                        return (
-                            <button
-                                key={id}
-                                className="url-container"
-                                onClick={onClickPostTextSearchHandler.bind(null, {
-                                    title,
-                                    link,
-                                })}
-                            >
-                                <strong>{title}</strong>
-                            </button>
-                        );
-                    })}
+                    {!isLoaded ? (
+                        <Spinner />
+                    ) : (
+                        postsTextSearch.map((post) => {
+                            const { id, title, url: link } = post;
+                            return (
+                                <button
+                                    key={id}
+                                    className="[ url-container ] [ p-4 ]"
+                                    style={{
+                                        fontSize: "13px",
+                                    }}
+                                    onClick={onClickPostTextSearchHandler.bind(null, {
+                                        title,
+                                        link,
+                                    })}
+                                >
+                                    <strong>{title}</strong>
+                                </button>
+                            );
+                        })
+                    )}
                 </>
             ) : (
                 <>
                     {!isLoaded ? (
                         <Spinner />
                     ) : (
-                        postsCollection?.map((post) => {
-                            const { id, title, link } = post;
-                            return (
-                                <button
-                                    key={id}
-                                    className="url-container"
-                                    onClick={onClickPostCollectionHandler.bind(null, {
-                                        title,
-                                        link,
-                                    })}
-                                >
-                                    <strong>{title.rendered}</strong>
-                                </button>
-                            );
-                        })
+                        <div style={{ height: "25vh", overflowY: "scroll" }}>
+                            {postsCollection?.map((post) => {
+                                const { id, title, link, type } = post;
+
+                                /* Removing the http:// or https:// from the link. */
+                                const url = link.replace(/^https?:\/\//, "");
+
+                                return (
+                                    <article
+                                        key={id}
+                                        className="[ post-container ] [ text-align-left ]"
+                                        onClick={onClickPostCollectionHandler.bind(null, {
+                                            title,
+                                            link,
+                                        })}
+                                    >
+                                        <div className="[ post-container__content ] [ m-6 p-2 ]">
+                                            <div className="[ post-container__description ]">
+                                                <div className="[ post-container__title ][ m-0 ]">
+                                                    <strong>{title.rendered}</strong>
+                                                </div>
+                                                <p className="[ post-container__url ] [ m-0 ]">{url}</p>
+                                            </div>
+
+                                            <div className="[ post-container__post-type ] [ text-align-right ]">
+                                                <p className="m-0">{type}</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                        </div>
                     )}
                 </>
             )}
