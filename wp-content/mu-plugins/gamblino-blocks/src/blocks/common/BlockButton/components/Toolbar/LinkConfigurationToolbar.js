@@ -84,37 +84,30 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
                         className="url-text-button"
                         onClick={onClickEnteredURLButtonHandler}
                     >
-                        <div className="[ url-content-container ]" style={{
-                            gap: enteredURLText.length >= 40 ? "0.5em" : "",
-                        }}>
+                        <div className="[ url-content-container ]">
                             <div className="url-container__description">
                                 <div className="url-container__description-col-1">
                                     <GlobalIcon />
                                 </div>
                                 <div className="url-container__description-col-2">
                                     <span className="fw-black">{enteredURLText}</span>
+
+                                    <div
+                                        style={{
+                                            color: "#757575",
+                                            fontSize: "11.7px",
+                                            lineHeight: 1.3,
+                                        }}
+                                    >
+                                        Press <span style={{ color: "#007cba" }}>ENTER</span> or{" "}
+                                        <span style={{ color: "#007cba" }}>CLICK HERE</span> to add
+                                        this link
+                                    </div>
                                 </div>
 
                                 <div className="url-container__description-col-3">
                                     <span>url</span>
                                 </div>
-                            </div>
-
-                            <div
-                                className="[ url-content__help-info ]"
-                                style={{
-                                    color: "#757575",
-                                    fontSize: "11.7px",
-                                    lineHeight: 1.3,
-                                }}
-                            >
-                                <div className="url-content__help-info-col-1">{' '}</div>
-                                <div className="url-content__help-info-col-2">
-                                    Press <span style={{ color: "#007cba" }}>ENTER</span> or{" "}
-                                    <span style={{ color: "#007cba" }}>CLICK HERE</span> to add
-                                    this link
-                                </div>
-                                <div className="url-content__help-info-col-3">{' '}</div>
                             </div>
                         </div>
                     </button>
