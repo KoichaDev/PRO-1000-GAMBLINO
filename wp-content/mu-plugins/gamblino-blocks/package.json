@@ -15,6 +15,7 @@
 		"plugin-zip": "wp-scripts plugin-zip"
 	},
 	"dependencies": {
+		"@wordpress/api-fetch": "^6.7.0",
 		"@wordpress/blob": "^3.10.0",
 		"@wordpress/block-editor": "^9.2.0",
 		"@wordpress/blocks": "^11.9.0",
@@ -28,6 +29,7 @@
 		"@wordpress/plugins": "^4.8.0",
 		"date-fns": "^2.28.0",
 		"emotion": "^11.0.0",
+		"minisearch": "^5.0.0-beta2",
 		"react-icons": "^4.3.1",
 		"uuid": "^8.3.2"
 	},
