@@ -4,7 +4,6 @@ import { ToggleControl, Spinner } from "@wordpress/components";
 
 import { useGetPosts, useTextSearch } from "../hooks/useQueryPosts";
 
-import EnterIcon from "../../icons/EnterIcon";
 import GlobalIcon from "../../icons/GlobalIcon";
 
 import "./LinkConfigurationToolbar.scss";
@@ -17,6 +16,7 @@ const LinkConfiguration = ({ ...props }) => {
 
     const [enteredURLText, setEnteredURLText] = useState(linkURL);
     const [postsTextSearch, setPostsTextSearch] = useState([]);
+
 
     useEffect(() => {
         const posts = postsCollection.map((post) => {
@@ -74,35 +74,47 @@ const LinkConfiguration = ({ ...props }) => {
                     onChange={(e) => setEnteredURLText(e.target.value)}
                     placeholder={__("Search or type url", "block-gamblino")}
                 />
-
-                <button className="form-link__submit" type="submit">
-                    <EnterIcon color="#000" />
-                </button>
             </form>
 
             {enteredURLText.length !== 0 ? (
                 <>
                     <button
                         type="button"
-                        className="url-container"
+                        className="url-text-button"
                         onClick={onClickEnteredURLButtonHandler}
                     >
-                        <GlobalIcon />
-                        <div className="url-container__description">
-                            <p>
-                                <strong>{enteredURLText}</strong>
-                            </p>
-                            <p
+                        <div className="[ url-content-container ]" style={{
+                            gap: enteredURLText.length >= 40 ? "0.5em" : "",
+                        }}>
+                            <div className="url-container__description">
+                                <div className="url-container__description-col-1">
+                                    <GlobalIcon />
+                                </div>
+                                <div className="url-container__description-col-2">
+                                    <span className="fw-black">{enteredURLText}</span>
+                                </div>
+
+                                <div className="url-container__description-col-3">
+                                    <span>url</span>
+                                </div>
+                            </div>
+
+                            <div
+                                className="[ url-content__help-info ]"
                                 style={{
                                     color: "#757575",
                                     fontSize: "11.7px",
                                     lineHeight: 1.3,
                                 }}
                             >
-                                Press <span style={{ color: "#007cba" }}>ENTER</span> or{" "}
-                                <span style={{ color: "#007cba" }}>CLICK HERE</span> to add this
-                                link
-                            </p>
+                                <div className="url-content__help-info-col-1">{' '}</div>
+                                <div className="url-content__help-info-col-2">
+                                    Press <span style={{ color: "#007cba" }}>ENTER</span> or{" "}
+                                    <span style={{ color: "#007cba" }}>CLICK HERE</span> to add
+                                    this link
+                                </div>
+                                <div className="url-content__help-info-col-3">{' '}</div>
+                            </div>
                         </div>
                     </button>
 
@@ -110,21 +122,33 @@ const LinkConfiguration = ({ ...props }) => {
                         <Spinner />
                     ) : (
                         postsTextSearch.map((post) => {
-                            const { id, title, url: link } = post;
+                            const { id, title, url: link, type } = post;
+
+                            /* Removing the http:// or https:// from the link. */
+                            const url = link.replace(/^https?:\/\//, "");
+
                             return (
-                                <button
+                                <article
                                     key={id}
-                                    className="[ url-container ] [ p-4 ]"
-                                    style={{
-                                        fontSize: "13px",
-                                    }}
+                                    className="[ post-container ] [ text-align-left ]"
                                     onClick={onClickPostTextSearchHandler.bind(null, {
                                         title,
                                         link,
                                     })}
                                 >
-                                    <strong>{title}</strong>
-                                </button>
+                                    <div className="[ post-container__content ] [ m-6 p-2 ]">
+                                        <div className="[ post-container__description ]">
+                                            <div className="[ post-container__title ][ m-0 ]">
+                                                <strong>{title}</strong>
+                                            </div>
+                                            <p className="[ post-container__url ] [ m-0 ]">{url}</p>
+                                        </div>
+
+                                        <div className="[ post-container__post-type ] [ text-align-right ]">
+                                            <p className="m-0">{type}</p>
+                                        </div>
+                                    </div>
+                                </article>
                             );
                         })
                     )}
