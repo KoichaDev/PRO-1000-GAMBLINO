@@ -12,6 +12,10 @@ function save({ attributes }) {
         isUGCToggled,
         isShadowMenuOpen,
         shadowOpacity,
+        typographySizeClassName,
+        isPressedTypographyControlIcon,
+        typographySizeEnteredInput,
+        typographySizeUnit,
         buttonText,
         buttonBorderRadius,
         buttonBackgroundColor,
@@ -86,6 +90,10 @@ function save({ attributes }) {
         });
     }
 
+    // prettier-ignore
+    const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
+
+
     return (
         <>
             {buttonText ? (
@@ -96,7 +104,7 @@ function save({ attributes }) {
                 >
                     <RichText.Content
                         {...useBlockProps.save({
-                            className: `${shadowClass} shadow-opacity-${shadowOpacity}`,
+                            className: `${shadowClass} shadow-opacity-${shadowOpacity} ${typographySizeTypeClassname}`,
                             style: {
                                 display: "inline-block",
                                 padding: paddingType,
@@ -104,6 +112,9 @@ function save({ attributes }) {
                                 backgroundColor: buttonBackgroundColor,
                                 borderRadius: `${buttonBorderRadius}px`,
                                 textDecoration: "none",
+                                ...(isPressedTypographyControlIcon && {
+                                    fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,
+                                }),
                             },
                         })}
                         href={linkURL}

@@ -50,6 +50,22 @@
 			"source": "html",
 			"selector": "a"
 		},
+		"typographySizeClassName": {
+			"type": "string",
+			"default": "text-base"
+		},
+		"typographySizeEnteredInput": {
+			"type": "number",
+			"default": 16
+		},
+		"typographySizeUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"isPressedTypographyControlIcon": {
+			"type": "boolean",
+			"default": false
+		},
 		"textDecoration": {
 			"type": "string",
 			"default": "none"

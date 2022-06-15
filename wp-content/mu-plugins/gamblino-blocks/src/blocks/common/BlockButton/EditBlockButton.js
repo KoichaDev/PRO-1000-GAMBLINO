@@ -33,6 +33,10 @@ const Button = (props) => {
         isUGCToggled,
         buttonText,
         buttonTextAlignment,
+        typographySizeClassName,
+        isPressedTypographyControlIcon,
+        typographySizeEnteredInput,
+        typographySizeUnit,
         isShadowMenuOpen,
         shadowOpacity,
         buttonBorderRadius,
@@ -106,6 +110,9 @@ const Button = (props) => {
     } else {
         paddingType = `${buttonPaddingVertical}${paddingVerticalSelectUnit} ${buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
     }
+
+    // prettier-ignore
+    const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
 
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
@@ -185,7 +192,7 @@ const Button = (props) => {
 
             <div className="position-relative">
                 <RichText
-                    className={`${shadowClass} shadow-opacity-${shadowOpacity}`}
+                    className={`${shadowClass} shadow-opacity-${shadowOpacity} ${typographySizeTypeClassname}`}
                     style={{
                         display: "inline-block",
                         color: buttonColor,
@@ -193,13 +200,21 @@ const Button = (props) => {
                         borderRadius: `${buttonBorderRadius}px`,
                         padding: paddingType,
                         textDecoration: "none",
+                        ...(isPressedTypographyControlIcon && {
+                            fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,
+                        }),
+                        // fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,
                     }}
                     href={linkURL}
                     aria-label={__("Button text", "block-gamblino")}
                     tagName="a"
                     value={buttonText}
                     {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                    {...isToggledSEO ? relContent : !isToggledSEO && isNewTabLinkURLToggled ? { rel: "noreferrer noopener" } : {}}
+                    {...(isToggledSEO
+                        ? relContent
+                        : !isToggledSEO && isNewTabLinkURLToggled
+                            ? { rel: "noreferrer noopener" }
+                            : {})}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}
                     placeholder={__("text...", "block-gamblino")}

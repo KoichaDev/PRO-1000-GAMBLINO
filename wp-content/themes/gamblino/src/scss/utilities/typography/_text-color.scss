@@ -2,6 +2,18 @@
 	color: var(--clr-neutral-100);
 }
 
+.text-neutral-100\! {
+	color: var(--clr-neutral-100) !important;
+}
+
 .text-sky-300 {
 	color: var(--clr-sky-300);
+}
+
+.text-dark-900 {
+	color: var(--clr-dark-900);
+}
+
+.text-dark-900\! {
+	color: var(--clr-dark-900) !important;
 }

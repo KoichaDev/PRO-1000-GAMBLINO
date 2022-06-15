@@ -36,7 +36,7 @@ $sides: left, top, bottom, right;
 	margin: auto;
 }
 
-.m-auto-important {
+.m-auto\! {
 	margin: auto !important;
 }
 
@@ -44,8 +44,16 @@ $sides: left, top, bottom, right;
 	margin: 0 auto;
 }
 
+.mx-auto\! {
+	margin: 0 auto !important;
+}
+
 .my-auto {
 	margin: auto 0;
+}
+
+.my-auto\! {
+	margin: auto 0 !important;
 }
 
 @each $size-number, $size-value in $sizes {
@@ -82,11 +90,35 @@ $sides: left, top, bottom, right;
 			padding-bottom: $size-value;
 		}
 
-		// @each $side in $sides {
-		// 	&#{$side}-#{$number} {
-		// 		margin-#{$side}: $size-value;
-		// 	}
-		// }
+		&-#{$number}\! {
+			padding: $size-value !important;
+		}
+
+		&x-#{$number}\! {
+			padding-left: $size-value !important;
+			padding-right: $size-value !important;
+		}
+
+		&y-#{$number}\! {
+			padding-top: $size-value !important;
+			padding-bottom: $size-value !important;
+		}
+
+		&l-#{$number}\! {
+			padding-left: $size-value !important;
+		}
+
+		&t-#{$number}\! {
+			padding-top: $size-value !important;
+		}
+
+		&r-#{$number}\! {
+			padding-right: $size-value !important;
+		}
+
+		&b-#{$number}\! {
+			padding-bottom: $size-value !important;
+		}
 	}
 	// Utility class for margin
 	.m {
@@ -118,6 +150,36 @@ $sides: left, top, bottom, right;
 
 		&b-#{$number} {
 			margin-bottom: $size-value;
+		}
+
+		&-#{$number}\! {
+			margin: $size-value !important;
+		}
+
+		&x-#{$number}\! {
+			margin-left: $size-value !important;
+			margin-right: $size-value !important;
+		}
+
+		&y-#{$number}\! {
+			margin-top: $size-value !important;
+			margin-bottom: $size-value !important;
+		}
+
+		&l-#{$number}\! {
+			margin-left: $size-value !important;
+		}
+
+		&t-#{$number}\! {
+			margin-top: $size-value !important;
+		}
+
+		&r-#{$number}\! {
+			margin-right: $size-value !important;
+		}
+
+		&b-#{$number}\! {
+			margin-bottom: $size-value !important;
 		}
 
 		// @each $side in $sides {
