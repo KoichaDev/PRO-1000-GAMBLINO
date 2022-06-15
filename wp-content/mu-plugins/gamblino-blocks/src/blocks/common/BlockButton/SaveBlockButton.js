@@ -55,13 +55,9 @@ function save({ attributes }) {
                         })}
                         href={linkURL}
                         {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                        {...(isNewTabLinkURLToggled
-                            ? {
-                                rel: isRelToggled
-                                    ? "following noopener noreferrer"
-                                    : "nofollow noopener noreferrer",
-                            }
-                            : {})}
+                        {...(isRelToggled === true
+                            ? { rel: "follow noreferrer noopener" }
+                            : { rel: "nofollow noreferrer noopener" })}
                         tagName="a"
                         value={buttonText}
                     />

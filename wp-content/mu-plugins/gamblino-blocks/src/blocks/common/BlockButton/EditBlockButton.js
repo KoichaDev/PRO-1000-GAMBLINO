@@ -133,7 +133,7 @@ const Button = (props) => {
                     tagName="a"
                     value={buttonText}
                     {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                    {...(isRelToggled === true ? { rel: "nofollow" } : {})}
+                    {...(isRelToggled === true ? { rel: "follow" } : { rel: "nofollow" })}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}
                     placeholder={__("text...", "block-gamblino")}

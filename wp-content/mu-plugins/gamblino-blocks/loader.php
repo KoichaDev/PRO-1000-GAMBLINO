@@ -103,14 +103,3 @@ class Loader {
 }
 
 Loader::init();
-
-add_filter( 'the_content', static function($content) { 
-  $replace = [
-	  "noreferrer" => "" ,
-	  "noreferrer " => ""
-	];
-
-  $new_content = strtr($content, $replace);
-  
-  return $new_content;
- }, 99 );
