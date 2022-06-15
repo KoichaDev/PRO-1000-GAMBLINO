@@ -27,6 +27,7 @@ const Button = (props) => {
         isLinkToolbarButtonOpen,
         isNewTabLinkURLToggled,
         linkURL,
+        isToggledSEO,
         isFollowToggled,
         isSponsoredToggled,
         isUGCToggled,
@@ -198,7 +199,7 @@ const Button = (props) => {
                     tagName="a"
                     value={buttonText}
                     {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                    {...relContent}
+                    {...isToggledSEO ? relContent : !isToggledSEO && isNewTabLinkURLToggled ? { rel: "noreferrer noopener" } : {}}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}
                     placeholder={__("text...", "block-gamblino")}

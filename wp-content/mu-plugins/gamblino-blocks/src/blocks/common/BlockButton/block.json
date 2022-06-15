@@ -25,6 +25,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"isToggledSEO": {
+			"type": "boolean",
+			"default": false
+		},
 		"isNewTabLinkURLToggled": {
 			"type": "boolean",
 			"default": false

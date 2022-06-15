@@ -6,6 +6,7 @@ function save({ attributes }) {
     const {
         isNewTabLinkURLToggled,
         linkURL,
+        isToggledSEO,
         isFollowToggled,
         isSponsoredToggled,
         isUGCToggled,
@@ -107,7 +108,7 @@ function save({ attributes }) {
                         })}
                         href={linkURL}
                         {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                        {...(relContent)}
+                        {...isToggledSEO ? relContent : !isToggledSEO && isNewTabLinkURLToggled ? { rel: "noreferrer noopener" } : {}}
                         tagName="a"
                         value={buttonText}
                     />
