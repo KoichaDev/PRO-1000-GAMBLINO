@@ -10,7 +10,7 @@ import "./LinkConfigurationToolbar.scss";
 
 const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const { attributes, setAttributes } = props;
-    const { linkURL, isNewTabLinkURLToggled, isRelToggled } = attributes;
+    const { linkURL, isNewTabLinkURLToggled, isFollowToggled } = attributes;
 
     const { postsCollection, isError, isLoaded } = useGetPosts();
 
@@ -200,12 +200,12 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
             <div className="toggle-container">
                 <ToggleControl
                     label={
-                        !isRelToggled
+                        !isFollowToggled
                             ? __("Not following", "block-gamblino")
                             : __("Following", "block-gamblino")
                     }
-                    checked={isRelToggled}
-                    onChange={() => setAttributes({ isRelToggled: !isRelToggled })}
+                    checked={isFollowToggled}
+                    onChange={() => setAttributes({ isFollowToggled: !isFollowToggled })}
                 />
             </div>
         </div>

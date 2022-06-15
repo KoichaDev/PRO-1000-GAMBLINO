@@ -6,7 +6,7 @@ function save({ attributes }) {
     const {
         isNewTabLinkURLToggled,
         linkURL,
-        isRelToggled,
+        isFollowToggled,
         isShadowMenuOpen,
         shadowOpacity,
         buttonText,
@@ -55,7 +55,7 @@ function save({ attributes }) {
                         })}
                         href={linkURL}
                         {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                        {...(isRelToggled === true
+                        {...(isFollowToggled === true
                             ? { rel: "follow noreferrer noopener" }
                             : { rel: "nofollow noreferrer noopener" })}
                         tagName="a"

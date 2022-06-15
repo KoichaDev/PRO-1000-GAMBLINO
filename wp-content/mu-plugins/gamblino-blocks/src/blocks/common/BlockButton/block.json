@@ -29,7 +29,11 @@
 			"type": "boolean",
 			"default": false
 		},
-		"isRelToggled": {
+		"isSponsoredToggled": {
+			"type": "boolean",
+			"default": false
+		},
+		"isFollowToggled": {
 			"type": "boolean",
 			"default": false
 		},
