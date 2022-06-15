@@ -7,7 +7,7 @@ const ToggleFollowSEO = ({ ...props }) => {
     return (
         <>
             <ToggleControl
-                label={!isToggledSEO ? __('Activate SEO Settings', 'block-gamblino') : __("Deactivate SEO Settings", 'block-gamblino')}
+                label={!isToggledSEO ? __('Deactivate SEO Settings', 'block-gamblino') : __("Activated SEO Settings", 'block-gamblino')}
                 checked={isToggledSEO}
                 onChange={() => setAttributes({ isToggledSEO: !isToggledSEO })}
             />
