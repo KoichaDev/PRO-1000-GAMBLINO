@@ -75,6 +75,7 @@ class Loader {
 		if ( function_exists( 'gamblino_allowed_block_types' ) ) return;
         function gamblino_allowed_block_types( $allowed_blocks ) {
                 return array(
+					'core/buttons',
                     'core/image',
                     'core/paragraph',
                     'core/heading',

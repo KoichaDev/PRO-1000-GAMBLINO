@@ -58,6 +58,13 @@ const Button = (props) => {
         }
     }, [isFocusOutside]);
 
+    useUpdateEffect(() => {
+        if (isFocusOutside === true) {
+            setIsVisibleBackgroundColor(false)
+            setIsVisibleTextColor(false)
+        }
+    }, [isFocusOutside]);
+
     useEffect(() => {
         if (!isFocusOutside) {
             setAttributes({ isLinkToolbarButtonOpen: false });
@@ -149,6 +156,7 @@ const Button = (props) => {
 
             {isVisibleTextColor && (
                 <ColorPicker
+                    className="position-absolute bg-neutral-100 mt-5"
                     color={buttonColor}
                     onChange={onChangeTextColorHandler}
                     enableAlpha
@@ -158,6 +166,7 @@ const Button = (props) => {
 
             {isVisibleBackgroundColor && (
                 <ColorPicker
+                    className="position-absolute bg-neutral-100 mt-5"
                     color={buttonBackgroundColor}
                     onChange={onChangeBackgroundColorHandler}
                     enableAlpha
