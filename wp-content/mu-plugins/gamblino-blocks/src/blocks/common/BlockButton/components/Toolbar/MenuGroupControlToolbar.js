@@ -17,7 +17,7 @@ import { AiOutlineBorder } from "react-icons/ai";
 // UI Icon
 import { PaddingIcon } from "@/common/Icons/Spaces";
 import ButtonStylingIcon from "../../icons/ButtonStylingIcon";
-import BorderRadiusIcon from '../../icons/BordeRadiusIcon'
+import BorderRadiusIcon from "../../icons/BordeRadiusIcon";
 
 const MenuGroupControlToolbar = (props) => {
     const {
@@ -43,6 +43,16 @@ const MenuGroupControlToolbar = (props) => {
                     onChange={(value) => setAttributes({ buttonTextAlignment: value })}
                 />
                 <ToolbarGroup>
+                    <ToolbarButton
+                        title={__("Link Configuration", "block-gamblino")}
+                        icon={MdLink}
+                        value={isLinkToolbarButtonOpen}
+                        onClick={() =>
+                            setAttributes({
+                                isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen,
+                            })
+                        }
+                    />
                     <DropdownMenu
                         icon={ButtonStylingIcon}
                         label={__("Styling", "block-gamblino")}
@@ -87,16 +97,6 @@ const MenuGroupControlToolbar = (props) => {
                             },
                         ]}
                     />
-                    <ToolbarButton
-                        title={__("Link Configuration", "block-gamblino")}
-                        icon={MdLink}
-                        value={isLinkToolbarButtonOpen}
-                        onClick={() =>
-                            setAttributes({
-                                isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen,
-                            })
-                        }
-                    ></ToolbarButton>
                 </ToolbarGroup>
             </BlockControls>
         </>

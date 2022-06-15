@@ -51,15 +51,13 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     };
 
     const onClickPostTextSearchHandler = ({ title, link }) => {
-        console.log(title, link);
+        setAttributes({ linkURL: link });
+        setAttributes({ isLinkToolbarButtonOpen: false });
+
     };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-
-        // if (enteredURLText.length === 0) {
-        //     return setAttributes({ isLinkToolbarButtonOpen: true });
-        // }
 
         setAttributes({ linkURL: enteredURLText });
         setAttributes({ isLinkToolbarButtonOpen: false });
