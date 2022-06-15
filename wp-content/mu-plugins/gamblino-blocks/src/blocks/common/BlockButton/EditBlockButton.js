@@ -24,10 +24,12 @@ const Button = (props) => {
         setIsFocusOutside,
     } = props;
     const {
+        isLinkToolbarButtonOpen,
         isNewTabLinkURLToggled,
         linkURL,
-        isLinkToolbarButtonOpen,
         isFollowToggled,
+        isSponsoredToggled,
+        isUGCToggled,
         buttonText,
         buttonTextAlignment,
         isShadowMenuOpen,
@@ -49,8 +51,8 @@ const Button = (props) => {
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false);
     const [enteredURLText, setEnteredURLText] = useState("");
 
-    // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the 
-    // attributes as empty string. By using this custom hook, It runs the callback 
+    // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
+    // attributes as empty string. By using this custom hook, It runs the callback
     // function only after the first render
     useUpdateEffect(() => {
         if (isFocusOutside === true) {
@@ -60,8 +62,8 @@ const Button = (props) => {
 
     useUpdateEffect(() => {
         if (isFocusOutside === true) {
-            setIsVisibleBackgroundColor(false)
-            setIsVisibleTextColor(false)
+            setIsVisibleBackgroundColor(false);
+            setIsVisibleTextColor(false);
         }
     }, [isFocusOutside]);
 
@@ -106,6 +108,62 @@ const Button = (props) => {
 
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
 
+    const relContent = {};
+
+    if (isFollowToggled) {
+        Object.assign(relContent, {
+            rel: "follow",
+        });
+    }
+
+    if (isFollowToggled) {
+        Object.assign(relContent, {
+            rel: "follow noreferrer noopener",
+        });
+    }
+
+    if (!isFollowToggled) {
+        Object.assign(relContent, {
+            rel: "nofollow noreferrer noopener",
+        });
+    }
+
+    if (isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "ugc",
+        });
+    }
+
+    if (isSponsoredToggled) {
+        Object.assign(relContent, {
+            rel: "sponsored noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isSponsoredToggled) {
+        Object.assign(relContent, {
+            rel: "follow sponsored noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "follow ugc noreferrer noopener",
+        });
+    }
+
+    if (isSponsoredToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "sponsored ugc noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isSponsoredToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "follow sponsored ugc noreferrer noopener",
+        });
+    }
+
     return (
         <div
             {...useBlockProps({
@@ -140,7 +198,7 @@ const Button = (props) => {
                     tagName="a"
                     value={buttonText}
                     {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                    {...(isFollowToggled === true ? { rel: "follow" } : { rel: "nofollow" })}
+                    {...relContent}
                     onChange={(value) => setAttributes({ buttonText: value })}
                     onClick={() => setIsFocusOutside(false)}
                     placeholder={__("text...", "block-gamblino")}
