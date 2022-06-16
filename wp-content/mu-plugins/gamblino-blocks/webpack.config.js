@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         'block-info-bonus-review': './src/blocks/block-info-bonus-review',
         'block-general-information': './src/blocks/block-general-information',
-        'block-insert-review': './src/blocks/block-insert-review',
+        'block-insert-review': './src/blocks/BlockInsertReview',
         'block-ranking-cards': './src/blocks/BlockRankingCard',
         'block-button': './src/blocks/common/BlockButton',
         'block-image': './src/blocks/common/BlockImage',

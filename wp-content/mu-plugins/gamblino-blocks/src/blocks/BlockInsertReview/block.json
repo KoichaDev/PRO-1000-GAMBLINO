@@ -13,31 +13,7 @@
 		"align": ["wide", "full"]
 	},
 	"textdomain": "block-gamblino",
-	"attributes": {
-		"title": {
-			"type": "string",
-			"source": "html",
-			"selector": "h2"
-		},
-		"description": {
-			"type": "string",
-			"source": "html",
-			"selector": "p"
-		},
-		"lists": {
-			"type": "array",
-			"selector": ".block-insert-review__lists li",
-			"source": "query",
-			"default": [],
-			"query": {
-				"content": {
-					"type": "string",
-					"source": "html",
-					"selector": "p"
-				}
-			}
-		}
-	},
+	"attributes": {},
 	"editorScript": "file:../../../build/block-insert-review.js",
 	"editorStyle": "file:../../../build/block-insert-review.css",
 	"style": "file:../../../build/style-block-insert-review.css"
