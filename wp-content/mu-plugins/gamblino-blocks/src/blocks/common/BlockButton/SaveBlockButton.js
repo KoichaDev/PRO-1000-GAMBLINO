@@ -4,6 +4,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 function save({ attributes }) {
     const {
+        align,
         isNewTabLinkURLToggled,
         linkURL,
         isToggledSEO,
@@ -93,13 +94,12 @@ function save({ attributes }) {
     // prettier-ignore
     const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
 
-
     return (
         <>
             {buttonText ? (
                 <div
                     {...useBlockProps.save({
-                        className: `[ text-${buttonTextAlignment} ]`,
+                        className: `[ ${align} text-${buttonTextAlignment} ]`,
                     })}
                 >
                     <RichText.Content

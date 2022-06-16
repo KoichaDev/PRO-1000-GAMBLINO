@@ -17,6 +17,10 @@
 		"columns": {
 			"type": "number",
 			"default": 3
+		},
+		"align": {
+			"type": "string",
+			"default": "wide"
 		}
 	},
 	"editorScript": "file:../../../build/block-ranking-cards.js",
