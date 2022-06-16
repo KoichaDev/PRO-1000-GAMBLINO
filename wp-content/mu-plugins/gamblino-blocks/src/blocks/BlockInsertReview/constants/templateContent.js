@@ -6,7 +6,8 @@ export const templateContent = [
         lock: {
             "move": true,
             "remove": true
-        }
+        },
+        className: '[ gap-24! ]'
     }, [
             ["core/column", {
                 align: 'wide',
