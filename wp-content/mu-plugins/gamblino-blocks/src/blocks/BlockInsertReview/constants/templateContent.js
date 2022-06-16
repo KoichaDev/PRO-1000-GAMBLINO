@@ -1,12 +1,20 @@
 // Prettier-ignore
 export const templateContent = [
     ["core/columns", {
-        "align": {
-            "type": "string",
-            "default": "wide"
+        columns: 2,
+        align: 'wide',
+        lock: {
+            "move": true,
+            "remove": true
         }
     }, [
-            ["core/column", {},
+            ["core/column", {
+                align: 'wide',
+                lock: {
+                    "move": false,
+                    "remove": true
+                }
+            },
                 [
                     ["core/heading", {
                         className: 'py-5'
@@ -19,8 +27,13 @@ export const templateContent = [
                 ],
             ],
             [
-                "core/column",
-                {},
+                "core/column", {
+                    align: 'wide',
+                    lock: {
+                        "move": false,
+                        "remove": true
+                    }
+                },
                 [
                     ["core/heading", {
                         className: 'py-5'
