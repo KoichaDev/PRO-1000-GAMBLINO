@@ -4,10 +4,13 @@
 	padding: 0;
 	list-style: none;
 
-	li p {
-		background: #fff;
-		padding: 1em 0;
-		text-indent: 1rem;
+	li {
+		margin: -10px 0;
+		p {
+			background: #fff;
+			padding: 1em 0;
+			text-indent: 1rem;
+		}
 	}
 }
 
