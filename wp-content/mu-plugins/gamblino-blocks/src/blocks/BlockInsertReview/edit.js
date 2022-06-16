@@ -22,7 +22,7 @@ const Edit = (props) => {
 						backgroundColor,
 					},
 				})}
-				className="[ block-insert-review ]"
+				className="[ block-insert-review ] [ my-10 ]"
 			>
 				<InnerBlocks template={templateContent} />
 			</section>

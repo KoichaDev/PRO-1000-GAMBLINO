@@ -2,8 +2,8 @@
 import { registerBlockType } from "@wordpress/blocks";
 
 // Internal Parent Block Dependencies
-import Edit from "./edit";
-import save from "./save";
+import Edit from "./Edit";
+import Save from "./Save";
 
 import './components/InnerBlocks/RegisterBlockType';
 
@@ -18,6 +18,6 @@ const { name, ...settings } = json
 registerBlockType(name, {
 	...settings,
 	edit: Edit,
-	save,
+	save: Save,
 });
 

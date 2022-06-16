@@ -6,8 +6,20 @@
 	margin-right: auto;
 }
 
+.alignwide {
+	display: block;
+	width: calc(1em + 90vw);
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .full {
 	display: block;
 	width: 100%;
 	max-width: 100%;
+}
+
+.alignfull {
+	margin: 0;
 }
