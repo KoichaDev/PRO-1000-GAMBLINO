@@ -20,6 +20,14 @@ $sizes: (
 	'size-14': $base-gap-size * 2.5,
 	'size-15': $base-gap-size * 2.75,
 	'size-16': $base-gap-size * 3,
+	'size-17': $base-gap-size * 3.25,
+	'size-18': $base-gap-size * 3.5,
+	'size-19': $base-gap-size * 3.75,
+	'size-20': $base-gap-size * 4,
+	'size-21': $base-gap-size * 4.25,
+	'size-22': $base-gap-size * 4.5,
+	'size-23': $base-gap-size * 4.75,
+	'size-24': $base-gap-size * 5,
 );
 
 $sides: left, top, bottom, right;
@@ -34,6 +42,10 @@ $sides: left, top, bottom, right;
 	.gap {
 		&-#{$number} {
 			gap: $size-value;
+		}
+
+		&-#{$number}\! {
+			gap: $size-value !important;
 		}
 	}
 }
