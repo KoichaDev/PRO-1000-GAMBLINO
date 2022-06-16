@@ -17,6 +17,10 @@
 		"backgroundColor": {
 			"type": "string",
 			"default": "#FFBA67"
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
 		}
 	},
 	"editorScript": "file:../../../build/block-insert-review.js",
