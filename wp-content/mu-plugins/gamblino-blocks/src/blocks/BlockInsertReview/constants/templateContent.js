@@ -23,12 +23,9 @@ export const templateContent = [
                         move: false,
                         remove: true,
                     },
-                    spacing: {
-                        padding: {
-                            top: "0.3rem",
-                            right: "1rem",
-                            bottom: "0.3rem",
-                            left: "1rem",
+                    style: {
+                        spacing: {
+                            padding: { top: "5em", bottom: "5em" },
                         },
                     },
                 },
@@ -56,6 +53,11 @@ export const templateContent = [
                     lock: {
                         move: false,
                         remove: true,
+                    },
+                    style: {
+                        spacing: {
+                            padding: { top: "5em", bottom: "5em" },
+                        },
                     },
                 },
                 [
