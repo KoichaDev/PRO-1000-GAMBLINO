@@ -82,6 +82,7 @@ const Lists = (props) => {
                     <Tooltip text={__("Add feature text", "block-gamblino")}>
                         <button
                             type="button"
+                            className="mt-10"
                             aria-label={__("Add feature text", "block-gamblino")}
                             onClick={newListHandler}
                         >
