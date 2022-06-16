@@ -8,7 +8,7 @@ import "./editor.scss";
 const Edit = () => {
 	const templateContent = [
 		["gamblino-block/insert-review-title", {}],
-		["gamblino-block/insert-review-excerption", {}],
+		["gamblino-block/insert-review-excerpt", {}],
 		["gamblino-block/insert-review-lists", {}],
 		["gamblino-block/button"],
 	];

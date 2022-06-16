@@ -3,13 +3,14 @@ import { registerBlockType } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 
 // React Icon
-import { IoMdSquare } from "react-icons/io";
+import { MdTitle, MdOutlineFormatListBulleted } from "react-icons/md";
+import { RiMenu2Fill } from "react-icons/ri";
 
 import EditTitleBlock from './TitleBlocks/EditTitleBlock';
 import SaveTitleBlock from './TitleBlocks/SaveTitleBlock';
 
-import EditExcerptionBlock from './ExcerptionBlocks/EditExcerptionBlock';
-import SaveExcerptionBlock from './ExcerptionBlocks/SaveExcerptionBlock';
+import EditExcerptBlock from './ExcerptBlocks/EditExcerptBlock';
+import SaveExcerptBlock from './ExcerptBlocks/SaveExcerptBlock';
 
 import EditListBlock from './ListsBlock/EditListBlock';
 import SaveListBlock from './ListsBlock/SaveListBlock';
@@ -21,7 +22,7 @@ registerBlockType("gamblino-block/insert-review-title", {
     supports: {
         html: false,
     },
-    icon: IoMdSquare,
+    icon: MdTitle,
     attributes: {
         title: {
             type: "string",
@@ -33,23 +34,23 @@ registerBlockType("gamblino-block/insert-review-title", {
     save: SaveTitleBlock,
 });
 
-registerBlockType("gamblino-block/insert-review-excerption", {
-    title: __("Excerption", "block-gamblino"),
-    description: __("Excerption Block", "block-gamblino"),
+registerBlockType("gamblino-block/insert-review-excerpt", {
+    title: __("Excerpt", "block-gamblino"),
+    description: __("Excerpt Block", "block-gamblino"),
     parent: ["gamblino-block/insert-review"],
     supports: {
         html: false,
     },
-    icon: IoMdSquare,
+    icon: RiMenu2Fill,
     attributes: {
-        excerption: {
+        excerpt: {
             type: "string",
             source: "html",
             selector: "p",
         },
     },
-    edit: EditExcerptionBlock,
-    save: SaveExcerptionBlock,
+    edit: EditExcerptBlock,
+    save: SaveExcerptBlock,
 });
 
 registerBlockType("gamblino-block/insert-review-lists", {
@@ -59,13 +60,13 @@ registerBlockType("gamblino-block/insert-review-lists", {
     supports: {
         html: false,
     },
-    icon: IoMdSquare,
+    icon: MdOutlineFormatListBulleted,
     attributes: {
         lists: {
             type: "array",
             selector: ".block-insert-review__lists li",
             source: "query",
-            default: [],
+            default: [{ content: '' }],
             query: {
                 content: {
                     type: "string",

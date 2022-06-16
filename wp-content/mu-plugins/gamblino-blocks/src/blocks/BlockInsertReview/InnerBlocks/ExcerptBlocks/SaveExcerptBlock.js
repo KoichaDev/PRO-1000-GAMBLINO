@@ -2,7 +2,7 @@
 import { __ } from "@wordpress/i18n";
 import { RichText } from "@wordpress/block-editor";
 
-const SaveExcerptionBlock = ({ attributes }) => {
+const SaveExcerptBlock = ({ attributes }) => {
     const { excerption } = attributes;
     return (
         <>
@@ -17,4 +17,4 @@ const SaveExcerptionBlock = ({ attributes }) => {
     );
 };
 
-export default SaveExcerptionBlock;
+export default SaveExcerptBlock;
