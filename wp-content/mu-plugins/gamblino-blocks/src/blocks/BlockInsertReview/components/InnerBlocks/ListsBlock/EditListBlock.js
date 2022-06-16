@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
-import { RichText, BlockControls } from "@wordpress/block-editor";
+import { useBlockProps, RichText, BlockControls } from "@wordpress/block-editor";
 import { Icon, Tooltip } from "@wordpress/components";
 
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";

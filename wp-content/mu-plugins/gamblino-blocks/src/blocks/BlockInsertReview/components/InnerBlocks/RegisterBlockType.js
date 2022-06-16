@@ -6,14 +6,14 @@ import { __ } from "@wordpress/i18n";
 import { MdTitle, MdOutlineFormatListBulleted } from "react-icons/md";
 import { RiMenu2Fill } from "react-icons/ri";
 
-import EditTitleBlock from './TitleBlocks/EditTitleBlock';
-import SaveTitleBlock from './TitleBlocks/SaveTitleBlock';
+import EditTitleBlock from "./TitleBlocks/EditTitleBlock";
+import SaveTitleBlock from "./TitleBlocks/SaveTitleBlock";
 
-import EditExcerptBlock from './ExcerptBlocks/EditExcerptBlock';
-import SaveExcerptBlock from './ExcerptBlocks/SaveExcerptBlock';
+import EditExcerptBlock from "./ExcerptBlocks/EditExcerptBlock";
+import SaveExcerptBlock from "./ExcerptBlocks/SaveExcerptBlock";
 
-import EditListBlock from './ListsBlock/EditListBlock';
-import SaveListBlock from './ListsBlock/SaveListBlock';
+import EditListBlock from "./ListsBlock/EditListBlock";
+import SaveListBlock from "./ListsBlock/SaveListBlock";
 
 registerBlockType("gamblino-block/insert-review-title", {
     title: __("Title", "block-gamblino"),
@@ -66,7 +66,7 @@ registerBlockType("gamblino-block/insert-review-lists", {
             type: "array",
             selector: ".block-insert-review__lists li",
             source: "query",
-            default: [{ content: '' }],
+            default: [{ content: "" }],
             query: {
                 content: {
                     type: "string",

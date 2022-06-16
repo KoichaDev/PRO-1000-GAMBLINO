@@ -5,7 +5,7 @@ import { registerBlockType } from "@wordpress/blocks";
 import Edit from "./edit";
 import save from "./save";
 
-import './InnerBlocks/RegisterBlockType';
+import './components/InnerBlocks/RegisterBlockType';
 
 // block meta data
 import json from './block.json'
