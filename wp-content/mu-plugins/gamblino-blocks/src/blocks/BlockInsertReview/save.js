@@ -2,7 +2,7 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-function save() {
+function Save() {
 	return (
 		<section {...useBlockProps.save()}>
 			<InnerBlocks.Content />
@@ -10,4 +10,4 @@ function save() {
 	);
 }
 
-export default save;
+export default Save;

@@ -9,8 +9,8 @@ import {
 import { PanelBody, RangeControl } from "@wordpress/components";
 
 // WP Block styles
-import "@/styles/reset/block/wp-core-columns.scss";
-import "@/styles/reset/block/wp-core-image.scss";
+import "@/styles/reset/blocks/wp-core-columns.scss";
+import "@/styles/reset/blocks/wp-core-image.scss";
 import "./editor.scss";
 
 const EditCardBlock = ({ attributes, setAttributes }) => {

@@ -4,6 +4,7 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 import InspectorPanelControls from "./components/InspectorControls/InspectorPanelControls";
 import { templateContent } from "./constants/templateContent";
+
 // WP Block styles
 import "./editor.scss";
 
