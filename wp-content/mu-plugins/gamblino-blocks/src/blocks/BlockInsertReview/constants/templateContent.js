@@ -34,12 +34,20 @@ export const templateContent = [
                         "core/heading",
                         {
                             className: "py-5",
+                            lock: {
+                                move: true,
+                                remove: true,
+                            },
                         },
                     ],
                     [
                         "core/paragraph",
                         {
                             className: "py-5",
+                            lock: {
+                                move: true,
+                                remove: true,
+                            },
                         },
                     ],
                     ["gamblino-block/insert-review-lists", {}],
@@ -55,6 +63,8 @@ export const templateContent = [
                         paddingHorizontalSelectUnit: "em",
                         buttonPaddingVertical: 1,
                         paddingVerticalSelectUnit: "em",
+                        buttonBackgroundColor: '#FAE9A0',
+                        buttonColor: '#664852',
                     },
                     ],
                 ],
@@ -78,12 +88,20 @@ export const templateContent = [
                         "core/heading",
                         {
                             className: "py-5",
+                            lock: {
+                                move: true,
+                                remove: true,
+                            },
                         },
                     ],
                     [
                         "core/paragraph",
                         {
                             className: "py-5",
+                            lock: {
+                                move: true,
+                                remove: true,
+                            },
                         },
                     ],
                     ["gamblino-block/insert-review-lists", {}],
@@ -99,6 +117,8 @@ export const templateContent = [
                         paddingHorizontalSelectUnit: "em",
                         buttonPaddingVertical: 1,
                         paddingVerticalSelectUnit: "em",
+                        buttonBackgroundColor: '#6FCF97',
+                        buttonColor: '#664852',
                     },
                     ],
                 ],
