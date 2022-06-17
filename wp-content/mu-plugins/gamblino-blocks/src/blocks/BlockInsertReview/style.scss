@@ -1,4 +1,15 @@
 .wp-block-gamblino-block-insert-review {
+	.wp-block-columns {
+		@media screen and (max-width: 48em) {
+			gap: 0 !important;
+		}
+
+		.wp-block-column {
+			@media screen and (max-width: 48em) {
+				padding: 0;
+			}
+		}
+	}
 	.block-insert-review__title {
 		font-size: 1.5rem;
 		line-height: 2rem;

@@ -23,11 +23,7 @@ export const templateContent = [
                         move: false,
                         remove: true,
                     },
-                    style: {
-                        spacing: {
-                            padding: { top: "5em", bottom: "5em" },
-                        },
-                    },
+                    className: "py-24"
                 },
                 [
                     [
@@ -82,11 +78,7 @@ export const templateContent = [
                         move: false,
                         remove: true,
                     },
-                    style: {
-                        spacing: {
-                            padding: { top: "5em", bottom: "5em" },
-                        },
-                    },
+                    className: "py-24"
                 },
                 [
                     [
