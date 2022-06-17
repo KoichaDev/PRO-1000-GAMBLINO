@@ -19,7 +19,7 @@ registerBlockType("gamblino-block/ranking-card", {
     attributes: {
         backgroundColor: {
             type: "string",
-            default: "#fff",
+            default: "#F8F8F8",
         },
     },
     edit: CardContentEdit,
