@@ -94,7 +94,7 @@ class Loader {
                     "gamblino-block/ranking-card",
                     'gamblino-block/button',
                     'gamblino-block/image',
-
+					'gamblino-block/image-adverstiment',
                 );
         
             }

@@ -1,0 +1,20 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/image-adverstiment",
+	"version": "1.0.0",
+	"title": "Block Image Advertisement Space",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Block Image Banner/AdSpace using image purposes only",
+	"keywords": ["gamblino", "banner", "ads", "image"],
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"className": false
+	},
+	"textdomain": "block-gamblino",
+	"attributes": {},
+	"editorScript": "file:../../../build/block-image-adverstiment.js",
+	"editorStyle": "file:../../../build/block-image-adverstiment.css",
+	"style": "file:../../../build/style-block-image-adverstiment.css"
+}
