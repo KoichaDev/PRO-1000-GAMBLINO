@@ -134,6 +134,15 @@
 				"left": 0
 			}
 		},
+		"marginLongHandSpacingSelectUnit": {
+			"type": "object",
+			"default": {
+				"top": "px",
+				"right": "px",
+				"bottom": "px",
+				"left": "px"
+			}
+		},
 		"marginSpacingUnit": {
 			"type": "string",
 			"default": "px"

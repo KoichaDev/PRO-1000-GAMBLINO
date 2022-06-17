@@ -5,6 +5,7 @@ import { Button } from "@wordpress/components";
 import ButtonLinkSideMargin from "./Margin/ButtonLinkSideMargin";
 import NoneShortHandMargin from "./Margin/NoneShortHandMargin";
 import ShortHandMargin from "./Margin/ShortHandMargin";
+import LongHandMargin from "./Margin/LongHandMargin";
 
 import ControlIcon from "../../../../icons/ControlIcon";
 import { PaddingIcon } from "@/common/Icons/Spaces";
@@ -64,8 +65,6 @@ const MarginSpacing = ({ ...props }) => {
     return (
         <>
             <div className="flex-row justify-content-between align-items-center mb-5">
-                {paddingIconContent}
-
                 {!isMarginShorthandButtonClicked ? (
                     <p style={{ fontSize: "13px" }}>Margin</p>
                 ) : (
@@ -89,8 +88,9 @@ const MarginSpacing = ({ ...props }) => {
                 </Button>
             </div>
 
-            {!isMarginShorthandButtonClicked && (
+            {!isMarginShorthandButtonClicked ? (
                 <div className="controls-padding">
+                    {paddingIconContent}
                     <>
                         {!IsClickedLinkSidesMargin ? (
                             <NoneShortHandMargin {...props} />
@@ -108,6 +108,8 @@ const MarginSpacing = ({ ...props }) => {
                         <ButtonLinkSideMargin {...props} />
                     </>
                 </div>
+            ) : (
+                <LongHandMargin {...props} />
             )}
         </>
     );
