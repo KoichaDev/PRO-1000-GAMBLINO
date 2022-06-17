@@ -1,12 +1,13 @@
 import { __ } from "@wordpress/i18n";
 
-const LongHandmargin = ({ ...props }) => {
+const LongHandmargin = ({ setIsClickedMarginLongHandInputField, ...props }) => {
     const { attributes, setAttributes } = props;
     const { marginLongHandSpacing, marginLongHandSpacingSelectUnit } = attributes;
     // prettier-ignore
     const { top: topUnit, right: rightUnit, bottom: bottomUnit, left: leftUnit } = marginLongHandSpacingSelectUnit
     // prettier-ignore
     const { top: topValue, right: rightValue, bottom: bottomValue, left: leftValue } = marginLongHandSpacing;
+
     return (
         <>
             <div className="controls-padding_input-component">
@@ -15,6 +16,14 @@ const LongHandmargin = ({ ...props }) => {
                     aria-label="top"
                     title="Top"
                     value={topValue}
+                    onClick={() =>
+                        setIsClickedMarginLongHandInputField({
+                            top: true,
+                            right: false,
+                            bottom: false,
+                            left: false,
+                        })
+                    }
                     onChange={(e) => {
                         setAttributes({
                             marginLongHandSpacing: {
@@ -61,10 +70,14 @@ const LongHandmargin = ({ ...props }) => {
                             },
                         });
                     }}
-                // onClick={() => {
-                // 	setIsClickedMarginHorizontalField(true);
-                // 	setIsClickedMarginVerticalField(false);
-                // }}
+                    onClick={() =>
+                        setIsClickedMarginLongHandInputField({
+                            top: false,
+                            right: true,
+                            bottom: false,
+                            left: false,
+                        })
+                    }
                 />
                 <select
                     aria-label={__("Select unit", "block-gamblino")}
@@ -101,10 +114,14 @@ const LongHandmargin = ({ ...props }) => {
                             },
                         });
                     }}
-                // onClick={() => {
-                // 	setIsClickedMarginHorizontalField(true);
-                // 	setIsClickedMarginVerticalField(false);
-                // }}
+                    onClick={() =>
+                        setIsClickedMarginLongHandInputField({
+                            top: false,
+                            right: false,
+                            bottom: true,
+                            left: false,
+                        })
+                    }
                 />
                 <select
                     aria-label={__("Select unit", "block-gamblino")}
@@ -140,10 +157,14 @@ const LongHandmargin = ({ ...props }) => {
                             },
                         });
                     }}
-                // onClick={() => {
-                // 	setIsClickedMarginHorizontalField(true);
-                // 	setIsClickedMarginVerticalField(false);
-                // }}
+                    onClick={() =>
+                        setIsClickedMarginLongHandInputField({
+                            top: false,
+                            right: false,
+                            bottom: false,
+                            left: true,
+                        })
+                    }
                 />
                 <select
                     aria-label={__("Select unit", "block-gamblino")}

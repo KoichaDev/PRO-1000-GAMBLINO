@@ -19,10 +19,39 @@ const MarginSpacing = ({ ...props }) => {
 
     // prettier-ignore
     const [isClickedMarginHorizontalField, setIsClickedMarginHorizontalField] = useState(false);
+    // prettier-ignore
+    const [isClickedMarginVerticalField, setIsClickedMarginVerticalField,] = useState(false);
+
     const [
-        isClickedMarginVerticalField,
-        setIsClickedMarginVerticalField,
-    ] = useState(false);
+        isClickedMarginLongHandInputField,
+        setIsClickedMarginLongHandInputField,
+    ] = useState({
+        top: false,
+        right: false,
+        bottom: false,
+        left: false,
+    });
+
+    // prettier-ignore
+    const notClickedMarginLongHandInputFields = Object.values(isClickedMarginLongHandInputField).every(value => value === false);
+
+    let marginIconHighlightPositionIndicator = "";
+
+    if (isClickedMarginLongHandInputField.top) {
+        marginIconHighlightPositionIndicator = __("(top)", "block-gamblino");
+    }
+
+    if (isClickedMarginLongHandInputField.right) {
+        marginIconHighlightPositionIndicator = __("(right)", "block-gamblino");
+    }
+
+    if (isClickedMarginLongHandInputField.bottom) {
+        marginIconHighlightPositionIndicator = __("(bottom)", "block-gamblino");
+    }
+
+    if (isClickedMarginLongHandInputField.left) {
+        marginIconHighlightPositionIndicator = __("(left)", "block-gamblino");
+    }
 
     const ariaPressed = isMarginShorthandButtonClicked
         ? __("false", "block-gamblino")
@@ -32,20 +61,20 @@ const MarginSpacing = ({ ...props }) => {
         ? "is-small is-pressed has-icon"
         : "is-small has-icon bg-neutral-100! text-dark-900!";
 
-    let paddingIconContent = "";
+    let marginIcon = "";
 
     if (!IsClickedLinkSidesMargin) {
-        paddingIconContent = <PaddingIcon />;
+        marginIcon = <PaddingIcon />;
     } else {
         if (isClickedMarginVerticalField) {
-            paddingIconContent = (
+            marginIcon = (
                 <PaddingIcon
                     fillTop={isClickedMarginVerticalField ? "#C5C7C9" : ""}
                     fillBottom={isClickedMarginVerticalField ? "#C5C7C9" : ""}
                 />
             );
         } else {
-            paddingIconContent = (
+            marginIcon = (
                 <PaddingIcon
                     fillTop="#1e1e1e"
                     fillBottom="#1e1e1e"
@@ -54,6 +83,17 @@ const MarginSpacing = ({ ...props }) => {
                 />
             );
         }
+    }
+
+    if (isMarginShorthandButtonClicked) {
+        marginIcon = (
+            <PaddingIcon
+                fillTop={isClickedMarginLongHandInputField.top ? "#C5C7C9" : ""}
+                fillRight={isClickedMarginLongHandInputField.right ? "#C5C7C9" : ""}
+                fillBottom={isClickedMarginLongHandInputField.bottom ? "#C5C7C9" : ""}
+                fillLeft={isClickedMarginLongHandInputField.left ? "#C5C7C9" : ""}
+            />
+        );
     }
 
     const onClickControllerIconHandler = () => {
@@ -71,7 +111,9 @@ const MarginSpacing = ({ ...props }) => {
                     <p style={{ fontSize: "13px" }}>
                         Margin:
                         <span className="components-font-size-picker__header__hint">
-                            (custom)
+                            {notClickedMarginLongHandInputFields
+                                ? __("(custom)", "block-gamblino")
+                                : marginIconHighlightPositionIndicator}
                         </span>
                     </p>
                 )}
@@ -90,7 +132,7 @@ const MarginSpacing = ({ ...props }) => {
 
             {!isMarginShorthandButtonClicked ? (
                 <div className="controls-padding">
-                    {paddingIconContent}
+                    <div className="flex-row">{marginIcon}</div>
                     <>
                         {!IsClickedLinkSidesMargin ? (
                             <NoneShortHandMargin {...props} />
@@ -109,7 +151,17 @@ const MarginSpacing = ({ ...props }) => {
                     </>
                 </div>
             ) : (
-                <LongHandMargin {...props} />
+                <div className="[ controls-padding ]">
+                    <div>{marginIcon}</div>
+                    <div className="flex-row flex-wrap justify-content-end gap-3!">
+                        <LongHandMargin
+                            setIsClickedMarginLongHandInputField={
+                                setIsClickedMarginLongHandInputField
+                            }
+                            {...props}
+                        />
+                    </div>
+                </div>
             )}
         </>
     );
