@@ -87,7 +87,6 @@ class Loader {
                     'acf/card-block-1',
                     'acf/block-carousel',
                     'acf/block-total-post-articles',
-                    'gamblino-block/info-bonus-review',
                     'gamblino-block/general-information',
                     'gamblino-block/insert-review',
                     'gamblino-block/table',
