@@ -94,6 +94,54 @@
 			"type": "boolean",
 			"default": false
 		},
+		"isMarginShorthandButtonClicked": {
+			"type": "boolean",
+			"default": false
+		},
+		"marginNoneShortHandMargin": {
+			"type": "number",
+			"default": 0
+		},
+		"marginShortHandMargin": {
+			"type": "number",
+			"default": {
+				"vertical": 0,
+				"horizontal": 0
+			}
+		},
+		"marginShorthandHorizontal": {
+			"type": "number",
+			"default": 12
+		},
+		"marginShortHandHorizontalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"marginShortHandVertical": {
+			"type": "number",
+			"default": 12
+		},
+		"marginShortHandVerticalSelectUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"marginLongHandSpacing": {
+			"type": "object",
+			"default": {
+				"top": 0,
+				"right": 0,
+				"bottom": 0,
+				"left": 0
+			}
+		},
+		"marginSpacingUnit": {
+			"type": "string",
+			"default": "px"
+		},
+		"IsClickedLinkSidesMargin": {
+			"type": "boolean",
+			"default": false
+		},
 		"buttonPadding": {
 			"type": "number",
 			"default": 12

@@ -1,7 +1,6 @@
 // Wordpress components
 import { __ } from "@wordpress/i18n";
 import { PanelBody, RangeControl } from "@wordpress/components";
-import { InspectorControls } from "@wordpress/block-editor";
 import { useState } from "@wordpress/element";
 
 // React Icons

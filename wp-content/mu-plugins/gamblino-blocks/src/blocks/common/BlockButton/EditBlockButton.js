@@ -49,6 +49,8 @@ const Button = (props) => {
         paddingVerticalSelectUnit,
         buttonPaddingHorizontal,
         paddingHorizontalSelectUnit,
+        marginSpacingUnit,
+        marginNoneShortHandMargin,
     } = attributes;
 
     // prettier-ignore
@@ -198,6 +200,7 @@ const Button = (props) => {
                         color: buttonColor,
                         backgroundColor: buttonBackgroundColor,
                         borderRadius: `${buttonBorderRadius}px`,
+                        margin: `${marginNoneShortHandMargin}${marginSpacingUnit}`,
                         padding: paddingType,
                         textDecoration: "none",
                         ...(isPressedTypographyControlIcon && {

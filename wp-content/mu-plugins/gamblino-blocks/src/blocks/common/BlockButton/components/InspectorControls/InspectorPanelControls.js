@@ -8,6 +8,7 @@ import ShadowPanelBody from "./PanelBody/ShadowPanelBody";
 import PaddingPanelBody from "./PanelBody/PaddingPanelBody";
 import NewTabPanelBody from "./PanelBody/NewTabPanelBody";
 import SEOPanelBody from "./PanelBody/SEOPanelBody";
+import SpacingPanelBody from './PanelBody/SpacingPanelBody'
 import TypographyPanelBody from "./PanelBody/TypographyPanelBody";
 
 const InspectorPanelControls = (props) => {
@@ -16,6 +17,7 @@ const InspectorPanelControls = (props) => {
             <InspectorControls>
                 <SEOPanelBody {...props} />
                 <NewTabPanelBody {...props} />
+                <SpacingPanelBody {...props} />
                 <PaddingPanelBody {...props} />
                 <BorderRadiusPanelBody {...props} />
                 <ShadowPanelBody {...props} />
