@@ -113,6 +113,10 @@
 			"type": "number",
 			"default": 12
 		},
+		"marginSpacingUnit": {
+			"type": "string",
+			"default": "px"
+		},
 		"marginShortHandHorizontalSelectUnit": {
 			"type": "string",
 			"default": "px"
@@ -143,10 +147,7 @@
 				"left": "px"
 			}
 		},
-		"marginSpacingUnit": {
-			"type": "string",
-			"default": "px"
-		},
+
 		"IsClickedLinkSidesMargin": {
 			"type": "boolean",
 			"default": false
