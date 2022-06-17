@@ -50,6 +50,9 @@ const Button = (props) => {
         buttonPaddingHorizontal,
         paddingHorizontalSelectUnit,
         // Margin attributes
+        isMarginShorthandButtonClicked,
+        marginLongHandSpacing,
+        marginLongHandSpacingSelectUnit,
         IsClickedLinkSidesMargin,
         marginNoneShortHandMargin,
         marginSpacingUnit,
@@ -111,22 +114,36 @@ const Button = (props) => {
         setIsVisibleBackgroundColor(false);
     };
 
-    let marginType = "";
+    let marginValue = "";
 
-    if (!IsClickedLinkSidesMargin) {
-        marginType = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+    if (isMarginShorthandButtonClicked) {
+        // prettier-ignore
+        const { top: topUnit, right: rightUnit, bottom: bottomUnit, left: leftUnit } = marginLongHandSpacingSelectUnit
+        // prettier-ignore
+        const { top: topValue, right: rightValue, bottom: bottomValue, left: leftValue } = marginLongHandSpacing;
+        const topMargin = `${topValue}${topUnit}`;
+        const rightMargin = `${rightValue}${rightUnit}`;
+        const bottomMargin = `${bottomValue}${bottomUnit}`;
+        const leftMargin = `${leftValue}${leftUnit}`;
+
+        marginValue = `${topMargin} ${rightMargin} ${bottomMargin} ${leftMargin}`;
+    } else {
+
+        if (!IsClickedLinkSidesMargin) {
+            marginValue = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+        }
+
+        if (IsClickedLinkSidesMargin) {
+            marginValue = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
+        }
     }
 
-    if (IsClickedLinkSidesMargin) {
-        marginType = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
-    }
-
-    let paddingType = "";
+    let paddingValue = "";
 
     if (!buttonIsClickedLinkSides) {
-        paddingType = `${buttonPadding}${paddingSelectUnit}`;
+        paddingValue = `${buttonPadding}${paddingSelectUnit}`;
     } else {
-        paddingType = `${buttonPaddingVertical}${paddingVerticalSelectUnit} ${buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
+        paddingValue = `${buttonPaddingVertical}${paddingVerticalSelectUnit} ${buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
     }
 
     // prettier-ignore
@@ -216,8 +233,8 @@ const Button = (props) => {
                         color: buttonColor,
                         backgroundColor: buttonBackgroundColor,
                         borderRadius: `${buttonBorderRadius}px`,
-                        margin: marginType,
-                        padding: paddingType,
+                        margin: marginValue,
+                        padding: paddingValue,
                         textDecoration: "none",
                         ...(isPressedTypographyControlIcon && {
                             fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,

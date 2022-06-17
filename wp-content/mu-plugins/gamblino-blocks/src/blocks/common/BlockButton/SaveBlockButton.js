@@ -30,6 +30,9 @@ function save({ attributes }) {
         buttonPaddingVertical,
         paddingVerticalSelectUnit,
         // Margin attributes
+        isMarginShorthandButtonClicked,
+        marginLongHandSpacing,
+        marginLongHandSpacingSelectUnit,
         IsClickedLinkSidesMargin,
         marginNoneShortHandMargin,
         marginSpacingUnit,
@@ -39,23 +42,36 @@ function save({ attributes }) {
         marginShortHandVerticalSelectUnit,
     } = attributes;
 
+    let marginValue = "";
 
-    let marginType = "";
+    if (isMarginShorthandButtonClicked) {
+        // prettier-ignore
+        const { top: topUnit, right: rightUnit, bottom: bottomUnit, left: leftUnit } = marginLongHandSpacingSelectUnit
+        // prettier-ignore
+        const { top: topValue, right: rightValue, bottom: bottomValue, left: leftValue } = marginLongHandSpacing;
 
-    if (!IsClickedLinkSidesMargin) {
-        marginType = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+        const topMargin = `${topValue}${topUnit}`;
+        const rightMargin = `${rightValue}${rightUnit}`;
+        const bottomMargin = `${bottomValue}${bottomUnit}`;
+        const leftMargin = `${leftValue}${leftUnit}`;
+
+        marginValue = `${topMargin} ${rightMargin} ${bottomMargin} ${leftMargin}`;
+    } else {
+        if (!IsClickedLinkSidesMargin) {
+            marginValue = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+        }
+
+        if (IsClickedLinkSidesMargin) {
+            marginValue = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
+        }
     }
 
-    if (IsClickedLinkSidesMargin) {
-        marginType = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
-    }
-
-    let paddingType = "";
+    let paddingValue = "";
 
     if (!buttonIsClickedLinkSides) {
-        paddingType = `${+buttonPadding}${paddingSelectUnit}`;
+        paddingValue = `${+buttonPadding}${paddingSelectUnit}`;
     } else {
-        paddingType = `${+buttonPaddingVertical}${paddingVerticalSelectUnit} ${+buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
+        paddingValue = `${+buttonPaddingVertical}${paddingVerticalSelectUnit} ${+buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
     }
 
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
@@ -126,8 +142,8 @@ function save({ attributes }) {
                             className: `${shadowClass} shadow-opacity-${shadowOpacity} ${typographySizeTypeClassname}`,
                             style: {
                                 display: "inline-block",
-                                margin: marginType,
-                                padding: paddingType,
+                                margin: marginValue,
+                                padding: paddingValue,
                                 color: buttonColor,
                                 backgroundColor: buttonBackgroundColor,
                                 borderRadius: `${buttonBorderRadius}px`,
@@ -139,7 +155,11 @@ function save({ attributes }) {
                         })}
                         href={linkURL}
                         {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
-                        {...isToggledSEO ? relContent : !isToggledSEO && isNewTabLinkURLToggled ? { rel: "noreferrer noopener" } : {}}
+                        {...(isToggledSEO
+                            ? relContent
+                            : !isToggledSEO && isNewTabLinkURLToggled
+                                ? { rel: "noreferrer noopener" }
+                                : {})}
                         tagName="a"
                         value={buttonText}
                     />
