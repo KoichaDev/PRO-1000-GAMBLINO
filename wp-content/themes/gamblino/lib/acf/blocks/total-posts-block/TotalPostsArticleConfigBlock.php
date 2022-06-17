@@ -23,10 +23,13 @@ class TotalPostsConfigBlock {
             // register a testimonial block.
             acf_register_block_type(array(
                 'name'              => 'block-total-post-articles',
-                'title'             => __( 'BlockTotal Posts Article block', 'gamblino' ),
+                'title'             => __( 'Block Total Posts Article ', 'gamblino' ),
                 'description'       => __('Display the block of total posts articles.'),
                 'render_template'   =>  get_template_directory() . '/lib/acf/blocks/total-posts-block/TotalPostsArticleTemplateBlock.php',
-                'align'             => [ 'align-wide', 'full' ],
+                'supports' => [
+                    'align' => ['full']
+                 ],
+                'align' => 'full',
                 'category'          => 'gamblino',
                 'icon'              => file_get_contents(get_template_directory() . '/lib/acf/blocks/icons/total-posts.icon.svg'),
                 'keywords'          => [ 'casino', 'block', 'posts', 'total', 'latest', 'articles' ],
