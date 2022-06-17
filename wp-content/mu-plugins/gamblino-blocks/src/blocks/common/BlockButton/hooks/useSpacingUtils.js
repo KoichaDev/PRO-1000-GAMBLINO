@@ -1,4 +1,4 @@
-const SpacingValues = (attributes) => {
+const useSpacingUtils = (attributes) => {
     const {
         buttonIsClickedLinkSides,
         buttonPadding,
@@ -52,6 +52,6 @@ const SpacingValues = (attributes) => {
     }
 
     return { marginValue, paddingValue };
-};
+}
 
-export default SpacingValues;
+export default useSpacingUtils

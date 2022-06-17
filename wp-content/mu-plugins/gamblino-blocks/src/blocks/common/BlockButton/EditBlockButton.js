@@ -13,8 +13,8 @@ import InspectorPanelControls from "./components/InspectorControls/InspectorPane
 import MenuGroupControlToolbar from "./components/Toolbar/MenuGroupControlToolbar";
 import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationToolbar";
 
-// spacing attributes
-import SpacingValues from "./constants/spacingValues";
+// hooks
+import useSpacingUtils from "./hooks/useSpacingUtils";
 
 // Button editor styling
 import "./editor.scss";
@@ -53,7 +53,7 @@ const Button = (props) => {
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false);
     const [enteredURLText, setEnteredURLText] = useState("");
 
-    const { marginValue, paddingValue } = SpacingValues(attributes);
+    const { marginValue, paddingValue } = useSpacingUtils(attributes);
 
     // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
     // attributes as empty string. By using this custom hook, It runs the callback
