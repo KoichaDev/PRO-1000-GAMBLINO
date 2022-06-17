@@ -2,11 +2,11 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "@wordpress/element";
 import { ToggleControl, Spinner } from "@wordpress/components";
 
-import { useGetPosts, useTextSearch } from "../../hooks/useQueryPosts";
+import { useGetPosts, useTextSearch } from "../../../hooks/useQueryPosts";
 
-import GlobalIcon from "../../icons/GlobalIcon";
+import GlobalIcon from "../../../icons/GlobalIcon";
 
-import "./LinkConfigurationToolbar.scss";
+import "./LinkTargetConfig.scss";
 
 const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const { attributes, setAttributes } = props;

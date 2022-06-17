@@ -11,7 +11,7 @@ import useUpdateEffect from "@/hooks/utilities/useUpdateEffect";
 // Button components
 import InspectorPanelControls from "./components/InspectorControls/InspectorPanelControls";
 import MenuGroupControlToolbar from "./components/Toolbar/MenuGroupControlToolbar";
-import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationToolbar";
+import LinkTargetConfig from "./components/Toolbar/LinkTargetConfig/LinkTargetConfig";
 
 // Attributes hooks
 import useSpacingUtils from "./hooks/useSpacingUtils";
@@ -154,7 +154,7 @@ const Button = (props) => {
                     allowedFormats={["core/bold", "core/italic", "core/link"]}
                 />
                 {isLinkToolbarButtonOpen && !isFocusOutside && (
-                    <LinkConfigurationToolbar
+                    <LinkTargetConfig
                         onAddEnteredURLText={(value) => setEnteredURLText(value)}
                         {...props}
                     />
