@@ -13,7 +13,7 @@ import InspectorPanelControls from "./components/InspectorControls/InspectorPane
 import MenuGroupControlToolbar from "./components/Toolbar/MenuGroupControlToolbar";
 import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationToolbar";
 
-// hooks
+// Attributes hooks
 import useSpacingUtils from "./hooks/useSpacingUtils";
 import useRelLinks from "./hooks/useRelLinks";
 

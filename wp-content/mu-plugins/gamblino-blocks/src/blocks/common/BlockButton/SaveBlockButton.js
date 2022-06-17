@@ -2,16 +2,16 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
+// Attributes hooks
+import useSpacingUtils from "./hooks/useSpacingUtils";
+import useRelLinks from "./hooks/useRelLinks";
+
 function save({ attributes }) {
     const {
         align,
         isNewTabLinkURLToggled,
         linkURL,
         isToggledSEO,
-        isFollowToggled,
-        isSponsoredToggled,
-        isUGCToggled,
-        isShadowMenuOpen,
         shadowOpacity,
         typographySizeClassName,
         isPressedTypographyControlIcon,
@@ -21,110 +21,11 @@ function save({ attributes }) {
         buttonBorderRadius,
         buttonBackgroundColor,
         buttonColor,
-        buttonIsClickedLinkSides,
         buttonTextAlignment,
-        buttonPadding,
-        paddingSelectUnit,
-        buttonPaddingHorizontal,
-        paddingHorizontalSelectUnit,
-        buttonPaddingVertical,
-        paddingVerticalSelectUnit,
-        // Margin attributes
-        isMarginShorthandButtonClicked,
-        marginLongHandSpacing,
-        marginLongHandSpacingSelectUnit,
-        IsClickedLinkSidesMargin,
-        marginNoneShortHandMargin,
-        marginSpacingUnit,
-        marginShorthandHorizontal,
-        marginShortHandHorizontalSelectUnit,
-        marginShortHandVertical,
-        marginShortHandVerticalSelectUnit,
     } = attributes;
 
-    let marginValue = "";
-
-    if (isMarginShorthandButtonClicked) {
-        // prettier-ignore
-        const { top: topUnit, right: rightUnit, bottom: bottomUnit, left: leftUnit } = marginLongHandSpacingSelectUnit
-        // prettier-ignore
-        const { top: topValue, right: rightValue, bottom: bottomValue, left: leftValue } = marginLongHandSpacing;
-
-        const topMargin = `${topValue}${topUnit}`;
-        const rightMargin = `${rightValue}${rightUnit}`;
-        const bottomMargin = `${bottomValue}${bottomUnit}`;
-        const leftMargin = `${leftValue}${leftUnit}`;
-
-        marginValue = `${topMargin} ${rightMargin} ${bottomMargin} ${leftMargin}`;
-    } else {
-        if (!IsClickedLinkSidesMargin) {
-            marginValue = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
-        }
-
-        if (IsClickedLinkSidesMargin) {
-            marginValue = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
-        }
-    }
-
-    let paddingValue = "";
-
-    if (!buttonIsClickedLinkSides) {
-        paddingValue = `${+buttonPadding}${paddingSelectUnit}`;
-    } else {
-        paddingValue = `${+buttonPaddingVertical}${paddingVerticalSelectUnit} ${+buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
-    }
-
-    const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
-
-    const relContent = {};
-
-    if (isFollowToggled) {
-        Object.assign(relContent, {
-            rel: "follow noreferrer noopener",
-        });
-    }
-
-    if (!isFollowToggled) {
-        Object.assign(relContent, {
-            rel: "nofollow noreferrer noopener",
-        });
-    }
-
-    if (isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "ugc",
-        });
-    }
-
-    if (isSponsoredToggled) {
-        Object.assign(relContent, {
-            rel: "sponsored noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isSponsoredToggled) {
-        Object.assign(relContent, {
-            rel: "follow sponsored noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "follow ugc noreferrer noopener",
-        });
-    }
-
-    if (isSponsoredToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "sponsored ugc noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isSponsoredToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "follow sponsored ugc noreferrer noopener",
-        });
-    }
+    const { marginValue, paddingValue } = useSpacingUtils(attributes);
+    const { relContent } = useRelLinks(attributes);
 
     // prettier-ignore
     const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
