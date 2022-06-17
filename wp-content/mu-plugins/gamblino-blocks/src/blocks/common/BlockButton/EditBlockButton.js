@@ -15,6 +15,7 @@ import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationTool
 
 // hooks
 import useSpacingUtils from "./hooks/useSpacingUtils";
+import useRelLinks from "./hooks/useRelLinks";
 
 // Button editor styling
 import "./editor.scss";
@@ -31,9 +32,6 @@ const Button = (props) => {
         isNewTabLinkURLToggled,
         linkURL,
         isToggledSEO,
-        isFollowToggled,
-        isSponsoredToggled,
-        isUGCToggled,
         buttonText,
         buttonTextAlignment,
         typographySizeClassName,
@@ -45,7 +43,6 @@ const Button = (props) => {
         buttonBorderRadius,
         buttonBackgroundColor,
         buttonColor,
-
     } = attributes;
 
     // prettier-ignore
@@ -54,6 +51,7 @@ const Button = (props) => {
     const [enteredURLText, setEnteredURLText] = useState("");
 
     const { marginValue, paddingValue } = useSpacingUtils(attributes);
+    const { relContent } = useRelLinks(attributes);
 
     // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
     // attributes as empty string. By using this custom hook, It runs the callback
@@ -106,62 +104,6 @@ const Button = (props) => {
     const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
 
     const shadowClass = isShadowMenuOpen === true ? "has-shadow" : "";
-
-    const relContent = {};
-
-    if (isFollowToggled) {
-        Object.assign(relContent, {
-            rel: "follow",
-        });
-    }
-
-    if (isFollowToggled) {
-        Object.assign(relContent, {
-            rel: "follow noreferrer noopener",
-        });
-    }
-
-    if (!isFollowToggled) {
-        Object.assign(relContent, {
-            rel: "nofollow noreferrer noopener",
-        });
-    }
-
-    if (isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "ugc",
-        });
-    }
-
-    if (isSponsoredToggled) {
-        Object.assign(relContent, {
-            rel: "sponsored noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isSponsoredToggled) {
-        Object.assign(relContent, {
-            rel: "follow sponsored noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "follow ugc noreferrer noopener",
-        });
-    }
-
-    if (isSponsoredToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "sponsored ugc noreferrer noopener",
-        });
-    }
-
-    if (isFollowToggled && isSponsoredToggled && isUGCToggled) {
-        Object.assign(relContent, {
-            rel: "follow sponsored ugc noreferrer noopener",
-        });
-    }
 
     return (
         <div
