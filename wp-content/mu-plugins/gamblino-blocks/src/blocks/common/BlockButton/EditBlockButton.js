@@ -13,6 +13,9 @@ import InspectorPanelControls from "./components/InspectorControls/InspectorPane
 import MenuGroupControlToolbar from "./components/Toolbar/MenuGroupControlToolbar";
 import LinkConfigurationToolbar from "./components/Toolbar/LinkConfigurationToolbar";
 
+// spacing attributes
+import SpacingValues from "./constants/spacingValues";
+
 // Button editor styling
 import "./editor.scss";
 
@@ -42,30 +45,15 @@ const Button = (props) => {
         buttonBorderRadius,
         buttonBackgroundColor,
         buttonColor,
-        buttonIsClickedLinkSides,
-        buttonPadding,
-        paddingSelectUnit,
-        buttonPaddingVertical,
-        paddingVerticalSelectUnit,
-        buttonPaddingHorizontal,
-        paddingHorizontalSelectUnit,
-        // Margin attributes
-        isMarginShorthandButtonClicked,
-        marginLongHandSpacing,
-        marginLongHandSpacingSelectUnit,
-        IsClickedLinkSidesMargin,
-        marginNoneShortHandMargin,
-        marginSpacingUnit,
-        marginShorthandHorizontal,
-        marginShortHandHorizontalSelectUnit,
-        marginShortHandVertical,
-        marginShortHandVerticalSelectUnit,
+
     } = attributes;
 
     // prettier-ignore
     const [isVisibleBackgroundColor, setIsVisibleBackgroundColor] = useState(false);
     const [isVisibleTextColor, setIsVisibleTextColor] = useState(false);
     const [enteredURLText, setEnteredURLText] = useState("");
+
+    const { marginValue, paddingValue } = SpacingValues(attributes);
 
     // This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
     // attributes as empty string. By using this custom hook, It runs the callback
@@ -113,38 +101,6 @@ const Button = (props) => {
         setIsVisibleTextColor((prevIsVisible) => !prevIsVisible);
         setIsVisibleBackgroundColor(false);
     };
-
-    let marginValue = "";
-
-    if (isMarginShorthandButtonClicked) {
-        // prettier-ignore
-        const { top: topUnit, right: rightUnit, bottom: bottomUnit, left: leftUnit } = marginLongHandSpacingSelectUnit
-        // prettier-ignore
-        const { top: topValue, right: rightValue, bottom: bottomValue, left: leftValue } = marginLongHandSpacing;
-        const topMargin = `${topValue}${topUnit}`;
-        const rightMargin = `${rightValue}${rightUnit}`;
-        const bottomMargin = `${bottomValue}${bottomUnit}`;
-        const leftMargin = `${leftValue}${leftUnit}`;
-
-        marginValue = `${topMargin} ${rightMargin} ${bottomMargin} ${leftMargin}`;
-    } else {
-
-        if (!IsClickedLinkSidesMargin) {
-            marginValue = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
-        }
-
-        if (IsClickedLinkSidesMargin) {
-            marginValue = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
-        }
-    }
-
-    let paddingValue = "";
-
-    if (!buttonIsClickedLinkSides) {
-        paddingValue = `${buttonPadding}${paddingSelectUnit}`;
-    } else {
-        paddingValue = `${buttonPaddingVertical}${paddingVerticalSelectUnit} ${buttonPaddingHorizontal}${paddingHorizontalSelectUnit}`;
-    }
 
     // prettier-ignore
     const typographySizeTypeClassname = !isPressedTypographyControlIcon && typographySizeClassName;
