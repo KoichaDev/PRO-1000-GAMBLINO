@@ -49,8 +49,14 @@ const Button = (props) => {
         paddingVerticalSelectUnit,
         buttonPaddingHorizontal,
         paddingHorizontalSelectUnit,
-        marginSpacingUnit,
+        // Margin attributes
+        IsClickedLinkSidesMargin,
         marginNoneShortHandMargin,
+        marginSpacingUnit,
+        marginShorthandHorizontal,
+        marginShortHandHorizontalSelectUnit,
+        marginShortHandVertical,
+        marginShortHandVerticalSelectUnit,
     } = attributes;
 
     // prettier-ignore
@@ -104,6 +110,16 @@ const Button = (props) => {
         setIsVisibleTextColor((prevIsVisible) => !prevIsVisible);
         setIsVisibleBackgroundColor(false);
     };
+
+    let marginType = "";
+
+    if (!IsClickedLinkSidesMargin) {
+        marginType = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+    }
+
+    if (IsClickedLinkSidesMargin) {
+        marginType = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
+    }
 
     let paddingType = "";
 
@@ -200,13 +216,12 @@ const Button = (props) => {
                         color: buttonColor,
                         backgroundColor: buttonBackgroundColor,
                         borderRadius: `${buttonBorderRadius}px`,
-                        margin: `${marginNoneShortHandMargin}${marginSpacingUnit}`,
+                        margin: marginType,
                         padding: paddingType,
                         textDecoration: "none",
                         ...(isPressedTypographyControlIcon && {
                             fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,
                         }),
-                        // fontSize: `${typographySizeEnteredInput}${typographySizeUnit}`,
                     }}
                     href={linkURL}
                     aria-label={__("Button text", "block-gamblino")}

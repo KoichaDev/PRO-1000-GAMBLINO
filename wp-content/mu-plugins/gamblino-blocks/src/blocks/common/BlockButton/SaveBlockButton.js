@@ -29,7 +29,26 @@ function save({ attributes }) {
         paddingHorizontalSelectUnit,
         buttonPaddingVertical,
         paddingVerticalSelectUnit,
+        // Margin attributes
+        IsClickedLinkSidesMargin,
+        marginNoneShortHandMargin,
+        marginSpacingUnit,
+        marginShorthandHorizontal,
+        marginShortHandHorizontalSelectUnit,
+        marginShortHandVertical,
+        marginShortHandVerticalSelectUnit,
     } = attributes;
+
+
+    let marginType = "";
+
+    if (!IsClickedLinkSidesMargin) {
+        marginType = `${marginNoneShortHandMargin}${marginSpacingUnit}`;
+    }
+
+    if (IsClickedLinkSidesMargin) {
+        marginType = `${marginShortHandVertical}${marginShortHandVerticalSelectUnit} ${marginShorthandHorizontal}${marginShortHandHorizontalSelectUnit}`;
+    }
 
     let paddingType = "";
 
@@ -107,6 +126,7 @@ function save({ attributes }) {
                             className: `${shadowClass} shadow-opacity-${shadowOpacity} ${typographySizeTypeClassname}`,
                             style: {
                                 display: "inline-block",
+                                margin: marginType,
                                 padding: paddingType,
                                 color: buttonColor,
                                 backgroundColor: buttonBackgroundColor,
