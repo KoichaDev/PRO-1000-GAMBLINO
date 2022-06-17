@@ -21,8 +21,11 @@
 			margin: -2px 0;
 			p {
 				background: #fff;
-				padding: 1em 0;
-				text-indent: 1rem;
+				padding: 1em;
+
+				img {
+					display: inline-block;
+				}
 			}
 		}
 	}
