@@ -2,14 +2,13 @@
 import { registerBlockType } from "@wordpress/blocks";
 
 // Registered Block types for InnerBlocks
-// import "./InnerBlocks/registerBlockTypes";
+import "./InnerBlocks/RegisterBlockTypes";
 
 // Internal Parent Block Dependencies
 import Edit from "./Edit";
 import Save from "./Save";
 
-import { MdOutlineAdsClick } from 'react-icons/md';
-
+import BlockIcon from "./Icons/BlockIcon";
 // block meta data
 import json from "./block.json";
 
@@ -20,7 +19,7 @@ const { name, icon, ...settings } = json;
 
 registerBlockType(name, {
 	...settings,
-	icon: MdOutlineAdsClick,
+	icon: BlockIcon,
 	edit: Edit,
 	save: Save,
 });

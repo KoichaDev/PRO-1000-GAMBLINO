@@ -13,7 +13,20 @@
 		"className": false
 	},
 	"textdomain": "block-gamblino",
-	"attributes": {},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#FFBA67"
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
 	"editorScript": "file:../../../build/block-image-adverstiment.js",
 	"editorStyle": "file:../../../build/block-image-adverstiment.css",
 	"style": "file:../../../build/style-block-image-adverstiment.css"
