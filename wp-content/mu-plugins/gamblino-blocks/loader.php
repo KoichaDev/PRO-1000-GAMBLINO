@@ -95,6 +95,7 @@ class Loader {
                     'gamblino-block/button',
                     'gamblino-block/image',
 					'gamblino-block/image-adverstiment',
+					'gamblino-block/image-adverstiment-anchor-link'
                 );
         
             }

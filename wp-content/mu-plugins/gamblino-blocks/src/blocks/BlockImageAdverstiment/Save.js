@@ -1,11 +1,16 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-const SaveCardBlock = ({ attributes }) => {
+const Save = ({ attributes }) => {
+	const { columns, align, backgroundColor } = attributes;
 	return (
-		<div {...useBlockProps.save()}>
-			Save
+		<div
+			{...useBlockProps.save()}
+			className={`[ image-ads-block ] [ columns-${columns} ${align} ]`}
+			style={{ backgroundColor }}
+		>
+			<InnerBlocks.Content />
 		</div>
 	);
 };
 
-export default SaveCardBlock;
+export default Save;
