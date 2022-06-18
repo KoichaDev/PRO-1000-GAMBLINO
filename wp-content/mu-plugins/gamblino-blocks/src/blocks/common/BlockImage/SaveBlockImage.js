@@ -12,6 +12,10 @@ const SaveBlockImage = ({ attributes }) => {
         marginUnit,
         marginAuto,
         isResetMargin,
+        hrefLinkTarget,
+        isToggledSEO,
+        relContent,
+        isNewTabLinkURLToggled
     } = attributes;
 
     // prettier-ignore
@@ -32,22 +36,53 @@ const SaveBlockImage = ({ attributes }) => {
 
     const className = id ? `wp-image-${id}` : null;
 
+    console.log(hrefLinkTarget);
+
     return (
         <>
-            {url && (
-                <img
-                    src={url}
-                    className={className}
-                    alt={alt}
-                    {...useBlockProps.save({
-                        style: {
-                            width: imageDimension,
-                            position: positionType,
-                            ...positionStyle,
-                            ...marginStyle,
-                        },
-                    })}
-                />
+            {hrefLinkTarget ? (
+                <a
+                    href={hrefLinkTarget}
+                    {...(isToggledSEO
+                        ? relContent
+                        : !isToggledSEO && isNewTabLinkURLToggled
+                            ? { rel: "noreferrer noopener" }
+                            : {})}
+                >
+                    {url && (
+                        <img
+                            src={url}
+                            className={className}
+                            alt={alt}
+                            {...useBlockProps.save({
+                                style: {
+                                    width: imageDimension,
+                                    position: positionType,
+                                    ...positionStyle,
+                                    ...marginStyle,
+                                },
+                            })}
+                        />
+                    )}
+                </a>
+            ) : (
+                <>
+                    {url && (
+                        <img
+                            src={url}
+                            className={className}
+                            alt={alt}
+                            {...useBlockProps.save({
+                                style: {
+                                    width: imageDimension,
+                                    position: positionType,
+                                    ...positionStyle,
+                                    ...marginStyle,
+                                },
+                            })}
+                        />
+                    )}
+                </>
             )}
         </>
     );

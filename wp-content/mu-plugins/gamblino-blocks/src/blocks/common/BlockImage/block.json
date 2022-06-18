@@ -81,6 +81,38 @@
 		"isResetMargin": {
 			"type": "boolean",
 			"default": false
+		},
+		"hrefLinkTarget": {
+			"type": "string",
+			"default": ""
+		},
+		"isLinkToolbarButtonOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"toggleNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"isToggledSEO": {
+			"type": "boolean",
+			"default": false
+		},
+		"isNewTabLinkURLToggled": {
+			"type": "boolean",
+			"default": false
+		},
+		"isSponsoredToggled": {
+			"type": "boolean",
+			"default": false
+		},
+		"isUGCToggled": {
+			"type": "boolean",
+			"default": false
+		},
+		"isFollowToggled": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"editorScript": "file:../../../../build/block-image.js",

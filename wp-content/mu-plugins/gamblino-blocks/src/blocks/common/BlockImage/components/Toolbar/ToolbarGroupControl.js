@@ -3,6 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { BlockControls, MediaReplaceFlow } from "@wordpress/block-editor";
 import { ToolbarButton } from "@wordpress/components";
 
+import { MdLink } from "react-icons/md";
 import { BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
@@ -14,7 +15,7 @@ const ToolbarGroupControl = ({
 	...props
 }) => {
 	const { attributes, setAttributes } = props;
-	const { id, url } = attributes;
+	const { id, url, isLinkToolbarButtonOpen } = attributes;
 
 	const removeImageHandler = () => {
 		setAttributes({
@@ -25,9 +26,19 @@ const ToolbarGroupControl = ({
 	};
 
 	return (
-		<>
+		<BlockControls group="inline">
+			<ToolbarButton
+				title={__("Link Configuration", "block-gamblino")}
+				icon={MdLink}
+				value={isLinkToolbarButtonOpen}
+				onClick={() =>
+					setAttributes({
+						isLinkToolbarButtonOpen: !isLinkToolbarButtonOpen,
+					})
+				}
+			/>
 			{url && (
-				<BlockControls group="inline">
+				<>
 					<MediaReplaceFlow
 						name={__(
 							<>
@@ -52,9 +63,9 @@ const ToolbarGroupControl = ({
 							"block-gamblino"
 						)}
 					</ToolbarButton>
-				</BlockControls>
+				</>
 			)}
-		</>
+		</BlockControls>
 	);
 };
 

@@ -8,11 +8,24 @@ import { Spinner, withNotices } from "@wordpress/components";
 
 import { BsCheckLg, BsImage } from "react-icons/bs";
 
+import useUpdateEffect from "@/hooks/utilities/useUpdateEffect";
+
+import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
+
 import PanelInspectorControls from "./components/InspectorControls/PanelInspectorControls";
-import ToolbarGroupControl from "./components/ToolbarGroupControl";
+import ToolbarGroupControl from "./components/Toolbar/ToolbarGroupControl";
+
+import LinkTargetConfig from "./components/Toolbar/LinkTargetConfig/LinkTargetConfig";
 
 const EditBlockImage = (props) => {
-	const { attributes, setAttributes, noticeOperations, noticeUI } = props;
+	const {
+		attributes,
+		setAttributes,
+		noticeOperations,
+		noticeUI,
+		isFocusOutside,
+		setIsFocusOutside,
+	} = props;
 	const {
 		id,
 		url,
@@ -24,9 +37,21 @@ const EditBlockImage = (props) => {
 		marginUnit,
 		marginAuto,
 		isResetMargin,
+		isLinkToolbarButtonOpen,
 	} = attributes;
-	const [blobURL, setblobURL] = useState(undefined);
 
+	const [blobURL, setblobURL] = useState(undefined);
+	const [enteredURLText, setEnteredURLText] = useState("");
+
+	// This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
+	// attributes as empty string. By using this custom hook, It runs the callback
+	// function only after the first render
+	useUpdateEffect(() => {
+		if (isFocusOutside === true) {
+			setAttributes({ hrefLinkTarget: enteredURLText });
+			setAttributes({ isLinkToolbarButtonOpen: false });
+		}
+	}, [isFocusOutside]);
 
 	// Checking if the image is a blob url and if it is, it is setting the url to undefined and the alt
 	// to an empty string. This is to avoid the spinner logo to "hang up" when reloading the current window of our block.
@@ -85,15 +110,23 @@ const EditBlockImage = (props) => {
 		left: `${positionValue.left}%`,
 	};
 
-	const marginStyle = isResetMargin === true ? marginAuto : {
-		marginTop: `${margin.top}${marginUnit}`,
-		marginRight: `${margin.right}${marginUnit}`,
-		marginBottom: `${margin.bottom}${marginUnit}`,
-		marginLeft: `${margin.left}${marginUnit}`,
-	};
+	const marginStyle =
+		isResetMargin === true
+			? marginAuto
+			: {
+				marginTop: `${margin.top}${marginUnit}`,
+				marginRight: `${margin.right}${marginUnit}`,
+				marginBottom: `${margin.bottom}${marginUnit}`,
+				marginLeft: `${margin.left}${marginUnit}`,
+			};
 
 	return (
-		<div {...useBlockProps()}>
+		<div
+			{...useBlockProps({
+				className: "position-relative",
+			})}
+			onClick={() => setIsFocusOutside(false)}
+		>
 			<PanelInspectorControls {...props} />
 
 			<ToolbarGroupControl
@@ -132,9 +165,18 @@ const EditBlockImage = (props) => {
 				accept="image/*"
 				allowedTypes={["image"]}
 				disableMediaButtons={url ? true : false}
+				onClick={() => setIsFocusOutside(false)}
+
 			/>
+			{isFocusOutside ||
+				(isLinkToolbarButtonOpen && (
+					<LinkTargetConfig
+						onAddEnteredURLText={(value) => setEnteredURLText(value)}
+						{...props}
+					/>
+				))}
 		</div>
 	);
 };
 
-export default withNotices(EditBlockImage);
+export default withNotices(ElementWithFocusOutside(EditBlockImage));

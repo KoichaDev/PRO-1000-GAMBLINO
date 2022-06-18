@@ -1,9 +1,11 @@
-import React from 'react'
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 const EditImageBlock = () => {
     return (
-        <div>EditImageBlock</div>
-    )
-}
+        <div {...useBlockProps()}>
+            <InnerBlocks template={[["gamblino-block/image"]]} />
+        </div>
+    );
+};
 
-export default EditImageBlock
+export default EditImageBlock;

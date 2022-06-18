@@ -19,7 +19,18 @@ registerBlockType("gamblino-block/image-adverstiment-anchor-link", {
         html: false,
     },
     icon: BlockIcons,
-    attributes: {},
+    attributes: {
+        href: {
+            type: "string",
+            source: "attribute",
+            attribute: "href",
+            selector: "a",
+        },
+        toggleAnchorTagNewTab: {
+            type: "boolean",
+            default: false,
+        }
+    },
     edit: EditImageBlock,
     save: SaveImageBlock,
 });
