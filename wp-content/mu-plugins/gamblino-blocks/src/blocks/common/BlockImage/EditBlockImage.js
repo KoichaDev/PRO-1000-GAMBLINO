@@ -117,12 +117,7 @@ const EditBlockImage = (props) => {
 			};
 
 	return (
-		<div
-			{...useBlockProps({
-				className: "position-relative",
-			})}
-			onClick={() => setIsFocusOutside(false)}
-		>
+		<div {...useBlockProps()} onClick={() => setIsFocusOutside(false)}>
 			<PanelInspectorControls {...props} />
 
 			<ToolbarGroupControl

@@ -11,7 +11,10 @@ import { PanelBody, RangeControl } from "@wordpress/components";
 // WP Block styles
 import "@/styles/reset/blocks/wp-core-columns.scss";
 import "@/styles/reset/blocks/wp-core-image.scss";
+
 import "./editor.scss";
+import "@/styles/reset/blocks/wp-core-columns.scss";
+
 
 const EditCardBlock = ({ attributes, setAttributes }) => {
 	const { columns } = attributes;
