@@ -3,12 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useSelect } from "@wordpress/data";
 
 import { store as BlockEditorStore } from "@wordpress/block-editor";
-import { isBlobURL } from "@wordpress/blob";
-import {
-    PanelBody,
-    TextareaControl,
-    SelectControl,
-} from "@wordpress/components";
+import { SelectControl } from "@wordpress/components";
 
 const SelectImageSize = ({ ...props }) => {
     const { attributes, setAttributes } = props;
@@ -50,7 +45,7 @@ const SelectImageSize = ({ ...props }) => {
     };
     return (
         <>
-            <p style={{ marginTop: '1.5em' }}>
+            <p style={{ marginTop: "1.5em" }}>
                 <strong>{__("Image Size", "block-gamblino")}</strong>
             </p>
             {id && (

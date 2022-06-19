@@ -6,7 +6,7 @@ const ImageAltText = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { url, alt } = attributes;
     return (
-        <PanelBody title={__("Text Settings", "block-gamblino")} initialOpen={false}>
+        <PanelBody title={__("Text Settings", "block-gamblino")}>
             {url && !isBlobURL(url) && (
                 <TextareaControl
                     label={__("Alt text (alternative text)", "block-gamblino")}

@@ -6,7 +6,7 @@ import MarginSpacing from "./Spacing/MarginSpacing";
 
 const SpacingPanelBody = ({ ...props }) => {
     return (
-        <PanelBody title={__("Spacing Settings", "block-gamblino")} initialOpen={false}>
+        <PanelBody title={__("Spacing Settings", "block-gamblino")}>
             <MarginSpacing {...props} />
         </PanelBody>
     );

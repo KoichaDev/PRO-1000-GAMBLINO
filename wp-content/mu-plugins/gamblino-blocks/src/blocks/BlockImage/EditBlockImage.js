@@ -1,14 +1,12 @@
 import { __ } from "@wordpress/i18n";
 
-import { useState, useEffect } from "@wordpress/element";
+import { useState, useEffect, useRef } from "@wordpress/element";
 
 import { useBlockProps, MediaPlaceholder } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 
-import { BsCheckLg, BsImage } from "react-icons/bs";
-
-import useUpdateEffect from "@/hooks/utilities/useUpdateEffect";
+import { BsImage } from "react-icons/bs";
 
 import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
@@ -38,10 +36,12 @@ const EditBlockImage = (props) => {
 		marginAuto,
 		isResetMargin,
 		isLinkToolbarButtonOpen,
-		hrefLinkTarget,
 	} = attributes;
 
+	const [isClickedImage, setIsClickedImage] = useState(false)
 	const [blobURL, setblobURL] = useState(undefined);
+
+	const imageRef = useRef();
 
 	useEffect(() => {
 		if (isFocusOutside) {
@@ -99,6 +99,20 @@ const EditBlockImage = (props) => {
 		noticeOperations.createErrorNotice(message);
 	};
 
+	useEffect(() => {
+		const { width, height } = (imageRef.current)
+
+		console.log(width, height,);
+
+
+	}, [isClickedImage])
+
+	const onImgLoad = ({ target: img }) => {
+		const { width, height } = img;
+		console.log(width, height);
+	};
+
+
 	const positionStyle = positionType === "absolute" && {
 		top: `${positionValue.top}%`,
 		right: `${positionValue.right}%`,
@@ -134,6 +148,7 @@ const EditBlockImage = (props) => {
 						}`}
 				>
 					<img
+						ref={imageRef}
 						src={url}
 						alt={alt}
 						style={{
@@ -142,6 +157,9 @@ const EditBlockImage = (props) => {
 							...positionStyle,
 							...marginStyle,
 						}}
+						onLoad={onImgLoad}
+						onClick={() => setIsClickedImage(true)}
+
 					/>
 					{isBlobURL(url) && <Spinner />}
 				</div>

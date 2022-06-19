@@ -34,6 +34,12 @@
 			"type": "string",
 			"default": "100%"
 		},
+		"imageDimensionWidth": {
+			"type": "number"
+		},
+		"imageDimensionHeight": {
+			"type": "number"
+		},
 		"imageSizeVariant": {
 			"type": "string",
 			"default": "primary"
