@@ -13,10 +13,6 @@
 	},
 	"textdomain": "block-gamblino",
 	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "full"
-		},
 		"isLinkToolbarButtonOpen": {
 			"type": "boolean",
 			"default": false
