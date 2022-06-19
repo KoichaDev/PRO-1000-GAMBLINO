@@ -30,15 +30,10 @@ class Loader {
 
 		function gamblino_register_custom_block_type() {
 			$blocks = scandir(plugin_dir_path( __FILE__ ) . 'src/blocks');
-			$blocksCommon = scandir(plugin_dir_path( __FILE__ ) . 'src/blocks/common');	
 
 			foreach ($blocks as $block) {
 				register_block_type( plugin_dir_path( __FILE__ ) . 'src/blocks/' . $block );
-			}     
-
-			foreach ($blocksCommon as $blockCommon) {
-				register_block_type( plugin_dir_path( __FILE__ ) . 'src/blocks/common/' . $blockCommon );
-			}     
+			}     			     
 		}
 
 		add_action( 'init', 'gamblino_register_custom_block_type' );

@@ -189,7 +189,7 @@
 			"default": "#fff"
 		}
 	},
-	"editorScript": "file:../../../../build/block-button.js",
-	"editorStyle": "file:../../../../build/block-button.css",
-	"style": "file:../../../../build/style-block-button.css"
+	"editorScript": "file:../../../build/block-button.js",
+	"editorStyle": "file:../../../build/block-button.css",
+	"style": "file:../../../build/style-block-button.css"
 }

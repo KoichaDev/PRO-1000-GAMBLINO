@@ -115,7 +115,7 @@
 			"default": false
 		}
 	},
-	"editorScript": "file:../../../../build/block-image.js",
-	"editorStyle": "file:../../../../build/block-image.css",
-	"style": "file:../../../../build/style-block-image.css"
+	"editorScript": "file:../../../build/block-image.js",
+	"editorStyle": "file:../../../build/block-image.css",
+	"style": "file:../../../build/style-block-image.css"
 }
