@@ -28,7 +28,7 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 		},
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		allowedBlocks: ["core/heading", "core/paragraph", "core/image"],
+		allowedBlocks: ["gamblino-block/image"],
 		template: templateContent,
 		orientation: columns === 1 ? "vertical" : "horizontal",
 	});
