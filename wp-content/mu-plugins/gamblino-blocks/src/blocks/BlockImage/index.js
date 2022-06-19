@@ -6,14 +6,14 @@ import EditBlockImage from "./EditBlockImage";
 import SaveBlockImage from "./SaveBlockImage";
 
 // Image icon
-import ImageIcon from './icon/ImageIcon'
+import { ImageIcon } from "./icon/ImageIcon";
 // block meta data
-import json from './block.json'
+import json from "./block.json";
 
 // WP Block styles
 import "./style.scss";
 
-const { name, ...settings } = json
+const { name, ...settings } = json;
 
 registerBlockType(name, {
     ...settings,
@@ -21,4 +21,3 @@ registerBlockType(name, {
     edit: EditBlockImage,
     save: SaveBlockImage,
 });
-

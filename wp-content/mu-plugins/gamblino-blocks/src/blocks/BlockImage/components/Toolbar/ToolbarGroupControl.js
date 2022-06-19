@@ -7,6 +7,8 @@ import { MdLink } from "react-icons/md";
 import { BsImage } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa";
 
+import { ImageReplaceIcon } from "../../icon/ImageIcon";
+
 const ToolbarGroupControl = ({
 	onSelect,
 	onSelectURL,
@@ -40,12 +42,11 @@ const ToolbarGroupControl = ({
 			{url && (
 				<>
 					<MediaReplaceFlow
-						name={__(
+						name={
 							<>
-								<BsImage /> Replace Image
-							</>,
-							"block-gamblino"
-						)}
+								<ImageReplaceIcon />
+							</>
+						}
 						mediaId={id}
 						mediaURL={url}
 						onSelect={onSelect}
@@ -55,10 +56,12 @@ const ToolbarGroupControl = ({
 						accept="image/*"
 						allowedTypes={["image"]}
 					/>
-					<ToolbarButton onClick={removeImageHandler}>
+					<ToolbarButton
+						title={__('Delete Image', 'block-gamblino')}
+						onClick={removeImageHandler}>
 						{__(
 							<>
-								<FaTrash /> Remove Image
+								<FaTrash />
 							</>,
 							"block-gamblino"
 						)}
