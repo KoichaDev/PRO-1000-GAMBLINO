@@ -1,23 +1,30 @@
 import { __ } from "@wordpress/i18n";
-import { useEffect, useState } from "@wordpress/element";
+import { useState, useEffect } from "@wordpress/element";
 import { ToggleControl, Spinner } from "@wordpress/components";
 
-import { useGetPosts, useTextSearch } from "@/blocks/common/hooks/useQueryPosts";
+import {
+    useGetPosts,
+    useTextSearch,
+} from "@/blocks/common/hooks/useQueryPosts";
+import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
 
-import GlobalIcon from "@/common/Icons/GlobalIcon"
+import GlobalIcon from "@/common/Icons/GlobalIcon";
 
 import "./LinkTargetConfig.scss";
 
 const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const { attributes, setAttributes } = props;
-    const { hrefLinkTarget, isNewTabLinkURLToggled, isFollowToggled } = attributes;
+
+    const {
+        hrefLinkTarget,
+        isNewTabLinkURLToggled,
+        isFollowToggled,
+    } = attributes;
 
     const { postsCollection, isError, isLoaded } = useGetPosts();
 
     const [enteredURLText, setEnteredURLText] = useState(hrefLinkTarget);
     const [postsTextSearch, setPostsTextSearch] = useState([]);
-
-    onAddEnteredURLText(enteredURLText);
 
     useEffect(() => {
         const posts = postsCollection.map((post) => {
@@ -53,7 +60,6 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const onClickPostTextSearchHandler = ({ title, link }) => {
         setAttributes({ hrefLinkTarget: link });
         setAttributes({ isLinkToolbarButtonOpen: false });
-
     };
 
     const onSubmitHandler = (e) => {
@@ -68,7 +74,7 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
             <form className="[ form-link ]" onSubmit={onSubmitHandler}>
                 <input
                     type="text"
-                    className="form-link__input"
+                    className='form-link__input'
                     value={enteredURLText}
                     onChange={(e) => setEnteredURLText(e.target.value)}
                     placeholder={__("Search or type url", "block-gamblino")}

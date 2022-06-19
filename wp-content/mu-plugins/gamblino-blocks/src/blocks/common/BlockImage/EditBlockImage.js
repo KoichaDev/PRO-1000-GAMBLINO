@@ -42,22 +42,9 @@ const EditBlockImage = (props) => {
 	} = attributes;
 
 	const [blobURL, setblobURL] = useState(undefined);
-	const [enteredURLText, setEnteredURLText] = useState(hrefLinkTarget);
-
-	console.log("edit: ", hrefLinkTarget);
-
-
-	// This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
-	// attributes as empty string. By using this custom hook, It runs the callback
-	// function only after the first render
-	useUpdateEffect(() => {
-		if (isFocusOutside === true) {
-			setAttributes({ hrefLinkTarget: enteredURLText });
-		}
-	}, [isFocusOutside]);
 
 	useEffect(() => {
-		if (!isFocusOutside) {
+		if (isFocusOutside) {
 			setAttributes({ isLinkToolbarButtonOpen: false });
 		}
 	}, [isFocusOutside]);
@@ -177,9 +164,7 @@ const EditBlockImage = (props) => {
 				onClick={() => setIsFocusOutside(false)}
 			/>
 
-			<LinkTargetConfig
-				onAddEnteredURLText={(value) => setEnteredURLText(value)}
-				{...props} />
+			{isLinkToolbarButtonOpen && <LinkTargetConfig {...props} />}
 		</div>
 	);
 };
