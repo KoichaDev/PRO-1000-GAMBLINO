@@ -201,18 +201,6 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
                     }}
                 />
             </div>
-
-            <div className="toggle-container">
-                <ToggleControl
-                    label={
-                        !isFollowToggled
-                            ? __("Not following", "block-gamblino")
-                            : __("Following", "block-gamblino")
-                    }
-                    checked={isFollowToggled}
-                    onChange={() => setAttributes({ isFollowToggled: !isFollowToggled })}
-                />
-            </div>
         </div>
     );
 };
