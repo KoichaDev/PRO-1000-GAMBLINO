@@ -38,10 +38,14 @@ const EditBlockImage = (props) => {
 		marginAuto,
 		isResetMargin,
 		isLinkToolbarButtonOpen,
+		hrefLinkTarget,
 	} = attributes;
 
 	const [blobURL, setblobURL] = useState(undefined);
-	const [enteredURLText, setEnteredURLText] = useState("");
+	const [enteredURLText, setEnteredURLText] = useState(hrefLinkTarget);
+
+	console.log("edit: ", hrefLinkTarget);
+
 
 	// This is to ensure that when the Block is being rendered, we don't want it to set the state  of the
 	// attributes as empty string. By using this custom hook, It runs the callback
@@ -49,6 +53,11 @@ const EditBlockImage = (props) => {
 	useUpdateEffect(() => {
 		if (isFocusOutside === true) {
 			setAttributes({ hrefLinkTarget: enteredURLText });
+		}
+	}, [isFocusOutside]);
+
+	useEffect(() => {
+		if (!isFocusOutside) {
 			setAttributes({ isLinkToolbarButtonOpen: false });
 		}
 	}, [isFocusOutside]);
@@ -166,15 +175,11 @@ const EditBlockImage = (props) => {
 				allowedTypes={["image"]}
 				disableMediaButtons={url ? true : false}
 				onClick={() => setIsFocusOutside(false)}
-
 			/>
-			{isFocusOutside ||
-				(isLinkToolbarButtonOpen && (
-					<LinkTargetConfig
-						onAddEnteredURLText={(value) => setEnteredURLText(value)}
-						{...props}
-					/>
-				))}
+
+			<LinkTargetConfig
+				onAddEnteredURLText={(value) => setEnteredURLText(value)}
+				{...props} />
 		</div>
 	);
 };

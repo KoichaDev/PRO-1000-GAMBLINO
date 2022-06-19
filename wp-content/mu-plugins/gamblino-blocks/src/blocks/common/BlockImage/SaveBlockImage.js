@@ -13,9 +13,12 @@ const SaveBlockImage = ({ attributes }) => {
         marginAuto,
         isResetMargin,
         hrefLinkTarget,
+        // SEO Settings
+        isNewTabLinkURLToggled,
         isToggledSEO,
-        relContent,
-        isNewTabLinkURLToggled
+        isFollowToggled,
+        isSponsoredToggled,
+        isUGCToggled,
     } = attributes;
 
     // prettier-ignore
@@ -36,13 +39,62 @@ const SaveBlockImage = ({ attributes }) => {
 
     const className = id ? `wp-image-${id}` : null;
 
-    console.log(hrefLinkTarget);
+    const relContent = {};
+
+    if (isFollowToggled) {
+        Object.assign(relContent, {
+            rel: "follow noreferrer noopener",
+        });
+    }
+
+    if (!isFollowToggled) {
+        Object.assign(relContent, {
+            rel: "nofollow noreferrer noopener",
+        });
+    }
+
+    if (isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "ugc",
+        });
+    }
+
+    if (isSponsoredToggled) {
+        Object.assign(relContent, {
+            rel: "sponsored noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isSponsoredToggled) {
+        Object.assign(relContent, {
+            rel: "follow sponsored noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "follow ugc noreferrer noopener",
+        });
+    }
+
+    if (isSponsoredToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "sponsored ugc noreferrer noopener",
+        });
+    }
+
+    if (isFollowToggled && isSponsoredToggled && isUGCToggled) {
+        Object.assign(relContent, {
+            rel: "follow sponsored ugc noreferrer noopener",
+        });
+    }
 
     return (
         <>
             {hrefLinkTarget ? (
                 <a
                     href={hrefLinkTarget}
+                    {...(isNewTabLinkURLToggled ? { target: "_blank" } : {})}
                     {...(isToggledSEO
                         ? relContent
                         : !isToggledSEO && isNewTabLinkURLToggled

@@ -2,9 +2,9 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "@wordpress/element";
 import { ToggleControl, Spinner } from "@wordpress/components";
 
-import { useGetPosts, useTextSearch } from '@/blocks/common/hooks/useQueryPosts';
+import { useGetPosts, useTextSearch } from "@/blocks/common/hooks/useQueryPosts";
 
-import GlobalIcon from "@/common/Icons/GlobalIcon";
+import GlobalIcon from "@/common/Icons/GlobalIcon"
 
 import "./LinkTargetConfig.scss";
 
