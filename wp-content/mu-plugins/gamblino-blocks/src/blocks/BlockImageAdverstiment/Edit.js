@@ -11,7 +11,7 @@ import { PanelBody, RangeControl, ColorPalette } from "@wordpress/components";
 // WP Block styles
 import "./editor.scss";
 
-const EditCardBlock = ({ attributes, setAttributes }) => {
+const Edit = ({ attributes, setAttributes }) => {
 	const { columns, backgroundColor } = attributes;
 
 	// prettier-ignore
@@ -58,4 +58,4 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 	);
 };
 
-export default EditCardBlock;
+export default Edit;

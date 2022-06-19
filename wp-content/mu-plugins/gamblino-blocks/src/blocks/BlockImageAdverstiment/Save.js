@@ -1,8 +1,4 @@
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	InnerBlocks,
-} from "@wordpress/block-editor";
+import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
 const Save = ({ attributes }) => {
 	const { columns, align, backgroundColor } = attributes;
@@ -14,9 +10,7 @@ const Save = ({ attributes }) => {
 		},
 	});
 	const innerBlocksProps = useInnerBlocksProps.save(blockProps);
-	return (
-		<div {...innerBlocksProps}></div>
-	);
+	return <div {...innerBlocksProps}></div>;
 };
 
 export default Save;

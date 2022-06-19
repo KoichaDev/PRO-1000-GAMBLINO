@@ -29,7 +29,7 @@ const NewTabPanelBody = ({ ...props }) => {
                         >
                             Click here
                         </a>{" "}
-                        {__(`to open URL`, "block-gamblino")}
+                        {__(`URL configuration`, "block-gamblino")}
                     </>
                 )}
             </p>
