@@ -1,12 +1,8 @@
 import { __ } from "@wordpress/i18n";
-import { useState, useEffect } from "@wordpress/element";
+import { useEffect, useState } from "@wordpress/element";
 import { ToggleControl, Spinner } from "@wordpress/components";
 
-import {
-    useGetPosts,
-    useTextSearch,
-} from "@/blocks/common/hooks/useQueryPosts";
-import ElementWithFocusOutside from "@/hoc/ElementWithFocusOutside";
+import { useGetPosts, useTextSearch } from "@/hooks/useQueryPosts";
 
 import GlobalIcon from "@/common/Icons/GlobalIcon";
 
@@ -14,17 +10,14 @@ import "./LinkTargetConfig.scss";
 
 const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     const { attributes, setAttributes } = props;
-
-    const {
-        hrefLinkTarget,
-        isNewTabLinkURLToggled,
-        isFollowToggled,
-    } = attributes;
+    const { linkURL, isNewTabLinkURLToggled, isFollowToggled } = attributes;
 
     const { postsCollection, isError, isLoaded } = useGetPosts();
 
-    const [enteredURLText, setEnteredURLText] = useState(hrefLinkTarget);
+    const [enteredURLText, setEnteredURLText] = useState(linkURL);
     const [postsTextSearch, setPostsTextSearch] = useState([]);
+
+    onAddEnteredURLText(enteredURLText);
 
     useEffect(() => {
         const posts = postsCollection.map((post) => {
@@ -48,24 +41,25 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
     }, [enteredURLText]);
 
     const onClickEnteredURLButtonHandler = () => {
-        setAttributes({ hrefLinkTarget: enteredURLText });
+        setAttributes({ linkURL: enteredURLText });
         setAttributes({ isLinkToolbarButtonOpen: false });
     };
 
     const onClickPostCollectionHandler = ({ title, link }) => {
-        setAttributes({ hrefLinkTarget: link });
+        setAttributes({ linkURL: link });
         setAttributes({ isLinkToolbarButtonOpen: false });
     };
 
     const onClickPostTextSearchHandler = ({ title, link }) => {
-        setAttributes({ hrefLinkTarget: link });
+        setAttributes({ linkURL: link });
         setAttributes({ isLinkToolbarButtonOpen: false });
+
     };
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        setAttributes({ hrefLinkTarget: enteredURLText });
+        setAttributes({ linkURL: enteredURLText });
         setAttributes({ isLinkToolbarButtonOpen: false });
     };
 
@@ -74,7 +68,7 @@ const LinkConfiguration = ({ onAddEnteredURLText, ...props }) => {
             <form className="[ form-link ]" onSubmit={onSubmitHandler}>
                 <input
                     type="text"
-                    className='form-link__input'
+                    className="form-link__input"
                     value={enteredURLText}
                     onChange={(e) => setEnteredURLText(e.target.value)}
                     placeholder={__("Search or type url", "block-gamblino")}

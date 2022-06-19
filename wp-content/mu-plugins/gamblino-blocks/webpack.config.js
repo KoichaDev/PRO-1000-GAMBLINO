@@ -9,8 +9,8 @@ module.exports = {
         'block-image-adverstiment': './src/blocks/BlockImageAdverstiment',
         'block-insert-review': './src/blocks/BlockInsertReview',
         'block-ranking-cards': './src/blocks/BlockRankingCard',
-        'block-button': './src/blocks/common/BlockButton',
-        'block-image': './src/blocks/common/BlockImage',
+        'block-button': './src/blocks/BlockButton',
+        'block-image': './src/blocks/BlockImage',
     },
     resolve: {
         alias: {
