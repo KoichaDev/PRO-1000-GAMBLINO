@@ -48,3 +48,19 @@
 		}
 	}
 }
+
+.block-editor-block-list__layout {
+	position: static !important;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block {
+	position: static !important;
+}
+
+.wp-block-columns {
+	padding: 0;
+}
+
+.wp-block {
+	margin: 0;
+}

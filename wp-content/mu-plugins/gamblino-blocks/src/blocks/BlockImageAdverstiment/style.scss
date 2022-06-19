@@ -1,50 +1,44 @@
 .image-ads-block {
-	display: block;
+	position: relative;
+	display: grid;
 	padding: 1em;
-
-	.wp-columns {
-		flex-direction: column !important;
-		margin: 0 !important;
-	}
+	gap: 3em;
 
 	@for $i from 1 through 6 {
 		&.columns-#{$i} {
-			> .block-editor-inner-blocks
-				> .block-editor-block-list__layout
-				> [data-type="gamblino-block/image-adverstiment-anchor-link"] {
-				width: calc(100% / #{$i} - 55px);
+			grid-template-columns: repeat(#{$i}, 1fr);
+			margin: 2em auto;
+		}
+	}
+
+	div {
+		@for $i from 1 through 6 {
+			&.columns-#{$i} {
+				grid-template-columns: repeat(#{$i}, 1fr);
 				margin: 2em auto;
+			}
+		}
+
+		margin-left: -10px;
+		margin-right: -10px;
+
+		max-width: none;
+		margin: 0;
+
+		.media-image {
+			&.is-loading img {
+				opacity: 0.3;
+			}
+
+			.components-spinner {
+				position: absolute;
+				inset: 0;
+				margin: auto;
 			}
 		}
 	}
 
-	> .block-editor-inner-blocks > .block-editor-block-list__layout {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: -10px;
-		margin-right: -10px;
-
-		[data-type="gamblino-block/image-adverstiment-anchor-link"] {
-			max-width: none;
-			margin: 0;
-
-			.media-image {
-				position: relative;
-
-				&.is-loading img {
-					opacity: 0.3;
-				}
-
-				.components-spinner {
-					position: absolute;
-					inset: 0;
-					margin: auto;
-				}
-			}
-		}
-
-		> [data-type="gamblino-block/image-adverstiment-anchor-link"] {
-			margin: 10px;
-		}
+	> div {
+		margin: 10px;
 	}
 }

@@ -2,7 +2,7 @@
 import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
-	InnerBlocks,
+	useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
 
@@ -14,28 +14,32 @@ import "./editor.scss";
 const EditCardBlock = ({ attributes, setAttributes }) => {
 	const { columns, backgroundColor } = attributes;
 
-
 	// prettier-ignore
 	const templateContent = [
-		['gamblino-block/image-adverstiment-anchor-link', {}],
-		['gamblino-block/image-adverstiment-anchor-link', {}],
-		['gamblino-block/image-adverstiment-anchor-link', {}]
+		['gamblino-block/image', {}],
+		['gamblino-block/image', {}],
+		['gamblino-block/image', {}]
 	];
 
+	const blockProps = useBlockProps({
+		className: `[ image-ads-block ] [ columns-${columns} ]`,
+		style: {
+			backgroundColor,
+		},
+	});
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+		allowedBlocks: ["core/heading", "core/paragraph", "core/image"],
+		template: templateContent,
+		orientation: columns === 1 ? "vertical" : "horizontal",
+	});
+
 	return (
-		<div
-			{...useBlockProps({
-				className: `[ image-ads-block ] [ columns-${columns} ]`,
-				style: {
-					backgroundColor
-				}
-			})}
-		>
+		<>
 			<InspectorControls>
-				<PanelBody title={__('Styles', 'block-gamblino')}>
+				<PanelBody title={__("Styles", "block-gamblino")}>
 					<ColorPalette
 						value={backgroundColor}
-						onChange={value => setAttributes({ backgroundColor: value })}
+						onChange={(value) => setAttributes({ backgroundColor: value })}
 					/>
 				</PanelBody>
 				<PanelBody>
@@ -49,12 +53,8 @@ const EditCardBlock = ({ attributes, setAttributes }) => {
 				</PanelBody>
 			</InspectorControls>
 
-			<InnerBlocks
-				allowedBlocks={["gamblino-block/image-adverstiment-anchor-link"]}
-				template={templateContent}
-				orientation={columns === 1 ? "vertical" : "horizontal"}
-			/>
-		</div>
+			<div {...innerBlocksProps}></div>
+		</>
 	);
 };
 

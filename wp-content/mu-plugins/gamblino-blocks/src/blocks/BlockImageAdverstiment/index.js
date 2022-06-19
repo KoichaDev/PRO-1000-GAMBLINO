@@ -2,7 +2,7 @@
 import { registerBlockType } from "@wordpress/blocks";
 
 // Registered Block types for InnerBlocks
-import "./InnerBlocks/RegisterBlockTypes";
+// import "./InnerBlocks/RegisterBlockTypes";
 
 // Internal Parent Block Dependencies
 import Edit from "./Edit";
