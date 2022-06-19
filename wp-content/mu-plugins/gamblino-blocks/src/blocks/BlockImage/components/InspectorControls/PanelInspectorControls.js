@@ -7,11 +7,13 @@ import DisplayPositionPanelBody from "./PanelBody/DisplayPositionPanelBody";
 import SpacingPanelBody from "./PanelBody/SpacingPanelBody";
 import ImageSize from "./PanelBody/ImageSizePanelBody";
 import SEOPanelBody from "./PanelBody/SEOPanelBody";
+import NewTabPanelBody from "./NewTabPanelBody";
 
 const PanelInspectorControls = ({ ...props }) => {
     return (
         <InspectorControls>
             <SEOPanelBody {...props} />
+            <NewTabPanelBody {...props} />
             <ImageAltTextPanelBody {...props} />
             <ImageSize {...props} />
             <SpacingPanelBody {...props} />

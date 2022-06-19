@@ -3,7 +3,7 @@ import { PanelBody, ToggleControl } from "@wordpress/components";
 
 const NewTabPanelBody = ({ ...props }) => {
     const { attributes, setAttributes } = props;
-    const { isNewTabLinkURLToggled, linkURL, isLinkToolbarButtonOpen } = attributes;
+    const { isNewTabLinkURLToggled, isLinkToolbarButtonOpen, hrefLinkTarget } = attributes;
 
     return (
         <PanelBody title={__("New Tab Setting")}>
@@ -15,7 +15,7 @@ const NewTabPanelBody = ({ ...props }) => {
                     paddingBottom: "1.5em",
                 }}
             >
-                {isNewTabLinkURLToggled && linkURL.length === 0 && (
+                {isNewTabLinkURLToggled && hrefLinkTarget.length === 0 && (
                     <>
                         {__(
                             `You forgot to add a URL. If there is no URL, then opening in a
