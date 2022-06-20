@@ -1,9 +1,16 @@
-import React from 'react'
+import { __ } from "@wordpress/i18n";
 
-const SaveSummary = () => {
+import { useBlockProps, RichText } from "@wordpress/block-editor";
+
+const SaveSummary = ({ attributes }) => {
+    const { summary, content } = attributes;
+
     return (
-        <div>SaveSummary</div>
-    )
-}
+        <details {...useBlockProps.save()}>
+            <RichText.Content tagName="summary" value={summary} />
+            <RichText.Content tagName="p" value={content} />
+        </details>
+    );
+};
 
-export default SaveSummary
+export default SaveSummary;

@@ -18,18 +18,15 @@ registerBlockType("gamblino-block/faqs-summary", {
     },
     icon: FaQuestion,
     attributes: {
-        lists: {
-            type: "array",
-            selector: "details",
-            source: "query",
-            default: [{ content: "" }],
-            query: {
-                content: {
-                    type: "string",
-                    source: "html",
-                    selector: "summary",
-                },
-            },
+        summary: {
+            type: "string",
+            source: "html",
+            selector: "summary",
+        },
+        content: {
+            type: "string",
+            source: "html",
+            selector: "p",
         },
     },
     edit: EditSummary,

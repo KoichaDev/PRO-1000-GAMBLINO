@@ -15,7 +15,7 @@
 	"attributes": {
 		"backgroundColor": {
 			"type": "color",
-			"default": "red"
+			"default": "#fff"
 		},
 		"align": {
 			"type": "string",

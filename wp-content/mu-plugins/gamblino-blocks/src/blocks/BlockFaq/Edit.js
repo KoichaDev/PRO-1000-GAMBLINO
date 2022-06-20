@@ -13,9 +13,18 @@ const Edit = ({ attributes, setAttributes }) => {
 	// prettier-ignore
 	const templateContent = [
 		['core/heading', {
-			placeholder: 'Add a title...'
+			placeholder: 'Add a title...',
+			className: '[ py-10 ]',
+			lock: {
+				move: true,
+				remove: true,
+			},
 		}],
-		['gamblino-block/faqs-summary', {}],
+		['gamblino-block/faqs-summary', {
+			lock: {
+				remove: true,
+			},
+		}],
 	];
 
 	const blockProps = useBlockProps({
@@ -27,7 +36,7 @@ const Edit = ({ attributes, setAttributes }) => {
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ["gamblino-block/faqs-summary"],
 		template: templateContent,
-		orientation: "horizontal",
+		orientation: "vertical",
 	});
 
 	return (

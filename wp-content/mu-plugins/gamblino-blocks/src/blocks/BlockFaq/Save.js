@@ -1,9 +1,16 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
-const SaveBlockImage = ({ attributes }) => {
-    const { } = attributes;
+const Save = ({ attributes }) => {
+    const { backgroundColor } = attributes;
 
-    return <></>;
+    const blockProps = useBlockProps.save({
+        className: "gamblino-block-faqs",
+        style: {
+            backgroundColor,
+        },
+    });
+    const innerBlocksProps = useInnerBlocksProps.save(blockProps);
+    return <section {...innerBlocksProps}></section>;
 };
 
-export default SaveBlockImage;
+export default Save;
