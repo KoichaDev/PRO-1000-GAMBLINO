@@ -100,7 +100,7 @@ const EditBlockImage = (props) => {
 	};
 
 	useEffect(() => {
-		const { width, height } = (imageRef.current)
+		const { width, height } = (imageRef.current) ?? {}
 
 		console.log(width, height,);
 
