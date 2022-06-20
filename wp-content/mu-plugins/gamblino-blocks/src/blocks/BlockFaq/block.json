@@ -1,0 +1,28 @@
+{
+	"apiVersion": 2,
+	"name": "gamblino-block/faqs",
+	"version": "1.0.0",
+	"title": "Block Faqs",
+	"category": "gamblino",
+	"icon": "smiley",
+	"description": "Gamblino Block for Faq",
+	"keywords": ["gamblino", "text", "preview", "faq"],
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"textdomain": "block-gamblino",
+	"attributes": {
+		"backgroundColor": {
+			"type": "color",
+			"default": "red"
+		},
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"editorScript": "file:../../../build/block-faqs.js",
+	"editorStyle": "file:../../../build/block-faqs.css",
+	"style": "file:../../../build/style-block-faqs.css"
+}

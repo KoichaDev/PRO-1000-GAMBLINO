@@ -11,6 +11,7 @@ module.exports = {
         'block-ranking-cards': './src/blocks/BlockRankingCard',
         'block-button': './src/blocks/BlockButton',
         'block-image': './src/blocks/BlockImage',
+        'block-faqs': './src/blocks/BlockFaq'
     },
     resolve: {
         alias: {
