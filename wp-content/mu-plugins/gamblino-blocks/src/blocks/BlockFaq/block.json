@@ -9,6 +9,7 @@
 	"keywords": ["gamblino", "text", "preview", "faq"],
 	"supports": {
 		"html": false,
+		"className": false,
 		"align": ["wide", "full"]
 	},
 	"textdomain": "block-gamblino",

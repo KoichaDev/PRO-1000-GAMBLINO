@@ -14,9 +14,19 @@ const Edit = ({ attributes, setAttributes }) => {
 	const templateContent = [
 		['core/heading', {
 			placeholder: 'Add a title...',
-			className: '[ py-10 ]',
+			textAlign: 'center',
 			lock: {
 				move: true,
+				remove: true,
+			},
+		}],
+		['gamblino-block/faqs-summary', {
+			lock: {
+				remove: true,
+			},
+		}],
+		['gamblino-block/faqs-summary', {
+			lock: {
 				remove: true,
 			},
 		}],
@@ -28,7 +38,7 @@ const Edit = ({ attributes, setAttributes }) => {
 	];
 
 	const blockProps = useBlockProps({
-		className: `[ gamblino-block-faqs ]`,
+		className: `[ gamblino-block-faqs ] [ my-12 pt-12 pb-13 ]`,
 		style: {
 			backgroundColor,
 		},

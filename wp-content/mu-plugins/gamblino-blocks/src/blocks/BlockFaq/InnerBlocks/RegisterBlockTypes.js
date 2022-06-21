@@ -15,13 +15,14 @@ registerBlockType("gamblino-block/faqs-summary", {
     parent: ["gamblino-block/faqs"],
     supports: {
         html: false,
+        className: false,
     },
     icon: FaQuestion,
     attributes: {
         summary: {
             type: "string",
             source: "html",
-            selector: "summary",
+            selector: "span",
         },
         content: {
             type: "string",
