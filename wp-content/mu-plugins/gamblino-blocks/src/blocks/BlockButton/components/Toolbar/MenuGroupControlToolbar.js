@@ -9,10 +9,8 @@ import {
 
 // React Icons
 import { CgFormatColor, CgColorBucket } from "react-icons/cg";
-import { BiLink, BiUnlink } from "react-icons/bi";
-import { SiShadow } from "react-icons/Si";
+import { SiShadow } from "react-icons/si";
 import { MdLink } from "react-icons/md";
-import { AiOutlineBorder } from "react-icons/ai";
 
 // UI Icon
 import { PaddingIcon } from "@/common/Icons/Spaces";

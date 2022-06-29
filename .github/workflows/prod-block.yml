@@ -13,36 +13,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: develop
-      - name: "add: ✨ Install PHP Composer for this runner"
-        run: |
-          sudo apt update
-          sudo apt install wget php-cli php-zip unzip
-          wget -O composer-setup.php https://getcomposer.org/installer
-          sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-          sudo composer self-update
-          composer --version
-      - name: "update: 📦 composer dependencies for WordPress Gamblino theme"
-        run: |
-          cd wp-content/themes/gamblino
-          composer install
-      - name: "move: 🚚 Copying every local files existing on develop branch to production Server by using rSync SSH"
-        run: rsync -a --include='/wp-content/themes/gamblino/vendor/***' gamblino@gamblino.ssh.wpengine.net:sites/gamblino/wp-content/themes/gamblino/vendor
-      - name: "add: 🪢 Building the Gutenberg blocks bundle assets"
+      - name: "add: 🪢 Bundling the Gutenberg blocks build assets"
         run: |
           cd wp-content/mu-plugins/gamblino-blocks
           rm -rf dist node_modules build
           npm install --global yarn
           yarn
-          yarn add react-icons
-          yarn build
-      - name: "move: 🚚 rsync SSH with by copying Gutenberg Blocks to the production server"
-        run: rsync -a wp-content/mu-plugins/gamblino-blocks/*** gamblino@gamblino.ssh.wpengine.net:/home/wpe-user/sites/gamblino/wp-content/mu-plugins/gamblino-blocks
-      - name: "update: ✨ compile front-end bundlers"
-        run: |
-          cd wp-content/themes/gamblino/
-          rm -rf dist node_modules .parcel-cache
-          npm install --global yarn
-          yarn
           yarn prod
-      - name: "copy: 🚚 rsync using SSH local files and folder to push to production server (WP Engine)"
-        run: rsync -a wp-content/themes/gamblino/*** gamblino@gamblino.ssh.wpengine.net:/home/wpe-user/sites/gamblino/wp-content/themes/gamblino
+      - name: "move: 🚚 rsync SSH by copying Gutenberg Blocks to the production server"
+        run: rsync -a wp-content/mu-plugins/gamblino-blocks/*** gamblino@gamblino.ssh.wpengine.net:/home/wpe-user/sites/gamblino/wp-content/mu-plugins/gamblino-blocks
