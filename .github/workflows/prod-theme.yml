@@ -26,7 +26,7 @@ jobs:
           cd wp-content/themes/gamblino
           composer install
       - name: "move: 🚚 Copying every local files existing on develop branch to production Server by using rSync SSH"
-        run: rsync -a --include='/wp-content/themes/gamblino/vendor/***' gamblino@gamblino.ssh.wpengine.net:sites/gamblino/wp-content/themes/gamblino/vendor
+        run: rsync -a --include='/wp-content/themes/gamblino/***' gamblino@gamblino.ssh.wpengine.net:sites/gamblino/wp-content/themes/gamblino/
       - name: "update: ✨ compile front-end bundlers"
         run: |
           cd wp-content/themes/gamblino/
