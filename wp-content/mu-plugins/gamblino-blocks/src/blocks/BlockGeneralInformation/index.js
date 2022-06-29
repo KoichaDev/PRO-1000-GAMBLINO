@@ -1,24 +1,23 @@
 // WP Block Dependencies
 import { registerBlockType } from "@wordpress/blocks";
 
-// Blocks Components
-import './components/InnerBlocks'
-
 // Internal Parent Block Dependencies
-import Edit from "./edit";
-import save from "./save";
+import Edit from "./Edit";
+import Save from "./Save";
 
 // block meta data
-import json from './block.json'
+import json from "./block.json";
+
+import BlockIcon from "./icons/BlockIcon";
 
 // WP Block styles
 import "./style.scss";
 
-const { name, ...settings } = json
+const { name, ...settings } = json;
 
 registerBlockType(name, {
 	...settings,
+	icon: BlockIcon,
 	edit: Edit,
-	save,
+	save: Save,
 });
-
