@@ -1,5 +1,5 @@
 on: [workflow_dispatch]
-name: Deploy to PRODUCTION WP Engine server
+name: Deploy Gutenberg Blocks PRODUCTION WP Engine server
 jobs:
   preparing-workflow-to-deploy:
     runs-on: ubuntu-latest
