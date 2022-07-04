@@ -30,6 +30,10 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"isToggledImageDuplication": {
+			"type": "boolean",
+			"default": false
+		},
 		"imageDuplication": {
 			"type": "array",
 			"default": [{ "count": 1 }]
@@ -41,6 +45,10 @@
 		"imageOpacityValue": {
 			"type": "number",
 			"default": 0.35
+		},
+		"imageGapValue": {
+			"type": "number",
+			"default": 1
 		},
 		"isOrientedImage": {
 			"type": "boolean",
