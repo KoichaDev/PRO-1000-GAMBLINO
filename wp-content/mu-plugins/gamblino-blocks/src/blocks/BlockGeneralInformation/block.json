@@ -16,10 +16,8 @@
 		"limitations"
 	],
 	"supports": {
-		"html": false,
-		"align": ["wide", "full"]
+		"html": false
 	},
-	"attributes": {},
 	"textdomain": "block-gamblino",
 	"editorScript": "file:../../../build/block-general-information.js",
 	"editorStyle": "file:../../../build/block-general-information.css",

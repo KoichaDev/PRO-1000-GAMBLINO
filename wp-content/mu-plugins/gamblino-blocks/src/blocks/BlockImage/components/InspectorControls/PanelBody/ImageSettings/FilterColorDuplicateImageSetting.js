@@ -4,15 +4,15 @@ import { RangeControl } from "@wordpress/components";
 
 const FilterColorDuplicateImageSetting = ({ ...props }) => {
     const { attributes, setAttributes } = props;
-    const { url, imageFilterColor } = attributes;
+    const { url, countImageFilterOpacity } = attributes;
 
     const filterColorHandler = (value) => {
         /* Creating an copied array of objects with the count property. */
-        const countImageDuplication = [...Array(value)].map((_, index) => {
-            return { countFiltered: index + 1 };
-        });
+        // const countImageDuplication = [...Array(value)].map((_, index) => {
+        //     return { countFiltered: index + 1 };
+        // });
 
-        setAttributes({ imageFilterColor: countImageDuplication });
+        setAttributes({ countImageFilterOpacity: value });
     };
 
     const getLastObjectValue = (array) => {
@@ -25,10 +25,10 @@ const FilterColorDuplicateImageSetting = ({ ...props }) => {
             {url && !isBlobURL(url) && (
                 <RangeControl
                     label={__("Filter duplicated image opacity", "block-gamblino")}
-                    min={1}
+                    min={0}
                     max={6}
-                    value={getLastObjectValue(imageFilterColor)}
-                    onChange={filterColorHandler}
+                    value={countImageFilterOpacity}
+                    onChange={value => setAttributes({ countImageFilterOpacity: value })}
                 />
             )}
         </>

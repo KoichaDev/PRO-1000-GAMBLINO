@@ -7,7 +7,7 @@ const SaveBlockImage = ({ attributes }) => {
         url,
         alt,
         imageDuplication,
-        imageFilterColor,
+        countImageFilterOpacity,
         imageDimension,
         positionType,
         positionValue,
@@ -22,6 +22,7 @@ const SaveBlockImage = ({ attributes }) => {
         isFollowToggled,
         isSponsoredToggled,
         isUGCToggled,
+        isOrientedImage,
     } = attributes;
 
     // prettier-ignore
@@ -41,8 +42,6 @@ const SaveBlockImage = ({ attributes }) => {
     };
 
     const className = id ? `wp-image-${id}` : null;
-
-    const countImageFilterColor = imageFilterColor.length;
 
     const relContent = {};
 
@@ -94,6 +93,10 @@ const SaveBlockImage = ({ attributes }) => {
         });
     }
 
+    const isOrientationClassName = isOrientedImage ? "flex-row" : "flex-column";
+
+    console.log(countImageFilterOpacity);
+
     return (
         <>
             {hrefLinkTarget ? (
@@ -108,26 +111,54 @@ const SaveBlockImage = ({ attributes }) => {
                 >
                     {url && (
                         <>
-                            {imageDuplication.map((_, index) => {
-                                return (
-                                    <img
-                                        key={index}
-                                        src={url}
-                                        className={className}
-                                        alt={alt}
-                                        {...useBlockProps.save({
-                                            style: {
-                                                width: imageDimension,
-                                                position: positionType,
-                                                ...positionStyle,
-                                                ...marginStyle,
-                                                opacity: index.count < countImageFilterColor ? '0.5' : ''
+                            {imageDuplication.length > 1 ? (
+                                <div
+                                    className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                >
+                                    {imageDuplication.map((_, index) => {
+                                        return (
+                                            <img
+                                                key={index}
+                                                src={url}
+                                                className={className}
+                                                alt={alt}
+                                                {...useBlockProps.save({
+                                                    style: {
+                                                        width: imageDimension,
+                                                        position: positionType,
+                                                        ...positionStyle,
+                                                        ...marginStyle,
+                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                    },
+                                                })}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <>
+                                    {imageDuplication.map((_, index) => {
 
-                                            },
-                                        })}
-                                    />
-                                );
-                            })}
+                                        return (
+                                            <img
+                                                key={index}
+                                                src={url}
+                                                className={className}
+                                                alt={alt}
+                                                {...useBlockProps.save({
+                                                    style: {
+                                                        width: imageDimension,
+                                                        position: positionType,
+                                                        ...positionStyle,
+                                                        ...marginStyle,
+                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                    },
+                                                })}
+                                            />
+                                        );
+                                    })}
+                                </>
+                            )}
                         </>
                     )}
                 </a>
@@ -135,24 +166,53 @@ const SaveBlockImage = ({ attributes }) => {
                 <>
                     {url && (
                         <>
-                            {imageDuplication.map((_, index) => {
-                                return (
-                                    <img
-                                        key={index}
-                                        src={url}
-                                        className={className}
-                                        alt={alt}
-                                        {...useBlockProps.save({
-                                            style: {
-                                                width: imageDimension,
-                                                position: positionType,
-                                                ...positionStyle,
-                                                ...marginStyle,
-                                            },
-                                        })}
-                                    />
-                                );
-                            })}
+                            {imageDuplication.length > 1 ? (
+                                <div
+                                    className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                >
+                                    {imageDuplication.map((_, index) => {
+                                        return (
+                                            <img
+                                                key={index}
+                                                src={url}
+                                                className={className}
+                                                alt={alt}
+                                                {...useBlockProps.save({
+                                                    style: {
+                                                        width: imageDimension,
+                                                        position: positionType,
+                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        ...positionStyle,
+                                                        ...marginStyle,
+                                                    },
+                                                })}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <>
+                                    {imageDuplication.map((_, index) => {
+                                        return (
+                                            <img
+                                                key={index}
+                                                src={url}
+                                                className={className}
+                                                alt={alt}
+                                                {...useBlockProps.save({
+                                                    style: {
+                                                        width: imageDimension,
+                                                        position: positionType,
+                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        ...positionStyle,
+                                                        ...marginStyle,
+                                                    },
+                                                })}
+                                            />
+                                        );
+                                    })}
+                                </>
+                            )}
                         </>
                     )}
                 </>

@@ -34,9 +34,17 @@
 			"type": "array",
 			"default": [{ "count": 1 }]
 		},
-		"imageFilterColor": {
-			"type": "array",
-			"default": [{ "countFiltered": 1 }]
+		"countImageFilterOpacity": {
+			"type": "number",
+			"default": 0
+		},
+		"isOrientedImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageOpacityLevel": {
+			"type": "number",
+			"default": 1
 		},
 		"imageDimension": {
 			"type": "string",

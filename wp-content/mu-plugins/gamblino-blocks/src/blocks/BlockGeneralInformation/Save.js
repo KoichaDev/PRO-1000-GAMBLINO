@@ -1,13 +1,11 @@
 // WP Block Dependencies
 import { __ } from "@wordpress/i18n";
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-function save({ attributes }) {
-	const {
-
-	} = attributes;
+function save() {
 	return (
 		<section {...useBlockProps.save()}>
+			<InnerBlocks.Content />
 		</section>
 	);
 }

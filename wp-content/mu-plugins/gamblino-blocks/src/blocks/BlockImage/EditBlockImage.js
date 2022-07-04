@@ -29,7 +29,7 @@ const EditBlockImage = (props) => {
 		url,
 		alt,
 		imageDuplication,
-		imageFilterColor,
+		countImageFilterOpacity,
 		imageDimension,
 		positionType,
 		positionValue,
@@ -38,9 +38,9 @@ const EditBlockImage = (props) => {
 		marginAuto,
 		isResetMargin,
 		isLinkToolbarButtonOpen,
+		isOrientedImage,
 	} = attributes;
 	const imageRef = useRef();
-
 
 	const [isClickedImage, setIsClickedImage] = useState(false);
 	const [blobURL, setblobURL] = useState(undefined);
@@ -128,13 +128,13 @@ const EditBlockImage = (props) => {
 
 	let blockImageContent = "";
 
-
 	if (url) {
+		// const countImageFilterColor = imageFilterColor.length;
 
-		const countImageFilterColor = imageFilterColor.length;
 		// prettier-ignore
 		blockImageContent = <>
 			{imageDuplication.map((_, (index) => {
+				const { count } = index
 
 				return (
 					<img
@@ -147,7 +147,7 @@ const EditBlockImage = (props) => {
 							position: positionType,
 							...positionStyle,
 							...marginStyle,
-							opacity: index.count < countImageFilterColor ? '0.5' : ''
+							opacity: count <= countImageFilterOpacity ? '0.5' : ''
 						}}
 						onLoad={onImgLoad}
 						onClick={() => setIsClickedImage(true)}
@@ -156,6 +156,8 @@ const EditBlockImage = (props) => {
 			}))}
 		</>
 	}
+
+	const isOrientationClassName = isOrientedImage ? "flex-row" : "flex-column";
 
 	return (
 		<div {...useBlockProps()} onClick={() => setIsFocusOutside(false)}>
@@ -171,7 +173,7 @@ const EditBlockImage = (props) => {
 
 			{url && (
 				<div
-					className={`[ media-image ] [ mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
+					className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ] ${isBlobURL(url) ? " [ is-loading ]" : ""
 						}`}
 				>
 					{blockImageContent}

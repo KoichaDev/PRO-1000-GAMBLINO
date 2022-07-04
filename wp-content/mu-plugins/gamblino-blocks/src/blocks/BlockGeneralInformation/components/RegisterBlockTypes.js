@@ -5,6 +5,8 @@ import { __ } from "@wordpress/i18n";
 // React Icon
 import { MdOutlineFormatListBulleted } from "react-icons/md";
 
+import EditHeader from './InnerBlocks/Header/EditHeader'
+import SaveHeader from './InnerBlocks/Header/SaveHeader';
 
 registerBlockType("gamblino-block/general-information-header", {
     title: __("Header", "block-gamblino"),
@@ -15,6 +17,6 @@ registerBlockType("gamblino-block/general-information-header", {
     },
     icon: MdOutlineFormatListBulleted,
     attributes: {},
-    edit: EditListBlock,
-    save: SaveListBlock,
+    edit: EditHeader,
+    save: SaveHeader,
 });
