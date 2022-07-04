@@ -11,6 +11,7 @@ const SaveBlockImage = ({ attributes }) => {
         imageDimension,
         positionType,
         positionValue,
+        imageOpacityValue,
         margin,
         marginUnit,
         marginAuto,
@@ -95,8 +96,6 @@ const SaveBlockImage = ({ attributes }) => {
 
     const isOrientationClassName = isOrientedImage ? "flex-row" : "flex-column";
 
-    console.log(countImageFilterOpacity);
-
     return (
         <>
             {hrefLinkTarget ? (
@@ -128,7 +127,7 @@ const SaveBlockImage = ({ attributes }) => {
                                                         position: positionType,
                                                         ...positionStyle,
                                                         ...marginStyle,
-                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
                                                     },
                                                 })}
                                             />
@@ -151,7 +150,7 @@ const SaveBlockImage = ({ attributes }) => {
                                                         position: positionType,
                                                         ...positionStyle,
                                                         ...marginStyle,
-                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
                                                     },
                                                 })}
                                             />
@@ -181,7 +180,7 @@ const SaveBlockImage = ({ attributes }) => {
                                                     style: {
                                                         width: imageDimension,
                                                         position: positionType,
-                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
                                                         ...positionStyle,
                                                         ...marginStyle,
                                                     },
@@ -203,7 +202,7 @@ const SaveBlockImage = ({ attributes }) => {
                                                     style: {
                                                         width: imageDimension,
                                                         position: positionType,
-                                                        opacity: index < countImageFilterOpacity ? "0.5" : "",
+                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
                                                         ...positionStyle,
                                                         ...marginStyle,
                                                     },

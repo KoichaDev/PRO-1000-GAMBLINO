@@ -33,6 +33,7 @@ const EditBlockImage = (props) => {
 		imageDimension,
 		positionType,
 		positionValue,
+		imageOpacityValue,
 		margin,
 		marginUnit,
 		marginAuto,
@@ -147,7 +148,7 @@ const EditBlockImage = (props) => {
 							position: positionType,
 							...positionStyle,
 							...marginStyle,
-							opacity: count <= countImageFilterOpacity ? '0.5' : ''
+							opacity: count <= countImageFilterOpacity ? imageOpacityValue : ''
 						}}
 						onLoad={onImgLoad}
 						onClick={() => setIsClickedImage(true)}
