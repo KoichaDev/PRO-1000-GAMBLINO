@@ -34,6 +34,10 @@
 			"type": "array",
 			"default": [{ "count": 1 }]
 		},
+		"imageFilterColor": {
+			"type": "array",
+			"default": [{ "countFiltered": 1 }]
+		},
 		"imageDimension": {
 			"type": "string",
 			"default": "100%"

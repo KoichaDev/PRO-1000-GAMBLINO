@@ -29,6 +29,7 @@ const EditBlockImage = (props) => {
 		url,
 		alt,
 		imageDuplication,
+		imageFilterColor,
 		imageDimension,
 		positionType,
 		positionValue,
@@ -39,6 +40,7 @@ const EditBlockImage = (props) => {
 		isLinkToolbarButtonOpen,
 	} = attributes;
 	const imageRef = useRef();
+
 
 	const [isClickedImage, setIsClickedImage] = useState(false);
 	const [blobURL, setblobURL] = useState(undefined);
@@ -126,28 +128,33 @@ const EditBlockImage = (props) => {
 
 	let blockImageContent = "";
 
+
 	if (url) {
-		blockImageContent = imageDuplication.map(
-			(_,
-				(index) => {
-					return (
-						<img
-							key={index}
-							ref={imageRef}
-							src={url}
-							alt={alt}
-							style={{
-								width: imageDimension,
-								position: positionType,
-								...positionStyle,
-								...marginStyle,
-							}}
-							onLoad={onImgLoad}
-							onClick={() => setIsClickedImage(true)}
-						/>
-					);
-				})
-		);
+
+		const countImageFilterColor = imageFilterColor.length;
+		// prettier-ignore
+		blockImageContent = <>
+			{imageDuplication.map((_, (index) => {
+
+				return (
+					<img
+						key={index.count}
+						ref={imageRef}
+						src={url}
+						alt={alt}
+						style={{
+							width: imageDimension,
+							position: positionType,
+							...positionStyle,
+							...marginStyle,
+							opacity: index.count < countImageFilterColor ? '0.5' : ''
+						}}
+						onLoad={onImgLoad}
+						onClick={() => setIsClickedImage(true)}
+					/>
+				);
+			}))}
+		</>
 	}
 
 	return (

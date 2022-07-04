@@ -7,6 +7,7 @@ const SaveBlockImage = ({ attributes }) => {
         url,
         alt,
         imageDuplication,
+        imageFilterColor,
         imageDimension,
         positionType,
         positionValue,
@@ -40,6 +41,8 @@ const SaveBlockImage = ({ attributes }) => {
     };
 
     const className = id ? `wp-image-${id}` : null;
+
+    const countImageFilterColor = imageFilterColor.length;
 
     const relContent = {};
 
@@ -118,6 +121,8 @@ const SaveBlockImage = ({ attributes }) => {
                                                 position: positionType,
                                                 ...positionStyle,
                                                 ...marginStyle,
+                                                opacity: index.count < countImageFilterColor ? '0.5' : ''
+
                                             },
                                         })}
                                     />
