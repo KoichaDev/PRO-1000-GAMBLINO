@@ -1,7 +1,7 @@
 import { __ } from "@wordpress/i18n";
 
 import { PanelBody } from "@wordpress/components";
-import ImageAltText from "./Text/ImageAltText";
+import ImageAltText from "./ImageSettings/AltTextImageSetting";
 
 const TextPanelBody = ({ ...props }) => {
     return (

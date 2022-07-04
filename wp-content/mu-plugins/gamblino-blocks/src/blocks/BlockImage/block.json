@@ -30,6 +30,10 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"imageDuplication": {
+			"type": "array",
+			"default": [{ "count": 1 }]
+		},
 		"imageDimension": {
 			"type": "string",
 			"default": "100%"

@@ -2,11 +2,11 @@ import { __ } from "@wordpress/i18n";
 import { isBlobURL } from "@wordpress/blob";
 import { PanelBody, TextareaControl } from "@wordpress/components";
 
-const ImageAltText = ({ ...props }) => {
+const AltTextImageSetting = ({ ...props }) => {
     const { attributes, setAttributes } = props;
     const { url, alt } = attributes;
     return (
-        <PanelBody title={__("Text Settings", "block-gamblino")}>
+        <>
             {url && !isBlobURL(url) && (
                 <TextareaControl
                     label={__("Alt text (alternative text)", "block-gamblino")}
@@ -18,8 +18,8 @@ const ImageAltText = ({ ...props }) => {
                     )}
                 />
             )}
-        </PanelBody>
+        </>
     );
 };
 
-export default ImageAltText;
+export default AltTextImageSetting;

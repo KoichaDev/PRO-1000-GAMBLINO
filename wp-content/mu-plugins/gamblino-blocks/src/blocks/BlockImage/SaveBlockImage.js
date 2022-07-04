@@ -1,10 +1,12 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import { useState, useEffect } from "@wordpress/element";
 
 const SaveBlockImage = ({ attributes }) => {
     const {
         id,
         url,
         alt,
+        imageDuplication,
         imageDimension,
         positionType,
         positionValue,
@@ -102,37 +104,51 @@ const SaveBlockImage = ({ attributes }) => {
                             : {})}
                 >
                     {url && (
-                        <img
-                            src={url}
-                            className={className}
-                            alt={alt}
-                            {...useBlockProps.save({
-                                style: {
-                                    width: imageDimension,
-                                    position: positionType,
-                                    ...positionStyle,
-                                    ...marginStyle,
-                                },
+                        <>
+                            {imageDuplication.map((_, index) => {
+                                return (
+                                    <img
+                                        key={index}
+                                        src={url}
+                                        className={className}
+                                        alt={alt}
+                                        {...useBlockProps.save({
+                                            style: {
+                                                width: imageDimension,
+                                                position: positionType,
+                                                ...positionStyle,
+                                                ...marginStyle,
+                                            },
+                                        })}
+                                    />
+                                );
                             })}
-                        />
+                        </>
                     )}
                 </a>
             ) : (
                 <>
                     {url && (
-                        <img
-                            src={url}
-                            className={className}
-                            alt={alt}
-                            {...useBlockProps.save({
-                                style: {
-                                    width: imageDimension,
-                                    position: positionType,
-                                    ...positionStyle,
-                                    ...marginStyle,
-                                },
+                        <>
+                            {imageDuplication.map((_, index) => {
+                                return (
+                                    <img
+                                        key={index}
+                                        src={url}
+                                        className={className}
+                                        alt={alt}
+                                        {...useBlockProps.save({
+                                            style: {
+                                                width: imageDimension,
+                                                position: positionType,
+                                                ...positionStyle,
+                                                ...marginStyle,
+                                            },
+                                        })}
+                                    />
+                                );
                             })}
-                        />
+                        </>
                     )}
                 </>
             )}

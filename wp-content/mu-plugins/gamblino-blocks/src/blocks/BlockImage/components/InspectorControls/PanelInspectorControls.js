@@ -1,8 +1,7 @@
 import { __ } from "@wordpress/i18n";
 
 import { InspectorControls } from "@wordpress/block-editor";
-
-import ImageAltTextPanelBody from "./PanelBody/Text/ImageAltText";
+import PanelBodySetting from "./PanelBody/ImageSettings/PanelBodySetting";
 import DisplayPositionPanelBody from "./PanelBody/DisplayPositionPanelBody";
 import SpacingPanelBody from "./PanelBody/SpacingPanelBody";
 import ImageSize from "./PanelBody/ImageSizePanelBody";
@@ -14,7 +13,7 @@ const PanelInspectorControls = ({ ...props }) => {
         <InspectorControls>
             <SEOPanelBody {...props} />
             <NewTabPanelBody {...props} />
-            <ImageAltTextPanelBody {...props} />
+            <PanelBodySetting {...props} />
             <ImageSize {...props} />
             <SpacingPanelBody {...props} />
             <DisplayPositionPanelBody {...props} />

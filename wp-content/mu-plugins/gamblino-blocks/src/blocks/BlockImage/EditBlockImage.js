@@ -28,6 +28,7 @@ const EditBlockImage = (props) => {
 		id,
 		url,
 		alt,
+		imageDuplication,
 		imageDimension,
 		positionType,
 		positionValue,
@@ -37,11 +38,10 @@ const EditBlockImage = (props) => {
 		isResetMargin,
 		isLinkToolbarButtonOpen,
 	} = attributes;
-
-	const [isClickedImage, setIsClickedImage] = useState(false)
-	const [blobURL, setblobURL] = useState(undefined);
-
 	const imageRef = useRef();
+
+	const [isClickedImage, setIsClickedImage] = useState(false);
+	const [blobURL, setblobURL] = useState(undefined);
 
 	useEffect(() => {
 		if (isFocusOutside) {
@@ -100,18 +100,12 @@ const EditBlockImage = (props) => {
 	};
 
 	useEffect(() => {
-		const { width, height } = (imageRef.current) ?? {}
-
-		console.log(width, height,);
-
-
-	}, [isClickedImage])
+		const { width, height } = imageRef.current ?? {};
+	}, [isClickedImage]);
 
 	const onImgLoad = ({ target: img }) => {
 		const { width, height } = img;
-		console.log(width, height);
 	};
-
 
 	const positionStyle = positionType === "absolute" && {
 		top: `${positionValue.top}%`,
@@ -130,6 +124,32 @@ const EditBlockImage = (props) => {
 				marginLeft: `${margin.left}${marginUnit}`,
 			};
 
+	let blockImageContent = "";
+
+	if (url) {
+		blockImageContent = imageDuplication.map(
+			(_,
+				(index) => {
+					return (
+						<img
+							key={index}
+							ref={imageRef}
+							src={url}
+							alt={alt}
+							style={{
+								width: imageDimension,
+								position: positionType,
+								...positionStyle,
+								...marginStyle,
+							}}
+							onLoad={onImgLoad}
+							onClick={() => setIsClickedImage(true)}
+						/>
+					);
+				})
+		);
+	}
+
 	return (
 		<div {...useBlockProps()} onClick={() => setIsFocusOutside(false)}>
 			<PanelInspectorControls {...props} />
@@ -147,20 +167,8 @@ const EditBlockImage = (props) => {
 					className={`[ media-image ] [ mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
 						}`}
 				>
-					<img
-						ref={imageRef}
-						src={url}
-						alt={alt}
-						style={{
-							width: imageDimension,
-							position: positionType,
-							...positionStyle,
-							...marginStyle,
-						}}
-						onLoad={onImgLoad}
-						onClick={() => setIsClickedImage(true)}
+					{blockImageContent}
 
-					/>
 					{isBlobURL(url) && <Spinner />}
 				</div>
 			)}
