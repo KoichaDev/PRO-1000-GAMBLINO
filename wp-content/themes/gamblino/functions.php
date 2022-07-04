@@ -13,3 +13,5 @@ include_once('inc/functions/feature_img.php');
 
 include_once('inc/functions/widget-menu.php');
   
+
+add_theme_support( 'menus' );
