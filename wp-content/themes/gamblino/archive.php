@@ -1,5 +1,9 @@
 <?php get_header(); ?> 
 
-adasdasd
+<main>
+
+
+</main>
+
 
 <?php get_footer(); ?>

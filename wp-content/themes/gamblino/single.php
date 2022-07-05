@@ -1,8 +1,9 @@
-<?php get_header(); 
+<?php get_header();  ?>
+    <main>
+        <?php
+         the_title('<h1 class="text-5xl">', '</h1>');
+         the_content(); 
+         ?>
+    </main>
 
-    // Start the Loop.
-    while ( have_posts() ) {
-        the_post();
-        get_template_part( 'template-parts/post/content', get_post_format() );
-    }
-get_footer(); ?>
+<?php get_footer(); ?>
