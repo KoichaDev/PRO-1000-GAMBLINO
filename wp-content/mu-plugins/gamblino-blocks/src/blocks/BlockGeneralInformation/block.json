@@ -15,6 +15,12 @@
 		"advantages",
 		"limitations"
 	],
+	"attributes": {
+		"backgroundBlockColor": {
+			"type": "color",
+			"default": "#ffffff"
+		}
+	},
 	"supports": {
 		"html": false
 	},

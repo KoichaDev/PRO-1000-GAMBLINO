@@ -1,39 +1,32 @@
-import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import { __ } from '@wordpress/i18n';
+import { useBlockProps, InnerBlocks, InspectorControls } from "@wordpress/block-editor";
+import { PanelBody, ColorPicker } from "@wordpress/components";
+import { BLOCKS_TEMPLATE } from "./constants/blockTemplate";
 
 import "./editor.scss";
 
-const Edit = () => {
-	const blockProps = useBlockProps({
-		className: `[ block-general-information ]`,
-	});
+const Edit = ({ attributes, setAttributes }) => {
+	const { backgroundBlockColor } = attributes
 
-	const BLOCKS_TEMPLATE = [
-		[
-			"core/columns",
-			{ align: "full" },
-			[
-				[
-					"core/column",
-					{
-						align: "full",
-						width: "60%",
-					},
-					[["gamblino-block/general-information-header", {}]],
-				],
-				[
-					"core/column",
-					{
-						align: "full",
-						width: "40%",
-					},
-					[],
-				],
-			],
-		],
-	];
+	const blockProps = useBlockProps({
+		className: `[ block-general-information ] [ my-10 rounded-2xl border-solid border-amber-400 ]`,
+		style: {
+			backgroundColor: backgroundBlockColor,
+		},
+	});
 
 	return (
 		<>
+			<InspectorControls>
+				<PanelBody title={__("Background Color", "block-gamblino")}>
+					<ColorPicker
+						colors={backgroundBlockColor}
+						value={backgroundBlockColor}
+						onChange={(value) => setAttributes({ backgroundBlockColor: value })}
+					/>
+				</PanelBody>
+			</InspectorControls>
+
 			<section {...blockProps}>
 				<InnerBlocks template={BLOCKS_TEMPLATE} />
 			</section>

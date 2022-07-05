@@ -1,4 +1,25 @@
 .block-general-information {
 	width: 100% !important;
 	max-width: 90% !important;
+
+	@media screen and (max-width: 48em) {
+		width: 80% !important;
+		max-width: 100% !important;
+	}
+
+	.wp-block-columns {
+		margin: 0;
+	}
+}
+
+.media-image img {
+	@media screen and (max-width: 48em) {
+		width: 15% !important;
+	}
+}
+
+.right-column {
+	@media screen and (max-width: 48em) {
+		padding: 3em 0;
+	}
 }
