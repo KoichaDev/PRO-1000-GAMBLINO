@@ -2,7 +2,17 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 const EditCard = () => {
     const BLOCKS_TEMPLATE = [
-        ["core/heading", { placeholder: "Title..." }],
+        [
+            "core/heading",
+            {
+                placeholder: "Title...",
+                style: {
+                    typography: {
+                        fontSize: "3rem"
+                    }
+                },
+            },
+        ],
         ["core/paragraph", { placeholder: "Write something..." }],
 
         ["core/separator", {}],
