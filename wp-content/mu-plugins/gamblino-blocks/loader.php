@@ -80,6 +80,7 @@ class Loader {
                     'core/separator',
                     'core/gallery',
                     'core/columns',
+					'core/html',
                     'acf/card-block-1',
                     'acf/block-carousel',
                     'acf/block-total-post-articles',
