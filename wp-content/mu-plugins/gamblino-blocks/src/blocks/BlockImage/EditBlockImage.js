@@ -31,6 +31,7 @@ const EditBlockImage = (props) => {
 		imageDuplication,
 		countImageFilterOpacity,
 		imageDimension,
+		imageGapSizeValue,
 		positionType,
 		positionValue,
 		imageOpacityValue,
@@ -174,8 +175,9 @@ const EditBlockImage = (props) => {
 
 			{url && (
 				<div
-					className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ] ${isBlobURL(url) ? " [ is-loading ]" : ""
+					className={`[ media-image ] [ ${isOrientationClassName}  mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
 						}`}
+					style={{ gap: `${imageGapSizeValue}em` }}
 				>
 					{blockImageContent}
 

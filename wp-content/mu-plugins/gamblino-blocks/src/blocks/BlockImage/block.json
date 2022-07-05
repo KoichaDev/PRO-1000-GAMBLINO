@@ -46,9 +46,9 @@
 			"type": "number",
 			"default": 0.35
 		},
-		"imageGapValue": {
+		"imageGapSizeValue": {
 			"type": "number",
-			"default": 1
+			"default": 0.5
 		},
 		"isOrientedImage": {
 			"type": "boolean",

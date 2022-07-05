@@ -6,6 +6,7 @@ const SaveBlockImage = ({ attributes }) => {
         id,
         url,
         alt,
+        imageGapSizeValue,
         imageDuplication,
         countImageFilterOpacity,
         imageDimension,
@@ -113,6 +114,7 @@ const SaveBlockImage = ({ attributes }) => {
                             {imageDuplication.length > 1 ? (
                                 <div
                                     className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                    style={{ gap: `${imageGapSizeValue}em` }}
                                 >
                                     {imageDuplication.map((_, index) => {
                                         return (
@@ -127,7 +129,10 @@ const SaveBlockImage = ({ attributes }) => {
                                                         position: positionType,
                                                         ...positionStyle,
                                                         ...marginStyle,
-                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
+                                                        opacity:
+                                                            index < countImageFilterOpacity
+                                                                ? imageOpacityValue
+                                                                : "",
                                                     },
                                                 })}
                                             />
@@ -137,7 +142,6 @@ const SaveBlockImage = ({ attributes }) => {
                             ) : (
                                 <>
                                     {imageDuplication.map((_, index) => {
-
                                         return (
                                             <img
                                                 key={index}
@@ -150,7 +154,10 @@ const SaveBlockImage = ({ attributes }) => {
                                                         position: positionType,
                                                         ...positionStyle,
                                                         ...marginStyle,
-                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
+                                                        opacity:
+                                                            index < countImageFilterOpacity
+                                                                ? imageOpacityValue
+                                                                : "",
                                                     },
                                                 })}
                                             />
@@ -168,6 +175,7 @@ const SaveBlockImage = ({ attributes }) => {
                             {imageDuplication.length > 1 ? (
                                 <div
                                     className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                    style={{ gap: `${imageGapSizeValue}em` }}
                                 >
                                     {imageDuplication.map((_, index) => {
                                         return (
@@ -180,7 +188,10 @@ const SaveBlockImage = ({ attributes }) => {
                                                     style: {
                                                         width: imageDimension,
                                                         position: positionType,
-                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
+                                                        opacity:
+                                                            index < countImageFilterOpacity
+                                                                ? imageOpacityValue
+                                                                : "",
                                                         ...positionStyle,
                                                         ...marginStyle,
                                                     },
@@ -202,7 +213,10 @@ const SaveBlockImage = ({ attributes }) => {
                                                     style: {
                                                         width: imageDimension,
                                                         position: positionType,
-                                                        opacity: index < countImageFilterOpacity ? imageOpacityValue : "",
+                                                        opacity:
+                                                            index < countImageFilterOpacity
+                                                                ? imageOpacityValue
+                                                                : "",
                                                         ...positionStyle,
                                                         ...marginStyle,
                                                     },

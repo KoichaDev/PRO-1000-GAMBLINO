@@ -6,12 +6,15 @@ import AltTextImageSetting from "./AltTextImageSetting";
 import FilterColorDuplicateImageSetting from "./FilterColorDuplicateImageSetting";
 import OpacityLevelImageSetting from "./OpacityLevelImageSetting";
 import OrientationDuplicatedImageSetting from "./OrientationDuplicatedImageSetting";
+import GapSizeImageSettings from './GapSizeImageSettings';
 
 const PanelBodySetting = ({ ...props }) => {
-    const { attributes, setAttributes } = props;
+    const { attributes } = props;
     const { isToggledImageDuplication } = attributes;
     return (
         <PanelBody title={__("Image Settings", "block-gamblino")}>
+            <AltTextImageSetting {...props} />
+
             <ToggledDuplicatedImageSettings {...props} />
 
             {isToggledImageDuplication && (
@@ -19,11 +22,11 @@ const PanelBodySetting = ({ ...props }) => {
                     <DuplicateImageSetting {...props} />
                     <FilterColorDuplicateImageSetting {...props} />
                     <OpacityLevelImageSetting {...props} />
+                    <GapSizeImageSettings {...props} />
                     <OrientationDuplicatedImageSetting {...props} />
                 </>
             )}
 
-            <AltTextImageSetting {...props} />
         </PanelBody>
     );
 };

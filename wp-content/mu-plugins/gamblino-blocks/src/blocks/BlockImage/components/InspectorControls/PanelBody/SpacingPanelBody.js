@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 
-import { Panel, PanelBody } from "@wordpress/components";
+import { PanelBody } from "@wordpress/components";
 
 import MarginSpacing from "./Spacing/MarginSpacing";
 
