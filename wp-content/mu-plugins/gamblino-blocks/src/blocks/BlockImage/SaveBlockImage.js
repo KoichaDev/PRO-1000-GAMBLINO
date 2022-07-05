@@ -24,7 +24,6 @@ const SaveBlockImage = ({ attributes }) => {
         isFollowToggled,
         isSponsoredToggled,
         isUGCToggled,
-        isOrientedImage,
     } = attributes;
 
     // prettier-ignore
@@ -95,7 +94,6 @@ const SaveBlockImage = ({ attributes }) => {
         });
     }
 
-    const isOrientationClassName = isOrientedImage ? "flex-row" : "flex-column";
 
     return (
         <>
@@ -113,7 +111,7 @@ const SaveBlockImage = ({ attributes }) => {
                         <>
                             {imageDuplication.length > 1 ? (
                                 <div
-                                    className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                    className={`[ media-image ] [ flex-row flex-row-reverse justify-content-end  mt-6  ]`}
                                     style={{ gap: `${imageGapSizeValue}em` }}
                                 >
                                     {imageDuplication.map((_, index) => {
@@ -174,7 +172,7 @@ const SaveBlockImage = ({ attributes }) => {
                         <>
                             {imageDuplication.length > 1 ? (
                                 <div
-                                    className={`[ media-image ] [ ${isOrientationClassName}  mt-6  ]`}
+                                    className={`[ media-image ] [ flex-row flex-row-reverse justify-content-end mt-6  ]`}
                                     style={{ gap: `${imageGapSizeValue}em` }}
                                 >
                                     {imageDuplication.map((_, index) => {

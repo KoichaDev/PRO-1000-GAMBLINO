@@ -50,10 +50,6 @@
 			"type": "number",
 			"default": 0.5
 		},
-		"isOrientedImage": {
-			"type": "boolean",
-			"default": false
-		},
 		"imageDimension": {
 			"type": "string",
 			"default": "100%"

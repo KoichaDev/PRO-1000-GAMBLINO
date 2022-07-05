@@ -3,6 +3,14 @@
 	gap: var(--gap, 1em);
 }
 
+.flex-row-reverse {
+	flex-direction: row-reverse;
+}
+
+.fkex-column-reverse {
+	flex-direction: column-reverse;
+}
+
 .flex-column {
 	display: flex;
 	flex-direction: column;

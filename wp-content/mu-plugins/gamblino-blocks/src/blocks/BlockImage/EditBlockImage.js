@@ -40,7 +40,6 @@ const EditBlockImage = (props) => {
 		marginAuto,
 		isResetMargin,
 		isLinkToolbarButtonOpen,
-		isOrientedImage,
 	} = attributes;
 	const imageRef = useRef();
 
@@ -159,7 +158,6 @@ const EditBlockImage = (props) => {
 		</>
 	}
 
-	const isOrientationClassName = isOrientedImage ? "flex-row" : "flex-column";
 
 	return (
 		<div {...useBlockProps()} onClick={() => setIsFocusOutside(false)}>
@@ -175,7 +173,7 @@ const EditBlockImage = (props) => {
 
 			{url && (
 				<div
-					className={`[ media-image ] [ ${isOrientationClassName}  mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
+					className={`[ media-image ] [ flex-row flex-row-reverse justify-content-end  mt-6 ] ${isBlobURL(url) ? " [ is-loading ]" : ""
 						}`}
 					style={{ gap: `${imageGapSizeValue}em` }}
 				>

@@ -5,7 +5,6 @@ import ToggledDuplicatedImageSettings from "./ToggledDuplicatedImageSettings";
 import AltTextImageSetting from "./AltTextImageSetting";
 import FilterColorDuplicateImageSetting from "./FilterColorDuplicateImageSetting";
 import OpacityLevelImageSetting from "./OpacityLevelImageSetting";
-import OrientationDuplicatedImageSetting from "./OrientationDuplicatedImageSetting";
 import GapSizeImageSettings from './GapSizeImageSettings';
 
 const PanelBodySetting = ({ ...props }) => {
@@ -23,7 +22,6 @@ const PanelBodySetting = ({ ...props }) => {
                     <FilterColorDuplicateImageSetting {...props} />
                     <OpacityLevelImageSetting {...props} />
                     <GapSizeImageSettings {...props} />
-                    <OrientationDuplicatedImageSetting {...props} />
                 </>
             )}
 
